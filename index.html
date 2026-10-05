@@ -39,6 +39,7 @@
       --footer-text: #8A8D9C;
       --footer-border: #191C2C;
       --brand-dark-hover: #12152A;
+      --jade-hover: #97B39F;
 
       /* Typography */
       --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -59,7 +60,7 @@
 
       /* Radii */
       --radius-sm: 8px;    /* tags and small elements */
-      --radius-md: 16px;   /* cards */
+      --radius-md: 20px;   /* cards */
       --radius-lg: 50px;   /* buttons (pill) */
 
       --container: 1120px;
@@ -480,75 +481,106 @@
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-6);
     }
-    .project-card {
+
+    /* "Breaking out" cards: the icon floats above the card's top edge */
+    .project-card-wrapper {
+      position: relative;
       display: flex;
       flex-direction: column;
-      background: var(--bg-warm);
-      border-radius: var(--radius-md);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      padding-top: 36px;
+      transition: all 0.25s ease;
     }
-    .project-card:hover,
-    .project-card:focus-within {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+    .card-icon-float {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;               /* centered without transform, so reduced-motion's transform:none can't shift it */
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+      gap: 4px;
     }
-    .project-cover {
-      position: relative;
-      overflow: hidden;
+    .card-icon-torii {
+      --torii-fill: var(--jade-500);
+      --torii-stroke: none;
+      --torii-feet: var(--jade-500);
+      width: 56px;
+      height: 68px;
+    }
+    .card-icon-circle {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 160px;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
-      font-family: var(--font-display);
+      width: 56px;
+      height: 56px;
+      background: var(--bg-warm);
+      border: 3px solid var(--bg-primary);
+      border-radius: 50%;
       font-size: 28px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      color: var(--jade-dark);
     }
-    .project-cover--dark { background: var(--brand-dark); color: var(--off-white); }
-    .project-cover--jade { background: var(--jade-500); color: var(--jade-dark); }
-    .project-cover-ghost {
-      position: absolute;
-      right: -12px;
-      bottom: -24px;
-      width: 150px;
-      height: auto;
-      color: var(--off-white);
-      opacity: 0.06;
-    }
-    .project-body {
+    .card-icon-circle svg { width: 28px; height: 28px; }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      flex: 1;
-      padding: var(--space-5);
-      background: var(--bg-warm);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      align-items: center;
+      padding: 40px 20px 20px;
+      text-align: center;
+      border-radius: var(--radius-md);
+      transition: all 0.25s ease;
     }
+    /* Subtle radial gradient in the bottom corner for depth */
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 100%, var(--card-glow) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .project-card > * { position: relative; z-index: 1; }
+
+    .project-card-wrapper:hover,
+    .project-card-wrapper:focus-within { transform: translateY(-6px); }
+    .project-card-wrapper:hover .project-card,
+    .project-card-wrapper:focus-within .project-card {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
     .project-meta {
       font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-muted-aa);
       margin-bottom: var(--space-2);
     }
     .project-title {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
-      color: var(--text-primary);
       margin-bottom: var(--space-2);
     }
     .project-desc {
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-secondary);
+      font-size: 10px;
+      line-height: 1.6;
       max-width: var(--max-text);
       margin-bottom: var(--space-4);
+    }
+    .project-divider {
+      width: 100%;
+      height: 1px;
+      margin: 0 0 var(--space-4);
+      border: 0;
     }
     .tags {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: var(--space-2);
       margin-bottom: var(--space-5);
     }
@@ -556,12 +588,50 @@
       padding: var(--space-1) var(--space-3);
       font-size: 11px;
       font-weight: 600;
-      background: var(--bg-jade-light);
-      color: var(--jade-dark);
-      border: 1px solid var(--jade-border);
+      border: 1px solid transparent;
       border-radius: var(--radius-sm);
     }
-    .project-body .btn { margin-top: auto; align-self: flex-start; }
+    .project-card .btn { margin-top: auto; }
+
+    /* Card 1 — Hold-it! (dark) */
+    .project-card--dark {
+      --card-glow: rgba(169, 196, 176, 0.14);
+      background: var(--brand-dark);
+      color: var(--off-white);
+    }
+    .project-card--dark .project-meta { color: var(--jade-500); }
+    .project-card--dark .project-title { color: var(--off-white); }
+    .project-card--dark .project-desc { color: var(--footer-text); }   /* #76809D is 4.0:1 here; this passes AA */
+    .project-card--dark .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--dark .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
+    }
+    .project-card--dark .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--brand-dark);
+    }
+    .project-card--dark .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
+    }
+    .project-card--dark :focus-visible { outline-color: var(--jade-500); }
+
+    /* Card 2 — Tillgänglighet (warm) */
+    .project-card--warm {
+      --card-glow: rgba(30, 34, 53, 0.07);
+      background: var(--bg-warm);
+    }
+    .project-card--warm .project-meta { color: var(--jade-700); }        /* #66816E is 3.2:1 here */
+    .project-card--warm .project-title { color: var(--brand-dark); }
+    .project-card--warm .project-desc { color: var(--text-muted-aa); }   /* #76809D is 2.9:1 here */
+    .project-card--warm .project-divider { background: rgba(40, 53, 44, 0.12); }
+    .project-card--warm .tag {
+      background: rgba(40, 53, 44, 0.1);
+      color: var(--jade-dark);
+    }
 
     /* ==========================================================
        5. OM MIG SNIPPET
@@ -841,18 +911,15 @@
         <h2 class="section-title" id="projekt-title">Mina case studies</h2>
 
         <div class="project-grid">
-          <article class="project-card">
-            <div class="project-cover project-cover--dark" aria-hidden="true">
-              HOLD IT
-              <svg class="project-cover-ghost torii-ghost" viewBox="0 0 61 66" focusable="false"><use href="#torii-logo"/></svg>
+          <article class="project-card-wrapper">
+            <div class="card-icon-float" aria-hidden="true">
+              <svg class="card-icon-torii torii-ghost" viewBox="0 0 61 66" focusable="false"><use href="#torii-logo"/></svg>
             </div>
-            <div class="project-body">
-              <p class="project-meta">2025 · Research case study</p>
+            <div class="project-card project-card--dark">
+              <p class="project-meta">2025 · Research</p>
               <h3 class="project-title">Hold-it!</h3>
-              <p class="project-desc">
-                Tandvårdspersonals upplevelse av röntgenbildtagning — ett verkligt
-                uppdrag från Karolinska Institutet.
-              </p>
+              <p class="project-desc">Tandvård möter mänsklig empati — ett verkligt uppdrag</p>
+              <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
                 <li class="tag">UX Research</li>
                 <li class="tag">Intervjuer</li>
@@ -864,24 +931,27 @@
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-cover project-cover--jade" aria-hidden="true">
-              NORDIC FEEL
+          <article class="project-card-wrapper">
+            <div class="card-icon-float" aria-hidden="true">
+              <span class="card-icon-circle">
+                <!-- Lucide "accessibility" icon (♿) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/>
+                </svg>
+              </span>
             </div>
-            <div class="project-body">
+            <div class="project-card project-card--warm">
               <p class="project-meta">2025 · Tillgänglighet</p>
-              <h3 class="project-title">Tillgänglighetsgranskning</h3>
-              <p class="project-desc">
-                WCAG 2.2-granskning av Nordic Feels e-handelsplattform med fokus
-                på inkludering.
-              </p>
+              <h3 class="project-title">Tillgänglighet</h3>
+              <p class="project-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
+              <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
                 <li class="tag">WCAG 2.2</li>
                 <li class="tag">Tillgänglighet</li>
                 <li class="tag">E-handel</li>
               </ul>
               <a class="btn btn-primary" href="nordic-feel.html">
-                Läs mer<span class="sr-only"> om Tillgänglighetsgranskning</span> <span class="arrow" aria-hidden="true">→</span>
+                Läs mer<span class="sr-only"> om Tillgänglighet</span> <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
