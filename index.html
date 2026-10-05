@@ -57,6 +57,11 @@
       --space-8: 64px;
       --space-9: 96px;
 
+      /* Radii */
+      --radius-sm: 8px;    /* tags and small elements */
+      --radius-md: 16px;   /* cards */
+      --radius-lg: 50px;   /* buttons (pill) */
+
       --container: 1120px;
       --nav-height: 72px;
       --ease: 0.2s ease;
@@ -73,7 +78,10 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
+      *, *::before, *::after {
+        transition: none !important;
+        transform: none !important;
+      }
     }
 
     body {
@@ -173,9 +181,9 @@
       letter-spacing: 0.04em;
       text-decoration: none;
       border: 1px solid transparent;
-      border-radius: 0;
+      border-radius: var(--radius-lg);
       cursor: pointer;
-      transition: background-color var(--ease), border-color var(--ease), color var(--ease);
+      transition: all 0.2s ease;
     }
     .btn .arrow { transition: transform var(--ease); }
     .btn:hover .arrow { transform: translateX(3px); }
@@ -188,6 +196,8 @@
     .btn-primary:hover {
       background: var(--brand-dark-hover);
       border-color: var(--brand-dark-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-secondary {
@@ -195,21 +205,25 @@
       color: var(--brand-dark);
       border-color: var(--brand-dark);
     }
-    .btn-secondary:hover { background: rgba(30, 34, 53, 0.08); }
+    /* Outline buttons: fill with their border color at 10% */
+    .btn-secondary:hover,
+    .btn-jade:hover,
+    .btn-light:hover { transform: translateY(-1px); }
+    .btn-secondary:hover { background: rgba(30, 34, 53, 0.1); }
 
     .btn-jade {
       background: transparent;
       color: var(--jade-500);
       border-color: var(--jade-500);
     }
-    .btn-jade:hover { background: rgba(169, 196, 176, 0.14); }
+    .btn-jade:hover { background: rgba(169, 196, 176, 0.1); }
 
     .btn-light {
       background: transparent;
       color: var(--off-white);
       border-color: var(--off-white);
     }
-    .btn-light:hover { background: rgba(254, 253, 252, 0.12); }
+    .btn-light:hover { background: rgba(254, 253, 252, 0.1); }
 
     .btn-group {
       display: flex;
@@ -270,9 +284,11 @@
       border: 0;
       color: var(--brand-dark);
       cursor: pointer;
-      transition: background-color var(--ease);
+      opacity: 0.6;
+      transition: opacity 0.15s ease;
     }
-    .banner-close:hover { background: rgba(30, 34, 53, 0.08); }
+    .banner-close:hover,
+    .banner-close:focus-visible { opacity: 1; }
 
     /* ==========================================================
        2. NAVBAR
@@ -379,16 +395,14 @@
       content: "";
       position: absolute;
       left: 0;
-      right: 0;
       bottom: 0;
+      width: 0;
       height: 2px;
       background: var(--jade-500);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--ease);
+      transition: width 0.2s ease;
     }
     .nav-link:hover::after,
-    .nav-link.is-active::after { transform: scaleX(1); }
+    .nav-link.is-active::after { width: 100%; }
 
     .nav-toggle {
       display: none;
@@ -470,12 +484,13 @@
       display: flex;
       flex-direction: column;
       background: var(--bg-warm);
-      transition: transform var(--ease), box-shadow var(--ease);
+      border-radius: var(--radius-md);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .project-card:hover,
     .project-card:focus-within {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
     }
     .project-cover {
       position: relative;
@@ -484,6 +499,7 @@
       align-items: center;
       justify-content: center;
       height: 160px;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
       font-family: var(--font-display);
       font-size: 28px;
       font-weight: 500;
@@ -505,6 +521,8 @@
       flex-direction: column;
       flex: 1;
       padding: var(--space-5);
+      background: var(--bg-warm);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
     }
     .project-meta {
       font-size: 9px;
@@ -541,6 +559,7 @@
       background: var(--bg-jade-light);
       color: var(--jade-dark);
       border: 1px solid var(--jade-border);
+      border-radius: var(--radius-sm);
     }
     .project-body .btn { margin-top: auto; align-self: flex-start; }
 
@@ -671,7 +690,9 @@
         border-bottom: 1px solid var(--bg-secondary);
       }
       .nav-links li:last-child .nav-link { border-bottom: 0; }
-      .nav-link::after { bottom: -1px; right: auto; width: 48px; }
+      .nav-link::after { bottom: -1px; }
+      .nav-link:hover::after,
+      .nav-link.is-active::after { width: 48px; }
 
       .hero { padding: var(--space-8) 0; }
       .hero-title { font-size: 44px; }
