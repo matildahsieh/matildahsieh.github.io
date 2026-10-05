@@ -319,16 +319,22 @@
       flex-shrink: 0;
       overflow: visible;
     }
+    /* Torii colors are variables so the same symbol works as logo and as ghost */
     .torii-body {
-      fill: var(--brand-mid);
-      stroke: var(--brand-dark);
+      fill: var(--torii-fill, var(--brand-mid));
+      stroke: var(--torii-stroke, var(--brand-dark));
       stroke-width: 0.4;
     }
-    .torii-feet { fill: var(--brand-dark); }
+    .torii-feet { fill: var(--torii-feet, var(--brand-dark)); }
     #torii-logo text {
       font-family: var(--font-cjk);
       font-weight: 600;
-      fill: var(--brand-mid);
+      fill: var(--torii-fill, var(--brand-mid));
+    }
+    .torii-ghost {
+      --torii-fill: currentColor;
+      --torii-stroke: none;
+      --torii-feet: currentColor;
     }
     .logo-text {
       display: flex;
@@ -702,14 +708,6 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
       <!-- Torii gate (without character) -->
-      <symbol id="torii" viewBox="0 0 48 48">
-        <path d="M2 7.5 C12 10 36 10 46 7.5 L45 11.5 C36 13 12 13 3 11.5 Z" fill="currentColor"/>
-        <rect x="6" y="13" width="36" height="2.5" fill="currentColor"/>
-        <rect x="4" y="20" width="40" height="3" fill="currentColor"/>
-        <rect x="22.5" y="15" width="3" height="5" fill="currentColor"/>
-        <path d="M11 12 H15 L15.6 46 H10.4 Z" fill="currentColor"/>
-        <path d="M33 12 H37 L37.6 46 H32.4 Z" fill="currentColor"/>
-      </symbol>
       <!-- Logo torii (from Figma "ikon", 60.48 × 64) -->
       <symbol id="torii-logo" viewBox="0 -2 60.48 66">
         <path class="torii-body" d="M0 -1.5 Q30.24 2.5 60.48 -1.5 L59 4 Q30.24 7 1.5 4 Z"/>
@@ -804,7 +802,7 @@
 
     <!-- 3. HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <svg class="hero-ghost" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#torii"/></svg>
+      <svg class="hero-ghost torii-ghost" viewBox="0 -2 60.48 66" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
       <div class="container hero-content">
         <span class="eyebrow">UX/UI Designer · Stockholm</span>
         <h1 class="hero-title" id="hero-title">
@@ -833,7 +831,7 @@
           <article class="project-card">
             <div class="project-cover project-cover--dark" aria-hidden="true">
               HOLD IT
-              <svg class="project-cover-ghost" viewBox="0 0 48 48" focusable="false"><use href="#torii"/></svg>
+              <svg class="project-cover-ghost torii-ghost" viewBox="0 -2 60.48 66" focusable="false"><use href="#torii-logo"/></svg>
             </div>
             <div class="project-body">
               <p class="project-meta">2025 · Research case study</p>
