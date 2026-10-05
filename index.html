@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matilda Hsieh · UX/UI Designer</title>
+  <meta name="description" content="Matilda Hsieh – UX/UI-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Subset containing only the 謝 glyph for the logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&text=%E8%AC%9D&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       DESIGN TOKENS
+       ========================================================== */
+    :root {
+      /* Colors — design system */
+      --bg-primary: #F2F3F7;
+      --bg-secondary: #DDE1EA;
+      --bg-warm: #E4DDD6;
+      --bg-jade-light: #E3EEE5;
+      --brand-dark: #1E2235;
+      --brand-mid: #76809D;
+      --jade-500: #A9C4B0;
+      --jade-dark: #28352C;
+      --off-white: #FEFDFC;
+      --text-primary: #05070B;
+      --text-secondary: #131521;
+      --text-muted: #76809D;
+
+      /* Supporting colors */
+      --jade-600: #66816E;          /* jade for large text on light backgrounds (≥3:1) */
+      --jade-700: #4A6553;          /* jade for small text on light backgrounds (≥4.5:1) */
+      --jade-border: #D0E1D4;
+      --text-muted-aa: #535C78;     /* muted small text on light backgrounds (≥4.5:1) */
+      --contact-bg: #565F7C;        /* deepened brand-mid so contact text passes AA */
+      --text-on-dark-muted: #B8C0D2;
+      --footer-text: #8A8D9C;
+      --footer-border: #191C2C;
+      --brand-dark-hover: #12152A;
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-cjk: 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
+      --max-text: 560px;
+
+      /* Spacing — 4pt system */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+
+      --container: 1120px;
+      --nav-height: 72px;
+      --ease: 0.2s ease;
+    }
+
+    /* ==========================================================
+       BASE
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      background: var(--bg-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, blockquote, figure { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    a { color: inherit; }
+    svg { display: block; }
+
+    section[id], main[id] { scroll-margin-top: var(--nav-height); }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: var(--space-4);
+      top: -100px;
+      z-index: 200;
+      padding: var(--space-3) var(--space-4);
+      background: var(--brand-dark);
+      color: var(--off-white);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: var(--space-4); }
+
+    [tabindex="-1"]:focus { outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--brand-dark);
+      outline-offset: 3px;
+    }
+    .on-dark :focus-visible,
+    .on-dark:focus-visible {
+      outline-color: var(--jade-500);
+    }
+
+    /* Shared text styles */
+    .eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .section {
+      padding: var(--space-9) 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-dark);
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 44px;
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: 0;
+      cursor: pointer;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease);
+    }
+    .btn .arrow { transition: transform var(--ease); }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    .btn-primary {
+      background: var(--brand-dark);
+      color: var(--off-white);
+      border-color: var(--brand-dark);
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark-hover);
+      border-color: var(--brand-dark-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--brand-dark);
+      border-color: var(--brand-dark);
+    }
+    .btn-secondary:hover { background: rgba(30, 34, 53, 0.08); }
+
+    .btn-jade {
+      background: transparent;
+      color: var(--jade-500);
+      border-color: var(--jade-500);
+    }
+    .btn-jade:hover { background: rgba(169, 196, 176, 0.14); }
+
+    .btn-light {
+      background: transparent;
+      color: var(--off-white);
+      border-color: var(--off-white);
+    }
+    .btn-light:hover { background: rgba(254, 253, 252, 0.12); }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    /* ==========================================================
+       1. ANNOUNCEMENT BANNER
+       ========================================================== */
+    .banner {
+      background: var(--bg-secondary);
+      color: var(--brand-dark);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .banner[hidden] { display: none; }
+    .banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 36px;
+    }
+    .banner-status {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin: 0;
+    }
+    .banner-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-mid);
+      flex-shrink: 0;
+    }
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .banner-link {
+      color: var(--brand-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .banner-link:hover { text-decoration-thickness: 2px; }
+    .banner-close {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: var(--brand-dark);
+      cursor: pointer;
+      transition: background-color var(--ease);
+    }
+    .banner-close:hover { background: rgba(30, 34, 53, 0.08); }
+
+    /* ==========================================================
+       2. NAVBAR
+       ========================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(254, 253, 252, 0.92);
+      border-bottom: 1px solid var(--bg-secondary);
+      transition: background-color var(--ease), box-shadow var(--ease);
+    }
+    .site-header.is-scrolled {
+      background: rgba(254, 253, 252, 0.97);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 12px rgba(30, 34, 53, 0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    /* Logo lockup */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: var(--brand-dark);
+    }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      color: var(--jade-500);
+      flex-shrink: 0;
+    }
+    .logo-mark text { font-family: var(--font-cjk); font-weight: 600; }
+    .logo-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--jade-500);
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.1;
+    }
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+    }
+    .logo-title {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--jade-700);
+    }
+    .logo--small .logo-mark { width: 32px; height: 32px; }
+    .logo--small .logo-divider { height: 26px; }
+    .logo--small .logo-name { font-size: 16px; color: var(--off-white); }
+    .logo--small .logo-title { color: var(--jade-500); }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      text-decoration: none;
+    }
+    .nav-link svg { width: 16px; height: 16px; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--jade-500);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--ease);
+    }
+    .nav-link:hover::after,
+    .nav-link.is-active::after { transform: scaleX(1); }
+
+    .nav-toggle {
+      display: none;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: var(--brand-dark);
+      cursor: pointer;
+    }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    .nav-toggle .icon-close { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+    /* ==========================================================
+       3. HERO
+       ========================================================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-warm);
+      padding: var(--space-9) 0;
+    }
+    .hero-ghost {
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      width: min(520px, 60vw);
+      height: auto;
+      color: var(--brand-dark);
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; }
+    .hero .eyebrow { color: var(--jade-700); }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .hero-title span { display: block; }
+    .hero-title-first { color: var(--brand-dark); }
+    .hero-title-last { color: var(--jade-600); }
+    .accent-line {
+      width: 28px;
+      height: 1px;
+      background: var(--jade-500);
+      margin: var(--space-5) 0;
+      border: 0;
+    }
+    .hero-text {
+      max-width: 420px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ==========================================================
+       4. PROJEKT
+       ========================================================== */
+    .projects { background: var(--bg-primary); }
+    .projects .eyebrow { color: var(--text-muted-aa); }
+    .projects .section-title {
+      font-size: 32px;
+      margin-bottom: var(--space-7);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-warm);
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+    .project-cover {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+    .project-cover--dark { background: var(--brand-dark); color: var(--off-white); }
+    .project-cover--jade { background: var(--jade-500); color: var(--jade-dark); }
+    .project-cover-ghost {
+      position: absolute;
+      right: -12px;
+      bottom: -24px;
+      width: 150px;
+      height: auto;
+      color: var(--off-white);
+      opacity: 0.06;
+    }
+    .project-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: var(--space-5);
+    }
+    .project-meta {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted-aa);
+      margin-bottom: var(--space-2);
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .project-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: var(--max-text);
+      margin-bottom: var(--space-4);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+    .tag {
+      padding: var(--space-1) var(--space-3);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg-jade-light);
+      color: var(--jade-dark);
+      border: 1px solid var(--jade-border);
+    }
+    .project-body .btn { margin-top: auto; align-self: flex-start; }
+
+    /* ==========================================================
+       5. OM MIG SNIPPET
+       ========================================================== */
+    .about {
+      background: var(--brand-dark);
+      color: var(--off-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    .about .eyebrow { color: var(--jade-500); }
+    .about .section-title {
+      font-size: 28px;
+      color: var(--off-white);
+      margin-bottom: var(--space-4);
+    }
+    .about-text {
+      max-width: var(--max-text);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-on-dark-muted);
+      margin-bottom: var(--space-6);
+    }
+    .quote {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--jade-500);
+      padding: var(--space-5);
+    }
+    .quote blockquote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--off-white);
+    }
+    .quote figcaption {
+      margin-top: var(--space-4);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--jade-500);
+    }
+
+    /* ==========================================================
+       6. KONTAKT
+       ========================================================== */
+    .contact {
+      background: var(--contact-bg);
+      text-align: center;
+    }
+    .contact .eyebrow { color: var(--bg-secondary); }
+    .contact .section-title {
+      font-size: 36px;
+      color: var(--off-white);
+      margin-bottom: var(--space-4);
+    }
+    .contact-text {
+      max-width: var(--max-text);
+      margin: 0 auto var(--space-6);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--bg-secondary);
+    }
+    .contact .btn-group { justify-content: center; }
+    .contact .btn-primary:focus-visible { outline-color: var(--off-white); }
+    .contact :focus-visible { outline-color: var(--off-white); }
+
+    /* ==========================================================
+       7. FOOTER
+       ========================================================== */
+    .site-footer {
+      background: var(--brand-dark);
+      border-top: 1px solid var(--footer-border);
+      padding: var(--space-6) 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-5);
+    }
+    .footer-meta {
+      text-align: right;
+      font-size: 11px;
+      line-height: 1.7;
+      color: var(--footer-text);
+    }
+    .footer-meta p:first-child { letter-spacing: 0.14em; }
+
+    /* ==========================================================
+       RESPONSIVE — 768px
+       ========================================================== */
+    @media (max-width: 768px) {
+      :root { --nav-height: 64px; }
+
+      .container { padding: 0 var(--space-4); }
+      .section { padding: var(--space-8) 0; }
+
+      .logo-name { font-size: 16px; letter-spacing: 0.18em; }
+      .logo-mark { width: 34px; height: 34px; }
+
+      .nav-toggle { display: grid; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--space-2) var(--space-4) var(--space-4);
+        background: var(--off-white);
+        border-bottom: 1px solid var(--bg-secondary);
+        box-shadow: 0 8px 16px rgba(30, 34, 53, 0.06);
+        display: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-link {
+        width: 100%;
+        padding: var(--space-4) 0;
+        font-size: 15px;
+        border-bottom: 1px solid var(--bg-secondary);
+      }
+      .nav-links li:last-child .nav-link { border-bottom: 0; }
+      .nav-link::after { bottom: -1px; right: auto; width: 48px; }
+
+      .hero { padding: var(--space-8) 0; }
+      .hero-title { font-size: 44px; }
+      .hero-ghost { width: 300px; right: -60px; bottom: -40px; }
+
+      .project-grid,
+      .about-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: var(--space-7); }
+
+      .contact .section-title { font-size: 30px; }
+
+      .btn-group .btn { flex: 1 1 auto; }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reusable SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Torii gate (without character) -->
+      <symbol id="torii" viewBox="0 0 48 48">
+        <path d="M2 7.5 C12 10 36 10 46 7.5 L45 11.5 C36 13 12 13 3 11.5 Z" fill="currentColor"/>
+        <rect x="6" y="13" width="36" height="2.5" fill="currentColor"/>
+        <rect x="4" y="20" width="40" height="3" fill="currentColor"/>
+        <rect x="22.5" y="15" width="3" height="5" fill="currentColor"/>
+        <path d="M11 12 H15 L15.6 46 H10.4 Z" fill="currentColor"/>
+        <path d="M33 12 H37 L37.6 46 H32.4 Z" fill="currentColor"/>
+      </symbol>
+      <!-- Lucide icons -->
+      <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Hoppa till innehållet</a>
+
+  <!-- 1. ANNOUNCEMENT BANNER -->
+  <aside class="banner" id="banner" aria-label="Meddelande">
+    <div class="container banner-inner">
+      <p class="banner-status">
+        <span class="banner-dot" aria-hidden="true"></span>
+        Söker praktik · Vinter 2026
+      </p>
+      <div class="banner-actions">
+        <a class="banner-link" href="#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
+        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet">
+          <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. NAVBAR -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX/UI Designer – startsida">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <use href="#torii"/>
+          <text x="24" y="41" text-anchor="middle" font-size="15" fill="currentColor">謝</text>
+        </svg>
+        <span class="logo-divider" aria-hidden="true"></span>
+        <span class="logo-text">
+          <span class="logo-name">MATILDA HSIEH</span>
+          <span class="logo-title">UX/UI Designer</span>
+        </span>
+      </a>
+
+      <nav aria-label="Huvudmeny">
+        <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Meny</span>
+          <svg class="icon-open" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
+          <svg class="icon-close" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a class="nav-link" href="#projekt" data-section="projekt">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-grid"/></svg>
+              Projekt
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="om-mig.html">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-user"/></svg>
+              Om mig
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#kontakt" data-section="kontakt">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- 3. HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="hero-ghost" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#torii"/></svg>
+      <div class="container hero-content">
+        <span class="eyebrow">UX/UI Designer · Stockholm</span>
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-title-first">MATILDA</span>
+          <span class="hero-title-last">HSIEH</span>
+        </h1>
+        <hr class="accent-line" aria-hidden="true">
+        <p class="hero-text">
+          Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur
+          människor tänker, känner och navigerar.
+        </p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="#projekt">Se projekt <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="om-mig.html">Om mig</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROJEKT -->
+    <section class="section projects" id="projekt" aria-labelledby="projekt-title">
+      <div class="container">
+        <span class="eyebrow">Utvalda projekt</span>
+        <h2 class="section-title" id="projekt-title">Mina case studies</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-cover project-cover--dark" aria-hidden="true">
+              HOLD IT
+              <svg class="project-cover-ghost" viewBox="0 0 48 48" focusable="false"><use href="#torii"/></svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">2025 · Research case study</p>
+              <h3 class="project-title">Hold-it!</h3>
+              <p class="project-desc">
+                Tandvårdspersonals upplevelse av röntgenbildtagning — ett verkligt
+                uppdrag från Karolinska Institutet.
+              </p>
+              <ul class="tags" aria-label="Taggar">
+                <li class="tag">UX Research</li>
+                <li class="tag">Intervjuer</li>
+                <li class="tag">KI</li>
+              </ul>
+              <a class="btn btn-primary" href="hold-it.html">
+                Läs mer<span class="sr-only"> om Hold-it!</span> <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover project-cover--jade" aria-hidden="true">
+              NORDIC FEEL
+            </div>
+            <div class="project-body">
+              <p class="project-meta">2025 · Tillgänglighet</p>
+              <h3 class="project-title">Tillgänglighetsgranskning</h3>
+              <p class="project-desc">
+                WCAG 2.2-granskning av Nordic Feels e-handelsplattform med fokus
+                på inkludering.
+              </p>
+              <ul class="tags" aria-label="Taggar">
+                <li class="tag">WCAG 2.2</li>
+                <li class="tag">Tillgänglighet</li>
+                <li class="tag">E-handel</li>
+              </ul>
+              <a class="btn btn-primary" href="nordic-feel.html">
+                Läs mer<span class="sr-only"> om Tillgänglighetsgranskning</span> <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OM MIG SNIPPET -->
+    <section class="section about on-dark" id="om-mig-snippet" aria-labelledby="om-mig-title">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">Om mig</span>
+          <h2 class="section-title" id="om-mig-title">Två kulturer. En designer.</h2>
+          <p class="about-text">
+            Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt
+            perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.
+          </p>
+          <a class="btn btn-jade" href="om-mig.html">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <figure class="quote">
+          <blockquote>
+            <p>
+              ”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer
+              än ett rätt svar — och att det bästa designbeslutet ofta hittas i
+              mellanrummet.”
+            </p>
+          </blockquote>
+          <figcaption>— Matilda Hsieh</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 6. KONTAKT -->
+    <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="container">
+        <span class="eyebrow">Söker praktik · Vinter 2026</span>
+        <h2 class="section-title" id="kontakt-title">Låt oss prata design.</h2>
+        <p class="contact-text">
+          Jag söker LIA-plats inom UX/UI-design för Vinter 2026. Hör av dig så
+          berättar jag mer.
+        </p>
+        <div class="btn-group">
+          <!-- TODO: byt till din riktiga e-postadress -->
+          <a class="btn btn-primary" href="mailto:din.epost@exempel.se">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+          <!-- TODO: lägg till CV-filen i projektet -->
+          <a class="btn btn-light" href="cv/Matilda-Hsieh-CV.pdf" download>Ladda ner CV</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="site-footer on-dark">
+    <div class="container footer-inner">
+      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX/UI Designer – startsida">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <use href="#torii"/>
+          <text x="24" y="41" text-anchor="middle" font-size="15" fill="currentColor">謝</text>
+        </svg>
+        <span class="logo-divider" aria-hidden="true"></span>
+        <span class="logo-text">
+          <span class="logo-name">MATILDA HSIEH</span>
+          <span class="logo-title">UX/UI Designer</span>
+        </span>
+      </a>
+      <div class="footer-meta">
+        <p>MATILDA HSIEH · 2026</p>
+        <p>UX/UI Design · Nackademin Stockholm</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------- Announcement banner (dismissible, remembered) ---------- */
+      var BANNER_KEY = 'mh-banner-dismissed';
+      var banner = document.getElementById('banner');
+      var bannerClose = document.getElementById('banner-close');
+
+      function storageGet(key) {
+        try { return window.localStorage.getItem(key); } catch (e) { return null; }
+      }
+      function storageSet(key, value) {
+        try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+      }
+
+      if (storageGet(BANNER_KEY) === '1') {
+        banner.hidden = true;
+      }
+      bannerClose.addEventListener('click', function () {
+        banner.hidden = true;
+        storageSet(BANNER_KEY, '1');
+        document.querySelector('.logo').focus();
+      });
+
+      /* ---------- Navbar: scrolled state ---------- */
+      var header = document.getElementById('site-header');
+      function onScroll() {
+        header.classList.toggle('is-scrolled', window.scrollY > 8);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- Mobile menu ---------- */
+      var toggle = document.getElementById('nav-toggle');
+      var navLinks = document.getElementById('nav-links');
+
+      function setMenu(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+        navLinks.classList.toggle('is-open', open);
+      }
+      toggle.addEventListener('click', function () {
+        setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+      navLinks.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setMenu(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setMenu(false);
+          toggle.focus();
+        }
+      });
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target)) setMenu(false);
+      });
+      window.matchMedia('(min-width: 769px)').addEventListener('change', function (mq) {
+        if (mq.matches) setMenu(false);
+      });
+
+      /* ---------- Smooth scroll + focus management for anchor links ---------- */
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href').slice(1);
+          var target = id && document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+          if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+          history.pushState(null, '', '#' + id);
+        });
+      });
+
+      /* ---------- Active nav link for the section in view ---------- */
+      var sectionLinks = document.querySelectorAll('.nav-link[data-section]');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            sectionLinks.forEach(function (link) {
+              if (link.dataset.section === entry.target.id) {
+                link.classList.toggle('is-active', entry.isIntersecting);
+              }
+            });
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sectionLinks.forEach(function (link) {
+          var section = document.getElementById(link.dataset.section);
+          if (section) observer.observe(section);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
