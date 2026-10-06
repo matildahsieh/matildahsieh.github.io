@@ -479,7 +479,7 @@
     }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-6);
     }
 
@@ -502,13 +502,6 @@
       align-items: flex-end;
       pointer-events: none;
       gap: 4px;
-    }
-    .card-icon-torii {
-      --torii-fill: var(--jade-500);
-      --torii-stroke: none;
-      --torii-feet: var(--jade-500);
-      width: 56px;
-      height: 68px;
     }
     .card-icon-circle {
       display: flex;
@@ -597,32 +590,6 @@
       border-radius: var(--radius-sm);
     }
     .project-card .btn { margin-top: auto; }
-
-    /* Card 1 — Hold-it! (dark) */
-    .project-card--dark {
-      --card-glow: rgba(169, 196, 176, 0.14);
-      background: var(--brand-dark);
-      color: var(--off-white);
-    }
-    .project-card--dark .project-meta { color: var(--jade-500); }
-    .project-card--dark .project-title { color: var(--off-white); }
-    .project-card--dark .project-desc { color: var(--footer-text); }   /* #76809D is 4.0:1 here; this passes AA */
-    .project-card--dark .project-divider { background: rgba(169, 196, 176, 0.2); }
-    .project-card--dark .tag {
-      background: rgba(169, 196, 176, 0.15);
-      color: var(--jade-500);
-      border-color: rgba(169, 196, 176, 0.3);
-    }
-    .project-card--dark .btn-primary {
-      background: var(--jade-500);
-      border-color: var(--jade-500);
-      color: var(--brand-dark);
-    }
-    .project-card--dark .btn-primary:hover {
-      background: var(--jade-hover);
-      border-color: var(--jade-hover);
-    }
-    .project-card--dark :focus-visible { outline-color: var(--jade-500); }
 
     /* Card 2 — Tillgänglighet (warm) */
     .project-card--warm {
@@ -942,27 +909,6 @@
         <h2 class="section-title" id="projekt-title">Mina case studies</h2>
 
         <div class="project-grid">
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <svg class="card-icon-torii torii-ghost" viewBox="0 0 61 66" focusable="false"><use href="#torii-logo"/></svg>
-            </div>
-            <div class="project-card project-card--dark">
-              <p class="project-meta">2025 · Research</p>
-              <h3 class="project-title">Hold-it!</h3>
-              <p class="project-desc">Tandvård möter mänsklig empati — ett verkligt uppdrag</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">UX Research</li>
-                <li class="tag">Intervjuer</li>
-                <li class="tag">KI</li>
-              </ul>
-              <a class="btn btn-primary" href="hold-it.html"
-                 aria-label="Läs mer om Hold-it! — UX research case study om tandvård och röntgen">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
               <span class="card-icon-circle">
