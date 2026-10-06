@@ -233,6 +233,8 @@
     'ROLL': 'ROLE',
     'Granskning, analys & förslag': 'Audit, analysis & recommendations',
     'PLATTFORM': 'PLATFORM',
+    'TID': 'TIMELINE',
+    'Maj 2026': 'May 2026',
     'Webb · e-handel': 'Web · e-commerce',
     '01 — SAMMANFATTNING': '01 — SUMMARY',
     'sidor granskade': 'pages audited',
