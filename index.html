@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matilda Hsieh · UX Designer</title>
-  <meta name="description" content="Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026.">
+  <meta name="description" content="Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026." data-i18n-attr="content:meta-description">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -409,6 +409,97 @@
     }
     .nav-link:hover::after,
     .nav-link.is-active::after { width: 100%; }
+
+    /* Language dropdown */
+    .lang-dropdown {
+      position: relative;
+    }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      background: transparent;
+      border: 1px solid var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .lang-btn:hover,
+    .lang-btn[aria-expanded="true"] {
+      background: var(--bg-secondary);
+    }
+    .lang-flag {
+      display: inline-block;
+      width: 20px;
+      height: 15px;
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .lang-flag svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .lang-label { letter-spacing: 0.02em; }
+    .lang-chevron {
+      width: 10px;
+      height: 10px;
+      opacity: 0.5;
+      transition: transform 0.2s ease;
+    }
+    .lang-btn[aria-expanded="true"] .lang-chevron {
+      transform: rotate(180deg);
+    }
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 140px;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 8px 24px rgba(30,34,53,0.10);
+      overflow: hidden;
+      z-index: 200;
+    }
+    .lang-menu.is-open { display: block; }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      width: 100%;
+      padding: 10px var(--space-4);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s ease;
+    }
+    .lang-option:hover { background: var(--bg-secondary); }
+    .lang-option.is-active {
+      color: var(--jade-700);
+      font-weight: 600;
+    }
+    .lang-option .lang-flag { width: 22px; height: 16px; }
+    .lang-option:focus {
+      outline: 2px solid var(--jade-600);
+      outline-offset: -2px;
+      background: var(--bg-secondary);
+    }
 
     .nav-toggle {
       display: none;
@@ -841,6 +932,35 @@
       .nav-link:hover::after,
       .nav-link.is-active::after { width: 48px; }
 
+      /* Lang dropdown in mobile menu */
+      .lang-item {
+        padding: var(--space-3) 0;
+        border-bottom: 1px solid var(--bg-secondary);
+      }
+      .lang-btn {
+        font-size: 15px;
+        padding: var(--space-2) 0;
+        border: 0;
+        border-radius: 0;
+      }
+      .lang-btn:hover { transform: none; background: transparent; }
+      /* Show dropdown inline on mobile */
+      .lang-menu {
+        position: static !important;
+        display: none;
+        box-shadow: none !important;
+        border: 0 !important;
+        background: transparent !important;
+        min-width: 0 !important;
+        padding: var(--space-2) 0 0;
+      }
+      .lang-menu.is-open { display: block; }
+      .lang-option {
+        padding: var(--space-2) 0 !important;
+        font-size: 15px !important;
+      }
+      .lang-option:hover { background: transparent !important; }
+
       .hero { padding: var(--space-8) 0; }
       .hero-title { font-size: 44px; }
       .hero-ghost { width: 300px; right: -60px; bottom: -40px; }
@@ -858,6 +978,7 @@
         align-items: flex-start;
       }
       .footer-meta { text-align: left; }
+      .footer-contact { text-align: left; }
     }
   </style>
 </head>
@@ -883,6 +1004,9 @@
         <!-- 謝 -->
         <path class="torii-body" stroke-width="0.3" d="M37.9978 46.7574C37.7724 46.6066 37.5317 46.3275 37.2768 45.9218L35.7836 43.6865C34.6253 41.6374 33.85 40.0334 33.4578 38.875C33.4578 38.7242 33.574 38.5364 33.8078 38.3109C34.0408 38.0839 34.2708 37.9482 34.4986 37.9037C35.4156 38.0085 36.2429 38.4218 36.9812 39.1435C37.0273 39.2038 37.0506 39.2642 37.0506 39.3245C37.0506 39.415 36.9971 39.4685 36.8907 39.4844C36.8606 39.4987 36.7851 39.5055 36.6645 39.5055C36.4692 39.5055 36.1758 39.4602 35.7836 39.3698C35.2867 39.2355 34.8877 39.1676 34.586 39.1676C34.2098 39.1676 34.0219 39.2506 34.0219 39.415C34.5483 40.5454 35.5348 42.0817 36.9812 44.0244L37.3432 44.3863L37.3673 44.2054C37.3673 41.0884 37.3221 38.1073 37.2316 35.2611C36.8832 35.4105 36.5144 35.5598 36.1245 35.7106C34.9797 36.2076 34.3244 36.4791 34.1577 36.5251C34.0069 36.5696 33.8334 36.5915 33.6388 36.5915H33.3462V36.8177C33.3462 36.9685 33.3983 37.0371 33.5031 37.0228C33.5634 37.007 33.5936 37.0522 33.5936 37.1586C33.5031 37.6555 33.4578 38.8449 33.4578 40.7272V41.9218C33.4737 42.5997 33.482 43.4286 33.482 44.4075C33.482 45.1149 33.4737 45.5515 33.4578 45.7167C33.307 45.8531 33.126 45.9587 32.9149 46.0334C32.6894 46.0334 32.3734 45.7626 31.9676 45.2219C31.5755 44.679 31.1155 43.9263 30.5891 42.9625L30.1607 42.2627L29.7082 42.6005C29.0461 43.0832 28.5416 43.4225 28.1939 43.6171C27.8176 43.8584 27.5091 43.9791 27.2678 43.9791C27.1471 43.9791 27.0604 43.9489 27.0084 43.8886C26.9556 43.8283 26.9903 43.7762 27.1109 43.7317C28.1042 42.8735 29.3462 41.5251 30.8364 39.6865L31.4699 38.8056C31.4699 38.7755 31.3794 38.8056 31.1984 38.8961C30.7776 39.1518 30.5076 39.3245 30.3869 39.415C29.4677 40.0485 28.8123 40.4708 28.4201 40.682C28.1185 40.8471 27.893 40.9293 27.7444 40.9293C27.6539 40.9158 27.5634 40.9233 27.4729 40.9535L27.0415 41.2672C26.9224 41.418 26.8636 41.5085 26.8636 41.5387C26.8636 41.5854 26.9458 41.6684 27.1109 41.7891C27.2919 41.924 27.3824 42.059 27.3824 42.1933C27.3824 42.4648 27.0581 42.7438 26.4111 43.0289C25.7331 43.3607 25.123 43.55 24.58 43.596C24.5054 43.6103 24.4081 43.6171 24.2874 43.6171C24.0016 43.6171 23.8809 43.5198 23.9254 43.3245L24.6041 42.51C25.0702 42.0138 25.4548 41.5688 25.7565 41.1767C26.0257 40.8313 26.1313 40.6277 26.0732 40.5673H26.0491C25.9888 40.5673 25.8455 40.6058 25.6207 40.682C25.1539 40.8916 24.755 41.0862 24.4231 41.2672C23.8055 41.5553 23.4518 41.7438 23.3613 41.8343C23.2867 41.9089 23.2633 42.059 23.2919 42.2838C23.4586 42.7506 23.663 43.2928 23.9043 43.9097C23.948 44.0606 24.0084 44.2265 24.0853 44.4075C24.1894 44.7393 24.2339 44.927 24.218 44.9716C24.1894 45.0017 24.0921 45.0168 23.9254 45.0168C22.9616 44.9263 22.2919 43.7973 21.9164 41.6292C21.856 41.3275 21.8259 41.0492 21.8259 40.7936C21.8259 40.4783 21.8779 40.2265 21.9827 40.0394C22.0891 39.8509 22.2618 39.6955 22.5016 39.5749H22.571C22.6313 39.5749 22.6615 39.605 22.6615 39.6654C22.6615 40.1164 22.7067 40.5304 22.7972 40.9082L22.9329 41.4029L23.0898 41.1767C24.2339 40.2136 25.4465 39.5357 26.7278 39.1435C27.1939 39.2204 27.5483 39.3335 27.7897 39.4844C27.8937 39.5892 27.9767 39.6193 28.037 39.5749C28.0808 39.559 28.209 39.4452 28.4201 39.234L28.6916 38.8961V38.875C28.6916 38.829 28.6539 38.7687 28.58 38.694C28.5197 38.5734 28.4963 38.4376 28.5106 38.2868C28.6011 37.0522 28.6841 35.4783 28.761 33.5658L28.8063 32.7755C28.8063 32.5206 28.761 32.3924 28.6705 32.3924C28.218 32.3924 27.5551 32.5658 26.6826 32.9112C26.3342 33.0462 25.9202 33.234 25.4397 33.4753L25.1019 33.5417C25.0717 33.5417 25.0566 33.5349 25.0566 33.5206C25.0566 33.4904 25.1305 33.3999 25.2799 33.2491C25.4307 33.1284 25.4684 33.0914 25.3945 33.1375C24.7769 33.3185 23.8877 33.6729 22.7278 34.1993C21.8387 34.5756 21.3349 34.786 21.2165 34.8298C21.0958 34.8599 20.9971 34.875 20.9209 34.875C20.8161 34.875 20.7037 34.8531 20.583 34.8087C20.0702 34.688 19.6554 34.5002 19.3402 34.2446C19.129 34.0636 19.0234 33.9354 19.0234 33.8584C19.0234 33.7378 19.2949 33.6774 19.8379 33.6774C20.2301 33.6774 20.5687 33.6322 20.8545 33.5417C21.1094 33.4814 21.9224 33.1729 23.2919 32.6156L26.6132 31.3969L27.1109 31.2159C27.6237 31.4715 27.939 31.6593 28.0581 31.78L28.2633 31.9851C28.7293 31.3215 29.2195 30.6359 29.7323 29.9278C30.3334 29.0251 30.6796 28.4911 30.7701 28.326C30.6653 28.145 30.4774 27.927 30.2059 27.6714C30.0551 27.5206 29.9797 27.4225 29.9797 27.3758C29.9797 27.3019 30.077 27.2642 30.2723 27.2642C30.5295 27.2642 30.8681 27.3697 31.2889 27.5809C31.9827 27.927 32.3296 28.2808 32.3296 28.6427C32.3296 28.6872 32.3145 28.7544 32.2844 28.8449C32.1336 29.2815 31.35 30.102 29.9345 31.3064C29.7233 31.4874 29.5612 31.6344 29.4488 31.7468C29.3357 31.8599 29.2799 31.9542 29.2799 32.0304C29.2799 32.0605 29.3319 32.1963 29.4367 32.4376C29.6034 32.6631 29.6939 32.8207 29.7082 32.9112C29.7241 32.9557 29.7392 32.9557 29.7535 32.9112C29.7693 32.8652 29.7776 32.7664 29.7776 32.6156C29.7776 32.421 29.89 32.1887 30.1155 31.9188C30.3402 31.6473 30.6645 31.3833 31.0868 31.1254C31.4624 30.8841 31.7716 30.7634 32.0129 30.7634C32.2542 30.7634 32.5393 30.8992 32.8696 31.1707C33.1109 31.412 33.2768 31.6005 33.3673 31.7348C33.4578 31.8856 33.488 32.0213 33.4578 32.142C33.3673 32.8358 33.3221 33.5892 33.3221 34.4014C33.3221 34.7777 33.3296 35.0643 33.3462 35.2611C33.3462 35.4263 33.4134 35.501 33.5483 35.4844C33.669 35.4542 34.0981 35.2966 34.8364 35.0108L37.4096 33.9037V32.5492C37.4096 31.6163 37.3869 30.8712 37.3432 30.3139C37.2987 29.7709 37.2384 29.4625 37.1622 29.3878C37.0717 29.3275 37.0038 29.2973 36.9601 29.2973C36.8998 29.2973 36.8312 29.3351 36.755 29.409C36.755 29.4391 36.7399 29.4542 36.7097 29.4542C36.6653 29.4542 36.6049 29.4172 36.5287 29.3426C36.4096 29.2362 36.3123 29.0854 36.2361 28.8901C36.206 28.7694 36.1909 28.694 36.1909 28.6639C36.1909 28.4527 36.3115 28.3471 36.5529 28.3471C36.5966 28.3471 36.7097 28.3622 36.8907 28.3924C37.4639 28.5432 37.9601 28.8826 38.3809 29.409C38.5778 29.6503 38.6916 29.8464 38.7218 29.9972C38.7354 30.102 38.7203 30.5915 38.6765 31.4663L38.6313 32.866L39.2648 33.0017L40.1004 33.2732C40.3251 33.3478 40.4835 33.4301 40.574 33.5206C40.936 33.7619 41.117 33.958 41.117 34.1088C41.117 34.2883 40.8304 34.4157 40.2572 34.4919C39.6396 34.5824 39.0823 34.688 38.586 34.8087C38.66 39.01 38.758 42.5869 38.8787 45.5387V46.6669L38.6765 46.7574C38.5257 46.8916 38.4051 46.9595 38.3146 46.9595C38.2399 46.9595 38.1343 46.8916 37.9978 46.7574ZM32.1245 44.0244C32.1547 43.5417 32.1698 42.8268 32.1698 41.8796V39.7559C31.6283 40.4037 31.1094 41.0583 30.6132 41.7197L30.4774 41.9218C31.0943 42.8871 31.6366 43.6103 32.1034 44.0907C32.117 44.0907 32.1245 44.0688 32.1245 44.0244ZM30.2512 38.2415C30.6569 38.0771 31.0566 37.8735 31.4488 37.6322L32.1698 37.2702V37.0681L32.1034 36.8177C32.1034 36.8041 32.0883 36.7966 32.0581 36.7966C31.9978 36.7966 31.8394 36.8418 31.5845 36.9323L30.6132 37.2702C30.7037 37.2242 30.4774 37.3064 29.9345 37.5176C29.7836 37.5176 29.6931 37.5447 29.663 37.599C29.6328 37.6518 29.6177 37.8132 29.6177 38.0847V38.3079C29.6177 38.3682 29.6215 38.418 29.6298 38.4557C29.6373 38.4942 29.6569 38.513 29.6871 38.513C29.7474 38.513 29.9352 38.4225 30.2512 38.2415ZM30.2512 36.2084C30.4759 36.148 30.7316 36.0575 31.0174 35.9369C31.2746 35.8464 31.4405 35.8011 31.5152 35.8011C31.5755 35.8011 31.666 35.8615 31.7866 35.9821C31.9511 36.1495 32.0491 36.1948 32.0793 36.1179C32.1396 35.8765 32.1698 35.5831 32.1698 35.237C32.1698 35.0123 32.132 34.8992 32.0581 34.8992C32.0114 34.8992 31.9171 34.9338 31.7746 35.0017C31.6313 35.0681 31.5076 35.1246 31.4035 35.1707C31.2663 35.231 31.0333 35.329 30.7037 35.4633V35.4391C30.7037 35.3954 30.7625 35.2905 30.8817 35.1254C31.0023 34.9587 31.0627 34.8599 31.0627 34.8298C31.0627 34.7996 31.0325 34.7845 30.9722 34.7845C30.8975 34.7845 30.8304 34.7928 30.7701 34.8087C30.3334 34.8992 30.0589 35.0009 29.9465 35.1133C29.8334 35.2265 29.7776 35.4633 29.7776 35.8253C29.7776 35.9761 29.7806 36.0892 29.7866 36.1631C29.7942 36.2377 29.8289 36.2747 29.8892 36.2747C29.9194 36.2747 29.9646 36.2679 30.025 36.2536C30.0853 36.24 30.1607 36.225 30.2512 36.2084ZM30.8364 33.7921C31.1238 33.7016 31.4254 33.6337 31.7414 33.5869H32.1698V33.1827C32.1253 32.5658 32.0883 32.2114 32.0581 32.1209C32.028 32.0605 31.8244 32.0455 31.4488 32.0756C30.9217 32.1804 30.5295 32.3577 30.2723 32.6065C30.0167 32.8539 29.8515 33.2265 29.7776 33.7227V33.9942H30.025L30.8364 33.7921ZM22.571 38.8298C22.3296 38.6027 22.209 38.467 22.209 38.4225C22.209 38.3622 22.3296 38.2347 22.571 38.0394C23.4737 37.3456 24.2339 36.7204 24.8515 36.1631C24.7165 36.2099 24.5891 36.24 24.4684 36.2536C24.1969 36.2981 23.9405 36.32 23.6992 36.32C23.2022 36.32 22.7881 36.2227 22.4563 36.0274C22.3372 35.9233 22.2783 35.8403 22.2783 35.78C22.2783 35.6895 22.4277 35.599 22.7278 35.5085C22.9691 35.4482 23.2927 35.2973 23.6992 35.056C24.4367 34.6639 24.9872 34.4157 25.3492 34.3109C25.4096 34.2973 25.5001 34.2898 25.6207 34.2898C25.8455 34.2898 26.0491 34.3577 26.2301 34.4919C26.5317 34.6729 26.6826 34.8313 26.6826 34.9655C26.6826 35.0862 26.5317 35.2521 26.2301 35.4633C25.1154 36.2762 24.3779 36.863 24.0159 37.225L24.8515 36.8871C25.2437 36.7061 25.537 36.6005 25.7323 36.5704H25.8017C25.8621 36.5704 25.9661 36.6005 26.1154 36.6608C26.5076 36.8117 26.7037 36.9919 26.7037 37.2008C26.7037 37.3215 26.5906 37.4655 26.3658 37.6322L23.0234 39.234C22.9329 39.234 22.7821 39.0998 22.571 38.8298ZM23.3824 30.697C23.6237 30.4859 23.8575 30.2679 24.0853 30.0424C24.2942 29.8154 24.4669 29.6126 24.6041 29.4331L24.1969 29.1616L22.7278 28.1903C23.1803 28.1903 23.8424 28.2355 24.7158 28.326C25.5136 28.4006 26.034 28.476 26.2753 28.5522C26.5468 28.6872 26.761 28.875 26.9179 29.1163C27.0762 29.3577 27.1177 29.5379 27.0415 29.6563C26.4239 29.9142 25.3251 30.283 23.7444 30.7634C23.4888 30.8705 23.338 30.9233 23.2919 30.9233C23.2633 30.9233 23.2934 30.8479 23.3824 30.697Z"/>
       </symbol>
+      <!-- Flags for the language switcher -->
+      <symbol id="flag-se" viewBox="0 0 16 10"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></symbol>
+      <symbol id="flag-gb" viewBox="0 0 60 30"><clipPath id="gb-c"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="gb-t"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#gb-c)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#gb-t)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></symbol>
       <!-- Lucide icons -->
       <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>
@@ -902,18 +1026,18 @@
     </defs>
   </svg>
 
-  <a class="skip-link" href="#main">Hoppa till innehållet</a>
+  <a class="skip-link" href="#main" data-i18n="skip-link">Hoppa till innehållet</a>
 
   <!-- 1. ANNOUNCEMENT BANNER -->
-  <aside class="banner" id="banner" aria-label="Meddelande">
+  <aside class="banner" id="banner" aria-label="Meddelande" data-i18n-attr="aria-label:banner-aria">
     <div class="container banner-inner">
       <p class="banner-status">
         <span class="banner-dot" aria-hidden="true"></span>
-        Söker praktik · Vinter 2026
+        <span data-i18n="banner-status">Söker praktik · Vinter 2026</span>
       </p>
       <div class="banner-actions">
-        <a class="banner-link" href="#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
-        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet">
+        <a class="banner-link" href="#kontakt" data-i18n="banner-link">Kontakta mig →</a>
+        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet" data-i18n-attr="aria-label:banner-close-aria">
           <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
         </button>
       </div>
@@ -923,7 +1047,7 @@
   <!-- 2. NAVBAR -->
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
+      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida" data-i18n-attr="aria-label:logo-aria">
         <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
         <span class="logo-text">
           <span class="logo-name">MATILDA HSIEH</span>
@@ -931,9 +1055,9 @@
         </span>
       </a>
 
-      <nav aria-label="Huvudmeny">
+      <nav aria-label="Huvudmeny" data-i18n-attr="aria-label:nav-aria">
         <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
-          <span class="sr-only">Meny</span>
+          <span class="sr-only" data-i18n="nav-toggle-label">Meny</span>
           <svg class="icon-open" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
           <svg class="icon-close" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
         </button>
@@ -941,20 +1065,52 @@
           <li>
             <a class="nav-link" href="#projekt" data-section="projekt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-grid"/></svg>
-              Projekt
+              <span data-i18n="nav-projekt">Projekt</span>
             </a>
           </li>
           <li>
             <a class="nav-link" href="om-mig.html">
               <svg aria-hidden="true" focusable="false"><use href="#icon-user"/></svg>
-              Om mig
+              <span data-i18n="nav-om-mig">Om mig</span>
             </a>
           </li>
           <li>
             <a class="nav-link" href="#kontakt" data-section="kontakt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
-              Kontakt
+              <span data-i18n="nav-kontakt">Kontakt</span>
             </a>
+          </li>
+          <li class="lang-item lang-dropdown">
+            <button class="lang-btn" id="lang-toggle" type="button"
+                    aria-expanded="false" aria-controls="lang-menu">
+              <span class="sr-only" data-i18n="lang-choose">Välj språk: </span>
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 16 10" preserveAspectRatio="none" focusable="false"><use href="#flag-se"/></svg>
+              </span>
+              <span class="lang-label">Svenska</span>
+              <svg class="lang-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="lang-menu" id="lang-menu">
+              <li>
+                <button class="lang-option is-active" data-lang="sv" lang="sv" type="button" tabindex="-1" aria-current="true">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 16 10" preserveAspectRatio="none" focusable="false"><use href="#flag-se"/></svg>
+                  </span>
+                  Svenska
+                </button>
+              </li>
+              <li>
+                <button class="lang-option" data-lang="en" lang="en" type="button" tabindex="-1">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 16 10" preserveAspectRatio="none" focusable="false"><use href="#flag-gb"/></svg>
+                  </span>
+                  English
+                </button>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -967,19 +1123,19 @@
     <section class="hero" aria-labelledby="hero-title">
       <svg class="hero-ghost torii-ghost" viewBox="0 0 61 66" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
       <div class="container hero-content">
-        <span class="eyebrow">UX Designer · Stockholm</span>
+        <span class="eyebrow" data-i18n="hero-eyebrow">UX Designer · Stockholm</span>
         <h1 class="hero-title" id="hero-title">
           <span class="hero-title-first">MATILDA</span>
           <span class="hero-title-last">HSIEH</span>
         </h1>
         <hr class="accent-line" aria-hidden="true">
-        <p class="hero-text">
+        <p class="hero-text" data-i18n="hero-text">
           Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur
           människor tänker, känner och navigerar.
         </p>
         <div class="btn-group">
-          <a class="btn btn-primary" href="#projekt">Se projekt <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-secondary" href="om-mig.html">Om mig</a>
+          <a class="btn btn-primary" href="#projekt" data-i18n-html="hero-btn-projekt">Se projekt <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="om-mig.html" data-i18n="hero-btn-om-mig">Om mig</a>
         </div>
       </div>
     </section>
@@ -987,10 +1143,11 @@
     <!-- 4. PROJEKT -->
     <section class="section projects" id="projekt" aria-labelledby="projekt-title">
       <div class="container">
-        <span class="eyebrow">Utvalda projekt</span>
-        <h2 class="section-title" id="projekt-title">Mina case studies</h2>
+        <span class="eyebrow" data-i18n="projekt-eyebrow">Utvalda projekt</span>
+        <h2 class="section-title" id="projekt-title" data-i18n="projekt-title">Mina case studies</h2>
 
         <div class="project-grid">
+          <!-- Hemly card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
               <span class="card-icon-circle card-icon-circle--hemly">
@@ -998,22 +1155,25 @@
               </span>
             </div>
             <div class="project-card project-card--plum">
-              <p class="project-meta">UI-design · Soloprojekt</p>
+              <p class="project-meta" data-i18n="hemly-meta">UI-design · Soloprojekt</p>
               <h3 class="project-title">Hemly</h3>
-              <p class="project-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
+              <p class="project-desc" data-i18n="hemly-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
               <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
-                <li class="tag">UI-design</li>
-                <li class="tag">Designsystem</li>
-                <li class="tag">Mobilapp</li>
+                <li class="tag" data-i18n="hemly-tag-1">UI-design</li>
+                <li class="tag" data-i18n="hemly-tag-2">Designsystem</li>
+                <li class="tag" data-i18n="hemly-tag-3">Mobilapp</li>
               </ul>
               <a class="btn btn-primary" href="hemly.html"
-                 aria-label="Läs mer om Hemly — UI-design av en app för expresshandling">
+                 aria-label="Läs mer om Hemly — UI-design av en app för expresshandling"
+                 data-i18n-attr="aria-label:hemly-btn-aria"
+                 data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
 
+          <!-- Tillgänglighet card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
               <span class="card-icon-circle">
@@ -1024,22 +1184,25 @@
               </span>
             </div>
             <div class="project-card project-card--warm">
-              <p class="project-meta">2025 · Tillgänglighet</p>
-              <h3 class="project-title">Tillgänglighet</h3>
-              <p class="project-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
+              <p class="project-meta" data-i18n="tillg-meta">2025 · Tillgänglighet</p>
+              <h3 class="project-title" data-i18n="tillg-title">Tillgänglighet</h3>
+              <p class="project-desc" data-i18n="tillg-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
               <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
                 <li class="tag">WCAG 2.2</li>
-                <li class="tag">Tillgänglighet</li>
-                <li class="tag">E-handel</li>
+                <li class="tag" data-i18n="tillg-tag-1">Tillgänglighet</li>
+                <li class="tag" data-i18n="tillg-tag-2">E-handel</li>
               </ul>
               <a class="btn btn-primary" href="tillganglighet.html"
-                 aria-label="Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel">
+                 aria-label="Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel"
+                 data-i18n-attr="aria-label:tillg-btn-aria"
+                 data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
 
+          <!-- Vikingaappen card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float">
               <img
@@ -1053,17 +1216,19 @@
               >
             </div>
             <div class="project-card project-card--forest">
-              <p class="project-meta">2026 · Grupprojekt</p>
+              <p class="project-meta" data-i18n="viking-meta">2026 · Grupprojekt</p>
               <h3 class="project-title">Vikingaappen</h3>
-              <p class="project-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
+              <p class="project-desc" data-i18n="viking-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
               <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
                 <li class="tag">Quiz-app</li>
-                <li class="tag">Visuellt koncept</li>
-                <li class="tag">Idégenerering</li>
+                <li class="tag" data-i18n="viking-tag-1">Visuellt koncept</li>
+                <li class="tag" data-i18n="viking-tag-2">Idégenerering</li>
               </ul>
               <a class="btn btn-primary" href="vikingaappen.html"
-                 aria-label="Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum">
+                 aria-label="Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum"
+                 data-i18n-attr="aria-label:viking-btn-aria"
+                 data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
@@ -1076,17 +1241,17 @@
     <section class="section about on-dark" id="om-mig-snippet" aria-labelledby="om-mig-title">
       <div class="container about-grid">
         <div>
-          <span class="eyebrow">Om mig</span>
-          <h2 class="section-title" id="om-mig-title">Två kulturer. En designer.</h2>
-          <p class="about-text">
+          <span class="eyebrow" data-i18n="about-eyebrow">Om mig</span>
+          <h2 class="section-title" id="om-mig-title" data-i18n="about-title">Två kulturer. En designer.</h2>
+          <p class="about-text" data-i18n="about-text">
             Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt
             perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.
           </p>
-          <a class="btn btn-jade" href="om-mig.html">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-jade" href="om-mig.html" data-i18n-html="about-btn">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
         </div>
         <figure class="quote">
           <blockquote>
-            <p>
+            <p data-i18n="about-quote">
               ”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer
               än ett rätt svar — och att det bästa designbeslutet ofta hittas i
               mellanrummet.”
@@ -1100,14 +1265,14 @@
     <!-- 6. KONTAKT -->
     <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
       <div class="container">
-        <span class="eyebrow">Söker praktik · Vinter 2026</span>
-        <h2 class="section-title" id="kontakt-title">Låt oss prata design.</h2>
-        <p class="contact-text">
+        <span class="eyebrow" data-i18n="kontakt-eyebrow">Söker praktik · Vinter 2026</span>
+        <h2 class="section-title" id="kontakt-title" data-i18n="kontakt-title">Låt oss prata design.</h2>
+        <p class="contact-text" data-i18n="kontakt-text">
           Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
           berättar jag mer.
         </p>
         <div class="btn-group">
-          <a class="btn btn-primary" href="mailto:matilda.hsieh@yh.nackademin.se">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="mailto:matilda.hsieh@yh.nackademin.se" data-i18n-html="kontakt-btn">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-sv.pdf" download>Ladda ner CV (svenska)</a>
           <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en">Download CV (English)</a>
         </div>
@@ -1119,7 +1284,7 @@
   <!-- 7. FOOTER -->
   <footer class="site-footer on-dark">
     <div class="container footer-inner">
-      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
+      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida" data-i18n-attr="aria-label:logo-aria">
         <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
         <span class="logo-text">
           <span class="logo-name">MATILDA HSIEH</span>
@@ -1128,7 +1293,7 @@
       </a>
       <div class="footer-contact">
         <a href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se">matilda.hsieh@yh.nackademin.se</a><br>
-        <a href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (öppnas i ny flik)</span></a>
+        <a href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></a>
         <p class="footer-contact__copy">© MATILDA HSIEH · 2026</p>
       </div>
     </div>
@@ -1228,6 +1393,7 @@
       }
     })();
   </script>
+
   <!-- "Copied" feedback: visible toast + screen-reader announcement -->
   <div id="copy-toast" class="copy-toast" aria-hidden="true">✓ E-postadressen kopierades</div>
   <div id="copy-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -1242,14 +1408,251 @@
           if (!navigator.clipboard || !window.isSecureContext) return;
           e.preventDefault();
           navigator.clipboard.writeText(link.getAttribute('data-copy')).then(function () {
+            var en = window.__mhLang === 'en';
             clearTimeout(timer);
+            toast.textContent = en ? '✓ Email address copied' : '✓ E-postadressen kopierades';
             toast.classList.add('show');
             announce.textContent = '';
-            requestAnimationFrame(function () { announce.textContent = 'E-postadressen kopierades'; });
+            requestAnimationFrame(function () { announce.textContent = en ? 'Email address copied' : 'E-postadressen kopierades'; });
             timer = setTimeout(function () { toast.classList.remove('show'); }, 2500);
           }, function () { window.location.href = link.href; });
         });
       });
+    })();
+  </script>
+
+  <!-- i18n language switcher -->
+  <script>
+    (function () {
+      'use strict';
+
+      var LANG_KEY = 'mh-lang';
+
+      var translations = {
+        sv: {
+          'meta-description': 'Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026.',
+          'skip-link': 'Hoppa till innehållet',
+          'logo-aria': 'Matilda Hsieh, UX Designer – startsida',
+          'banner-aria': 'Meddelande',
+          'banner-status': 'Söker praktik · Vinter 2026',
+          'banner-link': 'Kontakta mig →',
+          'banner-close-aria': 'Stäng meddelandet',
+          'nav-aria': 'Huvudmeny',
+          'nav-toggle-label': 'Meny',
+          'nav-projekt': 'Projekt',
+          'nav-om-mig': 'Om mig',
+          'nav-kontakt': 'Kontakt',
+          'hero-eyebrow': 'UX Designer · Stockholm',
+          'hero-text': 'Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur människor tänker, känner och navigerar.',
+          'hero-btn-projekt': 'Se projekt <span class="arrow" aria-hidden="true">→</span>',
+          'hero-btn-om-mig': 'Om mig',
+          'projekt-eyebrow': 'Utvalda projekt',
+          'projekt-title': 'Mina case studies',
+          'hemly-meta': 'UI-design · Soloprojekt',
+          'hemly-desc': 'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.',
+          'hemly-tag-1': 'UI-design',
+          'hemly-tag-2': 'Designsystem',
+          'hemly-tag-3': 'Mobilapp',
+          'hemly-btn-aria': 'Läs mer om Hemly — UI-design av en app för expresshandling',
+          'btn-las-mer': 'Läs mer <span class="arrow" aria-hidden="true">→</span>',
+          'tillg-meta': '2025 · Tillgänglighet',
+          'tillg-title': 'Tillgänglighet',
+          'tillg-desc': 'Inkluderar vår webbsida alla som älskar skönhet?',
+          'tillg-tag-1': 'Tillgänglighet',
+          'tillg-tag-2': 'E-handel',
+          'tillg-btn-aria': 'Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel',
+          'viking-meta': '2026 · Grupprojekt',
+          'viking-desc': 'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.',
+          'viking-tag-1': 'Visuellt koncept',
+          'viking-tag-2': 'Idégenerering',
+          'viking-btn-aria': 'Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum',
+          'about-eyebrow': 'Om mig',
+          'about-title': 'Två kulturer. En designer.',
+          'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.',
+          'about-btn': 'Läs mer om mig <span class="arrow" aria-hidden="true">→</span>',
+          'about-quote': '”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer än ett rätt svar — och att det bästa designbeslutet ofta hittas i mellanrummet.”',
+          'kontakt-eyebrow': 'Söker praktik · Vinter 2026',
+          'kontakt-title': 'Låt oss prata design.',
+          'kontakt-text': 'Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så berättar jag mer.',
+          'kontakt-btn': 'Kontakta mig <span class="arrow" aria-hidden="true">→</span>',
+          'copy-toast': '✓ E-postadressen kopierades',
+          'copy-announce': 'E-postadressen kopierades',
+          'new-tab': ' (öppnas i ny flik)',
+          'lang-choose': 'Välj språk: '
+        },
+        en: {
+          'meta-description': 'Matilda Hsieh – UX design student at Nackademin Stockholm with roots in Sweden and Taiwan. Seeking internship Winter 2026.',
+          'skip-link': 'Skip to content',
+          'logo-aria': 'Matilda Hsieh, UX Designer – home',
+          'banner-aria': 'Announcement',
+          'banner-status': 'Searching for an internship · Winter 2026',
+          'banner-link': 'Contact me →',
+          'banner-close-aria': 'Close announcement',
+          'nav-aria': 'Main menu',
+          'nav-toggle-label': 'Menu',
+          'nav-projekt': 'Projects',
+          'nav-om-mig': 'About',
+          'nav-kontakt': 'Contact',
+          'hero-eyebrow': 'UX Designer · Stockholm',
+          'hero-text': 'Roots in Sweden and Taiwan. I design with genuine curiosity about how people think, feel, and find their way.',
+          'hero-btn-projekt': 'See projects <span class="arrow" aria-hidden="true">→</span>',
+          'hero-btn-om-mig': 'About me',
+          'projekt-eyebrow': 'Selected projects',
+          'projekt-title': 'My case studies',
+          'hemly-meta': 'UI design · Solo project',
+          'hemly-desc': 'The pantry is empty and the movie has already started. An app for express grocery shopping in under ten minutes.',
+          'hemly-tag-1': 'UI design',
+          'hemly-tag-2': 'Design system',
+          'hemly-tag-3': 'Mobile app',
+          'hemly-btn-aria': 'Read more about Hemly — UI design of an express shopping app',
+          'btn-las-mer': 'Read more <span class="arrow" aria-hidden="true">→</span>',
+          'tillg-meta': '2025 · Accessibility',
+          'tillg-title': 'Accessibility',
+          'tillg-desc': 'Does our website include everyone who loves beauty?',
+          'tillg-tag-1': 'Accessibility',
+          'tillg-tag-2': 'E-commerce',
+          'tillg-btn-aria': 'Read more about the Accessibility audit — WCAG 2.2 review of Nordic Feel',
+          'viking-meta': '2026 · Group project',
+          'viking-desc': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
+          'viking-tag-1': 'Visual concept',
+          'viking-tag-2': 'Ideation',
+          'viking-btn-aria': 'Read more about Vikingaappen — quiz app and new website for The Viking Museum',
+          'about-eyebrow': 'About me',
+          'about-title': 'Two cultures. One designer.',
+          'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project — the ability to see from multiple angles at once.',
+          'about-btn': 'Read more about me <span class="arrow" aria-hidden="true">→</span>',
+          'about-quote': '"Growing up between two cultures taught me that there is always more than one right answer — and that the best design decision is often found in the space between."',
+          'kontakt-eyebrow': 'Searching for an internship · Winter 2026',
+          'kontakt-title': 'Got a project that needs a curious eye?',
+          'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line — I\'m happy to chat.',
+          'kontakt-btn': 'Contact me <span class="arrow" aria-hidden="true">→</span>',
+          'copy-toast': '✓ Email address copied',
+          'copy-announce': 'Email address copied',
+          'new-tab': ' (opens in a new tab)',
+          'lang-choose': 'Choose language: '
+        }
+      };
+
+      var langBtn = document.getElementById('lang-toggle');
+      var langBtnFlag = langBtn.querySelector('.lang-flag use');
+      var langLabel = langBtn.querySelector('.lang-label');
+      var langMenu = document.getElementById('lang-menu');
+      var langOptions = Array.from(langMenu.querySelectorAll('.lang-option'));
+
+      var langMeta = {
+        sv: { flag: '#flag-se', label: 'Svenska' },
+        en: { flag: '#flag-gb', label: 'English' }
+      };
+
+      function applyLang(lang) {
+        var t = translations[lang];
+        if (!t) return;
+
+        // Store current lang globally for copy-toast script
+        window.__mhLang = lang;
+
+        // 1. Update <html lang>
+        document.documentElement.lang = lang;
+
+        // 2. Update textContent for [data-i18n]
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (t[key] !== undefined) el.textContent = t[key];
+        });
+
+        // 3. Update innerHTML for [data-i18n-html]
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+
+        // 4. Update attributes for [data-i18n-attr]
+        document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+          var spec = el.getAttribute('data-i18n-attr');
+          var colonIdx = spec.indexOf(':');
+          if (colonIdx === -1) return;
+          var attrName = spec.slice(0, colonIdx);
+          var key = spec.slice(colonIdx + 1);
+          if (t[key] !== undefined) el.setAttribute(attrName, t[key]);
+        });
+
+        // 5. Update trigger button flag + label
+        var meta = langMeta[lang];
+        if (langBtnFlag) langBtnFlag.setAttribute('href', meta.flag);
+        langLabel.textContent = meta.label;
+
+        // 6. Update active state on dropdown options
+        langOptions.forEach(function (opt) {
+          var on = opt.getAttribute('data-lang') === lang;
+          opt.classList.toggle('is-active', on);
+          if (on) opt.setAttribute('aria-current', 'true'); else opt.removeAttribute('aria-current');
+        });
+
+        // 7. Save to localStorage
+        try { window.localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
+      }
+
+      // Dropdown open / close
+      function openMenu() {
+        langBtn.setAttribute('aria-expanded', 'true');
+        langMenu.classList.add('is-open');
+        // Enable tab access to options and focus first
+        langOptions.forEach(function (o) { o.setAttribute('tabindex', '0'); });
+        langOptions[0].focus();
+      }
+      function closeMenu() {
+        langBtn.setAttribute('aria-expanded', 'false');
+        langMenu.classList.remove('is-open');
+        // Remove options from tab order when closed
+        langOptions.forEach(function (o) { o.setAttribute('tabindex', '-1'); });
+      }
+
+      langBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        langMenu.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+
+      // Option click: pick language, close menu, return focus
+      langOptions.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          applyLang(this.getAttribute('data-lang'));
+          closeMenu();
+          langBtn.focus();
+        });
+      });
+
+      // Keyboard navigation inside open menu
+      langMenu.addEventListener('keydown', function (e) {
+        var idx = langOptions.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          langOptions[(idx + 1) % langOptions.length].focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          langOptions[(idx - 1 + langOptions.length) % langOptions.length].focus();
+        } else if (e.key === 'Tab' && !e.shiftKey) {
+          // Tab out of last option → close and let focus move naturally
+          if (idx === langOptions.length - 1) { closeMenu(); }
+        } else if (e.key === 'Tab' && e.shiftKey) {
+          // Shift+Tab out of first option → close, return to trigger
+          if (idx === 0) { e.preventDefault(); closeMenu(); langBtn.focus(); }
+        }
+      });
+
+      // Close on outside click or Escape
+      document.addEventListener('click', function () { closeMenu(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && langMenu.classList.contains('is-open')) {
+          closeMenu();
+          langBtn.focus();
+        }
+      });
+
+      // On page load: read stored preference, default to 'sv'
+      var stored = null;
+      try { stored = window.localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
+      applyLang(stored === 'en' ? 'en' : 'sv');
+
     })();
   </script>
 </body>
