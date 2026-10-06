@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
 
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
   <style>
     /* ==========================================================
        DESIGN TOKENS
@@ -1056,6 +1058,17 @@
       .media-slot { min-height: 200px; }
     }
 
+
+    /* Case pages built from the canvas layouts */
+    .case-page img { max-width: 100%; }
+    @media (max-width: 768px) {
+      .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
+      .case-page h2 { font-size: 34px !important; }
+      .mood-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .mood-grid > div:first-child { grid-column: span 2 !important; }
+      .facts-3 { grid-template-columns: 1fr !important; }
+      .phone-hero { width: 240px !important; height: 500px !important; }
+    }
   </style>
 </head>
 <body>
@@ -1158,187 +1171,128 @@
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main id="main" tabindex="-1" class="case-page">
+<div style="background: #EDE0D4; color: #28352C; font-family: 'Plus Jakarta Sans', system-ui, sans-serif;">
 
-    <!-- CASE HERO -->
-    <section class="case-hero on-dark" aria-labelledby="case-title">
-      <div class="container">
-        <a class="case-back" href="index.html#projekt"><span aria-hidden="true">←</span> Alla projekt</a>
-        <div class="case-hero-top">
-          <img class="case-hero-icon" src="assets/icons/vikingaappen-icon.png" alt="" width="80" height="80">
-          <div>
-            <span class="eyebrow">Case study · Kliv in i vikingatiden</span>
-            <h1 class="case-title" id="case-title">Vikingaappen</h1>
-          </div>
-        </div>
-        <p class="case-lead">
-          Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med
-          en quiz-app och en ny webbsida för The Viking Museum — byggd för barn, och med
-          etiken inbyggd från start.
-        </p>
-        <dl class="case-facts">
-          <div><dt>Uppdrag</dt><dd>The Viking Museum</dd></div>
-          <div><dt>Team</dt><dd>Grupprojekt</dd></div>
-          <div><dt>Min roll</dt><dd>Idégenerering &amp; visuellt koncept</dd></div>
-          <div><dt>Tid</dt><dd>Aug–sep 2026</dd></div>
-        </dl>
+  <!-- Hero: exhibition entrance, full-bleed forest -->
+  <section style="background: #28352C; color: #FEFDFC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 24px 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <a href="index.html#projekt" style="font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
+    </div>
+    <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 112px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end;">
+      <div style="flex: 1 1 520px; min-width: 0;">
+        <img src="assets/icons/vikingaappen-icon.png" alt="Vikingaappens logga: en runsten med flätade drakmotiv" style="display: block; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 0 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);">
+        <p style="margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0;">Kliv in i vikingatiden · The Viking Museum</p>
+        <h1 style="margin: 0 0 28px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 104px; line-height: 0.92;">Vikinga&#173;appen</h1>
+        <p style="margin: 0; max-width: 520px; font-size: 20px; line-height: 1.6; color: #C9D8CD;">Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet — och en ny webbsida som får fler att hitta dit.</p>
       </div>
-    </section>
+      <dl style="flex: 0 1 300px; margin: 0; display: grid; gap: 20px; padding-left: 28px; border-left: 1px solid rgba(169,196,176,0.35);">
+        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Min roll</dt><dd style="margin: 0; font-size: 16px;">Idégenerering &amp; visuellt koncept</dd></div>
+        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Team</dt><dd style="margin: 0; font-size: 16px;">Grupprojekt</dd></div>
+        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Tid</dt><dd style="margin: 0; font-size: 16px;">Aug–sep 2026</dd></div>
+      </dl>
+    </div>
+  </section>
 
-    <div class="case-body">
-      <div class="container">
-
-        <!-- 1. UTMANINGEN -->
-        <section class="case-section" aria-labelledby="utmaningen">
-          <span class="eyebrow">01 · Utmaningen</span>
-          <h2 id="utmaningen">Mer digital närvaro — och fler som faktiskt kommer dit</h2>
-          <p>
-            Museet ville synas mer digitalt, i hopp om att fler skulle få upp ögonen för
-            verksamheten och komma dit. Målgruppen var barnfamiljer och utländska turister,
-            och museet ville gärna ha någon form av infotainment.
-          </p>
-          <p>
-            Briefen hade en mening som jag tog på allvar: etiska och moraliska hänsyn är lika
-            viktiga som idé, funktion och design. När målgruppen är barn blir det inte en bisak.
-          </p>
-
-          <table class="case-table">
-            <caption class="sr-only">Vad briefen bad om och hur vi svarade</caption>
-            <thead>
-              <tr><th scope="col">Briefen sa</th><th scope="col">Vårt svar</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Barnfamiljer och utländska turister</td><td>Fokus på barn, val av språk direkt på startsidan, välj antal deltagare</td></tr>
-              <tr><td>Infotainment</td><td>Lära genom att göra: runskrift, pärlhalsband, quiz och stationer i utställningen</td></tr>
-              <tr><td>Etik lika viktigt som design</td><td>Privacy by design: inga namn, ingen inloggning, frivillig delning</td></tr>
-              <tr><td>Gärna något som leder till museet</td><td>En kod att visa i Gift Shop som belöning, och en länk till museet när man delar</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- 2. RESEARCH -->
-        <section class="case-section" aria-labelledby="research">
-          <span class="eyebrow">02 · Research</span>
-          <h2 id="research">Hur gör andra museer?</h2>
-          <p>
-            Innan vi bestämde något kollade vi hur andra museer använder digitala lösningar,
-            för att se vad som redan finns och var det fanns utrymme för något nytt.
-          </p>
-          <div class="media-slot" role="img" aria-label="Bild kommer: omvärldsbevakning">Bild kommer: omvärldsbevakning / inspiration från FigJam</div>
-        </section>
-
-        <!-- 3. IDÉN -->
-        <section class="case-section" aria-labelledby="iden">
-          <span class="eyebrow">03 · Idén</span>
-          <h2 id="iden">Från post-it-lappar till ett äventyr</h2>
-          <p>
-            Det mesta av min tid i projektet gick till idégenereringen. Briefen var öppen —
-            app eller hemsida, gärna nya idéer — så vi började brett och smalnade av.
-          </p>
-          <p>
-            Det vi landade i var en app som guidar barnen genom museet som ett äventyr, med
-            uppgifter i utställningen, plus en ny webbsida som gör museet synligt även för den
-            som inte varit där än.
-          </p>
-          <div class="media-slot" role="img" aria-label="Bild kommer: idégenerering">Bild kommer: brainstorm och tankekarta</div>
-        </section>
-
-        <!-- 4. VISUELLT KONCEPT -->
-        <section class="case-section" aria-labelledby="visuellt">
-          <span class="eyebrow">04 · Visuellt koncept</span>
-          <h2 id="visuellt">Färger hämtade direkt ur utställningen</h2>
-          <p>
-            Jag ville att appen skulle kännas som en förlängning av museet, inte som ett
-            spel som råkar handla om vikingar. Så färgerna kommer från materialen i
-            utställningen: trä, sten, ull, metall och eld. Referenserna var snidade dörrar,
-            runstenar, runalfabetet, torshammare och långskepp.
-          </p>
-          <ul class="palette" aria-label="Färgpalett">
-            <li class="swatch"><span style="background:#7F5539"></span><p>Trä <code>#7F5539</code></p></li>
-            <li class="swatch"><span style="background:#A68A64"></span><p>Sand <code>#A68A64</code></p></li>
-            <li class="swatch"><span style="background:#EDE0D4"></span><p>Ben <code>#EDE0D4</code></p></li>
-            <li class="swatch"><span style="background:#656D4A"></span><p>Mossa <code>#656D4A</code></p></li>
-            <li class="swatch"><span style="background:#414833"></span><p>Skog <code>#414833</code></p></li>
-            <li class="swatch"><span style="background:#8C1C13"></span><p>Runröd <code>#8C1C13</code></p></li>
-            <li class="swatch"><span style="background:#D5AD1B"></span><p>Ockra <code>#D5AD1B</code></p></li>
-            <li class="swatch"><span style="background:#004E64"></span><p>Fjord <code>#004E64</code></p></li>
-          </ul>
-          <div class="media-slot" role="img" aria-label="Bild kommer: moodboard">Bild kommer: moodboard med referenser</div>
-        </section>
-
-        <!-- 5. APPEN -->
-        <section class="case-section" aria-labelledby="appen">
-          <span class="eyebrow">05 · Appen</span>
-          <h2 id="appen">Ett äventyr i sex steg</h2>
-          <ol class="flow">
-            <li><strong>Startsida.</strong> Välkommen, välj språk och börja.</li>
-            <li><strong>Inställningar.</strong> Textstorlek, tillgänglighet, mörkt eller ljust läge, antal deltagare och svårighetsgrad.</li>
-            <li><strong>Intro till äventyret.</strong> Välj mellan olika äventyr.</li>
-            <li><strong>Uppgifter.</strong> Besök stationer, tyda eller skapa runskrift, fråga guiderna, gör ett pärlhalsband och svara på quizfrågor om utställningen.</li>
-            <li><strong>Outro.</strong> Slutet på berättelsen, positiv feedback oavsett resultat och en kod att visa i Gift Shop.</li>
-            <li><strong>Sista sidan.</strong> Belöning, och möjlighet att dela sin vikingaberättelse — om man vill.</li>
-          </ol>
-          <div class="media-slot" role="img" aria-label="Bild kommer: appens skärmar">Bild kommer: färdiga skärmar från appen</div>
-        </section>
-
-        <!-- 6. ETIK -->
-        <section class="case-section" aria-labelledby="etik">
-          <span class="eyebrow">06 · Etik som designmaterial</span>
-          <h2 id="etik">Ingen delar sitt namn</h2>
-          <p>
-            Vi uppdaterade hela flödet utifrån privacy by design och EU:s regler. Barnen väljer
-            ett förvalt eller slumpat vikinganamn i stället för sitt eget. Det finns ingen
-            inloggning och inget konto. Delning sker bara om barnet själv vill, via telefonens
-            egen delningsfunktion.
-          </p>
-          <p>
-            Samma tanke ligger bakom feedbacken i slutet: alla får positiv feedback, oavsett
-            resultat. Man ska gå därifrån med känslan att det var roligt — inte att man
-            misslyckades på ett museum.
-          </p>
-          <blockquote class="case-quote">
-            <p>När målgruppen är barn är etiken inte en checklista i slutet. Den är en del av designen från första skissen.</p>
-          </blockquote>
-        </section>
-
-        <!-- 7. WEBBSIDAN -->
-        <section class="case-section" aria-labelledby="webbsidan">
-          <span class="eyebrow">07 · Webbsidan</span>
-          <h2 id="webbsidan">En ny webbsida för museet</h2>
-          <p>
-            Utöver appen gjorde vi om museets webbsida, så att den som letar efter något att
-            göra hittar dit — och förstår vad som väntar innan de kommer.
-          </p>
-          <div class="media-slot" role="img" aria-label="Bild kommer: webbsidan">Bild kommer: den nya webbsidan</div>
-        </section>
-
-        <!-- 8. LÄRDOMAR -->
-        <section class="case-section" aria-labelledby="lardomar">
-          <span class="eyebrow">08 · Vad jag lärde mig</span>
-          <h2 id="lardomar">Att designa för barn är att designa för trygghet</h2>
-          <p>
-            Det roliga var lätt att få till — runor, quiz och pärlhalsband säljer sig själva.
-            Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det,
-            och hur känns det att svara fel? Jag tar med mig att de tråkiga frågorna ofta är de
-            viktigaste, och att de är enklast att lösa tidigt.
-          </p>
-        </section>
-
+  <!-- Brief as museum plaques: what they asked / what we did -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 1 · Uppdraget</p>
+    <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">Fyra rader i briefen, fyra svar</h2>
+    <p style="margin: 0 0 48px; max-width: 620px; font-size: 17px; line-height: 1.75;">Briefen hade en mening som jag tog på allvar: etiska hänsyn är lika viktiga som idé, funktion och design. När målgruppen är barn blir det inte en bisak.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div style="background: #FEFDFC; border-radius: 4px; border-top: 6px solid #7F5539; padding: 24px;">
+        <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #7F5539;">Briefen: barnfamiljer &amp; turister</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1.3;">Fokus på barn, välj språk direkt, välj antal deltagare.</p>
+      </div>
+      <div style="background: #FEFDFC; border-radius: 4px; border-top: 6px solid #656D4A; padding: 24px;">
+        <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #4F5639;">Briefen: infotainment</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1.3;">Lära genom att göra: runor, pärlhalsband, quiz.</p>
+      </div>
+      <div style="background: #FEFDFC; border-radius: 4px; border-top: 6px solid #8C1C13; padding: 24px;">
+        <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #8C1C13;">Briefen: etik lika viktigt</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1.3;">Inga namn, ingen inloggning, frivillig delning.</p>
+      </div>
+      <div style="background: #FEFDFC; border-radius: 4px; border-top: 6px solid #004E64; padding: 24px;">
+        <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #004E64;">Briefen: led till museet</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1.3;">En kod att visa i Gift Shop som belöning.</p>
       </div>
     </div>
+  </section>
 
-    <!-- NÄSTA -->
-    <section class="case-next on-dark" aria-labelledby="nasta">
-      <div class="container">
-        <span class="eyebrow">Fler projekt</span>
-        <h2 id="nasta">Vill du se mer?</h2>
-        <div class="btn-group">
-          <a class="btn btn-jade" href="index.html#projekt"><span class="arrow" aria-hidden="true">←</span> Alla projekt</a>
-          <a class="btn btn-jade" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
+  <!-- Visual concept: moodboard wall + palette as material samples -->
+  <section style="background: #FEFDFC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
+      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 2 · Visuellt koncept — mitt ansvar</p>
+      <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">Färger hämtade ur utställningen</h2>
+      <p style="margin: 0 0 40px; max-width: 620px; font-size: 17px; line-height: 1.75;">Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.</p>
+      <div class="mood-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 140px; gap: 12px; margin-bottom: 40px;">
+        <div style="grid-column: span 2; grid-row: span 2; background: #E2D6C8; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Snidad dörr]</div>
+        <div style="background: #E2D6C8; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Runsten]</div>
+        <div style="background: #E2D6C8; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Runalfabet]</div>
+        <div style="background: #E2D6C8; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Torshammare]</div>
+        <div style="background: #E2D6C8; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Långskepp]</div>
       </div>
-    </section>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; border-radius: 4px; overflow: hidden;">
+        <div style="background: #7F5539; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Trä</div>
+        <div style="background: #A68A64; color: #28352C; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Sand</div>
+        <div style="background: #EDE0D4; color: #28352C; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Ben</div>
+        <div style="background: #656D4A; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Mossa</div>
+        <div style="background: #414833; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Skog</div>
+        <div style="background: #8C1C13; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Runröd</div>
+        <div style="background: #D5AD1B; color: #28352C; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Ockra</div>
+        <div style="background: #004E64; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Fjord</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- The app as a museum route: six stations on a path -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 3 · Appen</p>
+    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">En vandring i sex stationer</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; border-top: 2px dashed #7F5539; padding-top: 0;">
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">1</p><h3 style="margin: 0 0 6px; font-size: 16px;">Startsida</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Välkommen, välj språk, börja.</p></li>
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">2</p><h3 style="margin: 0 0 6px; font-size: 16px;">Inställningar</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Textstorlek, tillgänglighet, mörkt läge, deltagare, svårighet.</p></li>
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">3</p><h3 style="margin: 0 0 6px; font-size: 16px;">Intro</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Välj mellan olika äventyr.</p></li>
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">4</p><h3 style="margin: 0 0 6px; font-size: 16px;">Uppgifter</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Stationer, runskrift, fråga guiderna, pärlhalsband, quiz.</p></li>
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">5</p><h3 style="margin: 0 0 6px; font-size: 16px;">Outro</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Positiv feedback oavsett resultat. Kod till Gift Shop.</p></li>
+      <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #8C1C13; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">6</p><h3 style="margin: 0 0 6px; font-size: 16px;">Sista sidan</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Belöning, och dela — om man vill.</p></li>
+    </ol>
+    <div style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
+      <div style="flex: 0 1 220px; height: 440px; border-radius: 32px; border: 8px solid #28352C; background: #FEFDFC; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Skärm: start]</div>
+      <div style="flex: 0 1 220px; height: 440px; border-radius: 32px; border: 8px solid #28352C; background: #FEFDFC; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Skärm: uppgift]</div>
+      <div style="flex: 0 1 220px; height: 440px; border-radius: 32px; border: 8px solid #28352C; background: #FEFDFC; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Skärm: belöning]</div>
+    </div>
+  </section>
+
+  <!-- Ethics: dark room, three principles -->
+  <section style="background: #1E2235; color: #FEFDFC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 112px 32px;">
+      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0;">Sal 4 · Etik som designmaterial</p>
+      <h2 style="margin: 0 0 56px; max-width: 760px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1.05;">Ingen delar sitt namn.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px;">
+        <div><p style="margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #A9C4B0;">Förvalt namn</p><p style="margin: 0; font-size: 16px; line-height: 1.75; color: #C6CCDA;">Barnen väljer ett förvalt eller slumpat vikinganamn i stället för sitt eget.</p></div>
+        <div><p style="margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #A9C4B0;">Ingen inloggning</p><p style="margin: 0; font-size: 16px; line-height: 1.75; color: #C6CCDA;">Inget konto, ingen data som kan kopplas till ett barn. Byggt utifrån privacy by design och EU:s regler.</p></div>
+        <div><p style="margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #A9C4B0;">Frivillig delning</p><p style="margin: 0; font-size: 16px; line-height: 1.75; color: #C6CCDA;">Bara om barnet vill — via telefonens egen delningsfunktion. Och alla får positiv feedback, oavsett resultat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Website + learnings -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 5 · Webbsidan</p>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">En ny webbsida för museet</h2>
+    <div style="height: 460px; border-radius: 12px; background: #FEFDFC; border: 1px solid #D8C8B6; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Den nya webbsidan, desktop]</div>
+  </section>
+
+  <section style="background: #28352C; color: #FEFDFC;">
+    <div style="max-width: 820px; margin: 0 auto; padding: 112px 32px; text-align: center;">
+      <p style="margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0;">Utgång · Vad jag lärde mig</p>
+      <p style="margin: 0 0 28px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 44px; line-height: 1.2;">”Att designa för barn är att designa för trygghet.”</p>
+      <p style="margin: 0 auto; max-width: 600px; font-size: 17px; line-height: 1.75; color: #C9D8CD;">Det roliga var lätt att få till. Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det, och hur känns det att svara fel?</p>
+    </div>
+  </section>
+
+</div>
   </main>
 
   <!-- 7. FOOTER -->
