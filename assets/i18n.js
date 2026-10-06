@@ -159,6 +159,7 @@
     'Min roll': 'My role',
     'Idégenerering & visuellt koncept': 'Ideation & visual concept',
     'Grupprojekt': 'Group project',
+    'Mobilapp & webb': 'Mobile app & web',
     'Tid': 'Timeline',
     'Aug–sep 2026': 'Aug–Sep 2026',
     'Sal 1 · Uppdraget': 'Room 1 · The brief',
