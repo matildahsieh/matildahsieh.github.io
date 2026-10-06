@@ -757,6 +757,51 @@
     }
     .footer-meta p:first-child { letter-spacing: 0.14em; }
 
+    /* Footer contact: email (click to copy) + LinkedIn */
+    .footer-contact {
+      text-align: right;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--footer-text);
+    }
+    .footer-contact a {
+      color: var(--off-white);
+      text-decoration: none;
+      transition: color var(--ease);
+    }
+    .footer-contact a:hover {
+      color: var(--jade-500);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+
+    /* "Copied" toast — centred without transform so reduced-motion can't shift it */
+    .copy-toast {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: var(--space-6);
+      width: max-content;
+      max-width: calc(100% - 32px);
+      margin: 0 auto;
+      padding: 10px 20px;
+      background: var(--jade-700);      /* #66816E is 3.9:1 with white; this passes AA */
+      color: var(--off-white);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 300;
+    }
+    .copy-toast.show { opacity: 1; }
+    @media (max-width: 768px) {
+      .footer-contact { text-align: left; }
+    }
+
     /* ==========================================================
        RESPONSIVE — 768px
        ========================================================== */
@@ -1081,9 +1126,10 @@
           <span class="logo-title">UX Designer</span>
         </span>
       </a>
-      <div class="footer-meta">
-        <p>MATILDA HSIEH · 2026</p>
-        <p>UX Design · Nackademin Stockholm</p>
+      <div class="footer-contact">
+        <a href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se">matilda.hsieh@yh.nackademin.se</a><br>
+        <a href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (öppnas i ny flik)</span></a>
+        <p class="footer-contact__copy">© MATILDA HSIEH · 2026</p>
       </div>
     </div>
   </footer>
@@ -1180,6 +1226,30 @@
           if (section) observer.observe(section);
         });
       }
+    })();
+  </script>
+  <!-- "Copied" feedback: visible toast + screen-reader announcement -->
+  <div id="copy-toast" class="copy-toast" aria-hidden="true">✓ E-postadressen kopierades</div>
+  <div id="copy-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    (function () {
+      var toast = document.getElementById('copy-toast');
+      var announce = document.getElementById('copy-announce');
+      var timer;
+      document.querySelectorAll('a[data-copy]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          // No clipboard (old browser, insecure page)? Let the mailto link work normally.
+          if (!navigator.clipboard || !window.isSecureContext) return;
+          e.preventDefault();
+          navigator.clipboard.writeText(link.getAttribute('data-copy')).then(function () {
+            clearTimeout(timer);
+            toast.classList.add('show');
+            announce.textContent = '';
+            requestAnimationFrame(function () { announce.textContent = 'E-postadressen kopierades'; });
+            timer = setTimeout(function () { toast.classList.remove('show'); }, 2500);
+          }, function () { window.location.href = link.href; });
+        });
+      });
     })();
   </script>
 </body>
