@@ -611,6 +611,14 @@
       color: var(--jade-dark);
     }
     .card-icon-circle svg { width: 28px; height: 28px; }
+    /* 3D icons float freely above the card, with a soft shadow for depth */
+    .card-icon-3d {
+      display: block;
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(30, 34, 53, 0.18));
+    }
     .card-icon-image {
       display: block;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -623,7 +631,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px 20px;
+      padding: 56px 20px 20px;   /* room for the 76px floating icon */
       text-align: center;
       border-radius: var(--radius-md);
       transition: all 0.25s ease;
@@ -1150,9 +1158,7 @@
           <!-- Hemly card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
-              <span class="card-icon-circle card-icon-circle--hemly">
-                <img src="assets/icons/hemly-mug-plum.png" alt="" width="22" height="32">
-              </span>
+              <img class="card-icon-3d" src="assets/icons/case-hemly.png" alt="" width="76" height="76">
             </div>
             <div class="project-card project-card--plum">
               <p class="project-meta" data-i18n="hemly-meta">UI-design · Soloprojekt</p>
@@ -1176,12 +1182,7 @@
           <!-- Tillgänglighet card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
-              <span class="card-icon-circle">
-                <!-- Lucide "accessibility" icon (♿) -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                  <circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/>
-                </svg>
-              </span>
+              <img class="card-icon-3d" src="assets/icons/case-tillganglighet.png" alt="" width="76" height="76">
             </div>
             <div class="project-card project-card--warm">
               <p class="project-meta" data-i18n="tillg-meta">2025 · Tillgänglighet</p>
@@ -1204,16 +1205,8 @@
 
           <!-- Vikingaappen card -->
           <article class="project-card-wrapper">
-            <div class="card-icon-float">
-              <img
-                class="card-icon-image"
-                src="assets/icons/vikingaappen-icon.png"
-                alt=""
-                aria-hidden="true"
-                width="68"
-                height="68"
-                style="border-radius: 50%; object-fit: cover;"
-              >
+            <div class="card-icon-float" aria-hidden="true">
+              <img class="card-icon-3d" src="assets/icons/case-vikingaappen.png" alt="" width="76" height="76">
             </div>
             <div class="project-card project-card--forest">
               <p class="project-meta" data-i18n="viking-meta">2026 · Grupprojekt</p>
