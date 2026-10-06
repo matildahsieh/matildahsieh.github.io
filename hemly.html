@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matilda Hsieh · UX Designer</title>
-  <meta name="description" content="Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026.">
+  <title>Hemly · Matilda Hsieh</title>
+  <meta name="description" content="Case study: Hemly — UI-design av en app för expresshandling, för den spontana myskvällen.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
@@ -40,11 +42,7 @@
       --footer-border: #191C2C;
       --brand-dark-hover: #12152A;
       --jade-hover: #97B39F;
-      --text-on-forest-muted: #9DB0A2;
-      --hemly-plum: #382349;            /* Hemly brand colours, from the project */
-      --hemly-cream: #FFF4E8;
-      --hemly-cream-hover: #F2E3D2;
-      --text-on-plum-muted: #C9BBD3;    /* 8:1 on plum */  /* muted text on jade-dark, 5.6:1 */
+      --text-on-forest-muted: #9DB0A2;  /* muted text on jade-dark, 5.6:1 */
 
       /* Typography */
       --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -507,6 +505,13 @@
       pointer-events: none;
       gap: 4px;
     }
+    .card-icon-torii {
+      --torii-fill: var(--jade-500);
+      --torii-stroke: none;
+      --torii-feet: var(--jade-500);
+      width: 56px;
+      height: 68px;
+    }
     .card-icon-circle {
       display: flex;
       align-items: center;
@@ -595,35 +600,31 @@
     }
     .project-card .btn { margin-top: auto; }
 
-    /* Card — Hemly (plum, the project's own brand colours) */
-    .card-icon-circle--hemly {
-      background: var(--hemly-cream);
-      color: var(--hemly-plum);
+    /* Card 1 — Hold-it! (dark) */
+    .project-card--dark {
+      --card-glow: rgba(169, 196, 176, 0.14);
+      background: var(--brand-dark);
+      color: var(--off-white);
     }
-    .project-card--plum {
-      --card-glow: rgba(255, 244, 232, 0.10);
-      background: var(--hemly-plum);
-      color: var(--hemly-cream);
+    .project-card--dark .project-meta { color: var(--jade-500); }
+    .project-card--dark .project-title { color: var(--off-white); }
+    .project-card--dark .project-desc { color: var(--footer-text); }   /* #76809D is 4.0:1 here; this passes AA */
+    .project-card--dark .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--dark .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
     }
-    .project-card--plum .project-meta { color: var(--hemly-cream); }
-    .project-card--plum .project-title { color: var(--hemly-cream); }
-    .project-card--plum .project-desc { color: var(--text-on-plum-muted); }
-    .project-card--plum .project-divider { background: rgba(255, 244, 232, 0.18); }
-    .project-card--plum .tag {
-      background: rgba(255, 244, 232, 0.12);
-      color: var(--hemly-cream);
-      border-color: rgba(255, 244, 232, 0.25);
+    .project-card--dark .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--brand-dark);
     }
-    .project-card--plum .btn-primary {
-      background: var(--hemly-cream);
-      border-color: var(--hemly-cream);
-      color: var(--hemly-plum);
+    .project-card--dark .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
     }
-    .project-card--plum .btn-primary:hover {
-      background: var(--hemly-cream-hover);
-      border-color: var(--hemly-cream-hover);
-    }
-    .project-card--plum :focus-visible { outline-color: var(--hemly-cream); }
+    .project-card--dark :focus-visible { outline-color: var(--jade-500); }
 
     /* Card 2 — Tillgänglighet (warm) */
     .project-card--warm {
@@ -814,6 +815,260 @@
       }
       .footer-meta { text-align: left; }
     }
+    /* ==========================================================
+       CASE STUDY
+       ========================================================== */
+    .case-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      padding: var(--space-8) 0 var(--space-8);
+    }
+    .case-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 100%, rgba(169, 196, 176, 0.14) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .case-hero .container { position: relative; z-index: 1; }
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--jade-500);
+      text-decoration: none;
+    }
+    .case-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .case-hero-top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    .case-hero-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+    .case-hero .eyebrow { color: var(--jade-500); margin-bottom: var(--space-2); }
+    .case-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .case-lead {
+      max-width: var(--max-text);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-on-forest-muted);
+      margin-bottom: var(--space-7);
+    }
+    .case-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      margin: 0;
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(169, 196, 176, 0.2);
+    }
+    .case-facts dt {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--jade-500);
+      margin-bottom: var(--space-1);
+    }
+    .case-facts dd { margin: 0; font-size: 14px; color: var(--off-white); }
+
+    .case-body { background: var(--bg-primary); padding: var(--space-8) 0 var(--space-9); }
+    .case-section {
+      max-width: 720px;
+      margin: 0 auto var(--space-8);
+    }
+    .case-section:last-child { margin-bottom: 0; }
+    .case-section .eyebrow { color: var(--text-muted-aa); }
+    .case-section h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-dark);
+      margin-bottom: var(--space-4);
+    }
+    .case-section h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin: var(--space-6) 0 var(--space-3);
+    }
+    .case-section p,
+    .case-section li {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+    .case-section p + p { margin-top: var(--space-4); }
+
+    .case-quote {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      border-left: 3px solid var(--jade-600);
+      background: var(--bg-jade-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .case-quote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--jade-dark);
+    }
+
+    /* Brief → design answer table */
+    .case-table {
+      width: 100%;
+      margin-top: var(--space-5);
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .case-table th,
+    .case-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--bg-secondary);
+    }
+    .case-table th {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted-aa);
+    }
+    .case-table td:first-child { color: var(--text-secondary); width: 45%; }
+    .case-table td:last-child { color: var(--jade-dark); font-weight: 600; }
+
+    /* Palette */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .swatch {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+    }
+    .swatch span { display: block; height: 64px; }
+    .swatch p {
+      padding: var(--space-2) var(--space-3);
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+    }
+    .swatch code { font-size: 11px; color: var(--text-muted-aa); }
+
+    /* App flow */
+    .flow {
+      display: grid;
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .flow li {
+      position: relative;
+      padding: var(--space-4) var(--space-5) var(--space-4) 64px;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      counter-increment: step;
+    }
+    .flow li::before {
+      content: counter(step);
+      position: absolute;
+      left: var(--space-5);
+      top: var(--space-4);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .flow strong { color: var(--brand-dark); }
+
+    /* Image slots — replaced with real media before launch */
+    .media-slot {
+      display: grid;
+      place-items: center;
+      margin: var(--space-6) 0;
+      min-height: 280px;
+      padding: var(--space-5);
+      text-align: center;
+      background: repeating-linear-gradient(-45deg, var(--bg-secondary), var(--bg-secondary) 10px, var(--bg-primary) 10px, var(--bg-primary) 20px);
+      border: 1px dashed var(--brand-mid);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted-aa);
+    }
+
+    .case-next {
+      background: var(--brand-dark);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
+    .case-next .eyebrow { color: var(--jade-500); }
+    .case-next h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--off-white);
+      margin-bottom: var(--space-5);
+    }
+    .case-next .btn-group { justify-content: center; }
+
+    @media (max-width: 768px) {
+      .case-title { font-size: 40px; }
+      .case-hero-icon { width: 64px; height: 64px; }
+      .case-facts { grid-template-columns: repeat(2, 1fr); }
+      .palette { grid-template-columns: repeat(2, 1fr); }
+      .case-table th, .case-table td { padding: var(--space-3) var(--space-2); }
+      .media-slot { min-height: 200px; }
+    }
+
+
+    /* Case pages built from the canvas layouts */
+    .case-page img { max-width: 100%; }
+    @media (max-width: 768px) {
+      .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
+      .case-page h2 { font-size: 34px !important; }
+      .mood-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .mood-grid > div:first-child { grid-column: span 2 !important; }
+      .facts-3 { grid-template-columns: 1fr !important; }
+      .phone-hero { width: 240px !important; height: 500px !important; }
+    }
   </style>
 </head>
 <body>
@@ -867,7 +1122,7 @@
         Söker praktik · Vinter 2026
       </p>
       <div class="banner-actions">
-        <a class="banner-link" href="#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
+        <a class="banner-link" href="index.html#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
         <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet">
           <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
         </button>
@@ -894,7 +1149,7 @@
         </button>
         <ul class="nav-links" id="nav-links">
           <li>
-            <a class="nav-link" href="#projekt" data-section="projekt">
+            <a class="nav-link" href="index.html#projekt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-grid"/></svg>
               Projekt
             </a>
@@ -906,7 +1161,7 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="#kontakt" data-section="kontakt">
+            <a class="nav-link" href="index.html#kontakt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
               Kontakt
             </a>
@@ -916,159 +1171,136 @@
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main id="main" tabindex="-1" class="case-page">
+<div style="background: #FFF4E8; color: #382349; font-family: 'IBM Plex Sans', system-ui, sans-serif; min-height: 100%;">
 
-    <!-- 3. HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <svg class="hero-ghost torii-ghost" viewBox="0 0 61 66" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
-      <div class="container hero-content">
-        <span class="eyebrow">UX Designer · Stockholm</span>
-        <h1 class="hero-title" id="hero-title">
-          <span class="hero-title-first">MATILDA</span>
-          <span class="hero-title-last">HSIEH</span>
-        </h1>
-        <hr class="accent-line" aria-hidden="true">
-        <p class="hero-text">
-          Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur
-          människor tänker, känner och navigerar.
-        </p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="#projekt">Se projekt <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-secondary" href="om-mig.html">Om mig</a>
+  <!-- Portfolio bar -->
+  <div style="border-bottom: 1px solid #E8D9C8; background: #FEFDFC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+      <a href="index.html#projekt" style="font-size: 14px; font-weight: 500; text-decoration: none;">← Alla projekt</a>
+    </div>
+  </div>
+
+  <!-- Hero: product-led, phone on the right -->
+  <section style="background: #382349; color: #FFF4E8;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 80px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center;">
+      <div style="flex: 1 1 460px; min-width: 0;">
+        <p style="margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;">Case study · UI-design · Soloprojekt</p>
+        <h1 style="margin: 0 0 28px;"><img src="assets/icons/hemly-logo-cream.png" alt="Hemly" style="display: block; height: 110px; width: auto;"></h1>
+        <p style="margin: 0 0 32px; max-width: 480px; font-size: 20px; line-height: 1.6; color: #E4D8EC;">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling — snacks, godis och dryck hemma inom tio minuter.</p>
+        <dl class="facts-3" style="margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,244,232,0.2);">
+          <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Roll</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Research, designsystem &amp; UI</dd></div>
+          <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Team</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Soloprojekt</dd></div>
+          <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Plattform</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Mobilapp</dd></div>
+        </dl>
+      </div>
+      <div class="phone-hero" style="flex: 0 1 300px; margin: 0 auto; width: 300px; height: 620px; border-radius: 44px; background: #FFF4E8; border: 10px solid #1f1229; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; color: #382349; font-size: 14px; font-weight: 500;">[Hemly startskärm]</div>
+    </div>
+  </section>
+
+  <!-- Brief as a 3-up spec, mirrors her own slide -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 48px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">01 · Projektöversikt</p>
+    <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Den spontana myskvällen</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+      <div style="background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 16px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 26px;">Målgrupp</h3>
+        <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.8;">
+          <li>Unga vuxna 20–35 år</li><li>Bor i storstad</li><li>Värderar snabbhet och enkelhet</li><li>Gör spontana köp</li>
+        </ul>
+      </div>
+      <div style="background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 16px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 26px;">Use case</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7;">Att snabbt och enkelt kunna beställa snacks, godis och dryck när skafferiet är tomt och filmen redan har startat.</p>
+      </div>
+      <div style="background: #382349; color: #FFF4E8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 16px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 26px;">Mål</h3>
+        <p style="margin: 0; font-size: 22px; line-height: 1.45; font-family: 'IBM Plex Serif', serif;">Expresshandling inom <span style="font-size: 40px;">10</span> minuter — snabb, intuitiv och visuellt tilltalande.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process as a 3-step rail -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">02 · Processen</p>
+    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Inspiration → struktur → visuellt</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 2px solid #382349;">
+      <li style="padding: 24px 24px 0 0;">
+        <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 48px; line-height: 1;">1</p>
+        <h3 style="margin: 0 0 8px; font-size: 18px; font-weight: 600;">Inspiration</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4A3858;">Referensappar som foodora, Mathem och Willys, plus Dribbble och Mobbin — för att förstå konventionerna inom grocery.</p>
+      </li>
+      <li style="padding: 24px 24px 0 0;">
+        <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 48px; line-height: 1;">2</p>
+        <h3 style="margin: 0 0 8px; font-size: 18px; font-weight: 600;">Struktur</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4A3858;">Ett mini-designsystem först: färgpalett, typskala och komponenter.</p>
+      </li>
+      <li style="padding: 24px 0 0 0;">
+        <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 48px; line-height: 1;">3</p>
+        <h3 style="margin: 0 0 8px; font-size: 18px; font-weight: 600;">Visuellt</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4A3858;">Vyerna — med ett konsekvent uttryck utan att fatta samma beslut om och om igen.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Design system as a style-guide sheet -->
+  <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
+    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">03 · Designsystemet</p>
+    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Bestäm en gång, använd överallt</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+      <div style="flex: 1 1 320px; min-width: 0; background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">Färg</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div><div style="height: 72px; border-radius: 10px; background: #382349;"></div><p style="margin: 8px 0 0; font-size: 13px;">Plommon · #382349</p></div>
+          <div><div style="height: 72px; border-radius: 10px; background: #FFF4E8; border: 1px solid #E8D9C8;"></div><p style="margin: 8px 0 0; font-size: 13px;">Kräm · #FFF4E8</p></div>
+          <div><div style="height: 72px; border-radius: 10px; background: #E8D9C8; display: flex; align-items: center; justify-content: center; font-size: 12px;">[accent]</div><p style="margin: 8px 0 0; font-size: 13px;">[Accent · #HEX]</p></div>
+          <div><div style="height: 72px; border-radius: 10px; background: #E8D9C8; display: flex; align-items: center; justify-content: center; font-size: 12px;">[status]</div><p style="margin: 8px 0 0; font-size: 13px;">[Status · #HEX]</p></div>
         </div>
       </div>
-    </section>
-
-    <!-- 4. PROJEKT -->
-    <section class="section projects" id="projekt" aria-labelledby="projekt-title">
-      <div class="container">
-        <span class="eyebrow">Utvalda projekt</span>
-        <h2 class="section-title" id="projekt-title">Mina case studies</h2>
-
-        <div class="project-grid">
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <span class="card-icon-circle card-icon-circle--hemly">
-                <img src="assets/icons/hemly-mug-plum.png" alt="" width="22" height="32">
-              </span>
-            </div>
-            <div class="project-card project-card--plum">
-              <p class="project-meta">UI-design · Soloprojekt</p>
-              <h3 class="project-title">Hemly</h3>
-              <p class="project-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">UI-design</li>
-                <li class="tag">Designsystem</li>
-                <li class="tag">Mobilapp</li>
-              </ul>
-              <a class="btn btn-primary" href="hemly.html"
-                 aria-label="Läs mer om Hemly — UI-design av en app för expresshandling">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <span class="card-icon-circle">
-                <!-- Lucide "accessibility" icon (♿) -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                  <circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/>
-                </svg>
-              </span>
-            </div>
-            <div class="project-card project-card--warm">
-              <p class="project-meta">2025 · Tillgänglighet</p>
-              <h3 class="project-title">Tillgänglighet</h3>
-              <p class="project-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">WCAG 2.2</li>
-                <li class="tag">Tillgänglighet</li>
-                <li class="tag">E-handel</li>
-              </ul>
-              <a class="btn btn-primary" href="tillganglighet.html"
-                 aria-label="Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card-wrapper">
-            <div class="card-icon-float">
-              <img
-                class="card-icon-image"
-                src="assets/icons/vikingaappen-icon.png"
-                alt=""
-                aria-hidden="true"
-                width="68"
-                height="68"
-                style="border-radius: 50%; object-fit: cover;"
-              >
-            </div>
-            <div class="project-card project-card--forest">
-              <p class="project-meta">2026 · Grupprojekt</p>
-              <h3 class="project-title">Vikingaappen</h3>
-              <p class="project-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">Quiz-app</li>
-                <li class="tag">Visuellt koncept</li>
-                <li class="tag">Idégenerering</li>
-              </ul>
-              <a class="btn btn-primary" href="vikingaappen.html"
-                 aria-label="Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
+      <div style="flex: 1 1 320px; min-width: 0; background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">Typskala</h3>
+        <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 40px; line-height: 1.1;">Rubrik</p>
+        <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 26px;">Underrubrik</p>
+        <p style="margin: 0 0 8px; font-size: 16px;">Brödtext — IBM Plex Sans 16</p>
+        <p style="margin: 0; font-size: 13px; color: #6B5578;">Liten text · etiketter</p>
+      </div>
+      <div style="flex: 1 1 100%; background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
+        <h3 style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">Komponenter</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+          <span style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; border-radius: 50px; background: #382349; color: #FFF4E8; text-decoration: none; font-weight: 600;">Lägg i varukorg</span>
+          <span style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; border-radius: 50px; border: 1.5px solid #382349; color: #382349; text-decoration: none; font-weight: 600;">Se alla</span>
+          <div style="flex: 1 1 240px; min-height: 120px; border: 1px dashed #B9A6C6; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #6B5578;">[Produktkort från Figma]</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 5. OM MIG SNIPPET -->
-    <section class="section about on-dark" id="om-mig-snippet" aria-labelledby="om-mig-title">
-      <div class="container about-grid">
-        <div>
-          <span class="eyebrow">Om mig</span>
-          <h2 class="section-title" id="om-mig-title">Två kulturer. En designer.</h2>
-          <p class="about-text">
-            Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt
-            perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.
-          </p>
-          <a class="btn btn-jade" href="om-mig.html">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-        <figure class="quote">
-          <blockquote>
-            <p>
-              ”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer
-              än ett rätt svar — och att det bästa designbeslutet ofta hittas i
-              mellanrummet.”
-            </p>
-          </blockquote>
-          <figcaption>— Matilda Hsieh</figcaption>
-        </figure>
+  <!-- Screens: a filmstrip of phones -->
+  <section style="background: #F4E6D6; margin-top: 48px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
+      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">04 · Vyerna</p>
+      <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Från tomt skafferi till leverans</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
+        <figure style="margin: 0; flex: 0 1 240px;"><div style="height: 500px; border-radius: 36px; border: 8px solid #382349; background: #FFF4E8; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Start]</div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">[Vad skärmen visar]</figcaption></figure>
+        <figure style="margin: 0; flex: 0 1 240px;"><div style="height: 500px; border-radius: 36px; border: 8px solid #382349; background: #FFF4E8; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Kategori]</div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">[Vad skärmen visar]</figcaption></figure>
+        <figure style="margin: 0; flex: 0 1 240px;"><div style="height: 500px; border-radius: 36px; border: 8px solid #382349; background: #FFF4E8; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Varukorg]</div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">[Vad skärmen visar]</figcaption></figure>
+        <figure style="margin: 0; flex: 0 1 240px;"><div style="height: 500px; border-radius: 36px; border: 8px solid #382349; background: #FFF4E8; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Kassa]</div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">[Vad skärmen visar]</figcaption></figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 6. KONTAKT -->
-    <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
-      <div class="container">
-        <span class="eyebrow">Söker praktik · Vinter 2026</span>
-        <h2 class="section-title" id="kontakt-title">Låt oss prata design.</h2>
-        <p class="contact-text">
-          Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
-          berättar jag mer.
-        </p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="mailto:matilda.hsieh@yh.nackademin.se">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-sv.pdf" download>Ladda ner CV (svenska)</a>
-          <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en">Download CV (English)</a>
-        </div>
+  <!-- Reflection, full-bleed plum like her own slide -->
+  <section style="background: #382349; color: #FFF4E8;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px;">
+      <div style="flex: 1 1 320px; min-width: 0;">
+        <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;">05 · Reflektion</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #E4D8EC;">Mitt första misstag var att inte börja med style guiden. Det gjorde att det tog längre tid — med en struktur från start hade designprocessen gått mycket smidigare.</p>
       </div>
-    </section>
+      <blockquote style="flex: 2 1 480px; min-width: 0; margin: 0; font-family: 'IBM Plex Serif', serif; font-size: 40px; line-height: 1.25;">”Good enough — sen iterera. Inte sitta i timmar för att få det pixel perfect.”</blockquote>
+    </div>
+  </section>
 
+</div>
   </main>
 
   <!-- 7. FOOTER -->
