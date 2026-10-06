@@ -40,6 +40,7 @@
       --footer-border: #191C2C;
       --brand-dark-hover: #12152A;
       --jade-hover: #97B39F;
+      --text-on-forest-muted: #9DB0A2;  /* muted text on jade-dark, 5.6:1 */
 
       /* Typography */
       --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -478,7 +479,7 @@
     }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-6);
     }
 
@@ -487,7 +488,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      padding-top: 36px;
+      padding-top: 40px;
       transition: all 0.25s ease;
     }
     .card-icon-float {
@@ -522,6 +523,10 @@
       color: var(--jade-dark);
     }
     .card-icon-circle svg { width: 28px; height: 28px; }
+    .card-icon-image {
+      display: block;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
 
     .project-card {
       position: relative;
@@ -632,6 +637,32 @@
       background: rgba(40, 53, 44, 0.1);
       color: var(--jade-dark);
     }
+
+    /* Card 3 — Vikingaappen (forest green) */
+    .project-card--forest {
+      --card-glow: rgba(169, 196, 176, 0.12);
+      background: var(--jade-dark);
+      color: var(--off-white);
+    }
+    .project-card--forest .project-meta { color: var(--jade-500); }
+    .project-card--forest .project-title { color: var(--off-white); }
+    .project-card--forest .project-desc { color: var(--text-on-forest-muted); }
+    .project-card--forest .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--forest .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
+    }
+    .project-card--forest .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--jade-dark);
+    }
+    .project-card--forest .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
+    }
+    .project-card--forest :focus-visible { outline-color: var(--jade-500); }
 
     /* ==========================================================
        5. OM MIG SNIPPET
@@ -953,6 +984,35 @@
               </ul>
               <a class="btn btn-primary" href="tillganglighet.html"
                  aria-label="Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel">
+                Läs mer <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card-wrapper">
+            <div class="card-icon-float">
+              <img
+                class="card-icon-image"
+                src="assets/icons/vikingaappen-icon.png"
+                alt=""
+                aria-hidden="true"
+                width="68"
+                height="68"
+                style="border-radius: 50%; object-fit: cover;"
+              >
+            </div>
+            <div class="project-card project-card--forest">
+              <!-- TODO: byt ut platshållartexterna nedan -->
+              <p class="project-meta">2025 · App</p>
+              <h3 class="project-title">Vikingaappen</h3>
+              <p class="project-desc">Beskrivning av projektet kommer snart.</p>
+              <hr class="project-divider">
+              <ul class="tags" aria-label="Taggar">
+                <li class="tag">App</li>
+                <li class="tag">UX/UI</li>
+              </ul>
+              <a class="btn btn-primary" href="vikingaappen.html"
+                 aria-label="Läs mer om Vikingaappen">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
