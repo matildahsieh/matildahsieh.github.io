@@ -44,4 +44,4 @@ Professionell men mänsklig. Driven men ödmjuk. Tydlig utan att vara torr. Form
 
 ---
 
-Matilda Hsieh · UX/UI Designer · Nackademin 2026
+Matilda Hsieh · UX Designer · Nackademin 2026
