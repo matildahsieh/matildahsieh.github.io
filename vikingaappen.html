@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vikingaappen · Matilda Hsieh</title>
+  <meta name="description" content="Case study: Vikingaappen — en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       DESIGN TOKENS
+       ========================================================== */
+    :root {
+      /* Colors — design system */
+      --bg-primary: #F2F3F7;
+      --bg-secondary: #DDE1EA;
+      --bg-warm: #E4DDD6;
+      --bg-jade-light: #E3EEE5;
+      --brand-dark: #1E2235;
+      --brand-mid: #76809D;
+      --jade-500: #A9C4B0;
+      --jade-dark: #28352C;
+      --off-white: #FEFDFC;
+      --text-primary: #05070B;
+      --text-secondary: #131521;
+      --text-muted: #76809D;
+
+      /* Supporting colors */
+      --jade-600: #66816E;          /* jade for large text on light backgrounds (≥3:1) */
+      --jade-700: #4A6553;          /* jade for small text on light backgrounds (≥4.5:1) */
+      --jade-border: #D0E1D4;
+      --text-muted-aa: #535C78;     /* muted small text on light backgrounds (≥4.5:1) */
+      --contact-bg: #565F7C;        /* deepened brand-mid so contact text passes AA */
+      --text-on-dark-muted: #B8C0D2;
+      --footer-text: #8A8D9C;
+      --footer-border: #191C2C;
+      --brand-dark-hover: #12152A;
+      --jade-hover: #97B39F;
+      --text-on-forest-muted: #9DB0A2;  /* muted text on jade-dark, 5.6:1 */
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-logo: 'Tenor Sans', 'Cormorant Garamond', serif;
+      --max-text: 560px;
+
+      /* Spacing — 4pt system */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+
+      /* Radii */
+      --radius-sm: 8px;    /* tags and small elements */
+      --radius-md: 20px;   /* cards */
+      --radius-lg: 50px;   /* buttons (pill) */
+
+      --container: 1120px;
+      --nav-height: 72px;
+      --ease: 0.2s ease;
+    }
+
+    /* ==========================================================
+       BASE
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      background: var(--bg-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, blockquote, figure { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    a { color: inherit; }
+    svg { display: block; }
+
+    section[id], main[id] { scroll-margin-top: var(--nav-height); }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: var(--space-4);
+      top: -100px;
+      z-index: 200;
+      padding: var(--space-3) var(--space-4);
+      background: var(--brand-dark);
+      color: var(--off-white);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: var(--space-4); }
+
+    [tabindex="-1"]:focus { outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--brand-dark);
+      outline-offset: 3px;
+    }
+    .on-dark :focus-visible,
+    .on-dark:focus-visible {
+      outline-color: var(--jade-500);
+    }
+
+    /* Shared text styles */
+    .eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .section {
+      padding: var(--space-9) 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-dark);
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 44px;
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn .arrow { transition: transform var(--ease); }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    .btn-primary {
+      background: var(--brand-dark);
+      color: var(--off-white);
+      border-color: var(--brand-dark);
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark-hover);
+      border-color: var(--brand-dark-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--brand-dark);
+      border-color: var(--brand-dark);
+    }
+    /* Outline buttons: fill with their border color at 10% */
+    .btn-secondary:hover,
+    .btn-jade:hover,
+    .btn-light:hover { transform: translateY(-1px); }
+    .btn-secondary:hover { background: rgba(30, 34, 53, 0.1); }
+
+    .btn-jade {
+      background: transparent;
+      color: var(--jade-500);
+      border-color: var(--jade-500);
+    }
+    .btn-jade:hover { background: rgba(169, 196, 176, 0.1); }
+
+    .btn-light {
+      background: transparent;
+      color: var(--off-white);
+      border-color: var(--off-white);
+    }
+    .btn-light:hover { background: rgba(254, 253, 252, 0.1); }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    /* ==========================================================
+       1. ANNOUNCEMENT BANNER
+       ========================================================== */
+    .banner {
+      background: var(--bg-secondary);
+      color: var(--brand-dark);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .banner[hidden] { display: none; }
+    .banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 36px;
+    }
+    .banner-status {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin: 0;
+    }
+    .banner-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-mid);
+      flex-shrink: 0;
+    }
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .banner-link {
+      color: var(--brand-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .banner-link:hover { text-decoration-thickness: 2px; }
+    .banner-close {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: var(--brand-dark);
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.15s ease;
+    }
+    .banner-close:hover,
+    .banner-close:focus-visible { opacity: 1; }
+
+    /* ==========================================================
+       2. NAVBAR
+       ========================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(254, 253, 252, 0.92);
+      border-bottom: 1px solid var(--bg-secondary);
+      transition: background-color var(--ease), box-shadow var(--ease);
+    }
+    .site-header.is-scrolled {
+      background: rgba(254, 253, 252, 0.97);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 12px rgba(30, 34, 53, 0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    /* Logo lockup — all sizes derive from --logo-size (Figma original: 32px) */
+    .logo {
+      --logo-size: 24px;
+      --logo-ink: var(--text-primary);
+      --logo-line: var(--brand-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42em;
+      font-size: var(--logo-size);
+      text-decoration: none;
+      color: var(--logo-ink);
+    }
+    .logo-mark {
+      width: 1.91em;
+      height: 2.06em;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+    /* Torii colors are variables so the same symbol works as logo and as ghost */
+    .torii-body {
+      fill: var(--torii-fill, var(--brand-mid));
+      stroke: var(--torii-stroke, var(--brand-dark));
+    }
+    .torii-feet { fill: var(--torii-feet, var(--brand-dark)); }
+    .torii-ghost {
+      --torii-fill: currentColor;
+      --torii-stroke: none;
+      --torii-feet: currentColor;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 1.72em;
+      padding-left: 0.375em;
+      border-left: 1px solid var(--logo-line);
+    }
+    .logo-name {
+      font-family: var(--font-logo);
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1.16;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .logo-title {
+      font-family: var(--font-logo);
+      font-size: 0.5em;
+      font-weight: 400;
+      line-height: 1.19;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .logo--small {
+      --logo-size: 18px;
+      --logo-ink: var(--off-white);
+      --logo-line: var(--brand-mid);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      text-decoration: none;
+    }
+    .nav-link svg { width: 16px; height: 16px; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--jade-500);
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.is-active::after { width: 100%; }
+
+    .nav-toggle {
+      display: none;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: var(--brand-dark);
+      cursor: pointer;
+    }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    .nav-toggle .icon-close { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+    /* ==========================================================
+       3. HERO
+       ========================================================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-warm);
+      padding: var(--space-9) 0;
+    }
+    .hero-ghost {
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      width: min(520px, 60vw);
+      height: auto;
+      color: var(--brand-dark);
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; }
+    .hero .eyebrow { color: var(--jade-700); }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .hero-title span { display: block; }
+    .hero-title-first { color: var(--brand-dark); }
+    .hero-title-last { color: var(--jade-600); }
+    .accent-line {
+      width: 28px;
+      height: 1px;
+      background: var(--jade-500);
+      margin: var(--space-5) 0;
+      border: 0;
+    }
+    .hero-text {
+      max-width: 420px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ==========================================================
+       4. PROJEKT
+       ========================================================== */
+    .projects { background: var(--bg-primary); }
+    .projects .eyebrow { color: var(--text-muted-aa); }
+    .projects .section-title {
+      font-size: 32px;
+      margin-bottom: var(--space-7);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    /* "Breaking out" cards: the icon floats above the card's top edge */
+    .project-card-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      transition: all 0.25s ease;
+    }
+    .card-icon-float {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;               /* centered without transform, so reduced-motion's transform:none can't shift it */
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+      gap: 4px;
+    }
+    .card-icon-torii {
+      --torii-fill: var(--jade-500);
+      --torii-stroke: none;
+      --torii-feet: var(--jade-500);
+      width: 56px;
+      height: 68px;
+    }
+    .card-icon-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: var(--bg-warm);
+      border: 3px solid var(--bg-primary);
+      border-radius: 50%;
+      font-size: 28px;
+      color: var(--jade-dark);
+    }
+    .card-icon-circle svg { width: 28px; height: 28px; }
+    .card-icon-image {
+      display: block;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 20px;
+      text-align: center;
+      border-radius: var(--radius-md);
+      transition: all 0.25s ease;
+    }
+    /* Subtle radial gradient in the bottom corner for depth */
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 100%, var(--card-glow) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .project-card > * { position: relative; z-index: 1; }
+
+    .project-card-wrapper:hover,
+    .project-card-wrapper:focus-within { transform: translateY(-6px); }
+    .project-card-wrapper:hover .project-card,
+    .project-card-wrapper:focus-within .project-card {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-meta {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    .project-desc {
+      font-size: 10px;
+      line-height: 1.6;
+      max-width: var(--max-text);
+      margin-bottom: var(--space-4);
+    }
+    .project-divider {
+      width: 100%;
+      height: 1px;
+      margin: 0 0 var(--space-4);
+      border: 0;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+    .tag {
+      padding: var(--space-1) var(--space-3);
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+    }
+    .project-card .btn { margin-top: auto; }
+
+    /* Card 1 — Hold-it! (dark) */
+    .project-card--dark {
+      --card-glow: rgba(169, 196, 176, 0.14);
+      background: var(--brand-dark);
+      color: var(--off-white);
+    }
+    .project-card--dark .project-meta { color: var(--jade-500); }
+    .project-card--dark .project-title { color: var(--off-white); }
+    .project-card--dark .project-desc { color: var(--footer-text); }   /* #76809D is 4.0:1 here; this passes AA */
+    .project-card--dark .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--dark .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
+    }
+    .project-card--dark .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--brand-dark);
+    }
+    .project-card--dark .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
+    }
+    .project-card--dark :focus-visible { outline-color: var(--jade-500); }
+
+    /* Card 2 — Tillgänglighet (warm) */
+    .project-card--warm {
+      --card-glow: rgba(30, 34, 53, 0.07);
+      background: var(--bg-warm);
+    }
+    .project-card--warm .project-meta { color: var(--jade-700); }        /* #66816E is 3.2:1 here */
+    .project-card--warm .project-title { color: var(--brand-dark); }
+    .project-card--warm .project-desc { color: var(--text-muted-aa); }   /* #76809D is 2.9:1 here */
+    .project-card--warm .project-divider { background: rgba(40, 53, 44, 0.12); }
+    .project-card--warm .tag {
+      background: rgba(40, 53, 44, 0.1);
+      color: var(--jade-dark);
+    }
+
+    /* Card 3 — Vikingaappen (forest green) */
+    .project-card--forest {
+      --card-glow: rgba(169, 196, 176, 0.12);
+      background: var(--jade-dark);
+      color: var(--off-white);
+    }
+    .project-card--forest .project-meta { color: var(--jade-500); }
+    .project-card--forest .project-title { color: var(--off-white); }
+    .project-card--forest .project-desc { color: var(--text-on-forest-muted); }
+    .project-card--forest .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--forest .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
+    }
+    .project-card--forest .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--jade-dark);
+    }
+    .project-card--forest .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
+    }
+    .project-card--forest :focus-visible { outline-color: var(--jade-500); }
+
+    /* ==========================================================
+       5. OM MIG SNIPPET
+       ========================================================== */
+    .about {
+      background: var(--brand-dark);
+      color: var(--off-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    .about .eyebrow { color: var(--jade-500); }
+    .about .section-title {
+      font-size: 28px;
+      color: var(--off-white);
+      margin-bottom: var(--space-4);
+    }
+    .about-text {
+      max-width: var(--max-text);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-on-dark-muted);
+      margin-bottom: var(--space-6);
+    }
+    .quote {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--jade-500);
+      padding: var(--space-5);
+    }
+    .quote blockquote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--off-white);
+    }
+    .quote figcaption {
+      margin-top: var(--space-4);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--jade-500);
+    }
+
+    /* ==========================================================
+       6. KONTAKT
+       ========================================================== */
+    .contact {
+      background: var(--contact-bg);
+      text-align: center;
+    }
+    .contact .eyebrow { color: var(--bg-secondary); }
+    .contact .section-title {
+      font-size: 36px;
+      color: var(--off-white);
+      margin-bottom: var(--space-4);
+    }
+    .contact-text {
+      max-width: var(--max-text);
+      margin: 0 auto var(--space-6);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--bg-secondary);
+    }
+    .contact .btn-group { justify-content: center; }
+    .contact .btn-primary:focus-visible { outline-color: var(--off-white); }
+    .contact :focus-visible { outline-color: var(--off-white); }
+
+    /* ==========================================================
+       7. FOOTER
+       ========================================================== */
+    .site-footer {
+      background: var(--brand-dark);
+      border-top: 1px solid var(--footer-border);
+      padding: var(--space-6) 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-5);
+    }
+    .footer-meta {
+      text-align: right;
+      font-size: 11px;
+      line-height: 1.7;
+      color: var(--footer-text);
+    }
+    .footer-meta p:first-child { letter-spacing: 0.14em; }
+
+    /* ==========================================================
+       RESPONSIVE — 768px
+       ========================================================== */
+    @media (max-width: 768px) {
+      :root { --nav-height: 64px; }
+
+      .container { padding: 0 var(--space-4); }
+      .section { padding: var(--space-8) 0; }
+
+      .logo { --logo-size: 15px; }
+      .logo--small { --logo-size: 15px; }
+
+      .nav-toggle { display: grid; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--space-2) var(--space-4) var(--space-4);
+        background: var(--off-white);
+        border-bottom: 1px solid var(--bg-secondary);
+        box-shadow: 0 8px 16px rgba(30, 34, 53, 0.06);
+        display: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-link {
+        width: 100%;
+        padding: var(--space-4) 0;
+        font-size: 15px;
+        border-bottom: 1px solid var(--bg-secondary);
+      }
+      .nav-links li:last-child .nav-link { border-bottom: 0; }
+      .nav-link::after { bottom: -1px; }
+      .nav-link:hover::after,
+      .nav-link.is-active::after { width: 48px; }
+
+      .hero { padding: var(--space-8) 0; }
+      .hero-title { font-size: 44px; }
+      .hero-ghost { width: 300px; right: -60px; bottom: -40px; }
+
+      .project-grid,
+      .about-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: var(--space-7); }
+
+      .contact .section-title { font-size: 30px; }
+
+      .btn-group .btn { flex: 1 1 auto; }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-meta { text-align: left; }
+    }
+    /* ==========================================================
+       CASE STUDY
+       ========================================================== */
+    .case-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      padding: var(--space-8) 0 var(--space-8);
+    }
+    .case-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 100%, rgba(169, 196, 176, 0.14) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .case-hero .container { position: relative; z-index: 1; }
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--jade-500);
+      text-decoration: none;
+    }
+    .case-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .case-hero-top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    .case-hero-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+    .case-hero .eyebrow { color: var(--jade-500); margin-bottom: var(--space-2); }
+    .case-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .case-lead {
+      max-width: var(--max-text);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-on-forest-muted);
+      margin-bottom: var(--space-7);
+    }
+    .case-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      margin: 0;
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(169, 196, 176, 0.2);
+    }
+    .case-facts dt {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--jade-500);
+      margin-bottom: var(--space-1);
+    }
+    .case-facts dd { margin: 0; font-size: 14px; color: var(--off-white); }
+
+    .case-body { background: var(--bg-primary); padding: var(--space-8) 0 var(--space-9); }
+    .case-section {
+      max-width: 720px;
+      margin: 0 auto var(--space-8);
+    }
+    .case-section:last-child { margin-bottom: 0; }
+    .case-section .eyebrow { color: var(--text-muted-aa); }
+    .case-section h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-dark);
+      margin-bottom: var(--space-4);
+    }
+    .case-section h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin: var(--space-6) 0 var(--space-3);
+    }
+    .case-section p,
+    .case-section li {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+    .case-section p + p { margin-top: var(--space-4); }
+
+    .case-quote {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      border-left: 3px solid var(--jade-600);
+      background: var(--bg-jade-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .case-quote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--jade-dark);
+    }
+
+    /* Brief → design answer table */
+    .case-table {
+      width: 100%;
+      margin-top: var(--space-5);
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .case-table th,
+    .case-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--bg-secondary);
+    }
+    .case-table th {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted-aa);
+    }
+    .case-table td:first-child { color: var(--text-secondary); width: 45%; }
+    .case-table td:last-child { color: var(--jade-dark); font-weight: 600; }
+
+    /* Palette */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .swatch {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+    }
+    .swatch span { display: block; height: 64px; }
+    .swatch p {
+      padding: var(--space-2) var(--space-3);
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+    }
+    .swatch code { font-size: 11px; color: var(--text-muted-aa); }
+
+    /* App flow */
+    .flow {
+      display: grid;
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .flow li {
+      position: relative;
+      padding: var(--space-4) var(--space-5) var(--space-4) 64px;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      counter-increment: step;
+    }
+    .flow li::before {
+      content: counter(step);
+      position: absolute;
+      left: var(--space-5);
+      top: var(--space-4);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .flow strong { color: var(--brand-dark); }
+
+    /* Image slots — replaced with real media before launch */
+    .media-slot {
+      display: grid;
+      place-items: center;
+      margin: var(--space-6) 0;
+      min-height: 280px;
+      padding: var(--space-5);
+      text-align: center;
+      background: repeating-linear-gradient(-45deg, var(--bg-secondary), var(--bg-secondary) 10px, var(--bg-primary) 10px, var(--bg-primary) 20px);
+      border: 1px dashed var(--brand-mid);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted-aa);
+    }
+
+    .case-next {
+      background: var(--brand-dark);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
+    .case-next .eyebrow { color: var(--jade-500); }
+    .case-next h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--off-white);
+      margin-bottom: var(--space-5);
+    }
+    .case-next .btn-group { justify-content: center; }
+
+    @media (max-width: 768px) {
+      .case-title { font-size: 40px; }
+      .case-hero-icon { width: 64px; height: 64px; }
+      .case-facts { grid-template-columns: repeat(2, 1fr); }
+      .palette { grid-template-columns: repeat(2, 1fr); }
+      .case-table th, .case-table td { padding: var(--space-3) var(--space-2); }
+      .media-slot { min-height: 200px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Reusable SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Torii gate (without character) -->
+      <!-- Logo torii (Figma "ikon" SVG export, 61 × 66) -->
+      <symbol id="torii-logo" viewBox="0 0 61 66">
+        <path class="torii-body" stroke-width="0.4" d="M44.5059 21.3513L44.5166 23.1531H16.834L16.8447 21.3513H44.5059Z"/>
+        <path class="torii-body" stroke-width="0.3" d="M10.7822 21.3015L10.7197 23.2029H3.97949L3.24219 21.3015H10.7822Z"/>
+        <path class="torii-body" stroke-width="0.4" d="M32.2852 20.2178H28.9473L29.0977 18.3379C29.6009 18.3421 30.1066 18.3457 30.6162 18.3457C31.1254 18.3457 31.6304 18.3421 32.1338 18.3379L32.2852 20.2178Z"/>
+        <path class="torii-feet" d="M15.5514 64.3523H9.97073C9.74751 64.3523 9.53405 64.4585 9.3983 64.6359L8.73242 65.5077H16.789L16.1231 64.6359C15.9888 64.4585 15.7747 64.3523 15.5514 64.3523Z"/>
+        <path class="torii-body" stroke-width="0.4" d="M45.6787 13.5217L45.6553 9.57153L45.6504 9.49536C45.6305 9.32053 45.548 9.15748 45.416 9.03735C45.2851 8.91824 45.1169 8.8497 44.9375 8.8479L44.8604 8.85181C40.4127 9.25989 35.5465 9.46704 30.3975 9.46704C25.2476 9.46704 20.3812 9.2606 15.9336 8.85181H15.9346C15.725 8.83085 15.5272 8.90154 15.3779 9.03638L15.377 9.03735C15.2264 9.17452 15.1399 9.36833 15.1387 9.57153L15.1162 13.5217V13.5227L15.0967 16.7786V16.7795L14.8281 62.6252H10.7227L12.4863 9.15161C12.4997 8.77547 12.2231 8.45326 11.8516 8.40552C6.67057 7.73986 3.60764 6.93815 2.4873 6.60962V5.17603C6.16239 6.06288 15.4926 7.87524 30.3965 7.87524C45.3006 7.87524 54.6308 6.06287 58.3057 5.17603V6.60962C57.1855 6.93813 54.1225 7.73984 48.9414 8.40552C48.6161 8.44732 48.3633 8.69947 48.3145 9.01392L48.3066 9.15161L50.0713 62.6252H45.9658L45.6973 16.7795V16.7786L45.6787 13.5227V13.5217Z"/>
+        <path class="torii-body" stroke-width="0.4" d="M59.6016 1.77441C59.4778 2.101 59.2008 2.35257 58.8594 2.44531C56.334 3.12791 46.7759 5.36816 30.2422 5.36816C13.7099 5.36816 4.15137 3.12813 1.62598 2.44531C1.28479 2.35267 1.0071 2.10115 0.882812 1.77344L0.333984 0.318359C3.6745 1.38953 12.7105 3.60938 30.2422 3.60938C47.7746 3.60937 56.8102 1.3885 60.1504 0.317383L59.6016 1.77441Z"/>
+        <path class="torii-feet" d="M50.8229 64.3523H45.2422C45.019 64.3523 44.8055 64.4585 44.6698 64.6359L44.0039 65.5077H52.0604L51.3946 64.6359C51.2595 64.4585 51.0461 64.3523 50.8229 64.3523Z"/>
+        <path class="torii-body" stroke-width="0.3" d="M57.5947 21.3015L56.8574 23.2029H50.1182L50.0557 21.3015H57.5947Z"/>
+        <!-- 謝 -->
+        <path class="torii-body" stroke-width="0.3" d="M37.9978 46.7574C37.7724 46.6066 37.5317 46.3275 37.2768 45.9218L35.7836 43.6865C34.6253 41.6374 33.85 40.0334 33.4578 38.875C33.4578 38.7242 33.574 38.5364 33.8078 38.3109C34.0408 38.0839 34.2708 37.9482 34.4986 37.9037C35.4156 38.0085 36.2429 38.4218 36.9812 39.1435C37.0273 39.2038 37.0506 39.2642 37.0506 39.3245C37.0506 39.415 36.9971 39.4685 36.8907 39.4844C36.8606 39.4987 36.7851 39.5055 36.6645 39.5055C36.4692 39.5055 36.1758 39.4602 35.7836 39.3698C35.2867 39.2355 34.8877 39.1676 34.586 39.1676C34.2098 39.1676 34.0219 39.2506 34.0219 39.415C34.5483 40.5454 35.5348 42.0817 36.9812 44.0244L37.3432 44.3863L37.3673 44.2054C37.3673 41.0884 37.3221 38.1073 37.2316 35.2611C36.8832 35.4105 36.5144 35.5598 36.1245 35.7106C34.9797 36.2076 34.3244 36.4791 34.1577 36.5251C34.0069 36.5696 33.8334 36.5915 33.6388 36.5915H33.3462V36.8177C33.3462 36.9685 33.3983 37.0371 33.5031 37.0228C33.5634 37.007 33.5936 37.0522 33.5936 37.1586C33.5031 37.6555 33.4578 38.8449 33.4578 40.7272V41.9218C33.4737 42.5997 33.482 43.4286 33.482 44.4075C33.482 45.1149 33.4737 45.5515 33.4578 45.7167C33.307 45.8531 33.126 45.9587 32.9149 46.0334C32.6894 46.0334 32.3734 45.7626 31.9676 45.2219C31.5755 44.679 31.1155 43.9263 30.5891 42.9625L30.1607 42.2627L29.7082 42.6005C29.0461 43.0832 28.5416 43.4225 28.1939 43.6171C27.8176 43.8584 27.5091 43.9791 27.2678 43.9791C27.1471 43.9791 27.0604 43.9489 27.0084 43.8886C26.9556 43.8283 26.9903 43.7762 27.1109 43.7317C28.1042 42.8735 29.3462 41.5251 30.8364 39.6865L31.4699 38.8056C31.4699 38.7755 31.3794 38.8056 31.1984 38.8961C30.7776 39.1518 30.5076 39.3245 30.3869 39.415C29.4677 40.0485 28.8123 40.4708 28.4201 40.682C28.1185 40.8471 27.893 40.9293 27.7444 40.9293C27.6539 40.9158 27.5634 40.9233 27.4729 40.9535L27.0415 41.2672C26.9224 41.418 26.8636 41.5085 26.8636 41.5387C26.8636 41.5854 26.9458 41.6684 27.1109 41.7891C27.2919 41.924 27.3824 42.059 27.3824 42.1933C27.3824 42.4648 27.0581 42.7438 26.4111 43.0289C25.7331 43.3607 25.123 43.55 24.58 43.596C24.5054 43.6103 24.4081 43.6171 24.2874 43.6171C24.0016 43.6171 23.8809 43.5198 23.9254 43.3245L24.6041 42.51C25.0702 42.0138 25.4548 41.5688 25.7565 41.1767C26.0257 40.8313 26.1313 40.6277 26.0732 40.5673H26.0491C25.9888 40.5673 25.8455 40.6058 25.6207 40.682C25.1539 40.8916 24.755 41.0862 24.4231 41.2672C23.8055 41.5553 23.4518 41.7438 23.3613 41.8343C23.2867 41.9089 23.2633 42.059 23.2919 42.2838C23.4586 42.7506 23.663 43.2928 23.9043 43.9097C23.948 44.0606 24.0084 44.2265 24.0853 44.4075C24.1894 44.7393 24.2339 44.927 24.218 44.9716C24.1894 45.0017 24.0921 45.0168 23.9254 45.0168C22.9616 44.9263 22.2919 43.7973 21.9164 41.6292C21.856 41.3275 21.8259 41.0492 21.8259 40.7936C21.8259 40.4783 21.8779 40.2265 21.9827 40.0394C22.0891 39.8509 22.2618 39.6955 22.5016 39.5749H22.571C22.6313 39.5749 22.6615 39.605 22.6615 39.6654C22.6615 40.1164 22.7067 40.5304 22.7972 40.9082L22.9329 41.4029L23.0898 41.1767C24.2339 40.2136 25.4465 39.5357 26.7278 39.1435C27.1939 39.2204 27.5483 39.3335 27.7897 39.4844C27.8937 39.5892 27.9767 39.6193 28.037 39.5749C28.0808 39.559 28.209 39.4452 28.4201 39.234L28.6916 38.8961V38.875C28.6916 38.829 28.6539 38.7687 28.58 38.694C28.5197 38.5734 28.4963 38.4376 28.5106 38.2868C28.6011 37.0522 28.6841 35.4783 28.761 33.5658L28.8063 32.7755C28.8063 32.5206 28.761 32.3924 28.6705 32.3924C28.218 32.3924 27.5551 32.5658 26.6826 32.9112C26.3342 33.0462 25.9202 33.234 25.4397 33.4753L25.1019 33.5417C25.0717 33.5417 25.0566 33.5349 25.0566 33.5206C25.0566 33.4904 25.1305 33.3999 25.2799 33.2491C25.4307 33.1284 25.4684 33.0914 25.3945 33.1375C24.7769 33.3185 23.8877 33.6729 22.7278 34.1993C21.8387 34.5756 21.3349 34.786 21.2165 34.8298C21.0958 34.8599 20.9971 34.875 20.9209 34.875C20.8161 34.875 20.7037 34.8531 20.583 34.8087C20.0702 34.688 19.6554 34.5002 19.3402 34.2446C19.129 34.0636 19.0234 33.9354 19.0234 33.8584C19.0234 33.7378 19.2949 33.6774 19.8379 33.6774C20.2301 33.6774 20.5687 33.6322 20.8545 33.5417C21.1094 33.4814 21.9224 33.1729 23.2919 32.6156L26.6132 31.3969L27.1109 31.2159C27.6237 31.4715 27.939 31.6593 28.0581 31.78L28.2633 31.9851C28.7293 31.3215 29.2195 30.6359 29.7323 29.9278C30.3334 29.0251 30.6796 28.4911 30.7701 28.326C30.6653 28.145 30.4774 27.927 30.2059 27.6714C30.0551 27.5206 29.9797 27.4225 29.9797 27.3758C29.9797 27.3019 30.077 27.2642 30.2723 27.2642C30.5295 27.2642 30.8681 27.3697 31.2889 27.5809C31.9827 27.927 32.3296 28.2808 32.3296 28.6427C32.3296 28.6872 32.3145 28.7544 32.2844 28.8449C32.1336 29.2815 31.35 30.102 29.9345 31.3064C29.7233 31.4874 29.5612 31.6344 29.4488 31.7468C29.3357 31.8599 29.2799 31.9542 29.2799 32.0304C29.2799 32.0605 29.3319 32.1963 29.4367 32.4376C29.6034 32.6631 29.6939 32.8207 29.7082 32.9112C29.7241 32.9557 29.7392 32.9557 29.7535 32.9112C29.7693 32.8652 29.7776 32.7664 29.7776 32.6156C29.7776 32.421 29.89 32.1887 30.1155 31.9188C30.3402 31.6473 30.6645 31.3833 31.0868 31.1254C31.4624 30.8841 31.7716 30.7634 32.0129 30.7634C32.2542 30.7634 32.5393 30.8992 32.8696 31.1707C33.1109 31.412 33.2768 31.6005 33.3673 31.7348C33.4578 31.8856 33.488 32.0213 33.4578 32.142C33.3673 32.8358 33.3221 33.5892 33.3221 34.4014C33.3221 34.7777 33.3296 35.0643 33.3462 35.2611C33.3462 35.4263 33.4134 35.501 33.5483 35.4844C33.669 35.4542 34.0981 35.2966 34.8364 35.0108L37.4096 33.9037V32.5492C37.4096 31.6163 37.3869 30.8712 37.3432 30.3139C37.2987 29.7709 37.2384 29.4625 37.1622 29.3878C37.0717 29.3275 37.0038 29.2973 36.9601 29.2973C36.8998 29.2973 36.8312 29.3351 36.755 29.409C36.755 29.4391 36.7399 29.4542 36.7097 29.4542C36.6653 29.4542 36.6049 29.4172 36.5287 29.3426C36.4096 29.2362 36.3123 29.0854 36.2361 28.8901C36.206 28.7694 36.1909 28.694 36.1909 28.6639C36.1909 28.4527 36.3115 28.3471 36.5529 28.3471C36.5966 28.3471 36.7097 28.3622 36.8907 28.3924C37.4639 28.5432 37.9601 28.8826 38.3809 29.409C38.5778 29.6503 38.6916 29.8464 38.7218 29.9972C38.7354 30.102 38.7203 30.5915 38.6765 31.4663L38.6313 32.866L39.2648 33.0017L40.1004 33.2732C40.3251 33.3478 40.4835 33.4301 40.574 33.5206C40.936 33.7619 41.117 33.958 41.117 34.1088C41.117 34.2883 40.8304 34.4157 40.2572 34.4919C39.6396 34.5824 39.0823 34.688 38.586 34.8087C38.66 39.01 38.758 42.5869 38.8787 45.5387V46.6669L38.6765 46.7574C38.5257 46.8916 38.4051 46.9595 38.3146 46.9595C38.2399 46.9595 38.1343 46.8916 37.9978 46.7574ZM32.1245 44.0244C32.1547 43.5417 32.1698 42.8268 32.1698 41.8796V39.7559C31.6283 40.4037 31.1094 41.0583 30.6132 41.7197L30.4774 41.9218C31.0943 42.8871 31.6366 43.6103 32.1034 44.0907C32.117 44.0907 32.1245 44.0688 32.1245 44.0244ZM30.2512 38.2415C30.6569 38.0771 31.0566 37.8735 31.4488 37.6322L32.1698 37.2702V37.0681L32.1034 36.8177C32.1034 36.8041 32.0883 36.7966 32.0581 36.7966C31.9978 36.7966 31.8394 36.8418 31.5845 36.9323L30.6132 37.2702C30.7037 37.2242 30.4774 37.3064 29.9345 37.5176C29.7836 37.5176 29.6931 37.5447 29.663 37.599C29.6328 37.6518 29.6177 37.8132 29.6177 38.0847V38.3079C29.6177 38.3682 29.6215 38.418 29.6298 38.4557C29.6373 38.4942 29.6569 38.513 29.6871 38.513C29.7474 38.513 29.9352 38.4225 30.2512 38.2415ZM30.2512 36.2084C30.4759 36.148 30.7316 36.0575 31.0174 35.9369C31.2746 35.8464 31.4405 35.8011 31.5152 35.8011C31.5755 35.8011 31.666 35.8615 31.7866 35.9821C31.9511 36.1495 32.0491 36.1948 32.0793 36.1179C32.1396 35.8765 32.1698 35.5831 32.1698 35.237C32.1698 35.0123 32.132 34.8992 32.0581 34.8992C32.0114 34.8992 31.9171 34.9338 31.7746 35.0017C31.6313 35.0681 31.5076 35.1246 31.4035 35.1707C31.2663 35.231 31.0333 35.329 30.7037 35.4633V35.4391C30.7037 35.3954 30.7625 35.2905 30.8817 35.1254C31.0023 34.9587 31.0627 34.8599 31.0627 34.8298C31.0627 34.7996 31.0325 34.7845 30.9722 34.7845C30.8975 34.7845 30.8304 34.7928 30.7701 34.8087C30.3334 34.8992 30.0589 35.0009 29.9465 35.1133C29.8334 35.2265 29.7776 35.4633 29.7776 35.8253C29.7776 35.9761 29.7806 36.0892 29.7866 36.1631C29.7942 36.2377 29.8289 36.2747 29.8892 36.2747C29.9194 36.2747 29.9646 36.2679 30.025 36.2536C30.0853 36.24 30.1607 36.225 30.2512 36.2084ZM30.8364 33.7921C31.1238 33.7016 31.4254 33.6337 31.7414 33.5869H32.1698V33.1827C32.1253 32.5658 32.0883 32.2114 32.0581 32.1209C32.028 32.0605 31.8244 32.0455 31.4488 32.0756C30.9217 32.1804 30.5295 32.3577 30.2723 32.6065C30.0167 32.8539 29.8515 33.2265 29.7776 33.7227V33.9942H30.025L30.8364 33.7921ZM22.571 38.8298C22.3296 38.6027 22.209 38.467 22.209 38.4225C22.209 38.3622 22.3296 38.2347 22.571 38.0394C23.4737 37.3456 24.2339 36.7204 24.8515 36.1631C24.7165 36.2099 24.5891 36.24 24.4684 36.2536C24.1969 36.2981 23.9405 36.32 23.6992 36.32C23.2022 36.32 22.7881 36.2227 22.4563 36.0274C22.3372 35.9233 22.2783 35.8403 22.2783 35.78C22.2783 35.6895 22.4277 35.599 22.7278 35.5085C22.9691 35.4482 23.2927 35.2973 23.6992 35.056C24.4367 34.6639 24.9872 34.4157 25.3492 34.3109C25.4096 34.2973 25.5001 34.2898 25.6207 34.2898C25.8455 34.2898 26.0491 34.3577 26.2301 34.4919C26.5317 34.6729 26.6826 34.8313 26.6826 34.9655C26.6826 35.0862 26.5317 35.2521 26.2301 35.4633C25.1154 36.2762 24.3779 36.863 24.0159 37.225L24.8515 36.8871C25.2437 36.7061 25.537 36.6005 25.7323 36.5704H25.8017C25.8621 36.5704 25.9661 36.6005 26.1154 36.6608C26.5076 36.8117 26.7037 36.9919 26.7037 37.2008C26.7037 37.3215 26.5906 37.4655 26.3658 37.6322L23.0234 39.234C22.9329 39.234 22.7821 39.0998 22.571 38.8298ZM23.3824 30.697C23.6237 30.4859 23.8575 30.2679 24.0853 30.0424C24.2942 29.8154 24.4669 29.6126 24.6041 29.4331L24.1969 29.1616L22.7278 28.1903C23.1803 28.1903 23.8424 28.2355 24.7158 28.326C25.5136 28.4006 26.034 28.476 26.2753 28.5522C26.5468 28.6872 26.761 28.875 26.9179 29.1163C27.0762 29.3577 27.1177 29.5379 27.0415 29.6563C26.4239 29.9142 25.3251 30.283 23.7444 30.7634C23.4888 30.8705 23.338 30.9233 23.2919 30.9233C23.2633 30.9233 23.2934 30.8479 23.3824 30.697Z"/>
+      </symbol>
+      <!-- Lucide icons -->
+      <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Hoppa till innehållet</a>
+
+  <!-- 1. ANNOUNCEMENT BANNER -->
+  <aside class="banner" id="banner" aria-label="Meddelande">
+    <div class="container banner-inner">
+      <p class="banner-status">
+        <span class="banner-dot" aria-hidden="true"></span>
+        Söker praktik · Vinter 2026
+      </p>
+      <div class="banner-actions">
+        <a class="banner-link" href="index.html#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
+        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet">
+          <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. NAVBAR -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
+        <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
+        <span class="logo-text">
+          <span class="logo-name">MATILDA HSIEH</span>
+          <span class="logo-title">UX Designer</span>
+        </span>
+      </a>
+
+      <nav aria-label="Huvudmeny">
+        <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Meny</span>
+          <svg class="icon-open" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
+          <svg class="icon-close" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a class="nav-link" href="index.html#projekt">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-grid"/></svg>
+              Projekt
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="om-mig.html">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-user"/></svg>
+              Om mig
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="index.html#kontakt">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- CASE HERO -->
+    <section class="case-hero on-dark" aria-labelledby="case-title">
+      <div class="container">
+        <a class="case-back" href="index.html#projekt"><span aria-hidden="true">←</span> Alla projekt</a>
+        <div class="case-hero-top">
+          <img class="case-hero-icon" src="assets/icons/vikingaappen-icon.png" alt="" width="80" height="80">
+          <div>
+            <span class="eyebrow">Case study · Kliv in i vikingatiden</span>
+            <h1 class="case-title" id="case-title">Vikingaappen</h1>
+          </div>
+        </div>
+        <p class="case-lead">
+          Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med
+          en quiz-app och en ny webbsida för The Viking Museum — byggd för barn, och med
+          etiken inbyggd från start.
+        </p>
+        <dl class="case-facts">
+          <div><dt>Uppdrag</dt><dd>The Viking Museum</dd></div>
+          <div><dt>Team</dt><dd>Grupprojekt</dd></div>
+          <div><dt>Min roll</dt><dd>Idégenerering &amp; visuellt koncept</dd></div>
+          <div><dt>Tid</dt><dd>Aug–sep 2026</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body">
+      <div class="container">
+
+        <!-- 1. UTMANINGEN -->
+        <section class="case-section" aria-labelledby="utmaningen">
+          <span class="eyebrow">01 · Utmaningen</span>
+          <h2 id="utmaningen">Mer digital närvaro — och fler som faktiskt kommer dit</h2>
+          <p>
+            Museet ville synas mer digitalt, i hopp om att fler skulle få upp ögonen för
+            verksamheten och komma dit. Målgruppen var barnfamiljer och utländska turister,
+            och museet ville gärna ha någon form av infotainment.
+          </p>
+          <p>
+            Briefen hade en mening som jag tog på allvar: etiska och moraliska hänsyn är lika
+            viktiga som idé, funktion och design. När målgruppen är barn blir det inte en bisak.
+          </p>
+
+          <table class="case-table">
+            <caption class="sr-only">Vad briefen bad om och hur vi svarade</caption>
+            <thead>
+              <tr><th scope="col">Briefen sa</th><th scope="col">Vårt svar</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Barnfamiljer och utländska turister</td><td>Fokus på barn, val av språk direkt på startsidan, välj antal deltagare</td></tr>
+              <tr><td>Infotainment</td><td>Lära genom att göra: runskrift, pärlhalsband, quiz och stationer i utställningen</td></tr>
+              <tr><td>Etik lika viktigt som design</td><td>Privacy by design: inga namn, ingen inloggning, frivillig delning</td></tr>
+              <tr><td>Gärna något som leder till museet</td><td>En kod att visa i Gift Shop som belöning, och en länk till museet när man delar</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 2. RESEARCH -->
+        <section class="case-section" aria-labelledby="research">
+          <span class="eyebrow">02 · Research</span>
+          <h2 id="research">Hur gör andra museer?</h2>
+          <p>
+            Innan vi bestämde något kollade vi hur andra museer använder digitala lösningar,
+            för att se vad som redan finns och var det fanns utrymme för något nytt.
+          </p>
+          <div class="media-slot" role="img" aria-label="Bild kommer: omvärldsbevakning">Bild kommer: omvärldsbevakning / inspiration från FigJam</div>
+        </section>
+
+        <!-- 3. IDÉN -->
+        <section class="case-section" aria-labelledby="iden">
+          <span class="eyebrow">03 · Idén</span>
+          <h2 id="iden">Från post-it-lappar till ett äventyr</h2>
+          <p>
+            Det mesta av min tid i projektet gick till idégenereringen. Briefen var öppen —
+            app eller hemsida, gärna nya idéer — så vi började brett och smalnade av.
+          </p>
+          <p>
+            Det vi landade i var en app som guidar barnen genom museet som ett äventyr, med
+            uppgifter i utställningen, plus en ny webbsida som gör museet synligt även för den
+            som inte varit där än.
+          </p>
+          <div class="media-slot" role="img" aria-label="Bild kommer: idégenerering">Bild kommer: brainstorm och tankekarta</div>
+        </section>
+
+        <!-- 4. VISUELLT KONCEPT -->
+        <section class="case-section" aria-labelledby="visuellt">
+          <span class="eyebrow">04 · Visuellt koncept</span>
+          <h2 id="visuellt">Färger hämtade direkt ur utställningen</h2>
+          <p>
+            Jag ville att appen skulle kännas som en förlängning av museet, inte som ett
+            spel som råkar handla om vikingar. Så färgerna kommer från materialen i
+            utställningen: trä, sten, ull, metall och eld. Referenserna var snidade dörrar,
+            runstenar, runalfabetet, torshammare och långskepp.
+          </p>
+          <ul class="palette" aria-label="Färgpalett">
+            <li class="swatch"><span style="background:#7F5539"></span><p>Trä <code>#7F5539</code></p></li>
+            <li class="swatch"><span style="background:#A68A64"></span><p>Sand <code>#A68A64</code></p></li>
+            <li class="swatch"><span style="background:#EDE0D4"></span><p>Ben <code>#EDE0D4</code></p></li>
+            <li class="swatch"><span style="background:#656D4A"></span><p>Mossa <code>#656D4A</code></p></li>
+            <li class="swatch"><span style="background:#414833"></span><p>Skog <code>#414833</code></p></li>
+            <li class="swatch"><span style="background:#8C1C13"></span><p>Runröd <code>#8C1C13</code></p></li>
+            <li class="swatch"><span style="background:#D5AD1B"></span><p>Ockra <code>#D5AD1B</code></p></li>
+            <li class="swatch"><span style="background:#004E64"></span><p>Fjord <code>#004E64</code></p></li>
+          </ul>
+          <div class="media-slot" role="img" aria-label="Bild kommer: moodboard">Bild kommer: moodboard med referenser</div>
+        </section>
+
+        <!-- 5. APPEN -->
+        <section class="case-section" aria-labelledby="appen">
+          <span class="eyebrow">05 · Appen</span>
+          <h2 id="appen">Ett äventyr i sex steg</h2>
+          <ol class="flow">
+            <li><strong>Startsida.</strong> Välkommen, välj språk och börja.</li>
+            <li><strong>Inställningar.</strong> Textstorlek, tillgänglighet, mörkt eller ljust läge, antal deltagare och svårighetsgrad.</li>
+            <li><strong>Intro till äventyret.</strong> Välj mellan olika äventyr.</li>
+            <li><strong>Uppgifter.</strong> Besök stationer, tyda eller skapa runskrift, fråga guiderna, gör ett pärlhalsband och svara på quizfrågor om utställningen.</li>
+            <li><strong>Outro.</strong> Slutet på berättelsen, positiv feedback oavsett resultat och en kod att visa i Gift Shop.</li>
+            <li><strong>Sista sidan.</strong> Belöning, och möjlighet att dela sin vikingaberättelse — om man vill.</li>
+          </ol>
+          <div class="media-slot" role="img" aria-label="Bild kommer: appens skärmar">Bild kommer: färdiga skärmar från appen</div>
+        </section>
+
+        <!-- 6. ETIK -->
+        <section class="case-section" aria-labelledby="etik">
+          <span class="eyebrow">06 · Etik som designmaterial</span>
+          <h2 id="etik">Ingen delar sitt namn</h2>
+          <p>
+            Vi uppdaterade hela flödet utifrån privacy by design och EU:s regler. Barnen väljer
+            ett förvalt eller slumpat vikinganamn i stället för sitt eget. Det finns ingen
+            inloggning och inget konto. Delning sker bara om barnet själv vill, via telefonens
+            egen delningsfunktion.
+          </p>
+          <p>
+            Samma tanke ligger bakom feedbacken i slutet: alla får positiv feedback, oavsett
+            resultat. Man ska gå därifrån med känslan att det var roligt — inte att man
+            misslyckades på ett museum.
+          </p>
+          <blockquote class="case-quote">
+            <p>När målgruppen är barn är etiken inte en checklista i slutet. Den är en del av designen från första skissen.</p>
+          </blockquote>
+        </section>
+
+        <!-- 7. WEBBSIDAN -->
+        <section class="case-section" aria-labelledby="webbsidan">
+          <span class="eyebrow">07 · Webbsidan</span>
+          <h2 id="webbsidan">En ny webbsida för museet</h2>
+          <p>
+            Utöver appen gjorde vi om museets webbsida, så att den som letar efter något att
+            göra hittar dit — och förstår vad som väntar innan de kommer.
+          </p>
+          <div class="media-slot" role="img" aria-label="Bild kommer: webbsidan">Bild kommer: den nya webbsidan</div>
+        </section>
+
+        <!-- 8. LÄRDOMAR -->
+        <section class="case-section" aria-labelledby="lardomar">
+          <span class="eyebrow">08 · Vad jag lärde mig</span>
+          <h2 id="lardomar">Att designa för barn är att designa för trygghet</h2>
+          <p>
+            Det roliga var lätt att få till — runor, quiz och pärlhalsband säljer sig själva.
+            Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det,
+            och hur känns det att svara fel? Jag tar med mig att de tråkiga frågorna ofta är de
+            viktigaste, och att de är enklast att lösa tidigt.
+          </p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- NÄSTA -->
+    <section class="case-next on-dark" aria-labelledby="nasta">
+      <div class="container">
+        <span class="eyebrow">Fler projekt</span>
+        <h2 id="nasta">Vill du se mer?</h2>
+        <div class="btn-group">
+          <a class="btn btn-jade" href="index.html#projekt"><span class="arrow" aria-hidden="true">←</span> Alla projekt</a>
+          <a class="btn btn-jade" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="site-footer on-dark">
+    <div class="container footer-inner">
+      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
+        <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="#torii-logo"/></svg>
+        <span class="logo-text">
+          <span class="logo-name">MATILDA HSIEH</span>
+          <span class="logo-title">UX Designer</span>
+        </span>
+      </a>
+      <div class="footer-meta">
+        <p>MATILDA HSIEH · 2026</p>
+        <p>UX Design · Nackademin Stockholm</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------- Announcement banner (dismissible, remembered) ---------- */
+      var BANNER_KEY = 'mh-banner-dismissed';
+      var banner = document.getElementById('banner');
+      var bannerClose = document.getElementById('banner-close');
+
+      function storageGet(key) {
+        try { return window.localStorage.getItem(key); } catch (e) { return null; }
+      }
+      function storageSet(key, value) {
+        try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+      }
+
+      if (storageGet(BANNER_KEY) === '1') {
+        banner.hidden = true;
+      }
+      bannerClose.addEventListener('click', function () {
+        banner.hidden = true;
+        storageSet(BANNER_KEY, '1');
+        document.querySelector('.logo').focus();
+      });
+
+      /* ---------- Navbar: scrolled state ---------- */
+      var header = document.getElementById('site-header');
+      function onScroll() {
+        header.classList.toggle('is-scrolled', window.scrollY > 8);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- Mobile menu ---------- */
+      var toggle = document.getElementById('nav-toggle');
+      var navLinks = document.getElementById('nav-links');
+
+      function setMenu(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+        navLinks.classList.toggle('is-open', open);
+      }
+      toggle.addEventListener('click', function () {
+        setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+      navLinks.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setMenu(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setMenu(false);
+          toggle.focus();
+        }
+      });
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target)) setMenu(false);
+      });
+      window.matchMedia('(min-width: 769px)').addEventListener('change', function (mq) {
+        if (mq.matches) setMenu(false);
+      });
+
+      /* ---------- Smooth scroll + focus management for anchor links ---------- */
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href').slice(1);
+          var target = id && document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+          if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+          history.pushState(null, '', '#' + id);
+        });
+      });
+
+      /* ---------- Active nav link for the section in view ---------- */
+      var sectionLinks = document.querySelectorAll('.nav-link[data-section]');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            sectionLinks.forEach(function (link) {
+              if (link.dataset.section === entry.target.id) {
+                link.classList.toggle('is-active', entry.isIntersecting);
+              }
+            });
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sectionLinks.forEach(function (link) {
+          var section = document.getElementById(link.dataset.section);
+          if (section) observer.observe(section);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
