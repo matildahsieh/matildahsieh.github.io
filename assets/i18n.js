@@ -43,10 +43,10 @@
     'Foto på Matilda Hsieh kommer här': 'A photo of Matilda Hsieh is coming here',
     'Kompetenser': 'Skills',
     'Om loggan': 'About the logo',
-    'Tecknet i min logga': 'The character in my logo',
-    'Tecknet i min logga är 謝. Det är mitt efternamn, Hsieh, skrivet på kinesiska.':
-      'The character in my logo is 謝. It’s my last name, Hsieh, written in Chinese.',
-    'Som vanligt ord betyder 謝 också ”tack”.': 'As an everyday word, 謝 also means “thank you”.',
+    'Ett tecken, mitt namn': 'One character, my name',
+    '謝 är mitt efternamn, Hsieh, på kinesiska. Jag ville ha med det i loggan eftersom min taiwanesiska bakgrund är en stor del av hur jag tänker och designar.':
+      '謝 is my last name, Hsieh, in Chinese. I wanted it in my logo because my Taiwanese background is a big part of how I think and design.',
+    'Kul detalj: som vanligt ord betyder 謝 också ”tack”.': 'Fun fact: on its own, 謝 also means “thank you”.',
     'Hur jag arbetar': 'How I work',
     'Mitt arbetssätt': 'My way of working',
     'Jag skapar förståelse innan jag skapar lösningar': 'I build understanding before I build solutions',
