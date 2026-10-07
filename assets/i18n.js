@@ -215,9 +215,15 @@
     'Positiv feedback oavsett resultat. Kod till Gift Shop.': 'Positive feedback whatever the result. A code for the Gift Shop.',
     'Sista sidan': 'Final screen',
     'Belöning, och dela om man vill.': 'A reward, and sharing if you want to.',
-    '[Skärm: start]': '[Screen: start]',
-    '[Skärm: uppgift]': '[Screen: task]',
-    '[Skärm: belöning]': '[Screen: reward]',
+    'Startsidan: sex stationer och en knapp för att börja.': 'Start: six stations and one button to begin.',
+    'En station: uppgiften och hur långt man har kommit.': 'A station: the task and how far you’ve come.',
+    'Sista sidan: koden att visa i Gift Shop.': 'Last page: the code to show in the Gift Shop.',
+    'Startsidan för Vikingjakten med en vikingahjälm, sex stationer och knappen Starta äventyret':
+      'The Vikingjakten start screen with a Viking helmet, six stations and the Start the adventure button',
+    'Station 2 av 6, Runstenen, med en uppgift om att hitta den stora runstenen och knappen Jag är redo':
+      'Station 2 of 6, the Rune Stone, with a task to find the big rune stone and an I’m ready button',
+    'Sista sidan, Jakten är klar, med en belöningskod att visa i Gift Shop':
+      'The last page, The hunt is done, with a reward code to show in the Gift Shop',
     'Sal 4 · Etik som designmaterial': 'Room 4 · Ethics as design material',
     'Ingen delar sitt namn.': 'Nobody shares their name.',
     'Förvalt namn': 'Preset name',
