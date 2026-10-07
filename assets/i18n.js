@@ -42,6 +42,11 @@
     'Foto kommer': 'Photo coming soon',
     'Foto på Matilda Hsieh kommer här': 'A photo of Matilda Hsieh is coming here',
     'Kompetenser': 'Skills',
+    'Om loggan': 'About the logo',
+    'Ett tecken, mitt namn': 'One character, my name',
+    '謝 är mitt efternamn på kinesiska. Så klart fick det bli min logga.':
+      '謝 is my last name in Chinese. Of course it had to be my logo.',
+    'Kul detalj: 謝 betyder också ”tack”.': 'Fun fact: 謝 also means “thank you”.',
     'Hur jag arbetar': 'How I work',
     'Mitt arbetssätt': 'My way of working',
     'Jag skapar förståelse innan jag skapar lösningar': 'I build understanding before I build solutions',

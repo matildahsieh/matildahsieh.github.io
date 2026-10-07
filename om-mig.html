@@ -323,60 +323,27 @@
       height: var(--nav-height);
     }
 
-    /* Logo lockup — all sizes derive from --logo-size (Figma original: 32px) */
+    /* Logo lockup: one vector file (assets/logo.svg) drawn in currentColor */
     .logo {
-      --logo-size: 24px;
-      --logo-ink: var(--text-primary);
-      --logo-line: var(--brand-dark);
       display: inline-flex;
       align-items: center;
-      gap: 0.42em;
-      font-size: var(--logo-size);
+      color: var(--brand-dark);
       text-decoration: none;
-      color: var(--logo-ink);
     }
-    .logo-mark {
-      width: 1.91em;
-      height: 2.06em;
-      flex-shrink: 0;
+    .logo-svg {
+      display: block;
+      width: 210px;               /* lockup is 4.54 : 1, so about 46px tall */
+      height: auto;
       overflow: visible;
     }
-    /* Torii colors are variables so the same symbol works as logo and as ghost */
+    .logo--small { color: var(--off-white); }
+    .logo--small .logo-svg { width: 170px; }
+
+    /* Torii colors are variables so the same symbol works as a faded ghost */
     .torii-ghost {
       --torii-fill: currentColor;
       --torii-stroke: none;
       --torii-feet: currentColor;
-    }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 1.72em;
-      padding-left: 0.375em;
-      border-left: 1px solid var(--logo-line);
-    }
-    .logo-name {
-      font-family: var(--font-logo);
-      font-size: 1em;
-      font-weight: 400;
-      line-height: 1.16;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-    .logo-title {
-      /* Small caps line: the thin display font blurred at this size, so it uses
-         the body font, a heavier weight and a 10px floor for crisp rendering */
-      font-family: var(--font-body);
-      font-size: max(0.46em, 10px);
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    .logo--small {
-      --logo-size: 18px;
-      --logo-ink: var(--off-white);
-      --logo-line: var(--brand-mid);
     }
 
     /* Nav links */
@@ -922,8 +889,8 @@
       .container { padding: 0 var(--space-4); }
       .section { padding: var(--space-8) 0; }
 
-      .logo { --logo-size: 15px; }
-      .logo--small { --logo-size: 15px; }
+      .logo-svg { width: 160px; }
+      .logo--small .logo-svg { width: 150px; }
 
       .nav-toggle { display: grid; }
       .nav-links {
@@ -1280,6 +1247,13 @@
     .ai-card h3 { font-size: 16px; font-weight: 700; margin-bottom: var(--space-2); }
     .ai-card p { font-size: 15px; line-height: 1.65; color: var(--text-on-dark-muted); }
     .about-warm { background: var(--bg-warm); }
+    /* Logo note: the character 謝 explained */
+    .logo-note { background: var(--bg-primary); padding: var(--space-8) 0; border-bottom: 1px solid var(--jade-border); }
+    .logo-note-inner { display: flex; align-items: center; gap: var(--space-6); max-width: 720px; }
+    .logo-note-mark { flex: none; display: block; width: 112px; height: auto; overflow: hidden; color: var(--brand-dark); }
+    .logo-note h2 { font-family: var(--font-display); font-size: 32px; font-weight: 500; line-height: 1.15; color: var(--brand-dark); margin: var(--space-2) 0 var(--space-3); }
+    .logo-note p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: var(--max-text); }
+    .logo-note p + p { margin-top: var(--space-2); }
     .exp-list { display: flex; flex-direction: column; }
     .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: var(--space-6); padding: var(--space-6) 0; border-bottom: 1px solid #CFC6BC; }
     .exp-item:first-child { padding-top: 0; }
@@ -1296,6 +1270,10 @@
       .about-name { font-size: 44px; }
       .about-h2 { font-size: 32px; }
       .exp-item { grid-template-columns: 1fr; gap: var(--space-2); }
+      .logo-note { padding: var(--space-7) 0; }
+      .logo-note-inner { gap: var(--space-4); }
+      .logo-note-mark { width: 72px; }
+      .logo-note h2 { font-size: 28px; }
     }
   </style>
 </head>
@@ -1348,11 +1326,7 @@
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
       <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
-        <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="assets/torii.svg#torii-logo"/></svg>
-        <span class="logo-text">
-          <span class="logo-name">MATILDA HSIEH</span>
-          <span class="logo-title">UX Designer</span>
-        </span>
+        <svg class="logo-svg" viewBox="0 0 570.2805 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo"/></svg>
       </a>
 
       <nav aria-label="Huvudmeny">
@@ -1449,6 +1423,19 @@
             <rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/>
           </svg>
           <span>Foto kommer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGGAN -->
+    <section class="logo-note" aria-labelledby="logo-note-heading">
+      <div class="container logo-note-inner">
+        <svg class="logo-note-mark" viewBox="0 0 119 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg>
+        <div>
+          <span class="eyebrow about-eyebrow">Om loggan</span>
+          <h2 id="logo-note-heading">Ett tecken, mitt namn</h2>
+          <p>謝 är mitt efternamn på kinesiska. Så klart fick det bli min logga.</p>
+          <p>Kul detalj: 謝 betyder också ”tack”.</p>
         </div>
       </div>
     </section>
@@ -1567,11 +1554,7 @@
   <footer class="site-footer on-dark">
     <div class="container footer-inner">
       <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
-        <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="assets/torii.svg#torii-logo"/></svg>
-        <span class="logo-text">
-          <span class="logo-name">MATILDA HSIEH</span>
-          <span class="logo-title">UX Designer</span>
-        </span>
+        <svg class="logo-svg" viewBox="0 0 570.2805 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo"/></svg>
       </a>
       <div class="footer-contact">
         <a href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se">matilda.hsieh@yh.nackademin.se</a><br>
