@@ -44,9 +44,9 @@
     'Kompetenser': 'Skills',
     'Om loggan': 'About the logo',
     'Ett tecken, mitt namn': 'One character, my name',
-    '謝 är mitt efternamn, Hsieh, på kinesiska. Nästan ingen vet hur man uttalar det, men jag tycker att tecknet är så fint att det fick bli min logga.':
-      '謝 is my last name, Hsieh, in Chinese. Almost nobody knows how to pronounce it, but I think the character is so beautiful that it had to be my logo.',
-    'Kul detalj: som vanligt ord betyder 謝 också ”tack”.': 'Fun fact: on its own, 謝 also means “thank you”.',
+    '謝 är mitt efternamn på kinesiska. Så klart fick det bli min logga.':
+      '謝 is my last name in Chinese. Of course it had to be my logo.',
+    'Kul detalj: 謝 betyder också ”tack”.': 'Fun fact: 謝 also means “thank you”.',
     'Hur jag arbetar': 'How I work',
     'Mitt arbetssätt': 'My way of working',
     'Jag skapar förståelse innan jag skapar lösningar': 'I build understanding before I build solutions',
