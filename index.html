@@ -371,11 +371,13 @@
       text-transform: uppercase;
     }
     .logo-title {
-      font-family: var(--font-logo);
-      font-size: 0.5em;
-      font-weight: 400;
-      line-height: 1.19;
-      letter-spacing: 0.02em;
+      /* Small caps line: the thin display font blurred at this size, so it uses
+         the body font, a heavier weight and a 10px floor for crisp rendering */
+      font-family: var(--font-body);
+      font-size: max(0.46em, 10px);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
     .logo--small {
@@ -1176,7 +1178,7 @@
                 <li class="tag" data-i18n="hemly-tag-3">Mobilapp</li>
               </ul>
               <a class="btn btn-primary" href="hemly.html"
-                 aria-label="Läs mer om Hemly — UI-design av en app för expresshandling"
+                 aria-label="Läs mer om Hemly: UI-design av en app för expresshandling"
                  data-i18n-attr="aria-label:hemly-btn-aria"
                  data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
@@ -1200,7 +1202,7 @@
                 <li class="tag" data-i18n="tillg-tag-2">E-handel</li>
               </ul>
               <a class="btn btn-primary" href="tillganglighet.html"
-                 aria-label="Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel"
+                 aria-label="Läs mer om Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel"
                  data-i18n-attr="aria-label:tillg-btn-aria"
                  data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
@@ -1224,7 +1226,7 @@
                 <li class="tag" data-i18n="viking-tag-2">Idégenerering</li>
               </ul>
               <a class="btn btn-primary" href="vikingaappen.html"
-                 aria-label="Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum"
+                 aria-label="Läs mer om Vikingaappen: quiz-app och ny webbsida för The Viking Museum"
                  data-i18n-attr="aria-label:viking-btn-aria"
                  data-i18n-html="btn-las-mer">
                 Läs mer <span class="arrow" aria-hidden="true">→</span>
@@ -1243,7 +1245,7 @@
           <h2 class="section-title" id="om-mig-title" data-i18n="about-title">Två kulturer. En designer.</h2>
           <p class="about-text" data-i18n="about-text">
             Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt
-            perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.
+            perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.
           </p>
           <a class="btn btn-jade" href="om-mig.html" data-i18n-html="about-btn">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
         </div>
@@ -1251,7 +1253,7 @@
           <blockquote>
             <p data-i18n="about-quote">
               ”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer
-              än ett rätt svar — och att det bästa designbeslutet ofta hittas i
+              än ett rätt svar, och att det bästa designbeslutet ofta hittas i
               mellanrummet.”
             </p>
           </blockquote>
@@ -1451,24 +1453,24 @@
           'hemly-tag-1': 'UI-design',
           'hemly-tag-2': 'Designsystem',
           'hemly-tag-3': 'Mobilapp',
-          'hemly-btn-aria': 'Läs mer om Hemly — UI-design av en app för expresshandling',
+          'hemly-btn-aria': 'Läs mer om Hemly: UI-design av en app för expresshandling',
           'btn-las-mer': 'Läs mer <span class="arrow" aria-hidden="true">→</span>',
           'tillg-meta': '2026 · Tillgänglighet',
           'tillg-title': 'Tillgänglighet',
           'tillg-desc': 'Inkluderar vår webbsida alla som älskar skönhet?',
           'tillg-tag-1': 'Tillgänglighet',
           'tillg-tag-2': 'E-handel',
-          'tillg-btn-aria': 'Läs mer om Tillgänglighetsgranskning — WCAG 2.2-granskning av Nordic Feel',
+          'tillg-btn-aria': 'Läs mer om Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel',
           'viking-meta': '2026 · Grupprojekt',
           'viking-desc': 'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.',
           'viking-tag-1': 'Visuellt koncept',
           'viking-tag-2': 'Idégenerering',
-          'viking-btn-aria': 'Läs mer om Vikingaappen — quiz-app och ny webbsida för The Viking Museum',
+          'viking-btn-aria': 'Läs mer om Vikingaappen: quiz-app och ny webbsida för The Viking Museum',
           'about-eyebrow': 'Om mig',
           'about-title': 'Två kulturer. En designer.',
-          'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt — förmågan att se från flera håll samtidigt.',
+          'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.',
           'about-btn': 'Läs mer om mig <span class="arrow" aria-hidden="true">→</span>',
-          'about-quote': '”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer än ett rätt svar — och att det bästa designbeslutet ofta hittas i mellanrummet.”',
+          'about-quote': '”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer än ett rätt svar, och att det bästa designbeslutet ofta hittas i mellanrummet.”',
           'kontakt-eyebrow': 'Söker praktik · Vinter 2026',
           'kontakt-title': 'Låt oss prata design.',
           'kontakt-text': 'Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så berättar jag mer.',
@@ -1502,27 +1504,27 @@
           'hemly-tag-1': 'UI design',
           'hemly-tag-2': 'Design system',
           'hemly-tag-3': 'Mobile app',
-          'hemly-btn-aria': 'Read more about Hemly — UI design of an express shopping app',
+          'hemly-btn-aria': 'Read more about Hemly: UI design of an express shopping app',
           'btn-las-mer': 'Read more <span class="arrow" aria-hidden="true">→</span>',
           'tillg-meta': '2026 · Accessibility',
           'tillg-title': 'Accessibility',
           'tillg-desc': 'Does our website include everyone who loves beauty?',
           'tillg-tag-1': 'Accessibility',
           'tillg-tag-2': 'E-commerce',
-          'tillg-btn-aria': 'Read more about the Accessibility audit — WCAG 2.2 review of Nordic Feel',
+          'tillg-btn-aria': 'Read more about the Accessibility audit: WCAG 2.2 review of Nordic Feel',
           'viking-meta': '2026 · Group project',
           'viking-desc': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
           'viking-tag-1': 'Visual concept',
           'viking-tag-2': 'Ideation',
-          'viking-btn-aria': 'Read more about Vikingaappen — quiz app and new website for The Viking Museum',
+          'viking-btn-aria': 'Read more about Vikingaappen: quiz app and new website for The Viking Museum',
           'about-eyebrow': 'About me',
           'about-title': 'Two cultures. One designer.',
-          'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project — the ability to see from multiple angles at once.',
+          'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project: the ability to see from multiple angles at once.',
           'about-btn': 'Read more about me <span class="arrow" aria-hidden="true">→</span>',
-          'about-quote': '"Growing up between two cultures taught me that there is always more than one right answer — and that the best design decision is often found in the space between."',
+          'about-quote': '"Growing up between two cultures taught me that there is always more than one right answer, and that the best design decision is often found in the space between."',
           'kontakt-eyebrow': 'Searching for an internship · Winter 2026',
           'kontakt-title': 'Got a project that needs a curious eye?',
-          'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line — I\'m happy to chat.',
+          'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line. I\'m happy to chat.',
           'kontakt-btn': 'Contact me <span class="arrow" aria-hidden="true">→</span>',
           'copy-toast': '✓ Email address copied',
           'copy-announce': 'Email address copied',

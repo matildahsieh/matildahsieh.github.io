@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Om mig · Matilda Hsieh</title>
-  <meta name="description" content="Om Matilda Hsieh — UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats vinter 2026.">
+  <meta name="description" content="Om Matilda Hsieh, UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats vinter 2026.">
 
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
@@ -369,11 +369,13 @@
       text-transform: uppercase;
     }
     .logo-title {
-      font-family: var(--font-logo);
-      font-size: 0.5em;
-      font-weight: 400;
-      line-height: 1.19;
-      letter-spacing: 0.02em;
+      /* Small caps line: the thin display font blurred at this size, so it uses
+         the body font, a heavier weight and a 10px floor for crisp rendering */
+      font-family: var(--font-body);
+      font-size: max(0.46em, 10px);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
     .logo--small {
@@ -1447,13 +1449,13 @@
           <h1 class="about-name" id="about-heading">Hej, jag är <em>Matilda.</em></h1>
           <hr class="accent-line" aria-hidden="true">
           <p class="about-bio">
-            Jag är UX-designer med rötter i Sverige och Taiwan — och den blandningen formar hur jag
+            Jag är UX-designer med rötter i Sverige och Taiwan, och den blandningen formar hur jag
             ser på design. Jag tar med mig den svenska traditionen av enkelhet och tillgänglighet,
             och den taiwanesiska förmågan att lägga märke till detaljer som annars missas.
           </p>
           <p class="about-bio">
             Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till vinter
-            2026. Jag jobbar bäst i gränslandet mellan research och design — att förstå varför innan
+            2026. Jag jobbar bäst i gränslandet mellan research och design. Jag vill förstå varför innan
             jag ritar hur.
           </p>
           <ul class="tags about-tags" aria-label="Kompetenser">
@@ -1482,25 +1484,25 @@
           <article class="way-item">
             <span class="way-num" aria-hidden="true">01</span>
             <h3>Jag skapar förståelse innan jag skapar lösningar</h3>
-            <p>Jag vill först förstå vad uppdragsgivaren försöker uppnå, vem användaren är och vilken problematik som faktiskt finns. Jag är särskilt intresserad av relationen mellan verksamhetens mål och användarens verklighet — stämmer organisationens bild med vad användaren faktiskt upplever?</p>
+            <p>Jag vill först förstå vad uppdragsgivaren försöker uppnå, vem användaren är och vilken problematik som faktiskt finns. Jag är särskilt intresserad av relationen mellan verksamhetens mål och användarens verklighet. Stämmer organisationens bild med vad användaren faktiskt upplever?</p>
             <ul class="tags" aria-label="Taggar"><li class="tag">Användarresearch</li><li class="tag">Behovsanalys</li></ul>
           </article>
           <article class="way-item">
             <span class="way-num" aria-hidden="true">02</span>
             <h3>Jag är frågedriven snarare än metoddriven</h3>
-            <p>Jag börjar inte med att bestämma ”nu ska vi göra intervjuer” — jag börjar med att förstå vad vi behöver ta reda på, och väljer sedan metoden som bäst ger oss den kunskapen. Om frågorna är oklara använder jag gärna workshop för att tillsammans formulera mål och kunskapsbehov.</p>
+            <p>Jag börjar inte med att bestämma ”nu ska vi göra intervjuer”. Jag börjar med att förstå vad vi behöver ta reda på, och väljer sedan metoden som bäst ger oss den kunskapen. Om frågorna är oklara använder jag gärna workshop för att tillsammans formulera mål och kunskapsbehov.</p>
             <ul class="tags" aria-label="Taggar"><li class="tag">Workshop</li><li class="tag">Metodval</li></ul>
           </article>
           <article class="way-item">
             <span class="way-num" aria-hidden="true">03</span>
             <h3>Jag tänker bäst tillsammans med andra</h3>
-            <p>Att bolla idéer är en viktig del av min process. Jag fungerar bäst i miljöer där design får vara dialog och iteration snarare än ett ensamt arbete. Inkludering handlar för mig inte bara om slutprodukten — utan också om att öppna upp designprocessen.</p>
+            <p>Att bolla idéer är en viktig del av min process. Jag fungerar bäst i miljöer där design får vara dialog och iteration snarare än ett ensamt arbete. Inkludering handlar för mig inte bara om slutprodukten, utan också om att öppna upp designprocessen.</p>
             <ul class="tags" aria-label="Taggar"><li class="tag">Samarbete</li><li class="tag">Co-design</li></ul>
           </article>
           <article class="way-item">
             <span class="way-num" aria-hidden="true">04</span>
             <h3>Jag tänker gärna ”och” innan jag tänker ”eller”</h3>
-            <p>När två idéer står mot varandra är min första impuls att undersöka om något från båda går att kombinera. Jag tycker om att öppna upp möjlighetsutrymmet och bygga vidare innan jag börjar välja bort — det gör mitt arbetssätt ganska divergent och utforskande i början.</p>
+            <p>När två idéer står mot varandra är min första impuls att undersöka om något från båda går att kombinera. Jag tycker om att öppna upp möjlighetsutrymmet och bygga vidare innan jag börjar välja bort. Det gör mitt arbetssätt ganska divergent och utforskande i början.</p>
             <ul class="tags" aria-label="Taggar"><li class="tag">Divergent tänkande</li><li class="tag">Utforskande</li></ul>
           </article>
         </div>
@@ -1516,17 +1518,17 @@
           <div class="ai-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             <h3>Research och analys</h3>
-            <p>Jag använder AI för att snabbare hitta mönster i data och transkriptioner — men tolkningen och slutsatserna drar jag själv.</p>
+            <p>Jag använder AI för att snabbare hitta mönster i data och transkriptioner, men tolkningen och slutsatserna drar jag själv.</p>
           </div>
           <div class="ai-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.4 3.6a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
             <h3>Idéutveckling</h3>
-            <p>AI hjälper mig att brainstorma bredare och snabbare — sedan väljer och bearbetar jag det som faktiskt funkar för användaren.</p>
+            <p>AI hjälper mig att brainstorma bredare och snabbare. Sedan väljer och bearbetar jag det som faktiskt funkar för användaren.</p>
           </div>
           <div class="ai-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             <h3>Tempo och fokus</h3>
-            <p>Repetitiva uppgifter delegerar jag till AI — så jag kan lägga mer tid på det som kräver mänsklig empati och omdöme.</p>
+            <p>Repetitiva uppgifter delegerar jag till AI, så att jag kan lägga mer tid på det som kräver mänsklig empati och omdöme.</p>
           </div>
         </div>
       </div>
@@ -1551,7 +1553,7 @@
             <div>
               <h3>Student Consulting Group · Nordic Feel</h3>
               <p class="exp-role">Customer Service Agent</p>
-              <p>Uppdrag hos ett e-handelsföretag inom skönhet. Har skärpt min förmåga att lyssna på användarnas faktiska problem och kommunicera lösningar enkelt och tydligt — en direkt parallell till UX-arbetet.</p>
+              <p>Uppdrag hos ett e-handelsföretag inom skönhet. Har skärpt min förmåga att lyssna på användarnas faktiska problem och kommunicera lösningar enkelt och tydligt. Det är en direkt parallell till UX-arbetet.</p>
             </div>
           </article>
           <article class="exp-item">
@@ -1559,7 +1561,7 @@
             <div>
               <h3>Budbee</h3>
               <p class="exp-role">Merchant Support Associate · Customer Support Agent</p>
-              <p>Kundärenden på ett snabbväxande logistikbolag. Fick inblick i hur dålig UX skapar onödiga supportärenden — och hur rätt information vid rätt tillfälle kan lösa problem innan de uppstår.</p>
+              <p>Kundärenden på ett snabbväxande logistikbolag. Fick inblick i hur dålig UX skapar onödiga supportärenden, och hur rätt information vid rätt tillfälle kan lösa problem innan de uppstår.</p>
             </div>
           </article>
         </div>
