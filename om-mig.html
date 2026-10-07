@@ -1250,7 +1250,7 @@
     /* Logo note: the character 謝 explained */
     .logo-note { background: var(--bg-primary); padding: var(--space-8) 0; border-bottom: 1px solid var(--jade-border); }
     .logo-note-inner { display: flex; align-items: center; gap: var(--space-6); max-width: 720px; }
-    .logo-note-mark { flex: none; width: 112px; height: 112px; border-radius: var(--radius-md); }
+    .logo-note-mark { flex: none; display: block; width: 112px; height: auto; overflow: hidden; color: var(--brand-dark); }
     .logo-note h2 { font-family: var(--font-display); font-size: 32px; font-weight: 500; line-height: 1.15; color: var(--brand-dark); margin: var(--space-2) 0 var(--space-3); }
     .logo-note p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: var(--max-text); }
     .logo-note p + p { margin-top: var(--space-2); }
@@ -1272,7 +1272,7 @@
       .exp-item { grid-template-columns: 1fr; gap: var(--space-2); }
       .logo-note { padding: var(--space-7) 0; }
       .logo-note-inner { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
-      .logo-note-mark { width: 80px; height: 80px; }
+      .logo-note-mark { width: 84px; }
       .logo-note h2 { font-size: 28px; }
     }
   </style>
@@ -1430,7 +1430,7 @@
     <!-- LOGGAN -->
     <section class="logo-note" aria-labelledby="logo-note-heading">
       <div class="container logo-note-inner">
-        <img class="logo-note-mark" src="assets/favicon.svg" alt="" width="112" height="112">
+        <svg class="logo-note-mark" viewBox="0 0 119 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg>
         <div>
           <span class="eyebrow about-eyebrow">Om loggan</span>
           <h2 id="logo-note-heading">Tecknet i min logga</h2>
