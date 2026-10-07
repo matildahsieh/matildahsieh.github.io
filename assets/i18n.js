@@ -31,13 +31,13 @@
 
     /* ---------- Om mig ---------- */
     'Om mig · Matilda Hsieh': 'About · Matilda Hsieh',
-    'Om Matilda Hsieh — UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats vinter 2026.':
-      'About Matilda Hsieh — UX designer with roots in Sweden and Taiwan, looking for an internship in Winter 2026.',
+    'Om Matilda Hsieh, UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats vinter 2026.':
+      'About Matilda Hsieh, UX designer with roots in Sweden and Taiwan, looking for an internship in Winter 2026.',
     'Hej, jag är': 'Hi, I’m',
-    'Jag är UX-designer med rötter i Sverige och Taiwan — och den blandningen formar hur jag ser på design. Jag tar med mig den svenska traditionen av enkelhet och tillgänglighet, och den taiwanesiska förmågan att lägga märke till detaljer som annars missas.':
-      'I’m a UX designer with roots in Sweden and Taiwan — and that mix shapes how I see design. I bring the Swedish tradition of simplicity and accessibility, and the Taiwanese eye for details that otherwise get missed.',
-    'Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till vinter 2026. Jag jobbar bäst i gränslandet mellan research och design — att förstå varför innan jag ritar hur.':
-      'Right now I’m studying UX design at Nackademin in Stockholm and looking for an internship for Winter 2026. I work best where research meets design — understanding why before I sketch how.',
+    'Jag är UX-designer med rötter i Sverige och Taiwan, och den blandningen formar hur jag ser på design. Jag tar med mig den svenska traditionen av enkelhet och tillgänglighet, och den taiwanesiska förmågan att lägga märke till detaljer som annars missas.':
+      'I’m a UX designer with roots in Sweden and Taiwan, and that mix shapes how I see design. I bring the Swedish tradition of simplicity and accessibility, and the Taiwanese eye for details that otherwise get missed.',
+    'Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till vinter 2026. Jag jobbar bäst i gränslandet mellan research och design. Jag vill förstå varför innan jag ritar hur.':
+      'Right now I’m studying UX design at Nackademin in Stockholm and looking for an internship for Winter 2026. I work best where research meets design. I want to understand why before I sketch how.',
     'Tillgänglighet': 'Accessibility',
     'Foto kommer': 'Photo coming soon',
     'Foto på Matilda Hsieh kommer här': 'A photo of Matilda Hsieh is coming here',
@@ -45,35 +45,35 @@
     'Hur jag arbetar': 'How I work',
     'Mitt arbetssätt': 'My way of working',
     'Jag skapar förståelse innan jag skapar lösningar': 'I build understanding before I build solutions',
-    'Jag vill först förstå vad uppdragsgivaren försöker uppnå, vem användaren är och vilken problematik som faktiskt finns. Jag är särskilt intresserad av relationen mellan verksamhetens mål och användarens verklighet — stämmer organisationens bild med vad användaren faktiskt upplever?':
-      'First I want to understand what the client is trying to achieve, who the user is and what the real problem is. I’m especially interested in the gap between business goals and the user’s reality — does the organisation’s picture match what users actually experience?',
+    'Jag vill först förstå vad uppdragsgivaren försöker uppnå, vem användaren är och vilken problematik som faktiskt finns. Jag är särskilt intresserad av relationen mellan verksamhetens mål och användarens verklighet. Stämmer organisationens bild med vad användaren faktiskt upplever?':
+      'First I want to understand what the client is trying to achieve, who the user is and what the real problem is. I’m especially interested in the gap between business goals and the user’s reality. Does the organisation’s picture match what users actually experience?',
     'Användarresearch': 'User research',
     'Behovsanalys': 'Needs analysis',
     'Jag är frågedriven snarare än metoddriven': 'I’m driven by questions, not methods',
-    'Jag börjar inte med att bestämma ”nu ska vi göra intervjuer” — jag börjar med att förstå vad vi behöver ta reda på, och väljer sedan metoden som bäst ger oss den kunskapen. Om frågorna är oklara använder jag gärna workshop för att tillsammans formulera mål och kunskapsbehov.':
-      'I don’t start by deciding “now we’ll do interviews” — I start by understanding what we need to find out, then pick the method that best gets us there. If the questions are unclear, I like to run a workshop so we can define goals and knowledge gaps together.',
+    'Jag börjar inte med att bestämma ”nu ska vi göra intervjuer”. Jag börjar med att förstå vad vi behöver ta reda på, och väljer sedan metoden som bäst ger oss den kunskapen. Om frågorna är oklara använder jag gärna workshop för att tillsammans formulera mål och kunskapsbehov.':
+      'I don’t start by deciding “now we’ll do interviews”. I start by understanding what we need to find out, then pick the method that best gets us there. If the questions are unclear, I like to run a workshop so we can define goals and knowledge gaps together.',
     'Metodval': 'Choosing methods',
     'Jag tänker bäst tillsammans med andra': 'I think best together with others',
-    'Att bolla idéer är en viktig del av min process. Jag fungerar bäst i miljöer där design får vara dialog och iteration snarare än ett ensamt arbete. Inkludering handlar för mig inte bara om slutprodukten — utan också om att öppna upp designprocessen.':
-      'Bouncing ideas around is a big part of my process. I do my best work where design is dialogue and iteration rather than a solo job. To me, inclusion isn’t only about the end product — it’s also about opening up the design process.',
+    'Att bolla idéer är en viktig del av min process. Jag fungerar bäst i miljöer där design får vara dialog och iteration snarare än ett ensamt arbete. Inkludering handlar för mig inte bara om slutprodukten, utan också om att öppna upp designprocessen.':
+      'Bouncing ideas around is a big part of my process. I do my best work where design is dialogue and iteration rather than a solo job. To me, inclusion isn’t only about the end product, it’s also about opening up the design process.',
     'Samarbete': 'Collaboration',
     'Jag tänker gärna ”och” innan jag tänker ”eller”': 'I think “and” before I think “or”',
-    'När två idéer står mot varandra är min första impuls att undersöka om något från båda går att kombinera. Jag tycker om att öppna upp möjlighetsutrymmet och bygga vidare innan jag börjar välja bort — det gör mitt arbetssätt ganska divergent och utforskande i början.':
-      'When two ideas compete, my first instinct is to see whether parts of both can be combined. I like to widen the space of possibilities and build on it before I start ruling things out — which makes my process quite divergent and exploratory early on.',
+    'När två idéer står mot varandra är min första impuls att undersöka om något från båda går att kombinera. Jag tycker om att öppna upp möjlighetsutrymmet och bygga vidare innan jag börjar välja bort. Det gör mitt arbetssätt ganska divergent och utforskande i början.':
+      'When two ideas compete, my first instinct is to see whether parts of both can be combined. I like to widen the space of possibilities and build on it before I start ruling things out, which makes my process quite divergent and exploratory early on.',
     'Divergent tänkande': 'Divergent thinking',
     'Utforskande': 'Exploratory',
     'Hur jag arbetar med AI': 'How I work with AI',
     'AI som verktyg,': 'AI as a tool,',
     'inte ersättning': 'not a replacement',
     'Research och analys': 'Research and analysis',
-    'Jag använder AI för att snabbare hitta mönster i data och transkriptioner — men tolkningen och slutsatserna drar jag själv.':
-      'I use AI to find patterns in data and transcripts faster — but the interpretation and the conclusions are mine.',
+    'Jag använder AI för att snabbare hitta mönster i data och transkriptioner, men tolkningen och slutsatserna drar jag själv.':
+      'I use AI to find patterns in data and transcripts faster, but the interpretation and the conclusions are mine.',
     'Idéutveckling': 'Ideation',
-    'AI hjälper mig att brainstorma bredare och snabbare — sedan väljer och bearbetar jag det som faktiskt funkar för användaren.':
-      'AI helps me brainstorm wider and faster — then I choose and refine what actually works for the user.',
+    'AI hjälper mig att brainstorma bredare och snabbare. Sedan väljer och bearbetar jag det som faktiskt funkar för användaren.':
+      'AI helps me brainstorm wider and faster. Then I choose and refine what actually works for the user.',
     'Tempo och fokus': 'Pace and focus',
-    'Repetitiva uppgifter delegerar jag till AI — så jag kan lägga mer tid på det som kräver mänsklig empati och omdöme.':
-      'I hand repetitive tasks to AI — so I can spend more time on what needs human empathy and judgement.',
+    'Repetitiva uppgifter delegerar jag till AI, så att jag kan lägga mer tid på det som kräver mänsklig empati och omdöme.':
+      'I hand repetitive tasks to AI, so I can spend more time on what needs human empathy and judgement.',
     'Erfarenhet': 'Experience',
     'Bakgrund': 'Background',
     '2025 – nu': '2025 – present',
@@ -81,10 +81,10 @@
     'YH UX-designer': 'UX Designer (higher vocational education)',
     'Utbildning inom användarcentrerad design: research, behovsanalys, prototyping, användbarhetstestning och tillgänglighet.':
       'Education in user-centred design: research, needs analysis, prototyping, usability testing and accessibility.',
-    'Uppdrag hos ett e-handelsföretag inom skönhet. Har skärpt min förmåga att lyssna på användarnas faktiska problem och kommunicera lösningar enkelt och tydligt — en direkt parallell till UX-arbetet.':
-      'An assignment at a beauty e-commerce company. It has sharpened my ability to listen to users’ real problems and explain solutions simply and clearly — a direct parallel to UX work.',
-    'Kundärenden på ett snabbväxande logistikbolag. Fick inblick i hur dålig UX skapar onödiga supportärenden — och hur rätt information vid rätt tillfälle kan lösa problem innan de uppstår.':
-      'Customer cases at a fast-growing logistics company. I saw how poor UX creates unnecessary support tickets — and how the right information at the right moment can solve problems before they happen.',
+    'Uppdrag hos ett e-handelsföretag inom skönhet. Har skärpt min förmåga att lyssna på användarnas faktiska problem och kommunicera lösningar enkelt och tydligt. Det är en direkt parallell till UX-arbetet.':
+      'An assignment at a beauty e-commerce company. It has sharpened my ability to listen to users’ real problems and explain solutions simply and clearly. It’s a direct parallel to UX work.',
+    'Kundärenden på ett snabbväxande logistikbolag. Fick inblick i hur dålig UX skapar onödiga supportärenden, och hur rätt information vid rätt tillfälle kan lösa problem innan de uppstår.':
+      'Customer cases at a fast-growing logistics company. I saw how poor UX creates unnecessary support tickets, and how the right information at the right moment can solve problems before they happen.',
     'Låter det intressant?': 'Sound interesting?',
     'Jag söker LIA-plats till vinter 2026 och är nyfiken på att lära mig mer om hur ni arbetar.':
       'I’m looking for an internship for Winter 2026 and I’m curious to learn more about how you work.',
@@ -92,11 +92,11 @@
 
     /* ---------- Hemly ---------- */
     'Hemly · Matilda Hsieh': 'Hemly · Matilda Hsieh',
-    'Case study: Hemly — UI-design av en app för expresshandling, för den spontana myskvällen.':
-      'Case study: Hemly — UI design of an express shopping app for the spontaneous movie night.',
+    'Case study: Hemly. UI-design av en app för expresshandling, för den spontana myskvällen.':
+      'Case study: Hemly. UI design of an express shopping app for the spontaneous movie night.',
     'Case study · UI-design · Soloprojekt': 'Case study · UI design · Solo project',
-    'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling — snacks, godis och dryck hemma inom tio minuter.':
-      'The pantry is empty and the movie has already started. An express shopping app — snacks, sweets and drinks at your door within ten minutes.',
+    'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling: snacks, godis och dryck hemma inom tio minuter.':
+      'The pantry is empty and the movie has already started. An express shopping app: snacks, sweets and drinks at your door within ten minutes.',
     'Roll': 'Role',
     'Research, designsystem & UI': 'Research, design system & UI',
     'Soloprojekt': 'Solo project',
@@ -114,16 +114,16 @@
       'Quickly and easily ordering snacks, sweets and drinks when the pantry is empty and the movie has already started.',
     'Mål': 'Goal',
     'Expresshandling inom': 'Express shopping within',
-    'minuter — snabb, intuitiv och visuellt tilltalande.': 'minutes — fast, intuitive and visually appealing.',
+    'minuter, snabb, intuitiv och visuellt tilltalande.': 'minutes, fast, intuitive and visually appealing.',
     '02 · Processen': '02 · The process',
     'Inspiration → struktur → visuellt': 'Inspiration → structure → visuals',
-    'Referensappar som foodora, Mathem och Willys, plus Dribbble och Mobbin — för att förstå konventionerna inom grocery.':
-      'Reference apps like foodora, Mathem and Willys, plus Dribbble and Mobbin — to understand the conventions of grocery apps.',
+    'Referensappar som foodora, Mathem och Willys, plus Dribbble och Mobbin, för att förstå konventionerna inom grocery.':
+      'Reference apps like foodora, Mathem and Willys, plus Dribbble and Mobbin, to understand the conventions of grocery apps.',
     'Struktur': 'Structure',
     'Ett mini-designsystem först: färgpalett, typskala och komponenter.': 'A mini design system first: colour palette, type scale and components.',
     'Visuellt': 'Visuals',
-    'Vyerna — med ett konsekvent uttryck utan att fatta samma beslut om och om igen.':
-      'The screens — with a consistent look, without making the same decisions over and over.',
+    'Vyerna, med ett konsekvent uttryck utan att fatta samma beslut om och om igen.':
+      'The screens, with a consistent look, without making the same decisions over and over.',
     '03 · Designsystemet': '03 · The design system',
     'Bestäm en gång, använd överallt': 'Decide once, use everywhere',
     'Färg': 'Colour',
@@ -132,7 +132,7 @@
     'Typskala': 'Type scale',
     'Rubrik': 'Heading',
     'Underrubrik': 'Subheading',
-    'Brödtext — IBM Plex Sans 16': 'Body text — IBM Plex Sans 16',
+    'Brödtext · IBM Plex Sans 16': 'Body text · IBM Plex Sans 16',
     'Liten text · etiketter': 'Small text · labels',
     'Komponenter': 'Components',
     'Lägg i varukorg': 'Add to cart',
@@ -144,18 +144,27 @@
     '[Kategori]': '[Category]',
     '[Varukorg]': '[Cart]',
     '[Kassa]': '[Checkout]',
+    'Hemlys startsida med leveransadress, Myspaketet och populära snacks': 'Hemly home screen with delivery address, the movie-night bundle and popular snacks',
+    'Startsidan: Myspaketet och snacks direkt till hands.': 'Home: the movie-night bundle and snacks right at hand.',
+    'Startsidan med Myspaketet och populära snacks': 'Home screen with the movie-night bundle and popular snacks',
+    'Kategorier i stora, tydliga kort, så att det går snabbt att hitta rätt.': 'Categories as large, clear cards, so the right thing is quick to find.',
+    'Kategorisidan med kort för chips, popcorn, nötter, ost och kex, pinnar och dipp': 'Category screen with cards for crisps, popcorn, nuts, cheese and crackers, pretzel sticks and dips',
+    'Varukorgen visar totalen och leveranstiden innan du betalar.': 'The cart shows the total and delivery time before you pay.',
+    'Varukorgen med tre varor, ordersammanfattning och knappen Betala': 'Cart with three items, an order summary and the Pay button',
+    'Orderbekräftelsen: beräknad leveranstid på 8 minuter.': 'Order confirmation: estimated delivery in 8 minutes.',
+    'Orderbekräftelse med beräknad leveranstid på 8 minuter och beställningens innehåll': 'Order confirmation with an estimated delivery time of 8 minutes and the order contents',
     '05 · Reflektion': '05 · Reflection',
-    'Mitt första misstag var att inte börja med style guiden. Det gjorde att det tog längre tid — med en struktur från start hade designprocessen gått mycket smidigare.':
-      'My first mistake was not starting with the style guide. It made everything take longer — with structure from the start, the design process would have gone much more smoothly.',
-    '”Good enough — sen iterera. Inte sitta i timmar för att få det pixel perfect.”':
-      '“Good enough — then iterate. Don’t spend hours making it pixel perfect.”',
+    'Mitt första misstag var att inte börja med style guiden. Det gjorde att det tog längre tid. Med en struktur från start hade designprocessen gått mycket smidigare.':
+      'My first mistake was not starting with the style guide. It made everything take longer. With structure from the start, the design process would have gone much more smoothly.',
+    '”Good enough, sen iterera. Inte sitta i timmar för att få det pixel perfect.”':
+      '“Good enough, then iterate. Don’t spend hours making it pixel perfect.”',
 
     /* ---------- Vikingaappen ---------- */
-    'Case study: Vikingaappen — en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
-      'Case study: Vikingaappen — a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
+    'Case study: Vikingaappen, en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
+      'Case study: Vikingaappen, a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
     'Kliv in i vikingatiden · The Viking Museum': 'Step into the Viking Age · The Viking Museum',
-    'Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet — och en ny webbsida som får fler att hitta dit.':
-      'How do you make the Viking Age something people actually want to click on? A quiz app that guides children through the museum — and a new website that helps more people find it.',
+    'Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet, och en ny webbsida som får fler att hitta dit.':
+      'How do you make the Viking Age something people actually want to click on? A quiz app that guides children through the museum, and a new website that helps more people find it.',
     'Min roll': 'My role',
     'Idégenerering & visuellt koncept': 'Ideation & visual concept',
     'Grupprojekt': 'Group project',
@@ -163,18 +172,18 @@
     'Tid': 'Timeline',
     'Aug–sep 2026': 'Aug–Sep 2026',
     'Sal 1 · Uppdraget': 'Room 1 · The brief',
-    'Fyra rader i briefen, fyra svar': 'Four lines in the brief, four answers',
-    'Briefen hade en mening som jag tog på allvar: etiska hänsyn är lika viktiga som idé, funktion och design. När målgruppen är barn blir det inte en bisak.':
-      'The brief had one sentence I took seriously: ethical considerations matter as much as idea, function and design. When your audience is children, that’s not a side issue.',
-    'Briefen: barnfamiljer & turister': 'Brief: families & tourists',
-    'Fokus på barn, välj språk direkt, välj antal deltagare.': 'Focus on children, choose a language right away, choose the number of players.',
-    'Briefen: infotainment': 'Brief: infotainment',
-    'Lära genom att göra: runor, pärlhalsband, quiz.': 'Learning by doing: runes, bead necklaces, quizzes.',
-    'Briefen: etik lika viktigt': 'Brief: ethics matter equally',
+    'Fyra beslut vi tog som grupp': 'Four decisions we made as a group',
+    'Briefen var öppen: en digital lösning för barnfamiljer och turister, gärna med infotainment, och etik lika viktigt som idé, funktion och design. Hur vi skulle lösa det bestämde vi själva i gruppen.':
+      'The brief was open: a digital solution for families and tourists, ideally infotainment, with ethics as important as idea, function and design. How to solve it was up to us as a group.',
+    'Vi valde: barnen i fokus': 'We chose: children first',
+    'Välj språk direkt och hur många som spelar.': 'Pick a language right away, and how many are playing.',
+    'Vi valde: lära genom att göra': 'We chose: learning by doing',
+    'Runor, pärlhalsband och quiz i utställningen.': 'Runes, bead necklaces and quizzes in the exhibition.',
+    'Vi valde: integritet först': 'We chose: privacy first',
+    'Vi valde: en väg in i museet': 'We chose: a way into the museum',
     'Inga namn, ingen inloggning, frivillig delning.': 'No names, no login, optional sharing.',
-    'Briefen: led till museet': 'Brief: lead people to the museum',
     'En kod att visa i Gift Shop som belöning.': 'A code to show in the Gift Shop as a reward.',
-    'Sal 2 · Visuellt koncept — mitt ansvar': 'Room 2 · Visual concept — my responsibility',
+    'Sal 2 · Visuellt koncept · mitt ansvar': 'Room 2 · Visual concept · my responsibility',
     'Färger hämtade ur utställningen': 'Colours taken from the exhibition',
     'Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.':
       'The app should feel like an extension of the museum, not a game that happens to be about Vikings. The references: carved doors, runestones, the runic alphabet, Thor’s hammers and longships.',
@@ -200,7 +209,7 @@
     'Stationer, runskrift, fråga guiderna, pärlhalsband, quiz.': 'Stations, rune writing, ask the guides, bead necklace, quiz.',
     'Positiv feedback oavsett resultat. Kod till Gift Shop.': 'Positive feedback whatever the result. A code for the Gift Shop.',
     'Sista sidan': 'Final screen',
-    'Belöning, och dela — om man vill.': 'A reward, and sharing — if you want to.',
+    'Belöning, och dela om man vill.': 'A reward, and sharing if you want to.',
     '[Skärm: start]': '[Screen: start]',
     '[Skärm: uppgift]': '[Screen: task]',
     '[Skärm: belöning]': '[Screen: reward]',
@@ -212,8 +221,8 @@
     'Inget konto, ingen data som kan kopplas till ett barn. Byggt utifrån privacy by design och EU:s regler.':
       'No account, no data that can be linked to a child. Built on privacy by design and EU rules.',
     'Frivillig delning': 'Optional sharing',
-    'Bara om barnet vill — via telefonens egen delningsfunktion. Och alla får positiv feedback, oavsett resultat.':
-      'Only if the child wants to — through the phone’s own share feature. And everyone gets positive feedback, whatever the result.',
+    'Bara om barnet vill, via telefonens egen delningsfunktion. Och alla får positiv feedback, oavsett resultat.':
+      'Only if the child wants to, through the phone’s own share feature. And everyone gets positive feedback, whatever the result.',
     'Sal 5 · Webbsidan': 'Room 5 · The website',
     'En ny webbsida för museet': 'A new website for the museum',
     '[Den nya webbsidan, desktop]': '[The new website, desktop]',
@@ -229,19 +238,19 @@
       'Case study: an accessibility audit of Nordic Feel’s online store against WCAG 2.2.',
     'RAPPORT · WCAG 2.2 · NIVÅ [AA]': 'REPORT · WCAG 2.2 · LEVEL [AA]',
     'Inkluderar vår webbsida alla som älskar skönhet?': 'Does our website include everyone who loves beauty?',
-    'En tillgänglighetsgranskning av Nordic Feels e-handel — vem kommer hela vägen till kassan, och vem fastnar på vägen?':
-      'An accessibility audit of Nordic Feel’s online store — who makes it all the way to checkout, and who gets stuck along the way?',
+    'En tillgänglighetsgranskning av Nordic Feels e-handel. Vem kommer hela vägen till kassan, och vem fastnar på vägen?':
+      'An accessibility audit of Nordic Feel’s online store. Who makes it all the way to checkout, and who gets stuck along the way?',
     'ROLL': 'ROLE',
     'Granskning, analys & förslag': 'Audit, analysis & recommendations',
     'PLATTFORM': 'PLATFORM',
     'TID': 'TIMELINE',
     'Maj 2026': 'May 2026',
     'Webb · e-handel': 'Web · e-commerce',
-    '01 — SAMMANFATTNING': '01 — SUMMARY',
+    '01 · SAMMANFATTNING': '01 · SUMMARY',
     'sidor granskade': 'pages audited',
     'brister hittade': 'issues found',
-    'kritiska — stoppar ett köp': 'critical — they block a purchase',
-    '02 — METOD': '02 — METHOD',
+    'kritiska, stoppar ett köp': 'critical, they block a purchase',
+    '02 · METOD': '02 · METHOD',
     'Fyra principer, en köpresa': 'Four principles, one purchase journey',
     '1. MÖJLIG ATT UPPFATTA': '1. PERCEIVABLE',
     'Kontrast, alt-texter, text i bilder.': 'Contrast, alt text, text in images.',
@@ -250,7 +259,7 @@
     '3. BEGRIPLIG': '3. UNDERSTANDABLE',
     'Formulär, felmeddelanden, språk.': 'Forms, error messages, language.',
     'Skärmläsare och hjälpmedel.': 'Screen readers and assistive technology.',
-    '03 — FYND': '03 — FINDINGS',
+    '03 · FYND': '03 · FINDINGS',
     'Där köpresan bryts': 'Where the purchase journey breaks',
     'KRITERIUM': 'CRITERION',
     'VAR': 'WHERE',
@@ -261,7 +270,7 @@
     'Hög': 'High',
     '[Formulär]': '[Form]',
     'Medel': 'Medium',
-    '04 — FÖRSLAG': '04 — RECOMMENDATIONS',
+    '04 · FÖRSLAG': '04 · RECOMMENDATIONS',
     'Före och efter': 'Before and after',
     '[Före: skärmdump]': '[Before: screenshot]',
     'Före.': 'Before.',
@@ -269,7 +278,7 @@
     '[Efter: ditt förslag]': '[After: your proposal]',
     'Efter.': 'After.',
     '[Vad som ändrats och varför]': '[What changed and why]',
-    '05 — VAD JAG LÄRDE MIG': '05 — WHAT I LEARNED',
+    '05 · VAD JAG LÄRDE MIG': '05 · WHAT I LEARNED',
     '[Din lärdom, i en eller två meningar]': '[Your learning, in one or two sentences]'
   };
 
