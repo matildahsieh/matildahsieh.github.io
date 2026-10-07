@@ -348,10 +348,11 @@
       --torii-feet: currentColor;
     }
     .logo-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 1.72em;
+      /* Grid column takes the name's width; the title below is spread to match it */
+      display: inline-grid;
+      align-content: center;
+      row-gap: 0.12em;
+      height: 2.06em;               /* divider line as tall as the torii */
       padding-left: 0.375em;
       border-left: 1px solid var(--logo-line);
     }
@@ -361,8 +362,15 @@
       font-weight: 400;
       line-height: 1.16;
       letter-spacing: 0.22em;
+      margin-right: -0.22em;        /* cancel the spacing after the last letter */
       text-transform: uppercase;
     }
+    /* "UX DESIGNER" spread letter by letter across the full width of the name */
+    .logo-title {
+      display: flex;
+      justify-content: space-between;
+    }
+    .logo-title-gap { width: 1.4em; }   /* keeps "UX" and "DESIGNER" visibly two words */
     .logo-title {
       /* Small caps line: the thin display font blurred at this size, so it uses
          the body font, a heavier weight and a 10px floor for crisp rendering */
@@ -1306,7 +1314,7 @@
         <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="assets/torii.svg#torii-logo"/></svg>
         <span class="logo-text">
           <span class="logo-name">MATILDA HSIEH</span>
-          <span class="logo-title">UX Designer</span>
+          <span class="logo-title" aria-hidden="true"><span>U</span><span>X</span><span class="logo-title-gap"></span><span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span><span>E</span><span>R</span></span>
         </span>
       </a>
 
@@ -1504,7 +1512,7 @@
         <svg class="logo-mark" aria-hidden="true" focusable="false"><use href="assets/torii.svg#torii-logo"/></svg>
         <span class="logo-text">
           <span class="logo-name">MATILDA HSIEH</span>
-          <span class="logo-title">UX Designer</span>
+          <span class="logo-title" aria-hidden="true"><span>U</span><span>X</span><span class="logo-title-gap"></span><span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span><span>E</span><span>R</span></span>
         </span>
       </a>
       <div class="footer-contact">
