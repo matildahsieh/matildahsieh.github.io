@@ -246,7 +246,7 @@
     .banner {
       background: var(--bg-secondary);
       color: var(--brand-dark);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -298,6 +298,16 @@
     }
     .banner-close:hover,
     .banner-close:focus-visible { opacity: 1; }
+    /* Bigger tap areas without making the banner taller */
+    .banner-link, .banner-close { position: relative; }
+    .banner-link::after { content: ""; position: absolute; inset: -14px -8px; }
+    .banner-close::after { content: ""; position: absolute; inset: -8px; }
+    /* Keep the banner on one line on small phones */
+    @media (max-width: 480px) {
+      .banner { letter-spacing: 0; text-transform: none; }
+      .banner-link { white-space: nowrap; }
+      .banner-inner, .banner-actions { gap: 8px; }
+    }
 
     /* ==========================================================
        2. NAVBAR
@@ -852,7 +862,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 12px; letter-spacing: 0.14em; }
 
     /* "Copied" toast — centred without transform so reduced-motion can't shift it */
     .copy-toast {
@@ -1213,7 +1223,7 @@
     .case-page img { max-width: 100%; }
     @media (max-width: 768px) {
       .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
-      .case-page h2 { font-size: 34px !important; }
+      .case-page h2:not(.is-label) { font-size: 34px !important; }
       .facts-3 { grid-template-columns: 1fr !important; }
       .phone-hero { width: 240px !important; height: 500px !important; }
     }
@@ -1222,6 +1232,31 @@
       .fix-row { grid-template-columns: 1fr !important; }
       .fix-row > div:first-child { border-right: 0 !important; padding-bottom: 0 !important; }
     }
+    /* Findings table: each row becomes a card on small screens */
+    @media (max-width: 768px) {
+      .findings-wrap { overflow: visible !important; background: transparent !important; border: 0 !important; }
+      .findings-table { min-width: 0 !important; }
+      .findings-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .findings-table, .findings-table tbody, .findings-table tr, .findings-table td { display: block; width: 100%; box-sizing: border-box; }
+      .findings-table tr { margin-bottom: 12px; padding: 8px 0; background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; }
+      .findings-table td { padding: 8px 20px !important; border-bottom: 0 !important; }
+      .findings-table td::before { display: block; margin-bottom: 2px; font: 12px 'IBM Plex Mono', monospace; color: #535C78; }
+      .findings-table td:nth-child(1)::before { content: "KRITERIUM"; }
+      .findings-table td:nth-child(2)::before { content: "VAR"; }
+      .findings-table td:nth-child(3)::before { content: "PROBLEM"; }
+      .findings-table td:nth-child(4)::before { content: "ALLVARLIGHET"; }
+      html[lang="en"] .findings-table td:nth-child(1)::before { content: "CRITERION"; }
+      html[lang="en"] .findings-table td:nth-child(2)::before { content: "WHERE"; }
+      html[lang="en"] .findings-table td:nth-child(4)::before { content: "SEVERITY"; }
+    }
+    /* End of case study: next project + contact */
+    .next-project { background: var(--bg-primary); border-top: 1px solid rgba(30, 34, 53, 0.12); }
+    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; }
+    .next-label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jade-700); }
+    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(44px, 7vw, 80px); font-weight: 500; line-height: 1; color: var(--brand-dark); text-decoration: none;
+      padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
+    .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
+    .next-desc { margin: 16px 0 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -1344,10 +1379,10 @@
   <!-- Report cover -->
   <section style="background: #E4DDD6;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 24px 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-      <a href="index.html#projekt" style="font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
+      <a href="index.html#projekt" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
     </div>
     <div style="max-width: 1120px; margin: 0 auto; padding: 88px 32px 96px;">
-      <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">RAPPORT · WCAG 2.2 · NIVÅ [AA]</p>
+      <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">RAPPORT · WCAG 2.2 · NIVÅ AA</p>
       <h1 style="margin: 0 0 28px; max-width: 900px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 80px; line-height: 1;">Inkluderar vår webbsida alla som älskar skönhet?</h1>
       <p style="margin: 0 0 48px; max-width: 600px; font-size: 19px; line-height: 1.65;">En tillgänglighetsgranskning av Nordic Feels e-handel. Vem kommer hela vägen till kassan, och vem fastnar på vägen?</p>
       <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid #C9BFB4;">
@@ -1361,7 +1396,7 @@
 
   <!-- Summary: big numbers, all placeholders until real -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px 40px;">
-    <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">01 · SAMMANFATTNING</p>
+    <h2 class="is-label" style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78; font-weight: 400; line-height: 1.6;">01 · SAMMANFATTNING</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
       <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">4</p><p style="margin: 8px 0 0; font-size: 15px;">sidor granskade</p></div>
       <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">6</p><p style="margin: 8px 0 0; font-size: 15px;">brister hittade</p></div>
@@ -1371,8 +1406,7 @@
 
   <!-- Method: POUR as four columns -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">02 · METOD</p>
-    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Fyra principer, en köpresa</h2>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78; font-weight: 400; line-height: 1.6;">02 · METOD</span>Fyra principer, en köpresa</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border: 1px solid #DDE1EA; border-radius: 16px; overflow: hidden; background: #FEFDFC;">
       <div style="padding: 24px; border-right: 1px solid #DDE1EA;"><p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4A6553;">1. MÖJLIG ATT UPPFATTA</p><p style="margin: 0; font-size: 15px; line-height: 1.6;">Kontrast, alt-texter, text i bilder.</p></div>
       <div style="padding: 24px; border-right: 1px solid #DDE1EA;"><p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4A6553;">2. HANTERBAR</p><p style="margin: 0; font-size: 15px; line-height: 1.6;">Tangentbord, fokus, klickytor.</p></div>
@@ -1384,10 +1418,9 @@
 
   <!-- Findings table -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">03 · FYND</p>
-    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Där köpresan bryts</h2>
-    <div style="overflow-x: auto; background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px;">
-      <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px;">
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78; font-weight: 400; line-height: 1.6;">03 · FYND</span>Där köpresan bryts</h2>
+    <div class="findings-wrap" style="overflow-x: auto; background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px;">
+      <table class="findings-table" style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px;">
         <thead>
           <tr style="text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">
             <th style="padding: 16px 20px; border-bottom: 1px solid #DDE1EA;">KRITERIUM</th>
@@ -1419,7 +1452,7 @@
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">3.1.2 & 2.2.2</td>
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Startsidan</td>
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Kampanjvideo loopar i all evighet utan pausknapp. Kampanjtexten är på engelska men sidan är deklarerad på svenska, så skärmläsaren byter till fel röst.</td>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #76809D; color: #FEFDFC; font-size: 13px; font-weight: 600;">Hög</span></td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #535C78; color: #FEFDFC; font-size: 13px; font-weight: 600;">Hög</span></td>
           </tr>
           <tr>
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">3.3.3</td>
@@ -1440,18 +1473,16 @@
 
   <!-- Before / after -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">04 · FÖRSLAG</p>
-    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Före och efter</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-      <figure style="margin: 0;"><img src="assets/images/kontrast-fore.png" alt="Nordic Feels navbar med vita siffror på orange badges mot ljus bakgrund. Kontrasten är 3,3:1 för siffran och 1,7:1 för brickan." style="width: 100%; height: 200px; object-fit: cover; object-position: right center; border-radius: 16px; background: #F5F0EB;"><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Före.</strong> Badge-siffrorna i varukorgen och favoritlistan bryter mot två WCAG-krav. Den vita siffran mot den orange brickan har kontrast 3,3:1, men text kräver 4,5:1 (1.4.3). Brickan mot den ljusa bakgrunden har 1,7:1, men UI-komponenter kräver 3:1 (1.4.11). Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.</figcaption></figure>
-      <figure style="margin: 0;"><img src="assets/images/kontrast-efter.png" alt="Samma navbar med mörkröda badges. Kontrasten är 6,9:1 för siffran och 3,5:1 för brickan." style="width: 100%; height: 200px; object-fit: cover; object-position: right center; border-radius: 16px; background: #F5F0EB;"><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Efter.</strong> En mörkare färg på brickan löser båda. Siffran mot brickan får 6,9:1 och brickan mot bakgrunden 3,5:1. Samma form, samma känsla. Bara ett färgval.</figcaption></figure>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78; font-weight: 400; line-height: 1.6;">04 · FÖRSLAG</span>Före och efter</h2>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 32px;">
+      <figure style="margin: 0;"><img src="assets/images/kontrast-fore.png" alt="Nordic Feels navbar med vita siffror på orange badges mot ljus bakgrund. Kontrasten är 3,3:1 för siffran och 1,7:1 för brickan." width="977" height="102" style="display: block; width: 100%; height: auto; border-radius: 12px; background: #F5F0EB;"><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Före.</strong> Badge-siffrorna i varukorgen och favoritlistan bryter mot två WCAG-krav. Den vita siffran mot den orange brickan har kontrast 3,3:1, men text kräver 4,5:1 (1.4.3). Brickan mot den ljusa bakgrunden har 1,7:1, men UI-komponenter kräver 3:1 (1.4.11). Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.</figcaption></figure>
+      <figure style="margin: 0;"><img src="assets/images/kontrast-efter.png" alt="Samma navbar med mörkröda badges. Kontrasten är 6,9:1 för siffran och 3,5:1 för brickan." width="977" height="102" style="display: block; width: 100%; height: auto; border-radius: 12px; background: #F5F0EB;"><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Efter.</strong> En mörkare färg på brickan löser båda. Siffran mot brickan får 6,9:1 och brickan mot bakgrunden 3,5:1. Samma form, samma känsla. Bara ett färgval.</figcaption></figure>
     </div>
   </section>
 
   <!-- Results -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">05 · RESULTAT</p>
-    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Små ändringar, stor skillnad</h2>
+    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78; font-weight: 400; line-height: 1.6;">05 · RESULTAT</span>Små ändringar, stor skillnad</h2>
 
     <!-- Impact numbers -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 48px;">
@@ -1522,12 +1553,24 @@
   <!-- Learning -->
   <section style="background: #1E2235; color: #FEFDFC; margin-top: 48px;">
     <div style="max-width: 820px; margin: 0 auto; padding: 104px 32px;">
-      <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C4B0;">06 · VAD JAG LÄRDE MIG</p>
+      <h2 class="is-label" style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C4B0; font-weight: 400; line-height: 1.6;">06 · VAD JAG LÄRDE MIG</h2>
       <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 40px; line-height: 1.25;">Det svåraste var inte att hitta felen. Det var att inse att samma knapp fungerar fint för mig och är helt osynlig för Ellen. Tillgänglighet är inte en feature man lägger till sen. Det är ett designbeslut man tar från start, eller rättar till i en liten kodrad.</p>
     </div>
   </section>
 
 </div>
+
+  <!-- Next project + contact -->
+  <section class="next-project" aria-labelledby="next-title">
+    <div class="next-inner">
+      <div>
+        <h2 class="next-label is-label" id="next-title">Nästa projekt</h2>
+        <a class="next-link" href="vikingaappen.html">Vikingjakten <span aria-hidden="true">→</span></a>
+        <p class="next-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
   </main>
 
   <!-- 7. FOOTER -->

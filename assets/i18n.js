@@ -14,6 +14,9 @@
     'Hoppa till innehållet': 'Skip to content',
     'Söker praktik · Vinter 2026': 'Searching for an internship · Winter 2026',
     'Kontakta mig': 'Contact me',
+    'Nästa projekt': 'Next project',
+    'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
+    'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.': 'The pantry is empty and the movie has already started. An app for express grocery shopping in under ten minutes.',
     'Meny': 'Menu',
     'Projekt': 'Projects',
     'Om mig': 'About',
@@ -246,7 +249,7 @@
     'Tillgänglighet · Matilda Hsieh': 'Accessibility · Matilda Hsieh',
     'Case study: tillgänglighetsgranskning av Nordic Feels e-handel enligt WCAG 2.2.':
       'Case study: an accessibility audit of Nordic Feel’s online store against WCAG 2.2.',
-    'RAPPORT · WCAG 2.2 · NIVÅ [AA]': 'REPORT · WCAG 2.2 · LEVEL [AA]',
+    'RAPPORT · WCAG 2.2 · NIVÅ AA': 'REPORT · WCAG 2.2 · LEVEL AA',
     'Inkluderar vår webbsida alla som älskar skönhet?': 'Does our website include everyone who loves beauty?',
     'En tillgänglighetsgranskning av Nordic Feels e-handel. Vem kommer hela vägen till kassan, och vem fastnar på vägen?':
       'An accessibility audit of Nordic Feel’s online store. Who makes it all the way to checkout, and who gets stuck along the way?',

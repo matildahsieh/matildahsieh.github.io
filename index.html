@@ -158,7 +158,7 @@
     .eyebrow {
       display: block;
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -187,7 +187,7 @@
       min-height: 44px;
       padding: var(--space-3) var(--space-5);
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -248,7 +248,7 @@
     .banner {
       background: var(--bg-secondary);
       color: var(--brand-dark);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -300,6 +300,16 @@
     }
     .banner-close:hover,
     .banner-close:focus-visible { opacity: 1; }
+    /* Bigger tap areas without making the banner taller */
+    .banner-link, .banner-close { position: relative; }
+    .banner-link::after { content: ""; position: absolute; inset: -14px -8px; }
+    .banner-close::after { content: ""; position: absolute; inset: -8px; }
+    /* Keep the banner on one line on small phones */
+    @media (max-width: 480px) {
+      .banner { letter-spacing: 0; text-transform: none; }
+      .banner-link { white-space: nowrap; }
+      .banner-inner, .banner-actions { gap: 8px; }
+    }
 
     /* ==========================================================
        2. NAVBAR
@@ -509,7 +519,7 @@
     .hero .eyebrow { color: var(--jade-700); }
     .hero-title {
       font-family: var(--font-display);
-      font-size: 56px;
+      font-size: 80px;
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.04em;
@@ -526,7 +536,7 @@
     }
     .hero-text {
       max-width: 420px;
-      font-size: 14px;
+      font-size: 17px;
       line-height: 1.75;
       color: var(--text-secondary);
       margin-bottom: var(--space-6);
@@ -623,7 +633,7 @@
     }
 
     .project-meta {
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -636,7 +646,7 @@
       margin-bottom: var(--space-2);
     }
     .project-desc {
-      font-size: 10px;
+      font-size: 15px;
       line-height: 1.6;
       max-width: var(--max-text);
       margin-bottom: var(--space-4);
@@ -656,12 +666,18 @@
     }
     .tag {
       padding: var(--space-1) var(--space-3);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       border: 1px solid transparent;
       border-radius: var(--radius-sm);
     }
     .project-card .btn { margin-top: auto; }
+    /* The whole card is clickable: the "Läs mer" link stretches over it */
+    .project-card { cursor: pointer; }
+    .project-card > .btn { position: static; }
+    .project-card > .btn::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+    /* No lift on these buttons: a transform would shrink the clickable area back to the button */
+    .project-card > .btn, .project-card > .btn:hover { transform: none !important; }
 
     /* Card — Hemly (plum, the project's own brand colours) */
     .card-icon-circle--hemly {
@@ -754,7 +770,7 @@
     }
     .about-text {
       max-width: var(--max-text);
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.75;
       color: var(--text-on-dark-muted);
       margin-bottom: var(--space-6);
@@ -773,7 +789,7 @@
     }
     .quote figcaption {
       margin-top: var(--space-4);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--jade-500);
@@ -875,7 +891,7 @@
     }
     .footer-meta {
       text-align: right;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.7;
       color: var(--footer-text);
     }
@@ -898,7 +914,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 12px; letter-spacing: 0.14em; }
 
     /* "Copied" toast — centred without transform so reduced-motion can't shift it */
     .copy-toast {
@@ -995,7 +1011,7 @@
       .lang-option:hover { background: transparent !important; }
 
       .hero { padding: var(--space-8) 0; }
-      .hero-title { font-size: 44px; }
+      .hero-title { font-size: 56px; }
       .hero-ghost { width: 300px; right: -60px; bottom: -40px; }
 
       .project-grid,

@@ -156,7 +156,7 @@
     .eyebrow {
       display: block;
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -185,7 +185,7 @@
       min-height: 44px;
       padding: var(--space-3) var(--space-5);
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -246,7 +246,7 @@
     .banner {
       background: var(--bg-secondary);
       color: var(--brand-dark);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -298,6 +298,16 @@
     }
     .banner-close:hover,
     .banner-close:focus-visible { opacity: 1; }
+    /* Bigger tap areas without making the banner taller */
+    .banner-link, .banner-close { position: relative; }
+    .banner-link::after { content: ""; position: absolute; inset: -14px -8px; }
+    .banner-close::after { content: ""; position: absolute; inset: -8px; }
+    /* Keep the banner on one line on small phones */
+    @media (max-width: 480px) {
+      .banner { letter-spacing: 0; text-transform: none; }
+      .banner-link { white-space: nowrap; }
+      .banner-inner, .banner-actions { gap: 8px; }
+    }
 
     /* ==========================================================
        2. NAVBAR
@@ -670,7 +680,7 @@
     }
     .tag {
       padding: var(--space-1) var(--space-3);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       border: 1px solid transparent;
       border-radius: var(--radius-sm);
@@ -852,7 +862,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 12px; letter-spacing: 0.14em; }
 
     /* "Copied" toast — centred without transform so reduced-motion can't shift it */
     .copy-toast {
@@ -1266,7 +1276,7 @@
       .about-hero { padding: var(--space-8) 0; }
       .about-hero-inner, .way-grid, .ai-grid { grid-template-columns: 1fr; }
       .about-hero-inner { gap: var(--space-6); }
-      .about-photo { order: -1; width: 100%; max-width: 320px; margin: 0 auto; }
+      .about-photo { width: 100%; max-width: 320px; margin: 0 auto; }
       .about-name { font-size: 44px; }
       .about-h2 { font-size: 32px; }
       .exp-item { grid-template-columns: 1fr; gap: var(--space-2); }
