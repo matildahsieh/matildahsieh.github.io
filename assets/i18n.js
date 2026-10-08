@@ -104,7 +104,7 @@
     'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling: snacks, godis och dryck hemma inom tio minuter.':
       'The pantry is empty and the movie has already started. An express shopping app: snacks, sweets and drinks at your door within ten minutes.',
     'Roll': 'Role',
-    'Research, designsystem & UI': 'Research, design system & UI',
+    'Designsystem & UI': 'Design system & UI',
     'Soloprojekt': 'Solo project',
     'Plattform': 'Platform',
     'Mobilapp': 'Mobile app',
@@ -143,7 +143,9 @@
     'Komponenter': 'Components',
     'Lägg i varukorg': 'Add to cart',
     'Se alla': 'See all',
-    '[Produktkort från Figma]': '[Product card from Figma]',
+    'Produktsidan': 'Product page',
+    'Produktsidan för Sourcream & Onion från Estrella, 26 kr, med knappen Lägg till i varukorg, produktinformation, innehållsförteckning och liknande produkter':
+      'The product page for Estrella Sourcream & Onion, 26 kr, with the Add to cart button, product information, ingredients and similar products',
     '04 · Vyerna': '04 · The screens',
     'Från tomt skafferi till leverans': 'From empty pantry to delivery',
     '[Vad skärmen visar]': '[What the screen shows]',
@@ -165,9 +167,9 @@
     '”Good enough, sen iterera. Inte sitta i timmar för att få det pixel perfect.”':
       '“Good enough, then iterate. Don’t spend hours making it pixel perfect.”',
 
-    /* ---------- Vikingaappen ---------- */
-    'Case study: Vikingaappen, en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
-      'Case study: Vikingaappen, a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
+    /* ---------- Vikingjakten ---------- */
+    'Case study: Vikingjakten, en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
+      'Case study: Vikingjakten, a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
     'Kliv in i vikingatiden · The Viking Museum': 'Step into the Viking Age · The Viking Museum',
     'Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet, och en ny webbsida som får fler att hitta dit.':
       'How do you make the Viking Age something people actually want to click on? A quiz app that guides children through the museum, and a new website that helps more people find it.',
@@ -193,11 +195,6 @@
     'Färger hämtade ur utställningen': 'Colours taken from the exhibition',
     'Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.':
       'The app should feel like an extension of the museum, not a game that happens to be about Vikings. The references: carved doors, runestones, the runic alphabet, Thor’s hammers and longships.',
-    '[Snidad dörr]': '[Carved door]',
-    '[Runsten]': '[Runestone]',
-    '[Runalfabet]': '[Runic alphabet]',
-    '[Torshammare]': '[Thor’s hammer]',
-    '[Långskepp]': '[Longship]',
     'Trä': 'Wood',
     'Ben': 'Bone',
     'Mossa': 'Moss',
@@ -244,7 +241,7 @@
     '”Att designa för barn är att designa för trygghet.”': '“Designing for children means designing for safety.”',
     'Det roliga var lätt att få till. Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det, och hur känns det att svara fel?':
       'The fun part was easy. The hard part was everything around it: what happens to what the child types in, who sees it, and how does it feel to get an answer wrong?',
-    'Vikingaappens logga: en runsten med flätade drakmotiv': 'Vikingaappen logo: a runestone with interlaced dragon motifs',
+    'Vikingjaktens logga: en runsten med flätade drakmotiv': 'Vikingjakten logo: a runestone with interlaced dragon motifs',
 
     /* ---------- Tillgänglighet ---------- */
     'Tillgänglighet · Matilda Hsieh': 'Accessibility · Matilda Hsieh',
@@ -308,8 +305,10 @@
     'Kampanjvideo loopar i all evighet utan pausknapp. Kampanjtexten är på engelska men sidan är deklarerad på svenska, så skärmläsaren byter till fel röst.': 'The campaign video loops forever with no pause button. The campaign text is in English but the page is declared as Swedish, so the screen reader switches to the wrong voice.',
     'Fältet "ordernummer" förklarar inte vilket nummer som avses. Är det ordernumret, fraktsedeln eller Ingrids referensnummer? Ingen vet.': 'The "order number" field doesn’t explain which number it means. Is it the order number, the shipping label or Ingrid’s reference number? Nobody knows.',
     'Felmeddelandet "E-postadress eller ordernummer stämmer inte. Försök igen." säger att något är fel men inte vad eller hur man åtgärdar det.': 'The error message "Email address or order number doesn’t match. Try again." says that something is wrong, but not what or how to fix it.',
-    'Badge-siffrorna i varukorgen och favoritlistan är orange mot ljus bakgrund. Kontrasten är 1,7:1. Gränsen för UI-komponenter är 3:1. Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.': 'The badge numbers on the cart and wishlist are orange on a light background. The contrast is 1.7:1. The limit for UI components is 3:1. Margit, who zooms to 200%, can’t see how many products she has saved.',
-    'Mörkare bakgrund på brickan höjer kontrasten till 3,5:1. Samma form, samma känsla. Bara ett färgval.': 'A darker background on the badge raises the contrast to 3.5:1. Same shape, same feel. Just one colour choice.',
+    'Badge-siffrorna i varukorgen och favoritlistan bryter mot två WCAG-krav. Den vita siffran mot den orange brickan har kontrast 3,3:1, men text kräver 4,5:1 (1.4.3). Brickan mot den ljusa bakgrunden har 1,7:1, men UI-komponenter kräver 3:1 (1.4.11). Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.':
+      'The badge numbers on the cart and wishlist break two WCAG requirements. The white number on the orange badge has a contrast of 3.3:1, but text needs 4.5:1 (1.4.3). The badge against the light background has 1.7:1, but UI components need 3:1 (1.4.11). Margit, who zooms to 200%, can’t see how many products she has saved.',
+    'En mörkare färg på brickan löser båda. Siffran mot brickan får 6,9:1 och brickan mot bakgrunden 3,5:1. Samma form, samma känsla. Bara ett färgval.':
+      'A darker colour on the badge fixes both. The number against the badge gets 6.9:1 and the badge against the background 3.5:1. Same shape, same feel. Just one colour choice.',
     '05 · RESULTAT': '05 · RESULTS',
     'Små ändringar, stor skillnad': 'Small changes, big difference',
     '3,5:1': '3.5:1',
@@ -332,8 +331,10 @@
     'Byt till: "Kontrollera att e-postadressen stämmer med den du använde vid köpet." Användaren vet vad nästa steg är. Lägre belastning på kundtjänst.': 'Change it to: "Check that the email address matches the one you used when you bought." The user knows what the next step is. Less load on customer service.',
     '06 · VAD JAG LÄRDE MIG': '06 · WHAT I LEARNED',
     'Det svåraste var inte att hitta felen. Det var att inse att samma knapp fungerar fint för mig och är helt osynlig för Ellen. Tillgänglighet är inte en feature man lägger till sen. Det är ett designbeslut man tar från start, eller rättar till i en liten kodrad.': 'The hardest part wasn’t finding the issues. It was realising that the same button works fine for me and is completely invisible to Ellen. Accessibility isn’t a feature you add later. It’s a design decision you make from the start, or fix in one small line of code.',
-    'Nordic Feels navbar med orange badge-siffror mot ljus bakgrund. Kontrasten är 1,7:1.': 'Nordic Feel’s navbar with orange badge numbers on a light background. The contrast is 1.7:1.',
-    'Samma navbar med mörkare badge-siffror. Kontrasten höjd till 3,5:1.': 'The same navbar with darker badge numbers. The contrast raised to 3.5:1.'
+    'Nordic Feels navbar med vita siffror på orange badges mot ljus bakgrund. Kontrasten är 3,3:1 för siffran och 1,7:1 för brickan.':
+      'Nordic Feel’s navbar with white numbers on orange badges on a light background. The contrast is 3.3:1 for the number and 1.7:1 for the badge.',
+    'Samma navbar med mörkröda badges. Kontrasten är 6,9:1 för siffran och 3,5:1 för brickan.':
+      'The same navbar with dark red badges. The contrast is 6.9:1 for the number and 3.5:1 for the badge.',
   };
 
   var LANG_KEY = 'mh-lang';

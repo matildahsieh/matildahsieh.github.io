@@ -717,7 +717,7 @@
       color: var(--jade-dark);
     }
 
-    /* Card 3 — Vikingaappen (forest green) */
+    /* Card 3 — Vikingjakten (forest green) */
     .project-card--forest {
       --card-glow: rgba(169, 196, 176, 0.12);
       background: var(--jade-dark);
@@ -1214,8 +1214,6 @@
     @media (max-width: 768px) {
       .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
       .case-page h2 { font-size: 34px !important; }
-      .mood-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-      .mood-grid > div:first-child { grid-column: span 2 !important; }
       .facts-3 { grid-template-columns: 1fr !important; }
       .phone-hero { width: 240px !important; height: 500px !important; }
     }
@@ -1353,7 +1351,7 @@
         <h1 style="margin: 0 0 28px;"><img src="assets/icons/hemly-logo-cream.png" alt="Hemly" style="display: block; height: 110px; width: auto;"></h1>
         <p style="margin: 0 0 32px; max-width: 480px; font-size: 20px; line-height: 1.6; color: #E4D8EC;">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling: snacks, godis och dryck hemma inom tio minuter.</p>
         <dl class="facts-3" style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,244,232,0.2);">
-          <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Roll</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Research, designsystem &amp; UI</dd></div>
+          <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Roll</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Designsystem &amp; UI</dd></div>
           <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Team</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Soloprojekt</dd></div>
           <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Plattform</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Mobilapp</dd></div>
           <div><dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">Tid</dt><dd style="margin: 0; font-size: 15px; color: #E4D8EC;">Maj 2026</dd></div>
@@ -1418,8 +1416,7 @@
         <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
           <div><div style="height: 72px; border-radius: 10px; background: #382349;"></div><p style="margin: 8px 0 0; font-size: 13px;">Plommon · #382349</p></div>
           <div><div style="height: 72px; border-radius: 10px; background: #FFF4E8; border: 1px solid #E8D9C8;"></div><p style="margin: 8px 0 0; font-size: 13px;">Kräm · #FFF4E8</p></div>
-          <div><div style="height: 72px; border-radius: 10px; background: #E8D9C8; display: flex; align-items: center; justify-content: center; font-size: 12px;">[accent]</div><p style="margin: 8px 0 0; font-size: 13px;">[Accent · #HEX]</p></div>
-          <div><div style="height: 72px; border-radius: 10px; background: #E8D9C8; display: flex; align-items: center; justify-content: center; font-size: 12px;">[status]</div><p style="margin: 8px 0 0; font-size: 13px;">[Status · #HEX]</p></div>
+          <div><div style="height: 72px; border-radius: 10px; background: #D3C9D7;"></div><p style="margin: 8px 0 0; font-size: 13px;">Accent · #D3C9D7</p></div>
         </div>
       </div>
       <div style="flex: 1 1 320px; min-width: 0; background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
@@ -1434,7 +1431,7 @@
         <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
           <span style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; border-radius: 50px; background: #382349; color: #FFF4E8; text-decoration: none; font-weight: 600;">Lägg i varukorg</span>
           <span style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; border-radius: 50px; border: 1.5px solid #382349; color: #382349; text-decoration: none; font-weight: 600;">Se alla</span>
-          <div style="flex: 1 1 240px; min-height: 120px; border: 1px dashed #B9A6C6; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #6B5578;">[Produktkort från Figma]</div>
+          <figure style="margin: 0 0 0 auto; flex: 1 1 280px; max-width: 520px;"><div style="border-radius: 28px; border: 8px solid #382349; overflow: hidden; background: #B19FB9;"><img src="assets/hemly/produktsida.webp" alt="Produktsidan för Sourcream &amp; Onion från Estrella, 26 kr, med knappen Lägg till i varukorg, produktinformation, innehållsförteckning och liknande produkter" width="1024" height="1439" loading="lazy" style="display: block; width: 100%; height: auto;"></div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center; color: #6B5578;">Produktsidan</figcaption></figure>
         </div>
       </div>
     </div>
