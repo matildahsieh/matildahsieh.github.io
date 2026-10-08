@@ -39,8 +39,9 @@
     'Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till vinter 2026. Jag jobbar bäst i gränslandet mellan research och design. Jag vill förstå varför innan jag ritar hur.':
       'Right now I’m studying UX design at Nackademin in Stockholm and looking for an internship for Winter 2026. I work best where research meets design. I want to understand why before I sketch how.',
     'Tillgänglighet': 'Accessibility',
-    'Foto kommer': 'Photo coming soon',
-    'Foto på Matilda Hsieh kommer här': 'A photo of Matilda Hsieh is coming here',
+    'Bilden är AI-genererad.': 'This picture is AI-generated.',
+    'Illustrerat porträtt av Matilda med långt brunt hår, runda glasögon och mörk kavaj':
+      'Illustrated portrait of Matilda with long brown hair, round glasses and a dark blazer',
     'Kompetenser': 'Skills',
     'Om loggan': 'About the logo',
     'Ett tecken, mitt namn': 'One character, my name',
