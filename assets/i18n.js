@@ -311,7 +311,7 @@
     'Badge-siffrorna i varukorgen och favoritlistan är orange mot ljus bakgrund. Kontrasten är 1,7:1. Gränsen för UI-komponenter är 3:1. Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.': 'The badge numbers on the cart and wishlist are orange on a light background. The contrast is 1.7:1. The limit for UI components is 3:1. Margit, who zooms to 200%, can’t see how many products she has saved.',
     'Mörkare bakgrund på brickan höjer kontrasten till 3,5:1. Samma form, samma känsla. Bara ett färgval.': 'A darker background on the badge raises the contrast to 3.5:1. Same shape, same feel. Just one colour choice.',
     '05 · RESULTAT': '05 · RESULTS',
-    'Vad förändringarna faktiskt ger': 'What the changes actually do',
+    'Små ändringar, stor skillnad': 'Small changes, big difference',
     '3,5:1': '3.5:1',
     'Play/paus': 'Play/pause',
     'Videon loopar utan pausknapp och kampanjtexten är på engelska. Lösningen är en play- och pausknapp.': 'The video loops with no pause button and the campaign text is in English. The fix is a play and pause button.',
