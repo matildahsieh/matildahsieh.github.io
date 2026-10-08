@@ -782,26 +782,82 @@
     /* ==========================================================
        6. KONTAKT
        ========================================================== */
-    .contact {
-      background: var(--contact-bg);
-      text-align: center;
+    /* Contact: editorial index of links, with the torii as a jade stamp */
+    .contact { background: var(--bg-primary); }
+    .contact-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-8);
+      align-items: start;
     }
-    .contact .eyebrow { color: var(--bg-secondary); }
+    .contact-intro { position: relative; padding-top: var(--space-4); }
+    .contact-stamp {
+      position: absolute;
+      top: -72px;
+      right: -48px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--jade-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-10deg);
+      box-shadow: 0 10px 24px rgba(30, 34, 53, 0.12);
+    }
+    .contact-stamp svg { width: 62px; height: auto; color: var(--brand-dark); }
+    .contact .eyebrow { color: var(--jade-700); }
     .contact .section-title {
-      font-size: 36px;
-      color: var(--off-white);
+      font-size: 56px;
+      line-height: 1.02;
+      color: var(--brand-dark);
       margin-bottom: var(--space-4);
+      max-width: 12ch;
     }
     .contact-text {
-      max-width: var(--max-text);
-      margin: 0 auto var(--space-6);
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--bg-secondary);
+      max-width: 360px;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
     }
-    .contact .btn-group { justify-content: center; }
-    .contact .btn-primary:focus-visible { outline-color: var(--off-white); }
-    .contact :focus-visible { outline-color: var(--off-white); }
+    .contact-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--brand-dark); }
+    .contact-index li { border-top: 1px solid var(--brand-dark); }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      align-items: center;
+      gap: var(--space-4);
+      padding: 18px 12px;
+      color: var(--brand-dark);
+      text-decoration: none;
+    }
+    .contact-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--brand-dark); color: var(--brand-dark); transition: background 0.25s ease, color 0.25s ease; }
+    .contact-word { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 500; line-height: 1; }
+    .contact-word em { font-style: italic; color: var(--jade-700); }
+    /* Hover: a line draws in under the word and the icon turns dark */
+    .contact-word {
+      justify-self: start;
+      padding-bottom: 6px;
+      background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
+      transition: background-size 0.35s ease;
+    }
+    .contact-row:hover .contact-word, .contact-row:focus-visible .contact-word { background-size: 100% 2px; }
+    .contact-row:hover .contact-icon, .contact-row:focus-visible .contact-icon { background: var(--brand-dark); color: var(--jade-500); }
+    .contact-copy-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      min-height: 40px; padding: 0 16px;
+      font: 600 14px var(--font-body); color: var(--brand-dark); text-decoration: none;
+      background: transparent; border: 1px solid var(--brand-dark); border-radius: 50px;
+    }
+    .contact-copy-btn:hover { background: var(--brand-dark); color: var(--off-white); }
+    .contact :focus-visible { outline-color: var(--brand-dark); }
+    .contact-split .contact-row { padding-bottom: 6px; }
+    .contact-email-line {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+      padding: 0 12px 16px 76px;
+      font-size: 14px; color: var(--text-secondary);
+    }
 
     /* ==========================================================
        7. FOOTER
@@ -946,7 +1002,15 @@
       .about-grid { grid-template-columns: 1fr; }
       .about-grid { gap: var(--space-7); }
 
-      .contact .section-title { font-size: 30px; }
+      .contact-stage { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact .section-title { font-size: 40px; }
+      .contact-stamp { position: relative; top: 0; right: auto; width: 84px; height: 84px; margin-bottom: var(--space-4); }
+      .contact .section-title { max-width: none; }
+      .contact-stamp svg { width: 46px; }
+      .contact-row { grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-3); padding: 16px 4px; }
+      .contact-icon { width: 40px; height: 40px; }
+      .contact-icon svg { width: 20px; height: 20px; }
+      .contact-email-line { padding: 0 4px 16px 56px; }
 
       .btn-group .btn { flex: 1 1 auto; }
 
@@ -1205,19 +1269,22 @@
 
     <!-- 6. KONTAKT -->
     <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
-      <div class="container">
-        <span class="eyebrow" data-i18n="kontakt-eyebrow">Söker praktik · Vinter 2026</span>
-        <h2 class="section-title" id="kontakt-title" data-i18n="kontakt-title">Låt oss prata design.</h2>
-        <p class="contact-text" data-i18n="kontakt-text">
-          Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
-          berättar jag mer.
-        </p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se" aria-label="Kopiera e-postadressen matilda.hsieh@yh.nackademin.se" data-i18n-attr="aria-label:kontakt-btn-aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> matilda.hsieh@yh.nackademin.se</a>
-          <a class="btn btn-light" href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></a>
-          <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-sv.pdf" download>Ladda ner CV (svenska)</a>
-          <a class="btn btn-light" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en">Download CV (English)</a>
+      <div class="container contact-stage">
+        <div class="contact-intro">
+          <div class="contact-stamp" aria-hidden="true"><svg viewBox="0 0 119 125.6367" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg></div>
+          <span class="eyebrow" data-i18n="kontakt-eyebrow">Söker praktik · Vinter 2026</span>
+          <h2 class="section-title" id="kontakt-title" data-i18n="kontakt-title">Låt oss prata design.</h2>
+          <p class="contact-text" data-i18n="kontakt-text">
+            Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
+            berättar jag mer.
+          </p>
         </div>
+        <ul class="contact-index">
+          <li class="contact-split"><a class="contact-row" href="mailto:matilda.hsieh@yh.nackademin.se"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="contact-word"><span data-i18n="kontakt-epost">E-post</span></span></a><div class="contact-email-line"><span>matilda.hsieh@yh.nackademin.se</span><a class="contact-copy-btn" href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se" role="button" aria-label="Kopiera e-postadressen matilda.hsieh@yh.nackademin.se" data-i18n-attr="aria-label:kontakt-btn-aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-i18n="kontakt-kopiera">Kopiera</span></a></div></li>
+          <li><a class="contact-row" href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="contact-word">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></span></a></li>
+          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-sv.pdf" download><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></span><span class="contact-word">CV <em data-i18n="kontakt-cv-sv">svenska</em></span></a></li>
+          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></span><span class="contact-word">CV <em>English</em></span></a></li>
+        </ul>
       </div>
     </section>
 
@@ -1413,6 +1480,9 @@
           'kontakt-title': 'Låt oss prata design.',
           'kontakt-text': 'Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så berättar jag mer.',
           'kontakt-btn-aria': 'Kopiera e-postadressen matilda.hsieh@yh.nackademin.se',
+          'kontakt-epost': 'E-post',
+          'kontakt-kopiera': 'Kopiera',
+          'kontakt-cv-sv': 'svenska',
           'copy-toast': '✓ E-postadressen kopierades',
           'copy-announce': 'E-postadressen kopierades',
           'new-tab': ' (öppnas i ny flik)',
@@ -1464,6 +1534,9 @@
           'kontakt-title': 'Got a project that needs a curious eye?',
           'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line. I\'m happy to chat.',
           'kontakt-btn-aria': 'Copy the email address matilda.hsieh@yh.nackademin.se',
+          'kontakt-epost': 'Email',
+          'kontakt-kopiera': 'Copy',
+          'kontakt-cv-sv': 'Swedish',
           'copy-toast': '✓ Email address copied',
           'copy-announce': 'Email address copied',
           'new-tab': ' (opens in a new tab)',
