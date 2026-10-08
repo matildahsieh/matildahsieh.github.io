@@ -144,8 +144,8 @@
     'Lägg i varukorg': 'Add to cart',
     'Se alla': 'See all',
     'Produktsidan': 'Product page',
-    'Produktsidan för Choklad majsskruvar från Red head, 26 kr, med knappen Lägg till i varukorg, produktinformation, innehållsförteckning och liknande produkter':
-      'The product page for Red head chocolate corn twists, 26 kr, with the Add to cart button, product information, ingredients and similar products',
+    'Produktsidan för Sourcream & Onion från Estrella, 26 kr, med knappen Lägg till i varukorg, produktinformation, innehållsförteckning och liknande produkter':
+      'The product page for Estrella Sourcream & Onion, 26 kr, with the Add to cart button, product information, ingredients and similar products',
     '04 · Vyerna': '04 · The screens',
     'Från tomt skafferi till leverans': 'From empty pantry to delivery',
     '[Vad skärmen visar]': '[What the screen shows]',
