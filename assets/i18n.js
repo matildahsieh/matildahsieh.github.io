@@ -303,8 +303,10 @@
     'Kampanjvideo loopar i all evighet utan pausknapp. Kampanjtexten är på engelska men sidan är deklarerad på svenska, så skärmläsaren byter till fel röst.': 'The campaign video loops forever with no pause button. The campaign text is in English but the page is declared as Swedish, so the screen reader switches to the wrong voice.',
     'Fältet "ordernummer" förklarar inte vilket nummer som avses. Är det ordernumret, fraktsedeln eller Ingrids referensnummer? Ingen vet.': 'The "order number" field doesn’t explain which number it means. Is it the order number, the shipping label or Ingrid’s reference number? Nobody knows.',
     'Felmeddelandet "E-postadress eller ordernummer stämmer inte. Försök igen." säger att något är fel men inte vad eller hur man åtgärdar det.': 'The error message "Email address or order number doesn’t match. Try again." says that something is wrong, but not what or how to fix it.',
-    'Badge-siffrorna i varukorgen och favoritlistan är orange mot ljus bakgrund. Kontrasten är 1,7:1. Gränsen för UI-komponenter är 3:1. Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.': 'The badge numbers on the cart and wishlist are orange on a light background. The contrast is 1.7:1. The limit for UI components is 3:1. Margit, who zooms to 200%, can’t see how many products she has saved.',
-    'Mörkare bakgrund på brickan höjer kontrasten till 3,5:1. Samma form, samma känsla. Bara ett färgval.': 'A darker background on the badge raises the contrast to 3.5:1. Same shape, same feel. Just one colour choice.',
+    'Badge-siffrorna i varukorgen och favoritlistan bryter mot två WCAG-krav. Den vita siffran mot den orange brickan har kontrast 3,3:1, men text kräver 4,5:1 (1.4.3). Brickan mot den ljusa bakgrunden har 1,7:1, men UI-komponenter kräver 3:1 (1.4.11). Margit, som zoomar till 200%, kan inte se hur många produkter hon har sparat.':
+      'The badge numbers on the cart and wishlist break two WCAG requirements. The white number on the orange badge has a contrast of 3.3:1, but text needs 4.5:1 (1.4.3). The badge against the light background has 1.7:1, but UI components need 3:1 (1.4.11). Margit, who zooms to 200%, can’t see how many products she has saved.',
+    'En mörkare färg på brickan löser båda. Siffran mot brickan får 6,9:1 och brickan mot bakgrunden 3,5:1. Samma form, samma känsla. Bara ett färgval.':
+      'A darker colour on the badge fixes both. The number against the badge gets 6.9:1 and the badge against the background 3.5:1. Same shape, same feel. Just one colour choice.',
     '05 · RESULTAT': '05 · RESULTS',
     'Små ändringar, stor skillnad': 'Small changes, big difference',
     '3,5:1': '3.5:1',
@@ -327,8 +329,10 @@
     'Byt till: "Kontrollera att e-postadressen stämmer med den du använde vid köpet." Användaren vet vad nästa steg är. Lägre belastning på kundtjänst.': 'Change it to: "Check that the email address matches the one you used when you bought." The user knows what the next step is. Less load on customer service.',
     '06 · VAD JAG LÄRDE MIG': '06 · WHAT I LEARNED',
     'Det svåraste var inte att hitta felen. Det var att inse att samma knapp fungerar fint för mig och är helt osynlig för Ellen. Tillgänglighet är inte en feature man lägger till sen. Det är ett designbeslut man tar från start, eller rättar till i en liten kodrad.': 'The hardest part wasn’t finding the issues. It was realising that the same button works fine for me and is completely invisible to Ellen. Accessibility isn’t a feature you add later. It’s a design decision you make from the start, or fix in one small line of code.',
-    'Nordic Feels navbar med orange badge-siffror mot ljus bakgrund. Kontrasten är 1,7:1.': 'Nordic Feel’s navbar with orange badge numbers on a light background. The contrast is 1.7:1.',
-    'Samma navbar med mörkare badge-siffror. Kontrasten höjd till 3,5:1.': 'The same navbar with darker badge numbers. The contrast raised to 3.5:1.'
+    'Nordic Feels navbar med vita siffror på orange badges mot ljus bakgrund. Kontrasten är 3,3:1 för siffran och 1,7:1 för brickan.':
+      'Nordic Feel’s navbar with white numbers on orange badges on a light background. The contrast is 3.3:1 for the number and 1.7:1 for the badge.',
+    'Samma navbar med mörkröda badges. Kontrasten är 6,9:1 för siffran och 3,5:1 för brickan.':
+      'The same navbar with dark red badges. The contrast is 6.9:1 for the number and 3.5:1 for the badge.',
   };
 
   var LANG_KEY = 'mh-lang';
