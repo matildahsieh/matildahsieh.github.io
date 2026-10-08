@@ -831,21 +831,18 @@
       padding: 18px 12px;
       color: var(--brand-dark);
       text-decoration: none;
-      transition: background 0.25s ease;
     }
     .contact-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--brand-dark); color: var(--brand-dark); transition: background 0.25s ease, color 0.25s ease; }
     .contact-word { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 500; line-height: 1; }
     .contact-word em { font-style: italic; color: var(--jade-700); }
-    /* Hover: a line draws in under the word and the word nudges right */
+    /* Hover: a line draws in under the word and the icon turns dark */
     .contact-word {
       justify-self: start;
       padding-bottom: 6px;
       background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
-      transition: background-size 0.35s ease, transform 0.35s ease;
+      transition: background-size 0.35s ease;
     }
-    .contact-row:hover .contact-word, .contact-row:focus-visible .contact-word { background-size: 100% 2px; transform: translateX(6px); }
-    .contact-row:hover .contact-word em, .contact-row:focus-visible .contact-word em { color: var(--brand-dark); }
-    .contact-row:hover, .contact-row:focus-visible { background: var(--jade-500); }
+    .contact-row:hover .contact-word, .contact-row:focus-visible .contact-word { background-size: 100% 2px; }
     .contact-row:hover .contact-icon, .contact-row:focus-visible .contact-icon { background: var(--brand-dark); color: var(--jade-500); }
     .contact-copy-btn {
       display: inline-flex; align-items: center; gap: 6px;
@@ -855,15 +852,12 @@
     }
     .contact-copy-btn:hover { background: var(--brand-dark); color: var(--off-white); }
     .contact :focus-visible { outline-color: var(--brand-dark); }
-    .contact-split { transition: background 0.25s ease; }
     .contact-split .contact-row { padding-bottom: 6px; }
     .contact-email-line {
       display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
       padding: 0 12px 16px 76px;
       font-size: 14px; color: var(--text-secondary);
     }
-    .contact-split:hover, .contact-split:focus-within { background: var(--jade-500); }
-    .contact-split .contact-row:hover, .contact-split .contact-row:focus-visible { background: transparent; }
 
     /* ==========================================================
        7. FOOTER
