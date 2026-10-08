@@ -1360,9 +1360,9 @@
   <section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px 40px;">
     <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">01 · SAMMANFATTNING</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-      <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">[N]</p><p style="margin: 8px 0 0; font-size: 15px;">sidor granskade</p></div>
-      <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">[N]</p><p style="margin: 8px 0 0; font-size: 15px;">brister hittade</p></div>
-      <div style="background: #1E2235; color: #FEFDFC; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">[N]</p><p style="margin: 8px 0 0; font-size: 15px;">kritiska, stoppar ett köp</p></div>
+      <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">4</p><p style="margin: 8px 0 0; font-size: 15px;">sidor granskade</p></div>
+      <div style="background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">6</p><p style="margin: 8px 0 0; font-size: 15px;">brister hittade</p></div>
+      <div style="background: #1E2235; color: #FEFDFC; border-radius: 16px; padding: 28px;"><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1;">3</p><p style="margin: 8px 0 0; font-size: 15px;">kritiska, stoppar ett köp</p></div>
     </div>
   </section>
 
@@ -1376,6 +1376,7 @@
       <div style="padding: 24px; border-right: 1px solid #DDE1EA;"><p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4A6553;">3. BEGRIPLIG</p><p style="margin: 0; font-size: 15px; line-height: 1.6;">Formulär, felmeddelanden, språk.</p></div>
       <div style="padding: 24px;"><p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4A6553;">4. ROBUST</p><p style="margin: 0; font-size: 15px; line-height: 1.6;">Skärmläsare och hjälpmedel.</p></div>
     </div>
+    <p style="margin: 32px 0 0; font-size: 15px; line-height: 1.7; max-width: 720px;">Jag testade köpresan med tre personas med olika behov: <strong>Margit</strong>, 68 år, har åldersrelaterad makuladegeneration och zoomar till 200%. <strong>Amir</strong>, 41 år, har reumatoid artrit och navigerar enbart med tangentbordet. <strong>Ellen</strong>, 23 år, är blind från födseln och använder skärmläsaren NVDA.</p>
   </section>
 
   <!-- Findings table -->
@@ -1394,21 +1395,39 @@
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">[1.4.3]</td>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">[Produktsida]</td>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">[Vad som var fel]</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">1.4.3 & 1.4.11</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Produktsida</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Pristext och rabattbrickor har kontrast 1,7:1. Gränsen är 4,5:1 för text och 3:1 för UI-komponenter. Margit ser bokstavligen inte vad produkten kostar.</td>
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #1E2235; color: #FEFDFC; font-size: 13px; font-weight: 600;">Kritisk</span></td>
           </tr>
           <tr>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">[2.4.7]</td>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">[Kassa]</td>
-            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">[Vad som var fel]</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">2.1.2</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Startsidan</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Tangentbordsfokus fastnar i sökfältet. Enda utvägen är Esc, men det framgår ingenstans. Amir kan inte nå varukorgen utan att redan veta det.</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #1E2235; color: #FEFDFC; font-size: 13px; font-weight: 600;">Kritisk</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">4.1.2</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Startsidan</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Varukorgsknappen saknar tillgängligt namn. NVDA läser bara "knapp". Ellen vet inte att det är varukorgen. Fixas med en rad: aria-label="Varukorg".</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #1E2235; color: #FEFDFC; font-size: 13px; font-weight: 600;">Kritisk</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">3.1.2 & 2.2.2</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Startsidan</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Kampanjvideo loopar i all evighet utan pausknapp. Kampanjtexten är på engelska men sidan är deklarerad på svenska, så skärmläsaren byter till fel röst.</td>
             <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #76809D; color: #FEFDFC; font-size: 13px; font-weight: 600;">Hög</span></td>
           </tr>
           <tr>
-            <td style="padding: 16px 20px; font-family: 'IBM Plex Mono', monospace;">[3.3.1]</td>
-            <td style="padding: 16px 20px;">[Formulär]</td>
-            <td style="padding: 16px 20px;">[Vad som var fel]</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4; font-family: 'IBM Plex Mono', monospace;">3.3.3</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Returformulär</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;">Fältet "ordernummer" förklarar inte vilket nummer som avses. Är det ordernumret, fraktsedeln eller Ingrids referensnummer? Ingen vet.</td>
+            <td style="padding: 16px 20px; border-bottom: 1px solid #EEF0F4;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #DDE1EA; color: #1E2235; font-size: 13px; font-weight: 600;">Medel</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; font-family: 'IBM Plex Mono', monospace;">3.3.1</td>
+            <td style="padding: 16px 20px;">Returformulär</td>
+            <td style="padding: 16px 20px;">Felmeddelandet "E-postadress eller ordernummer stämmer inte. Försök igen." säger att något är fel men inte vad eller hur man åtgärdar det.</td>
             <td style="padding: 16px 20px;"><span style="display: inline-block; padding: 4px 10px; border-radius: 8px; background: #DDE1EA; color: #1E2235; font-size: 13px; font-weight: 600;">Medel</span></td>
           </tr>
         </tbody>
@@ -1421,8 +1440,8 @@
     <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">04 · FÖRSLAG</p>
     <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Före och efter</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-      <figure style="margin: 0;"><div style="height: 320px; border-radius: 16px; background: #E4DDD6; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Före: skärmdump]</div><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Före.</strong> [Vad användaren möter]</figcaption></figure>
-      <figure style="margin: 0;"><div style="height: 320px; border-radius: 16px; background: #E3EEE5; display: flex; align-items: center; justify-content: center; font-size: 14px;">[Efter: ditt förslag]</div><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Efter.</strong> [Vad som ändrats och varför]</figcaption></figure>
+      <figure style="margin: 0;"><div style="height: 320px; border-radius: 16px; background: #E4DDD6; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #535C78;">[Skärmdump: produktkort med grå pristext]</div><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Före.</strong> Priserna på produktkortet är gråa mot vit bakgrund. Kontrasten är 1,7:1. Det klarar varken WCAG:s krav för text (4,5:1) eller UI-komponenter (3:1). Margit, som zoomar till 200%, ser inte vad produkten kostar.</figcaption></figure>
+      <figure style="margin: 0;"><div style="height: 320px; border-radius: 16px; background: #E3EEE5; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #535C78;">[Skärmdump: produktkort med justerade färger]</div><figcaption style="margin-top: 12px; font-size: 15px;"><strong>Efter.</strong> Mörkare textfärg och djupare bakgrund på rabattbrickan höjer kontrasten till 6,6:1 för pris och 3,5:1 för brickan. Ingen ny design behövs. Det är ett färgval.</figcaption></figure>
     </div>
   </section>
 
@@ -1430,7 +1449,7 @@
   <section style="background: #1E2235; color: #FEFDFC; margin-top: 48px;">
     <div style="max-width: 820px; margin: 0 auto; padding: 104px 32px;">
       <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C4B0;">05 · VAD JAG LÄRDE MIG</p>
-      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 40px; line-height: 1.25;">[Din lärdom, i en eller två meningar]</p>
+      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 40px; line-height: 1.25;">Det svåraste var inte att hitta felen. Det var att inse att samma knapp fungerar fint för mig och är helt osynlig för Ellen. Tillgänglighet är inte en feature man lägger till sen. Det är ett designbeslut man tar från start, eller rättar till i en liten kodrad.</p>
     </div>
   </section>
 
