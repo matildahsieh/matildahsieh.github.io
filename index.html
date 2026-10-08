@@ -672,12 +672,25 @@
       border-radius: var(--radius-sm);
     }
     .project-card .btn { margin-top: auto; }
-    /* The whole card is clickable: the "Läs mer" link stretches over it */
+    /* The whole card is clickable: the "Se projektet" link stretches over it */
     .project-card { cursor: pointer; }
-    .project-card > .btn { position: static; }
-    .project-card > .btn::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
-    /* No lift on these buttons: a transform would shrink the clickable area back to the button */
-    .project-card > .btn, .project-card > .btn:hover { transform: none !important; }
+    .card-link {
+      margin-top: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 44px;
+      font-size: 15px; font-weight: 700;
+      color: inherit; text-decoration: none;
+      background: linear-gradient(currentColor, currentColor) left calc(100% - 8px) / 0 2px no-repeat;
+      transition: background-size 0.3s ease;
+    }
+    .card-link .arrow { transition: transform 0.3s ease; }
+    .card-link::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+    .project-card:hover .card-link, .card-link:focus-visible { background-size: 100% 2px; }
+    .project-card:hover .card-link .arrow, .card-link:focus-visible .arrow { transform: translateX(4px); }
+    .project-card > .card-link { position: static; }
+    .project-card--plum .card-link { color: var(--hemly-cream); }
+    .project-card--warm .card-link { color: var(--brand-dark); }
+    .project-card--forest .card-link { color: var(--jade-500); }
 
     /* Card — Hemly (plum, the project's own brand colours) */
     .card-icon-circle--hemly {
@@ -1038,6 +1051,8 @@
       .footer-contact { text-align: left; }
     }
   </style>
+  <link rel="stylesheet" href="assets/motion.css">
+  <script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');</script>
 </head>
 <body>
 
@@ -1198,11 +1213,11 @@
                 <li class="tag" data-i18n="hemly-tag-2">Designsystem</li>
                 <li class="tag" data-i18n="hemly-tag-3">Mobilapp</li>
               </ul>
-              <a class="btn btn-primary" href="hemly.html"
-                 aria-label="Läs mer om Hemly: UI-design av en app för expresshandling"
+              <a class="card-link" href="hemly.html"
+                 aria-label="Se projektet Hemly: UI-design av en app för expresshandling"
                  data-i18n-attr="aria-label:hemly-btn-aria"
                  data-i18n-html="btn-las-mer">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
+                Se projektet <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
@@ -1222,11 +1237,11 @@
                 <li class="tag" data-i18n="tillg-tag-1">Tillgänglighet</li>
                 <li class="tag" data-i18n="tillg-tag-2">E-handel</li>
               </ul>
-              <a class="btn btn-primary" href="tillganglighet.html"
-                 aria-label="Läs mer om Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel"
+              <a class="card-link" href="tillganglighet.html"
+                 aria-label="Se projektet Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel"
                  data-i18n-attr="aria-label:tillg-btn-aria"
                  data-i18n-html="btn-las-mer">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
+                Se projektet <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
@@ -1246,11 +1261,11 @@
                 <li class="tag" data-i18n="viking-tag-1">Visuellt koncept</li>
                 <li class="tag" data-i18n="viking-tag-2">Idégenerering</li>
               </ul>
-              <a class="btn btn-primary" href="vikingaappen.html"
-                 aria-label="Läs mer om Vikingjakten: quiz-app och ny webbsida för The Viking Museum"
+              <a class="card-link" href="vikingaappen.html"
+                 aria-label="Se projektet Vikingjakten: quiz-app och ny webbsida för The Viking Museum"
                  data-i18n-attr="aria-label:viking-btn-aria"
                  data-i18n-html="btn-las-mer">
-                Läs mer <span class="arrow" aria-hidden="true">→</span>
+                Se projektet <span class="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
@@ -1474,19 +1489,19 @@
           'hemly-tag-1': 'UI-design',
           'hemly-tag-2': 'Designsystem',
           'hemly-tag-3': 'Mobilapp',
-          'hemly-btn-aria': 'Läs mer om Hemly: UI-design av en app för expresshandling',
-          'btn-las-mer': 'Läs mer <span class="arrow" aria-hidden="true">→</span>',
+          'hemly-btn-aria': 'Se projektet Hemly: UI-design av en app för expresshandling',
+          'btn-las-mer': 'Se projektet <span class="arrow" aria-hidden="true">→</span>',
           'tillg-meta': '2026 · Tillgänglighet',
           'tillg-title': 'Tillgänglighet',
           'tillg-desc': 'Inkluderar vår webbsida alla som älskar skönhet?',
           'tillg-tag-1': 'Tillgänglighet',
           'tillg-tag-2': 'E-handel',
-          'tillg-btn-aria': 'Läs mer om Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel',
+          'tillg-btn-aria': 'Se projektet Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel',
           'viking-meta': '2026 · Grupprojekt',
           'viking-desc': 'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.',
           'viking-tag-1': 'Visuellt koncept',
           'viking-tag-2': 'Idégenerering',
-          'viking-btn-aria': 'Läs mer om Vikingjakten: quiz-app och ny webbsida för The Viking Museum',
+          'viking-btn-aria': 'Se projektet Vikingjakten: quiz-app och ny webbsida för The Viking Museum',
           'about-eyebrow': 'Om mig',
           'about-title': 'Två kulturer. En designer.',
           'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.',
@@ -1528,19 +1543,19 @@
           'hemly-tag-1': 'UI design',
           'hemly-tag-2': 'Design system',
           'hemly-tag-3': 'Mobile app',
-          'hemly-btn-aria': 'Read more about Hemly: UI design of an express shopping app',
-          'btn-las-mer': 'Read more <span class="arrow" aria-hidden="true">→</span>',
+          'hemly-btn-aria': 'View project Hemly: UI design of an express shopping app',
+          'btn-las-mer': 'View project <span class="arrow" aria-hidden="true">→</span>',
           'tillg-meta': '2026 · Accessibility',
           'tillg-title': 'Accessibility',
           'tillg-desc': 'Does our website include everyone who loves beauty?',
           'tillg-tag-1': 'Accessibility',
           'tillg-tag-2': 'E-commerce',
-          'tillg-btn-aria': 'Read more about the Accessibility audit: WCAG 2.2 review of Nordic Feel',
+          'tillg-btn-aria': 'View project Accessibility audit: WCAG 2.2 review of Nordic Feel',
           'viking-meta': '2026 · Group project',
           'viking-desc': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
           'viking-tag-1': 'Visual concept',
           'viking-tag-2': 'Ideation',
-          'viking-btn-aria': 'Read more about Vikingjakten: quiz app and new website for The Viking Museum',
+          'viking-btn-aria': 'View project Vikingjakten: quiz app and new website for The Viking Museum',
           'about-eyebrow': 'About me',
           'about-title': 'Two cultures. One designer.',
           'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project: the ability to see from multiple angles at once.',
@@ -1682,5 +1697,6 @@
 
     })();
   </script>
+  <script src="assets/motion.js" defer></script>
 </body>
 </html>
