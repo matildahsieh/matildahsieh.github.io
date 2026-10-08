@@ -104,7 +104,7 @@
     'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling: snacks, godis och dryck hemma inom tio minuter.':
       'The pantry is empty and the movie has already started. An express shopping app: snacks, sweets and drinks at your door within ten minutes.',
     'Roll': 'Role',
-    'Research, designsystem & UI': 'Research, design system & UI',
+    'Designsystem & UI': 'Design system & UI',
     'Soloprojekt': 'Solo project',
     'Plattform': 'Platform',
     'Mobilapp': 'Mobile app',
