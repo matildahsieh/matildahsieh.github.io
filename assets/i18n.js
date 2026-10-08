@@ -236,7 +236,9 @@
       'Only if the child wants to, through the phone’s own share feature. And everyone gets positive feedback, whatever the result.',
     'Sal 5 · Webbsidan': 'Room 5 · The website',
     'En ny webbsida för museet': 'A new website for the museum',
-    '[Den nya webbsidan, desktop]': '[The new website, desktop]',
+    'Startsidan på den nya webbsidan, desktop.': 'The home page of the new website, desktop.',
+    'Startsidan på den nya webbsidan för The Viking Museum: museets namn i guld över ett vikingaskepp framför stora fönster mot vattnet, med knapparna Utforska utställningar och Boka biljett':
+      'The home page of the new website for The Viking Museum: the museum’s name in gold above a Viking ship in front of large windows facing the water, with the buttons Explore exhibitions and Book a ticket',
     'Utgång · Vad jag lärde mig': 'Exit · What I learned',
     '”Att designa för barn är att designa för trygghet.”': '“Designing for children means designing for safety.”',
     'Det roliga var lätt att få till. Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det, och hur känns det att svara fel?':
