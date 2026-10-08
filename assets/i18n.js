@@ -15,6 +15,8 @@
     'Söker praktik · Vinter 2026': 'Searching for an internship · Winter 2026',
     'Kontakta mig': 'Contact me',
     'Nästa projekt': 'Next project',
+    'Föregående projekt': 'Previous project',
+    'Fler projekt': 'More projects',
     'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
     'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.': 'The pantry is empty and the movie has already started. An app for express grocery shopping in under ten minutes.',
     'Meny': 'Menu',

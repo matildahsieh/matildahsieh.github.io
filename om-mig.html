@@ -1232,7 +1232,8 @@
     .about-eyebrow { color: var(--jade-700); }
     .on-dark .about-eyebrow { color: var(--jade-500); }
     .about-hero { background: var(--bg-warm); padding: var(--space-9) 0; }
-    .about-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+    .about-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+    .about-hero-inner > div:first-child { padding-top: var(--space-6); }
     .about-name { font-family: var(--font-display); font-size: 56px; font-weight: 500; line-height: 1.05; color: var(--brand-dark); }
     .about-name em { display: block; color: var(--jade-600); }
     .about-bio { max-width: 460px; font-size: 16px; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-4); }
@@ -1276,6 +1277,7 @@
       .about-hero { padding: var(--space-8) 0; }
       .about-hero-inner, .way-grid, .ai-grid { grid-template-columns: 1fr; }
       .about-hero-inner { gap: var(--space-6); }
+      .about-hero-inner > div:first-child { padding-top: 0; }
       .about-photo { width: 100%; max-width: 320px; margin: 0 auto; }
       .about-name { font-size: 44px; }
       .about-h2 { font-size: 32px; }

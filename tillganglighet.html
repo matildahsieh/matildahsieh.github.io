@@ -1249,14 +1249,23 @@
       html[lang="en"] .findings-table td:nth-child(2)::before { content: "WHERE"; }
       html[lang="en"] .findings-table td:nth-child(4)::before { content: "SEVERITY"; }
     }
-    /* End of case study: next project + contact */
+    /* End of case study: previous and next project */
     .next-project { background: var(--bg-primary); border-top: 1px solid rgba(30, 34, 53, 0.12); }
-    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; }
+    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .next-col--next { text-align: right; }
+    .next-col--next .next-desc { margin-left: auto; }
     .next-label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jade-700); }
-    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(44px, 7vw, 80px); font-weight: 500; line-height: 1; color: var(--brand-dark); text-decoration: none;
+    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 500; line-height: 1.05; color: var(--brand-dark); text-decoration: none;
       padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
+    .next-col--next .next-link { background-position: right bottom; }
     .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
-    .next-desc { margin: 16px 0 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
+    .next-desc { margin: 16px 0 0; max-width: 440px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .next-inner { grid-template-columns: 1fr; padding: 64px 20px; gap: 40px; }
+      .next-col--next { text-align: left; }
+      .next-col--next .next-desc { margin-left: 0; }
+      .next-col--next .next-link { background-position: left bottom; }
+    }
   </style>
 </head>
 <body>
@@ -1378,10 +1387,10 @@
 
   <!-- Report cover -->
   <section style="background: #E4DDD6;">
-    <div style="max-width: 1120px; margin: 0 auto; padding: 24px 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 24px 32px 0;">
       <a href="index.html#projekt" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
     </div>
-    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 32px 96px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 48px 32px 96px;">
       <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">RAPPORT · WCAG 2.2 · NIVÅ AA</p>
       <h1 style="margin: 0 0 28px; max-width: 900px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 80px; line-height: 1;">Inkluderar vår webbsida alla som älskar skönhet?</h1>
       <p style="margin: 0 0 48px; max-width: 600px; font-size: 19px; line-height: 1.65;">En tillgänglighetsgranskning av Nordic Feels e-handel. Vem kommer hela vägen till kassan, och vem fastnar på vägen?</p>
@@ -1560,17 +1569,21 @@
 
 </div>
 
-  <!-- Next project + contact -->
-  <section class="next-project" aria-labelledby="next-title">
+  <!-- Previous and next project -->
+  <nav class="next-project" aria-label="Fler projekt">
     <div class="next-inner">
-      <div>
-        <h2 class="next-label is-label" id="next-title">Nästa projekt</h2>
+      <div class="next-col">
+        <p class="next-label">Föregående projekt</p>
+        <a class="next-link" href="hemly.html"><span aria-hidden="true">←</span> Hemly</a>
+        <p class="next-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
+      </div>
+      <div class="next-col next-col--next">
+        <p class="next-label">Nästa projekt</p>
         <a class="next-link" href="vikingaappen.html">Vikingjakten <span aria-hidden="true">→</span></a>
         <p class="next-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
       </div>
-      <a class="btn btn-primary" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
     </div>
-  </section>
+  </nav>
   </main>
 
   <!-- 7. FOOTER -->
