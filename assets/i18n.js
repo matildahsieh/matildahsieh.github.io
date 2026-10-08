@@ -165,9 +165,9 @@
     '”Good enough, sen iterera. Inte sitta i timmar för att få det pixel perfect.”':
       '“Good enough, then iterate. Don’t spend hours making it pixel perfect.”',
 
-    /* ---------- Vikingaappen ---------- */
-    'Case study: Vikingaappen, en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
-      'Case study: Vikingaappen, a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
+    /* ---------- Vikingjakten ---------- */
+    'Case study: Vikingjakten, en quiz-app och ny webbsida för The Viking Museum, designad för barn med privacy by design.':
+      'Case study: Vikingjakten, a quiz app and new website for The Viking Museum, designed for children with privacy by design.',
     'Kliv in i vikingatiden · The Viking Museum': 'Step into the Viking Age · The Viking Museum',
     'Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet, och en ny webbsida som får fler att hitta dit.':
       'How do you make the Viking Age something people actually want to click on? A quiz app that guides children through the museum, and a new website that helps more people find it.',
@@ -193,11 +193,6 @@
     'Färger hämtade ur utställningen': 'Colours taken from the exhibition',
     'Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.':
       'The app should feel like an extension of the museum, not a game that happens to be about Vikings. The references: carved doors, runestones, the runic alphabet, Thor’s hammers and longships.',
-    '[Snidad dörr]': '[Carved door]',
-    '[Runsten]': '[Runestone]',
-    '[Runalfabet]': '[Runic alphabet]',
-    '[Torshammare]': '[Thor’s hammer]',
-    '[Långskepp]': '[Longship]',
     'Trä': 'Wood',
     'Ben': 'Bone',
     'Mossa': 'Moss',
@@ -244,7 +239,7 @@
     '”Att designa för barn är att designa för trygghet.”': '“Designing for children means designing for safety.”',
     'Det roliga var lätt att få till. Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det, och hur känns det att svara fel?':
       'The fun part was easy. The hard part was everything around it: what happens to what the child types in, who sees it, and how does it feel to get an answer wrong?',
-    'Vikingaappens logga: en runsten med flätade drakmotiv': 'Vikingaappen logo: a runestone with interlaced dragon motifs',
+    'Vikingjaktens logga: en runsten med flätade drakmotiv': 'Vikingjakten logo: a runestone with interlaced dragon motifs',
 
     /* ---------- Tillgänglighet ---------- */
     'Tillgänglighet · Matilda Hsieh': 'Accessibility · Matilda Hsieh',
