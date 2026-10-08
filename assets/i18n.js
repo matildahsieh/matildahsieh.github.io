@@ -94,7 +94,7 @@
     'Låter det intressant?': 'Sound interesting?',
     'Jag söker LIA-plats till vinter 2026 och är nyfiken på att lära mig mer om hur ni arbetar.':
       'I’m looking for an internship for Winter 2026 and I’m curious to learn more about how you work.',
-    'Skriv till mig': 'Write to me',
+    'Kopiera e-postadressen matilda.hsieh@yh.nackademin.se': 'Copy the email address matilda.hsieh@yh.nackademin.se',
 
     /* ---------- Hemly ---------- */
     'Hemly · Matilda Hsieh': 'Hemly · Matilda Hsieh',
