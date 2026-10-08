@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
@@ -782,76 +782,72 @@
     /* ==========================================================
        6. KONTAKT
        ========================================================== */
-    /* Contact: jade block, torii "sticker" and big outlined links */
-    .contact { background: var(--bg-primary); overflow: hidden; }
+    /* Contact: editorial index of links, with the torii as a jade stamp */
+    .contact { background: var(--bg-primary); }
     .contact-stage {
-      position: relative;
       display: grid;
       grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      align-items: center;
-      min-height: 460px;
+      gap: var(--space-8);
+      align-items: start;
     }
-    .contact-block {
+    .contact-intro { position: relative; padding-top: var(--space-4); }
+    .contact-stamp {
       position: absolute;
-      top: 0; bottom: 0;
-      left: 14%;
-      width: min(400px, 40%);
+      top: -28px;
+      right: 8%;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
       background: var(--jade-500);
-      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-10deg);
+      box-shadow: 0 10px 24px rgba(30, 34, 53, 0.12);
     }
-    .contact-mark {
-      position: relative;
-      justify-self: start;
-      width: 210px;
-      height: auto;
-      margin-left: 4%;
-      color: var(--brand-dark);
-      overflow: hidden;
-      filter: drop-shadow(0 10px 18px rgba(30, 34, 53, 0.18));
-    }
-    .contact-copy { position: relative; padding: var(--space-6) 0; }
+    .contact-stamp svg { width: 62px; height: auto; color: var(--brand-dark); }
     .contact .eyebrow { color: var(--jade-700); }
     .contact .section-title {
-      display: inline-block;
-      font-size: 40px;
+      font-size: 56px;
+      line-height: 1.02;
       color: var(--brand-dark);
-      margin-bottom: var(--space-3);
-      padding-bottom: 4px;
-      border-bottom: 2px solid var(--brand-dark);
+      margin-bottom: var(--space-4);
+      max-width: 12ch;
     }
     .contact-text {
-      max-width: 440px;
-      margin: 0 0 var(--space-5);
+      max-width: 360px;
+      margin: 0;
       font-size: 15px;
       line-height: 1.7;
       color: var(--text-secondary);
     }
-    .contact-links { list-style: none; margin: 0 0 var(--space-5); padding: 0; }
-    .contact-big {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: clamp(40px, 6vw, 76px);
-      font-weight: 800;
-      line-height: 0.98;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+    .contact-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--brand-dark); }
+    .contact-index li { border-top: 1px solid var(--brand-dark); }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: var(--space-4);
+      padding: 18px 12px;
+      color: var(--brand-dark);
       text-decoration: none;
-      color: transparent;
-      -webkit-text-stroke: 2px var(--brand-dark);
-      transition: color 0.2s ease;
+      transition: background 0.25s ease, padding 0.25s ease;
     }
-    .contact-big:hover, .contact-big:focus-visible { color: var(--brand-dark); }
-    .contact-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); font-size: 14px; color: var(--text-secondary); }
+    .contact-num { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: var(--jade-700); }
+    .contact-word { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 500; line-height: 1; }
+    .contact-word em { font-style: italic; color: var(--jade-700); }
+    .contact-detail { display: block; margin-top: 6px; font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); }
+    .contact-arrow { font-size: 22px; transition: transform 0.25s ease; }
+    .contact-row:hover, .contact-row:focus-visible { background: var(--jade-500); padding-left: 20px; }
+    .contact-row:hover .contact-arrow, .contact-row:focus-visible .contact-arrow { transform: translateX(6px); }
     .contact-copy-btn {
       display: inline-flex; align-items: center; gap: 6px;
-      min-height: 44px; padding: 0 16px;
-      font: 600 14px var(--font-body); color: var(--brand-dark);
-      background: transparent; border: 1px solid var(--brand-dark); border-radius: 50px; cursor: pointer;
+      min-height: 44px; margin-top: var(--space-5); padding: 0 18px;
+      font: 600 14px var(--font-body); color: var(--brand-dark); text-decoration: none;
+      background: transparent; border: 1px solid var(--brand-dark); border-radius: 50px;
     }
     .contact-copy-btn:hover { background: var(--brand-dark); color: var(--off-white); }
-    .contact-meta a { color: var(--brand-dark); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
     .contact :focus-visible { outline-color: var(--brand-dark); }
-    @media (forced-colors: active) { .contact-big { color: LinkText; -webkit-text-stroke: 0; } }
 
     /* ==========================================================
        7. FOOTER
@@ -996,11 +992,12 @@
       .about-grid { grid-template-columns: 1fr; }
       .about-grid { gap: var(--space-7); }
 
-      .contact .section-title { font-size: 30px; }
-      .contact-stage { grid-template-columns: 1fr; min-height: 0; }
-      .contact-block { top: 0; bottom: auto; left: 0; width: 200px; height: 200px; }
-      .contact-mark { width: 120px; margin: 40px 0 0 120px; }
-      .contact-copy { padding-top: var(--space-6); }
+      .contact-stage { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact .section-title { font-size: 40px; }
+      .contact-stamp { position: relative; top: 0; right: auto; width: 84px; height: 84px; margin-bottom: var(--space-4); }
+      .contact .section-title { max-width: none; }
+      .contact-stamp svg { width: 46px; }
+      .contact-row { grid-template-columns: 36px minmax(0, 1fr) auto; gap: var(--space-3); padding: 16px 4px; }
 
       .btn-group .btn { flex: 1 1 auto; }
 
@@ -1260,26 +1257,22 @@
     <!-- 6. KONTAKT -->
     <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
       <div class="container contact-stage">
-        <div class="contact-block" aria-hidden="true"></div>
-        <svg class="contact-mark" viewBox="0 0 119 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg>
-        <div class="contact-copy">
+        <div class="contact-intro">
+          <div class="contact-stamp" aria-hidden="true"><svg viewBox="0 0 119 125.6367" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg></div>
           <span class="eyebrow" data-i18n="kontakt-eyebrow">Söker praktik · Vinter 2026</span>
           <h2 class="section-title" id="kontakt-title" data-i18n="kontakt-title">Låt oss prata design.</h2>
           <p class="contact-text" data-i18n="kontakt-text">
             Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
             berättar jag mer.
           </p>
-          <ul class="contact-links">
-            <li><a class="contact-big" href="mailto:matilda.hsieh@yh.nackademin.se" data-i18n="kontakt-epost">E-post</a></li>
-            <li><a class="contact-big" href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></a></li>
-            <li><a class="contact-big" href="cv/Matilda-Hsieh-CV-sv.pdf" download aria-label="Ladda ner CV (svenska)" data-i18n-attr="aria-label:kontakt-cv-aria">CV</a></li>
-          </ul>
-          <div class="contact-meta">
-            <span>matilda.hsieh@yh.nackademin.se</span>
-            <a class="contact-copy-btn" href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se" role="button" aria-label="Kopiera e-postadressen matilda.hsieh@yh.nackademin.se" data-i18n-attr="aria-label:kontakt-btn-aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-i18n="kontakt-kopiera">Kopiera</span></a>
-            <a href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en">Download CV (English)</a>
-          </div>
+          <a class="contact-copy-btn" href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se" role="button" aria-label="Kopiera e-postadressen matilda.hsieh@yh.nackademin.se" data-i18n-attr="aria-label:kontakt-btn-aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-i18n="kontakt-kopiera">Kopiera e-postadressen</span></a>
         </div>
+        <ul class="contact-index">
+          <li><a class="contact-row" href="mailto:matilda.hsieh@yh.nackademin.se"><span class="contact-num" aria-hidden="true">01</span><span class="contact-word"><span data-i18n="kontakt-epost">E-post</span><span class="contact-detail">matilda.hsieh@yh.nackademin.se</span></span><span class="contact-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="contact-row" href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener"><span class="contact-num" aria-hidden="true">02</span><span class="contact-word">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></span><span class="contact-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-sv.pdf" download><span class="contact-num" aria-hidden="true">03</span><span class="contact-word">CV <em data-i18n="kontakt-cv-sv">svenska</em></span><span class="contact-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en"><span class="contact-num" aria-hidden="true">04</span><span class="contact-word">CV <em>English</em></span><span class="contact-arrow" aria-hidden="true">↓</span></a></li>
+        </ul>
       </div>
     </section>
 
@@ -1476,8 +1469,8 @@
           'kontakt-text': 'Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så berättar jag mer.',
           'kontakt-btn-aria': 'Kopiera e-postadressen matilda.hsieh@yh.nackademin.se',
           'kontakt-epost': 'E-post',
-          'kontakt-kopiera': 'Kopiera',
-          'kontakt-cv-aria': 'Ladda ner CV (svenska)',
+          'kontakt-kopiera': 'Kopiera e-postadressen',
+          'kontakt-cv-sv': 'svenska',
           'copy-toast': '✓ E-postadressen kopierades',
           'copy-announce': 'E-postadressen kopierades',
           'new-tab': ' (öppnas i ny flik)',
@@ -1530,8 +1523,8 @@
           'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line. I\'m happy to chat.',
           'kontakt-btn-aria': 'Copy the email address matilda.hsieh@yh.nackademin.se',
           'kontakt-epost': 'Email',
-          'kontakt-kopiera': 'Copy',
-          'kontakt-cv-aria': 'Download CV (Swedish)',
+          'kontakt-kopiera': 'Copy email address',
+          'kontakt-cv-sv': 'Swedish',
           'copy-toast': '✓ Email address copied',
           'copy-announce': 'Email address copied',
           'new-tab': ' (opens in a new tab)',
