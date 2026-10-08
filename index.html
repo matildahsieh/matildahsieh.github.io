@@ -563,7 +563,7 @@
       display: flex;
       flex-direction: column;
       padding-top: 40px;
-      transition: transform 1.5s cubic-bezier(0.34, 1.45, 0.64, 1);   /* soft jump with a slow bounce */
+      transition: transform 0.8s cubic-bezier(0.34, 1.45, 0.64, 1);   /* soft jump with a small bounce */
     }
     .card-icon-float {
       position: absolute;
@@ -613,7 +613,7 @@
       padding: 56px 20px 20px;   /* room for the 76px floating icon */
       text-align: center;
       border-radius: var(--radius-md);
-      transition: box-shadow 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition: box-shadow 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     /* Subtle radial gradient in the bottom corner for depth */
     .project-card::after {
@@ -626,10 +626,10 @@
     .project-card > * { position: relative; z-index: 1; }
 
     .project-card-wrapper:hover,
-    .project-card-wrapper:focus-within { transform: translateY(-12px); }
+    .project-card-wrapper:focus-within { transform: translateY(-20px); }
     .project-card-wrapper:hover .project-card,
     .project-card-wrapper:focus-within .project-card {
-      box-shadow: 0 26px 50px rgba(30, 34, 53, 0.14);
+      box-shadow: 0 34px 60px rgba(30, 34, 53, 0.16);
     }
 
     .project-meta {
