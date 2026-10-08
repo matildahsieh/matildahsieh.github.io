@@ -25,8 +25,16 @@
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+      var el = entry.target;
+      el.classList.add('is-visible');
+      observer.unobserve(el);
+      // When the fade-in is done, hand the element back to its own hover transitions
+      el.addEventListener('transitionend', function done(e) {
+        if (e.target !== el || e.propertyName !== 'opacity') return;
+        el.removeEventListener('transitionend', done);
+        el.classList.remove('reveal', 'is-visible');
+        el.style.transitionDelay = '';
+      });
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   var hidden = [];
