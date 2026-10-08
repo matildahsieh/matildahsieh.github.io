@@ -1,0 +1,28 @@
+/* Soft motion for the whole site. Everything here only runs when the
+   visitor has not asked for reduced motion; motion.js adds the classes. */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* 1. Fade in on scroll */
+  .reveal {
+    opacity: 0;
+    translate: 0 18px;
+    transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), translate 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .reveal.is-visible { opacity: 1; translate: 0 0; }
+
+  /* 2. Homepage hero intro: one line after another, the torii fades in */
+  .js-motion .hero-content > * { animation: mh-rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+  .js-motion .hero-content > :nth-child(1) { animation-delay: 0.05s; }
+  .js-motion .hero-content > :nth-child(2) { animation-delay: 0.15s; }
+  .js-motion .hero-content > :nth-child(3) { animation-delay: 0.3s; }
+  .js-motion .hero-content > :nth-child(4) { animation-delay: 0.4s; }
+  .js-motion .hero-content > :nth-child(5) { animation-delay: 0.5s; }
+  .js-motion .hero-ghost { animation: mh-ghost 1.8s ease 0.2s both; }
+  @keyframes mh-rise { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes mh-ghost { from { opacity: 0; } to { opacity: 0.07; } }
+
+  /* 4. Soft crossfade between pages (browsers without support just load the page) */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 0.4s; animation-timing-function: ease; }
+}
