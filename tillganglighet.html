@@ -1219,6 +1219,11 @@
       .facts-3 { grid-template-columns: 1fr !important; }
       .phone-hero { width: 240px !important; height: 500px !important; }
     }
+    /* Results list: stack problem above fix on small screens */
+    @media (max-width: 768px) {
+      .fix-row { grid-template-columns: 1fr !important; }
+      .fix-row > div:first-child { border-right: 0 !important; padding-bottom: 0 !important; }
+    }
   </style>
 </head>
 <body>
@@ -1448,50 +1453,28 @@
   <!-- Results -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
     <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #535C78;">05 · RESULTAT</p>
-    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Vad förändringarna faktiskt ger</h2>
+    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.1;">Små ändringar, stor skillnad</h2>
 
     <!-- Impact numbers -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 48px;">
       <div style="background: #E3EEE5; border-radius: 16px; padding: 28px;">
-        <p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: #28352C;">1 rad</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #28352C;">kod löser varukorgsknappen. <code style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; background: #D0E1D4; padding: 2px 6px; border-radius: 4px;">aria-label="Varukorg"</code> och Ellen hittar dit utan att gissa.</p>
+        <p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: #28352C;">Play/paus</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #28352C;">Videon loopar utan pausknapp och kampanjtexten är på engelska. Lösningen är en play- och pausknapp.</p>
       </div>
       <div style="background: #E3EEE5; border-radius: 16px; padding: 28px;">
         <p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: #28352C;">3,5:1</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #28352C;">ny kontrast på badge-siffrorna mot WCAG:s krav på 3:1. Ett nytt färgvärde, exakt samma form och känsla på varumärket.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #28352C;">Den mörkare färgen ger mer kontrast på badge-siffrorna. Från 1,7:1 till 3,5:1, över WCAG:s krav på 3:1.</p>
       </div>
       <div style="background: #1E2235; border-radius: 16px; padding: 28px;">
-        <p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: #FEFDFC;">18%</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8C0D2;">av befolkningen har en funktionsnedsättning som påverkar hur de använder webben. För Nordic Feels handlar det om tusentals kunder som idag fastnar innan kassan.</p>
+        <p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: #FEFDFC;">Alla</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8C0D2;">Även om ett problem bara drabbar en viss grupp eller person kan alla ha nytta av lösningen.</p>
       </div>
     </div>
 
     <!-- Per finding: fix + effect -->
     <div style="display: flex; flex-direction: column; gap: 0; background: #FEFDFC; border: 1px solid #DDE1EA; border-radius: 16px; overflow: hidden;">
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
-        <div style="padding: 28px 28px 28px 28px; border-right: 1px solid #EEF0F4;">
-          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Kontrast 1,7:1 på pristext och badge-siffror</p>
-        </div>
-        <div style="padding: 28px;">
-          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #4A6553;">FÖRESLAGEN ÅTGÄRD OCH EFFEKT</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Justera bakgrundsfärg på brickan till <code style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; background: #F2F3F7; padding: 2px 6px; border-radius: 4px;">#B35C00</code>. Kontrasten stiger till 3,5:1. Margit ser priset. Ingen omdesign krävs.</p>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
-        <div style="padding: 28px; border-right: 1px solid #EEF0F4;">
-          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Tangentbordsfokus fastnar i sökfältet</p>
-        </div>
-        <div style="padding: 28px;">
-          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #4A6553;">FÖRESLAGEN ÅTGÄRD OCH EFFEKT</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Lägg till en synlig "Stäng sökning" knapp och se till att Tab leder vidare. Amir kan slutföra sitt köp utan att behöva ett workaround han aldrig visste om.</p>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
+      <div class="fix-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
         <div style="padding: 28px; border-right: 1px solid #EEF0F4;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
           <p style="margin: 0; font-size: 15px; line-height: 1.6;">Varukorgsknapp utan tillgängligt namn</p>
@@ -1502,7 +1485,7 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
+      <div class="fix-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
         <div style="padding: 28px; border-right: 1px solid #EEF0F4;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
           <p style="margin: 0; font-size: 15px; line-height: 1.6;">Video loopar utan pausknapp, kampanjtext på engelska</p>
@@ -1513,25 +1496,25 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
+      <div class="fix-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #EEF0F4;">
         <div style="padding: 28px; border-right: 1px solid #EEF0F4;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
           <p style="margin: 0; font-size: 15px; line-height: 1.6;">Fältet "ordernummer" utan förklaring</p>
         </div>
         <div style="padding: 28px;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #4A6553;">FÖRESLAGEN ÅTGÄRD OCH EFFEKT</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Lägg till hjälptext: "Ordernumret finns i din orderbekräftelse, t.ex. #NF-48291." Färre avbrutna returer, lägre belastning på kundtjänst.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Lägg till hjälptext: "Ordernumret finns i din orderbekräftelse." Lägre belastning på kundtjänst.</p>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+      <div class="fix-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
         <div style="padding: 28px; border-right: 1px solid #EEF0F4;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #535C78;">BRIST</p>
           <p style="margin: 0; font-size: 15px; line-height: 1.6;">Felmeddelande utan vägledning</p>
         </div>
         <div style="padding: 28px;">
           <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #4A6553;">FÖRESLAGEN ÅTGÄRD OCH EFFEKT</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Byt till: "Kontrollera att e-postadressen stämmer med den du använde vid köpet." Användaren vet vad nästa steg är. Stressen minskar, konverteringen ökar.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6;">Byt till: "Kontrollera att e-postadressen stämmer med den du använde vid köpet." Användaren vet vad nästa steg är. Lägre belastning på kundtjänst.</p>
         </div>
       </div>
 
