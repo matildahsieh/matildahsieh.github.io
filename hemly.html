@@ -246,7 +246,7 @@
     .banner {
       background: var(--bg-secondary);
       color: var(--brand-dark);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -298,6 +298,16 @@
     }
     .banner-close:hover,
     .banner-close:focus-visible { opacity: 1; }
+    /* Bigger tap areas without making the banner taller */
+    .banner-link, .banner-close { position: relative; }
+    .banner-link::after { content: ""; position: absolute; inset: -14px -8px; }
+    .banner-close::after { content: ""; position: absolute; inset: -8px; }
+    /* Keep the banner on one line on small phones */
+    @media (max-width: 480px) {
+      .banner { letter-spacing: 0; text-transform: none; }
+      .banner-link { white-space: nowrap; }
+      .banner-inner, .banner-actions { gap: 8px; }
+    }
 
     /* ==========================================================
        2. NAVBAR
@@ -852,7 +862,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 12px; letter-spacing: 0.14em; }
 
     /* "Copied" toast — centred without transform so reduced-motion can't shift it */
     .copy-toast {
@@ -1213,10 +1223,18 @@
     .case-page img { max-width: 100%; }
     @media (max-width: 768px) {
       .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
-      .case-page h2 { font-size: 34px !important; }
+      .case-page h2:not(.is-label) { font-size: 34px !important; }
       .facts-3 { grid-template-columns: 1fr !important; }
       .phone-hero { width: 240px !important; height: 500px !important; }
     }
+    /* End of case study: next project + contact */
+    .next-project { background: var(--bg-primary); border-top: 1px solid rgba(30, 34, 53, 0.12); }
+    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; }
+    .next-label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jade-700); }
+    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(44px, 7vw, 80px); font-weight: 500; line-height: 1; color: var(--brand-dark); text-decoration: none;
+      padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
+    .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
+    .next-desc { margin: 16px 0 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -1339,7 +1357,7 @@
   <!-- Portfolio bar -->
   <div style="border-bottom: 1px solid #E8D9C8; background: #FEFDFC;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-      <a href="index.html#projekt" style="font-size: 14px; font-weight: 500; text-decoration: none;">← Alla projekt</a>
+      <a href="index.html#projekt" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 500; text-decoration: none;">← Alla projekt</a>
     </div>
   </div>
 
@@ -1363,8 +1381,7 @@
 
   <!-- Brief as a 3-up spec, mirrors her own slide -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 48px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">01 · Projektöversikt</p>
-    <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Den spontana myskvällen</h2>
+    <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.6;">01 · Projektöversikt</span>Den spontana myskvällen</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
       <div style="background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
         <h3 style="margin: 0 0 16px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 26px;">Målgrupp</h3>
@@ -1385,8 +1402,7 @@
 
   <!-- Process as a 3-step rail -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">02 · Processen</p>
-    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Inspiration → struktur → visuellt</h2>
+    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.6;">02 · Processen</span>Inspiration → struktur → visuellt</h2>
     <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 2px solid #382349;">
       <li style="padding: 24px 24px 0 0;">
         <p style="margin: 0 0 8px; font-family: 'IBM Plex Serif', serif; font-size: 48px; line-height: 1;">1</p>
@@ -1408,8 +1424,7 @@
 
   <!-- Design system as a style-guide sheet -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 48px 32px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">03 · Designsystemet</p>
-    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Bestäm en gång, använd överallt</h2>
+    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.6;">03 · Designsystemet</span>Bestäm en gång, använd överallt</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 24px;">
       <div style="flex: 1 1 320px; min-width: 0; background: #FEFDFC; border: 1px solid #E8D9C8; border-radius: 16px; padding: 28px;">
         <h3 style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">Färg</h3>
@@ -1440,8 +1455,7 @@
   <!-- Screens: a filmstrip of phones -->
   <section style="background: #F4E6D6; margin-top: 48px;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
-      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578;">04 · Vyerna</p>
-      <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;">Från tomt skafferi till leverans</h2>
+      <h2 style="margin: 0 0 48px; font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #6B5578; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.6;">04 · Vyerna</span>Från tomt skafferi till leverans</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
         <figure style="margin: 0; flex: 0 1 240px;"><div style="border-radius: 36px; border: 8px solid #382349; overflow: hidden; background: #B19FB9;"><img src="assets/hemly/startsida.webp" alt="Startsidan med Myspaketet och populära snacks" width="402" height="874" loading="lazy" style="display: block; width: 100%; height: auto;"></div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">Startsidan: Myspaketet och snacks direkt till hands.</figcaption></figure>
         <figure style="margin: 0; flex: 0 1 240px;"><div style="border-radius: 36px; border: 8px solid #382349; overflow: hidden; background: #B19FB9;"><img src="assets/hemly/kategori.webp" alt="Kategorisidan med kort för chips, popcorn, nötter, ost och kex, pinnar och dipp" width="402" height="874" loading="lazy" style="display: block; width: 100%; height: auto;"></div><figcaption style="margin-top: 12px; font-size: 14px; text-align: center;">Kategorier i stora, tydliga kort, så att det går snabbt att hitta rätt.</figcaption></figure>
@@ -1455,7 +1469,7 @@
   <section style="background: #382349; color: #FFF4E8;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px;">
       <div style="flex: 1 1 320px; min-width: 0;">
-        <p style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;">05 · Reflektion</p>
+        <h2 class="is-label" style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.6;">05 · Reflektion</h2>
         <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #E4D8EC;">Mitt första misstag var att inte börja med style guiden. Det gjorde att det tog längre tid. Med en struktur från start hade designprocessen gått mycket smidigare.</p>
       </div>
       <blockquote style="flex: 2 1 480px; min-width: 0; margin: 0; font-family: 'IBM Plex Serif', serif; font-size: 40px; line-height: 1.25;">”Good enough, sen iterera. Inte sitta i timmar för att få det pixel perfect.”</blockquote>
@@ -1463,6 +1477,18 @@
   </section>
 
 </div>
+
+  <!-- Next project + contact -->
+  <section class="next-project" aria-labelledby="next-title">
+    <div class="next-inner">
+      <div>
+        <h2 class="next-label is-label" id="next-title">Nästa projekt</h2>
+        <a class="next-link" href="tillganglighet.html">Tillgänglighet <span aria-hidden="true">→</span></a>
+        <p class="next-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
   </main>
 
   <!-- 7. FOOTER -->

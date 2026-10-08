@@ -246,7 +246,7 @@
     .banner {
       background: var(--bg-secondary);
       color: var(--brand-dark);
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -298,6 +298,16 @@
     }
     .banner-close:hover,
     .banner-close:focus-visible { opacity: 1; }
+    /* Bigger tap areas without making the banner taller */
+    .banner-link, .banner-close { position: relative; }
+    .banner-link::after { content: ""; position: absolute; inset: -14px -8px; }
+    .banner-close::after { content: ""; position: absolute; inset: -8px; }
+    /* Keep the banner on one line on small phones */
+    @media (max-width: 480px) {
+      .banner { letter-spacing: 0; text-transform: none; }
+      .banner-link { white-space: nowrap; }
+      .banner-inner, .banner-actions { gap: 8px; }
+    }
 
     /* ==========================================================
        2. NAVBAR
@@ -852,7 +862,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .footer-contact__copy { margin-top: var(--space-1); font-size: 11px; letter-spacing: 0.14em; }
+    .footer-contact__copy { margin-top: var(--space-1); font-size: 12px; letter-spacing: 0.14em; }
 
     /* "Copied" toast — centred without transform so reduced-motion can't shift it */
     .copy-toast {
@@ -1213,10 +1223,18 @@
     .case-page img { max-width: 100%; }
     @media (max-width: 768px) {
       .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
-      .case-page h2 { font-size: 34px !important; }
+      .case-page h2:not(.is-label) { font-size: 34px !important; }
       .facts-3 { grid-template-columns: 1fr !important; }
       .phone-hero { width: 240px !important; height: 500px !important; }
     }
+    /* End of case study: next project + contact */
+    .next-project { background: var(--bg-primary); border-top: 1px solid rgba(30, 34, 53, 0.12); }
+    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; }
+    .next-label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jade-700); }
+    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(44px, 7vw, 80px); font-weight: 500; line-height: 1; color: var(--brand-dark); text-decoration: none;
+      padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
+    .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
+    .next-desc { margin: 16px 0 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -1339,7 +1357,7 @@
   <!-- Hero: exhibition entrance, full-bleed forest -->
   <section style="background: #28352C; color: #FEFDFC;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 24px 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-      <a href="index.html#projekt" style="font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
+      <a href="index.html#projekt" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
     </div>
     <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 112px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end;">
       <div style="flex: 1 1 520px; min-width: 0;">
@@ -1349,18 +1367,17 @@
         <p style="margin: 0; max-width: 520px; font-size: 20px; line-height: 1.6; color: #C9D8CD;">Hur gör man vikingatiden till något folk faktiskt vill klicka på? En quiz-app som guidar barn genom museet, och en ny webbsida som får fler att hitta dit.</p>
       </div>
       <dl style="flex: 0 1 300px; margin: 0; display: grid; gap: 20px; padding-left: 28px; border-left: 1px solid rgba(169,196,176,0.35);">
-        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Roll</dt><dd style="margin: 0; font-size: 16px;">Idégenerering &amp; visuellt koncept</dd></div>
-        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Team</dt><dd style="margin: 0; font-size: 16px;">Grupprojekt</dd></div>
-        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Plattform</dt><dd style="margin: 0; font-size: 16px;">Mobilapp &amp; webb</dd></div>
-        <div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Tid</dt><dd style="margin: 0; font-size: 16px;">Aug–sep 2026</dd></div>
+        <div><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Roll</dt><dd style="margin: 0; font-size: 16px;">Idégenerering &amp; visuellt koncept</dd></div>
+        <div><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Team</dt><dd style="margin: 0; font-size: 16px;">Grupprojekt</dd></div>
+        <div><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Plattform</dt><dd style="margin: 0; font-size: 16px;">Mobilapp &amp; webb</dd></div>
+        <div><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A9C4B0; margin-bottom: 4px;">Tid</dt><dd style="margin: 0; font-size: 16px;">Aug–sep 2026</dd></div>
       </dl>
     </div>
   </section>
 
   <!-- Brief as museum plaques: what they asked / what we did -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 1 · Uppdraget</p>
-    <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">Fyra beslut vi tog som grupp</h2>
+    <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Sal 1 · Uppdraget</span>Fyra beslut vi tog som grupp</h2>
     <p style="margin: 0 0 48px; max-width: 620px; font-size: 17px; line-height: 1.75;">Briefen var öppen: en digital lösning för barnfamiljer och turister, gärna med infotainment, och etik lika viktigt som idé, funktion och design. Hur vi skulle lösa det bestämde vi själva i gruppen.</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
       <div style="background: #FEFDFC; border-radius: 4px; border-top: 6px solid #7F5539; padding: 24px;">
@@ -1385,12 +1402,11 @@
   <!-- Visual concept: moodboard wall + palette as material samples -->
   <section style="background: #FEFDFC;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
-      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 2 · Visuellt koncept · mitt ansvar</p>
-      <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">Färger hämtade ur utställningen</h2>
+      <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Sal 2 · Visuellt koncept · mitt ansvar</span>Färger hämtade ur utställningen</h2>
       <p style="margin: 0 0 40px; max-width: 620px; font-size: 17px; line-height: 1.75;">Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; border-radius: 4px; overflow: hidden;">
         <div style="background: #7F5539; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Trä</div>
-        <div style="background: #A68A64; color: #28352C; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Sand</div>
+        <div style="background: #A68A64; color: #1C1208; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Sand</div>
         <div style="background: #EDE0D4; color: #28352C; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Ben</div>
         <div style="background: #656D4A; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Mossa</div>
         <div style="background: #414833; color: #FEFDFC; padding: 72px 14px 14px; font-size: 13px; font-weight: 600;">Skog</div>
@@ -1403,8 +1419,7 @@
 
   <!-- The app as a museum route: six stations on a path -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 3 · Appen</p>
-    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">En vandring i sex stationer</h2>
+    <h2 style="margin: 0 0 48px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Sal 3 · Appen</span>En vandring i sex stationer</h2>
     <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; border-top: 2px dashed #7F5539; padding-top: 0;">
       <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">1</p><h3 style="margin: 0 0 6px; font-size: 16px;">Startsida</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Välkommen, välj språk, börja.</p></li>
       <li style="padding-top: 20px;"><p style="margin: -36px 0 16px; width: 32px; height: 32px; border-radius: 50%; background: #28352C; color: #FEFDFC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">2</p><h3 style="margin: 0 0 6px; font-size: 16px;">Inställningar</h3><p style="margin: 0; font-size: 14px; line-height: 1.6;">Textstorlek, tillgänglighet, mörkt läge, deltagare, svårighet.</p></li>
@@ -1423,8 +1438,7 @@
   <!-- Ethics: dark room, three principles -->
   <section style="background: #1E2235; color: #FEFDFC;">
     <div style="max-width: 1120px; margin: 0 auto; padding: 112px 32px;">
-      <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0;">Sal 4 · Etik som designmaterial</p>
-      <h2 style="margin: 0 0 56px; max-width: 760px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1.05;">Ingen delar sitt namn.</h2>
+      <h2 style="margin: 0 0 56px; max-width: 760px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1.05;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Sal 4 · Etik som designmaterial</span>Ingen delar sitt namn.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px;">
         <div><p style="margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #A9C4B0;">Förvalt namn</p><p style="margin: 0; font-size: 16px; line-height: 1.75; color: #C6CCDA;">Barnen väljer ett förvalt eller slumpat vikinganamn i stället för sitt eget.</p></div>
         <div><p style="margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #A9C4B0;">Ingen inloggning</p><p style="margin: 0; font-size: 16px; line-height: 1.75; color: #C6CCDA;">Inget konto, ingen data som kan kopplas till ett barn. Byggt utifrån privacy by design och EU:s regler.</p></div>
@@ -1435,8 +1449,7 @@
 
   <!-- Website + learnings -->
   <section style="max-width: 1120px; margin: 0 auto; padding: 96px 32px;">
-    <p style="margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539;">Sal 5 · Webbsidan</p>
-    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;">En ny webbsida för museet</h2>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05;"><span style="display: block; margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7F5539; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Sal 5 · Webbsidan</span>En ny webbsida för museet</h2>
     <figure style="margin: 0;">
       <div style="border-radius: 12px; overflow: hidden; border: 1px solid #D8C8B6; background: #1C1208; box-shadow: 0 24px 60px rgba(40, 53, 44, 0.18);">
         <div aria-hidden="true" style="display: flex; gap: 8px; padding: 12px 16px; background: #EDE4D6; border-bottom: 1px solid #D8C8B6;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #C9B8A4;"></span><span style="width: 12px; height: 12px; border-radius: 50%; background: #C9B8A4;"></span><span style="width: 12px; height: 12px; border-radius: 50%; background: #C9B8A4;"></span></div>
@@ -1448,13 +1461,25 @@
 
   <section style="background: #28352C; color: #FEFDFC;">
     <div style="max-width: 820px; margin: 0 auto; padding: 112px 32px; text-align: center;">
-      <p style="margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0;">Utgång · Vad jag lärde mig</p>
+      <h2 class="is-label" style="margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #A9C4B0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;">Utgång · Vad jag lärde mig</h2>
       <p style="margin: 0 0 28px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 44px; line-height: 1.2;">”Att designa för barn är att designa för trygghet.”</p>
       <p style="margin: 0 auto; max-width: 600px; font-size: 17px; line-height: 1.75; color: #C9D8CD;">Det roliga var lätt att få till. Det svåra var allt runt omkring: vad händer med det barnet skriver in, vem ser det, och hur känns det att svara fel?</p>
     </div>
   </section>
 
 </div>
+
+  <!-- Next project + contact -->
+  <section class="next-project" aria-labelledby="next-title">
+    <div class="next-inner">
+      <div>
+        <h2 class="next-label is-label" id="next-title">Nästa projekt</h2>
+        <a class="next-link" href="hemly.html">Hemly <span aria-hidden="true">→</span></a>
+        <p class="next-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Kontakta mig <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
   </main>
 
   <!-- 7. FOOTER -->
