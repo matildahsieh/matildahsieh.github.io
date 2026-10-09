@@ -553,7 +553,7 @@
     }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-6);
     }
 
@@ -722,7 +722,7 @@
     }
     .project-card--plum :focus-visible { outline-color: var(--hemly-cream); }
 
-    /* Card 2 — Tillgänglighet (warm) */
+    /* Card style: warm (not in use right now) */
     .project-card--warm {
       --card-glow: rgba(30, 34, 53, 0.07);
       background: var(--bg-warm);
@@ -1222,30 +1222,6 @@
             </div>
           </article>
 
-          <!-- Tillgänglighet card -->
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <img class="card-icon-3d" src="assets/icons/case-tillganglighet.png" alt="" width="76" height="76">
-            </div>
-            <div class="project-card project-card--warm">
-              <p class="project-meta" data-i18n="tillg-meta">2026 · Tillgänglighet</p>
-              <h3 class="project-title" data-i18n="tillg-title">Tillgänglighet</h3>
-              <p class="project-desc" data-i18n="tillg-desc">Inkluderar vår webbsida alla som älskar skönhet?</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">WCAG 2.2</li>
-                <li class="tag" data-i18n="tillg-tag-1">Tillgänglighet</li>
-                <li class="tag" data-i18n="tillg-tag-2">E-handel</li>
-              </ul>
-              <a class="card-link" href="tillganglighet.html"
-                 aria-label="Se projektet Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel"
-                 data-i18n-attr="aria-label:tillg-btn-aria"
-                 data-i18n-html="btn-las-mer">
-                Se projektet <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
           <!-- Vikingjakten card -->
           <article class="project-card-wrapper">
             <div class="card-icon-float" aria-hidden="true">
@@ -1491,12 +1467,6 @@
           'hemly-tag-3': 'Mobilapp',
           'hemly-btn-aria': 'Se projektet Hemly: UI-design av en app för expresshandling',
           'btn-las-mer': 'Se projektet <span class="arrow" aria-hidden="true">→</span>',
-          'tillg-meta': '2026 · Tillgänglighet',
-          'tillg-title': 'Tillgänglighet',
-          'tillg-desc': 'Inkluderar vår webbsida alla som älskar skönhet?',
-          'tillg-tag-1': 'Tillgänglighet',
-          'tillg-tag-2': 'E-handel',
-          'tillg-btn-aria': 'Se projektet Tillgänglighetsgranskning: WCAG 2.2-granskning av Nordic Feel',
           'viking-meta': '2026 · Grupprojekt',
           'viking-desc': 'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.',
           'viking-tag-1': 'Visuellt koncept',
@@ -1545,12 +1515,6 @@
           'hemly-tag-3': 'Mobile app',
           'hemly-btn-aria': 'View project Hemly: UI design of an express shopping app',
           'btn-las-mer': 'View project <span class="arrow" aria-hidden="true">→</span>',
-          'tillg-meta': '2026 · Accessibility',
-          'tillg-title': 'Accessibility',
-          'tillg-desc': 'Does our website include everyone who loves beauty?',
-          'tillg-tag-1': 'Accessibility',
-          'tillg-tag-2': 'E-commerce',
-          'tillg-btn-aria': 'View project Accessibility audit: WCAG 2.2 review of Nordic Feel',
           'viking-meta': '2026 · Group project',
           'viking-desc': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
           'viking-tag-1': 'Visual concept',
