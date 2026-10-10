@@ -13,7 +13,7 @@ Source: the group report, Matilda's individual reflection and the course syllabu
   - [x] FigJam board, step 2 + 3 (jobs, pains & gains for E01, E17, E29): `assets/ucd/figjam-jobs-pains-gains.webp`
   - [x] ~~FigJam job story template~~: not used, Matilda decided against it
   - [ ] FigJam: segmentation and HILS parts, if there are any
-  - [ ] The evidence sheet (Google Sheet with E01, E02 …)
+  - [x] The evidence sheet, E01–E08: `assets/ucd/evidens-sheet.webp` (check: do the cyan rows mean segment 1, pub quiz hosts?)
   - [ ] The value proposition or the comprehension test material
   - [ ] Anything else from the project
 - [x] **Card icon** – the cream question-mark card (`assets/icons/case-ucd.png`).
