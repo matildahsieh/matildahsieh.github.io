@@ -10,7 +10,9 @@ Source: the group report, Matilda's individual reflection and the course syllabu
 ### Waiting on Matilda
 - [ ] **Name of the case** – what it's called on the site and on the homepage card.
 - [ ] **Pictures** – look for anything visual, for example:
-  - [ ] FigJam board (segmentation, jobs/pains/gains, HILS)
+  - [x] FigJam board, step 2 + 3 (jobs, pains & gains for E01, E17, E29): `assets/ucd/figjam-jobs-pains-gains.webp`
+  - [x] FigJam job story template: `assets/ucd/figjam-job-story.webp` (check: is the example text under "Job Story – uppdaterad till korrekt format" the group's own or the teacher's?)
+  - [ ] FigJam: segmentation and HILS parts, if there are any
   - [ ] The evidence sheet (Google Sheet with E01, E02 …)
   - [ ] The value proposition or the comprehension test material
   - [ ] Anything else from the project
