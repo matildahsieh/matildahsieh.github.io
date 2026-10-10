@@ -9,13 +9,13 @@ Source: the group report, Matilda's individual reflection and the course syllabu
 
 ### Waiting on Matilda
 - [ ] **Name of the case** – what it's called on the site and on the homepage card.
-- [ ] **Pictures** – look for anything visual, for example:
+- [x] **Pictures**
   - [x] FigJam board, step 2 + 3 (jobs, pains & gains for E01, E17, E29): `assets/ucd/figjam-jobs-pains-gains.webp`
   - [x] ~~FigJam job story template~~: not used, Matilda decided against it
-  - [ ] FigJam: segmentation and HILS parts, if there are any
+  - [x] ~~FigJam: segmentation and HILS parts~~: not needed, these are shown as designed elements on the page instead
   - [x] The evidence sheet, E01–E08: `assets/ucd/evidens-sheet.webp` (check: do the cyan rows mean segment 1, pub quiz hosts?)
-  - [ ] The value proposition or the comprehension test material
-  - [ ] Anything else from the project
+  - [x] ~~The value proposition or the comprehension test material~~: not needed, the value proposition is shown as text
+  - [x] Two pictures are enough (evidence sheet + FigJam board)
 - [x] **Card icon** – the cream question-mark card (`assets/icons/case-ucd.png`).
 
 ### Decided
