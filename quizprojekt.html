@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matilda Hsieh · UX Designer</title>
-  <meta name="description" content="Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026." data-i18n-attr="content:meta-description">
+  <title>Quizprojekt · Matilda Hsieh</title>
+  <meta name="description" content="Case study: Quizprojekt, en behovsvalidering med netnografi, HILS och comprehension test för Flatwave AB. Grupprojekt i användarcentrerad design.">
 
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
@@ -45,11 +47,7 @@
       --footer-border: #191C2C;
       --brand-dark-hover: #12152A;
       --jade-hover: #97B39F;
-      --text-on-forest-muted: #9DB0A2;
-      --hemly-plum: #382349;            /* Hemly brand colours, from the project */
-      --hemly-cream: #FFF4E8;
-      --hemly-cream-hover: #F2E3D2;
-      --text-on-plum-muted: #C9BBD3;    /* 8:1 on plum */  /* muted text on jade-dark, 5.6:1 */
+      --text-on-forest-muted: #9DB0A2;  /* muted text on jade-dark, 5.6:1 */
 
       /* Typography */
       --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -158,7 +156,7 @@
     .eyebrow {
       display: block;
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -187,7 +185,7 @@
       min-height: 44px;
       padding: var(--space-3) var(--space-5);
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -389,6 +387,22 @@
     .nav-link:hover::after,
     .nav-link.is-active::after { width: 100%; }
 
+    .nav-toggle {
+      display: none;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: var(--brand-dark);
+      cursor: pointer;
+    }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    .nav-toggle .icon-close { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
     /* Language dropdown */
     .lang-dropdown {
       position: relative;
@@ -496,6 +510,7 @@
     .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
     .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
 
+
     /* ==========================================================
        3. HERO
        ========================================================== */
@@ -519,7 +534,7 @@
     .hero .eyebrow { color: var(--jade-700); }
     .hero-title {
       font-family: var(--font-display);
-      font-size: 80px;
+      font-size: 56px;
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.04em;
@@ -536,7 +551,7 @@
     }
     .hero-text {
       max-width: 420px;
-      font-size: 17px;
+      font-size: 14px;
       line-height: 1.75;
       color: var(--text-secondary);
       margin-bottom: var(--space-6);
@@ -563,7 +578,7 @@
       display: flex;
       flex-direction: column;
       padding-top: 40px;
-      transition: transform 0.8s cubic-bezier(0.34, 1.45, 0.64, 1);   /* soft jump with a small bounce */
+      transition: all 0.25s ease;
     }
     .card-icon-float {
       position: absolute;
@@ -576,6 +591,13 @@
       align-items: flex-end;
       pointer-events: none;
       gap: 4px;
+    }
+    .card-icon-torii {
+      --torii-fill: var(--jade-500);
+      --torii-stroke: none;
+      --torii-feet: var(--jade-500);
+      width: 56px;
+      height: 68px;
     }
     .card-icon-circle {
       display: flex;
@@ -590,14 +612,6 @@
       color: var(--jade-dark);
     }
     .card-icon-circle svg { width: 28px; height: 28px; }
-    /* 3D icons float freely above the card, with a soft shadow for depth */
-    .card-icon-3d {
-      display: block;
-      width: 76px;
-      height: 76px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 10px rgba(30, 34, 53, 0.18));
-    }
     .card-icon-image {
       display: block;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -610,10 +624,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 56px 20px 20px;   /* room for the 76px floating icon */
+      padding: 40px 20px 20px;
       text-align: center;
       border-radius: var(--radius-md);
-      transition: box-shadow 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition: all 0.25s ease;
     }
     /* Subtle radial gradient in the bottom corner for depth */
     .project-card::after {
@@ -626,14 +640,14 @@
     .project-card > * { position: relative; z-index: 1; }
 
     .project-card-wrapper:hover,
-    .project-card-wrapper:focus-within { transform: translateY(-20px); }
+    .project-card-wrapper:focus-within { transform: translateY(-6px); }
     .project-card-wrapper:hover .project-card,
     .project-card-wrapper:focus-within .project-card {
-      box-shadow: 0 34px 60px rgba(30, 34, 53, 0.16);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     }
 
     .project-meta {
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -646,7 +660,7 @@
       margin-bottom: var(--space-2);
     }
     .project-desc {
-      font-size: 15px;
+      font-size: 10px;
       line-height: 1.6;
       max-width: var(--max-text);
       margin-bottom: var(--space-4);
@@ -666,63 +680,40 @@
     }
     .tag {
       padding: var(--space-1) var(--space-3);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       border: 1px solid transparent;
       border-radius: var(--radius-sm);
     }
     .project-card .btn { margin-top: auto; }
-    /* The whole card is clickable: the "Se projektet" link stretches over it */
-    .project-card { cursor: pointer; }
-    .card-link {
-      margin-top: auto;
-      display: inline-flex; align-items: center; gap: 8px;
-      min-height: 44px;
-      font-size: 15px; font-weight: 700;
-      color: inherit; text-decoration: none;
-      background: linear-gradient(currentColor, currentColor) left calc(100% - 8px) / 0 2px no-repeat;
-      transition: background-size 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
-    .card-link .arrow { transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
-    .card-link::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
-    .project-card:hover .card-link, .card-link:focus-visible { background-size: 100% 2px; }
-    .project-card:hover .card-link .arrow, .card-link:focus-visible .arrow { transform: translateX(4px); }
-    .project-card > .card-link { position: static; }
-    .project-card--plum .card-link { color: var(--hemly-cream); }
-    .project-card--warm .card-link { color: var(--brand-dark); }
-    .project-card--forest .card-link { color: var(--jade-500); }
 
-    /* Card — Hemly (plum, the project's own brand colours) */
-    .card-icon-circle--hemly {
-      background: var(--hemly-cream);
-      color: var(--hemly-plum);
+    /* Card 1 — Hold-it! (dark) */
+    .project-card--dark {
+      --card-glow: rgba(169, 196, 176, 0.14);
+      background: var(--brand-dark);
+      color: var(--off-white);
     }
-    .project-card--plum {
-      --card-glow: rgba(255, 244, 232, 0.10);
-      background: var(--hemly-plum);
-      color: var(--hemly-cream);
+    .project-card--dark .project-meta { color: var(--jade-500); }
+    .project-card--dark .project-title { color: var(--off-white); }
+    .project-card--dark .project-desc { color: var(--footer-text); }   /* #76809D is 4.0:1 here; this passes AA */
+    .project-card--dark .project-divider { background: rgba(169, 196, 176, 0.2); }
+    .project-card--dark .tag {
+      background: rgba(169, 196, 176, 0.15);
+      color: var(--jade-500);
+      border-color: rgba(169, 196, 176, 0.3);
     }
-    .project-card--plum .project-meta { color: var(--hemly-cream); }
-    .project-card--plum .project-title { color: var(--hemly-cream); }
-    .project-card--plum .project-desc { color: var(--text-on-plum-muted); }
-    .project-card--plum .project-divider { background: rgba(255, 244, 232, 0.18); }
-    .project-card--plum .tag {
-      background: rgba(255, 244, 232, 0.12);
-      color: var(--hemly-cream);
-      border-color: rgba(255, 244, 232, 0.25);
+    .project-card--dark .btn-primary {
+      background: var(--jade-500);
+      border-color: var(--jade-500);
+      color: var(--brand-dark);
     }
-    .project-card--plum .btn-primary {
-      background: var(--hemly-cream);
-      border-color: var(--hemly-cream);
-      color: var(--hemly-plum);
+    .project-card--dark .btn-primary:hover {
+      background: var(--jade-hover);
+      border-color: var(--jade-hover);
     }
-    .project-card--plum .btn-primary:hover {
-      background: var(--hemly-cream-hover);
-      border-color: var(--hemly-cream-hover);
-    }
-    .project-card--plum :focus-visible { outline-color: var(--hemly-cream); }
+    .project-card--dark :focus-visible { outline-color: var(--jade-500); }
 
-    /* Card 3 — Quizprojekt (warm) */
+    /* Card 2 — Tillgänglighet (warm) */
     .project-card--warm {
       --card-glow: rgba(30, 34, 53, 0.07);
       background: var(--bg-warm);
@@ -783,7 +774,7 @@
     }
     .about-text {
       max-width: var(--max-text);
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.75;
       color: var(--text-on-dark-muted);
       margin-bottom: var(--space-6);
@@ -802,7 +793,7 @@
     }
     .quote figcaption {
       margin-top: var(--space-4);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--jade-500);
@@ -811,82 +802,26 @@
     /* ==========================================================
        6. KONTAKT
        ========================================================== */
-    /* Contact: editorial index of links, with the torii as a jade stamp */
-    .contact { background: var(--bg-primary); }
-    .contact-stage {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: var(--space-8);
-      align-items: start;
+    .contact {
+      background: var(--contact-bg);
+      text-align: center;
     }
-    .contact-intro { position: relative; padding-top: var(--space-4); }
-    .contact-stamp {
-      position: absolute;
-      top: -72px;
-      right: -48px;
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      background: var(--jade-500);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(-10deg);
-      box-shadow: 0 10px 24px rgba(30, 34, 53, 0.12);
-    }
-    .contact-stamp svg { width: 62px; height: auto; color: var(--brand-dark); }
-    .contact .eyebrow { color: var(--jade-700); }
+    .contact .eyebrow { color: var(--bg-secondary); }
     .contact .section-title {
-      font-size: 56px;
-      line-height: 1.02;
-      color: var(--brand-dark);
+      font-size: 36px;
+      color: var(--off-white);
       margin-bottom: var(--space-4);
-      max-width: 12ch;
     }
     .contact-text {
-      max-width: 360px;
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text-secondary);
+      max-width: var(--max-text);
+      margin: 0 auto var(--space-6);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--bg-secondary);
     }
-    .contact-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--brand-dark); }
-    .contact-index li { border-top: 1px solid var(--brand-dark); }
-    .contact-row {
-      display: grid;
-      grid-template-columns: 48px minmax(0, 1fr);
-      align-items: center;
-      gap: var(--space-4);
-      padding: 18px 12px;
-      color: var(--brand-dark);
-      text-decoration: none;
-    }
-    .contact-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--brand-dark); color: var(--brand-dark); transition: background 0.25s ease, color 0.25s ease; }
-    .contact-word { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 500; line-height: 1; }
-    .contact-word em { font-style: italic; color: var(--jade-700); }
-    /* Hover: a line draws in under the word and the icon turns dark */
-    .contact-word {
-      justify-self: start;
-      padding-bottom: 6px;
-      background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
-      transition: background-size 0.35s ease;
-    }
-    .contact-row:hover .contact-word, .contact-row:focus-visible .contact-word { background-size: 100% 2px; }
-    .contact-row:hover .contact-icon, .contact-row:focus-visible .contact-icon { background: var(--brand-dark); color: var(--jade-500); }
-    .contact-copy-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      min-height: 40px; padding: 0 16px;
-      font: 600 14px var(--font-body); color: var(--brand-dark); text-decoration: none;
-      background: transparent; border: 1px solid var(--brand-dark); border-radius: 50px;
-    }
-    .contact-copy-btn:hover { background: var(--brand-dark); color: var(--off-white); }
-    .contact :focus-visible { outline-color: var(--brand-dark); }
-    .contact-split .contact-row { padding-bottom: 6px; }
-    .contact-email-line {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
-      padding: 0 12px 16px 76px;
-      font-size: 14px; color: var(--text-secondary);
-    }
+    .contact .btn-group { justify-content: center; }
+    .contact .btn-primary:focus-visible { outline-color: var(--off-white); }
+    .contact :focus-visible { outline-color: var(--off-white); }
 
     /* ==========================================================
        7. FOOTER
@@ -904,7 +839,7 @@
     }
     .footer-meta {
       text-align: right;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.7;
       color: var(--footer-text);
     }
@@ -991,9 +926,6 @@
       }
       .nav-links li:last-child .nav-link { border-bottom: 0; }
       .nav-link::after { bottom: -1px; }
-      .nav-link:hover::after,
-      .nav-link.is-active::after { width: 48px; }
-
       /* Lang dropdown in mobile menu */
       .lang-item {
         padding: var(--space-3) 0;
@@ -1022,24 +954,18 @@
         font-size: 15px !important;
       }
       .lang-option:hover { background: transparent !important; }
+      .nav-link:hover::after,
+      .nav-link.is-active::after { width: 48px; }
 
       .hero { padding: var(--space-8) 0; }
-      .hero-title { font-size: 56px; }
+      .hero-title { font-size: 44px; }
       .hero-ghost { width: 300px; right: -60px; bottom: -40px; }
 
       .project-grid,
       .about-grid { grid-template-columns: 1fr; }
       .about-grid { gap: var(--space-7); }
 
-      .contact-stage { grid-template-columns: 1fr; gap: var(--space-6); }
-      .contact .section-title { font-size: 40px; }
-      .contact-stamp { position: relative; top: 0; right: auto; width: 84px; height: 84px; margin-bottom: var(--space-4); }
-      .contact .section-title { max-width: none; }
-      .contact-stamp svg { width: 46px; }
-      .contact-row { grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-3); padding: 16px 4px; }
-      .contact-icon { width: 40px; height: 40px; }
-      .contact-icon svg { width: 20px; height: 20px; }
-      .contact-email-line { padding: 0 4px 16px 56px; }
+      .contact .section-title { font-size: 30px; }
 
       .btn-group .btn { flex: 1 1 auto; }
 
@@ -1048,7 +974,365 @@
         align-items: flex-start;
       }
       .footer-meta { text-align: left; }
-      .footer-contact { text-align: left; }
+    }
+    /* ==========================================================
+       CASE STUDY
+       ========================================================== */
+    .case-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      padding: var(--space-8) 0 var(--space-8);
+    }
+    .case-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 100%, rgba(169, 196, 176, 0.14) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .case-hero .container { position: relative; z-index: 1; }
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--jade-500);
+      text-decoration: none;
+    }
+    .case-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .case-hero-top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    .case-hero-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+    .case-hero .eyebrow { color: var(--jade-500); margin-bottom: var(--space-2); }
+    .case-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .case-lead {
+      max-width: var(--max-text);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-on-forest-muted);
+      margin-bottom: var(--space-7);
+    }
+    .case-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      margin: 0;
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(169, 196, 176, 0.2);
+    }
+    .case-facts dt {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--jade-500);
+      margin-bottom: var(--space-1);
+    }
+    .case-facts dd { margin: 0; font-size: 14px; color: var(--off-white); }
+
+    .case-body { background: var(--bg-primary); padding: var(--space-8) 0 var(--space-9); }
+    .case-section {
+      max-width: 720px;
+      margin: 0 auto var(--space-8);
+    }
+    .case-section:last-child { margin-bottom: 0; }
+    .case-section .eyebrow { color: var(--text-muted-aa); }
+    .case-section h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-dark);
+      margin-bottom: var(--space-4);
+    }
+    .case-section h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin: var(--space-6) 0 var(--space-3);
+    }
+    .case-section p,
+    .case-section li {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+    .case-section p + p { margin-top: var(--space-4); }
+
+    .case-quote {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      border-left: 3px solid var(--jade-600);
+      background: var(--bg-jade-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .case-quote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--jade-dark);
+    }
+
+    /* Brief → design answer table */
+    .case-table {
+      width: 100%;
+      margin-top: var(--space-5);
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .case-table th,
+    .case-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--bg-secondary);
+    }
+    .case-table th {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted-aa);
+    }
+    .case-table td:first-child { color: var(--text-secondary); width: 45%; }
+    .case-table td:last-child { color: var(--jade-dark); font-weight: 600; }
+
+    /* Palette */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .swatch {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+    }
+    .swatch span { display: block; height: 64px; }
+    .swatch p {
+      padding: var(--space-2) var(--space-3);
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+    }
+    .swatch code { font-size: 11px; color: var(--text-muted-aa); }
+
+    /* App flow */
+    .flow {
+      display: grid;
+      gap: var(--space-3);
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .flow li {
+      position: relative;
+      padding: var(--space-4) var(--space-5) var(--space-4) 64px;
+      background: var(--off-white);
+      border: 1px solid var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      counter-increment: step;
+    }
+    .flow li::before {
+      content: counter(step);
+      position: absolute;
+      left: var(--space-5);
+      top: var(--space-4);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--jade-dark);
+      color: var(--off-white);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .flow strong { color: var(--brand-dark); }
+
+    /* Image slots — replaced with real media before launch */
+    .media-slot {
+      display: grid;
+      place-items: center;
+      margin: var(--space-6) 0;
+      min-height: 280px;
+      padding: var(--space-5);
+      text-align: center;
+      background: repeating-linear-gradient(-45deg, var(--bg-secondary), var(--bg-secondary) 10px, var(--bg-primary) 10px, var(--bg-primary) 20px);
+      border: 1px dashed var(--brand-mid);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted-aa);
+    }
+
+    .case-next {
+      background: var(--brand-dark);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
+    .case-next .eyebrow { color: var(--jade-500); }
+    .case-next h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--off-white);
+      margin-bottom: var(--space-5);
+    }
+    .case-next .btn-group { justify-content: center; }
+
+    @media (max-width: 768px) {
+      .case-title { font-size: 40px; }
+      .case-hero-icon { width: 64px; height: 64px; }
+      .case-facts { grid-template-columns: repeat(2, 1fr); }
+      .palette { grid-template-columns: repeat(2, 1fr); }
+      .case-table th, .case-table td { padding: var(--space-3) var(--space-2); }
+      .media-slot { min-height: 200px; }
+    }
+
+
+    /* Case pages built from the canvas layouts */
+    .case-page img { max-width: 100%; }
+    @media (max-width: 768px) {
+      .case-page h1 { font-size: clamp(48px, 14vw, 104px) !important; }
+      .case-page h2:not(.is-label) { font-size: 34px !important; }
+      .facts-3 { grid-template-columns: 1fr !important; }
+      .phone-hero { width: 240px !important; height: 500px !important; }
+    }
+    /* End of case study: previous and next project */
+    .next-project { background: var(--bg-primary); border-top: 1px solid rgba(30, 34, 53, 0.12); }
+    .next-inner { max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .next-col--next { text-align: right; }
+    .next-col--next .next-desc { margin-left: auto; }
+    .next-label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jade-700); }
+    .next-link { display: inline-block; font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 500; line-height: 1.05; color: var(--brand-dark); text-decoration: none;
+      padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
+    .next-col--next .next-link { background-position: right bottom; }
+    .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
+    .next-desc { margin: 16px 0 0; max-width: 440px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .next-inner { grid-template-columns: 1fr; padding: 64px 20px; gap: 40px; }
+      .next-col--next { text-align: left; }
+      .next-col--next .next-desc { margin-left: 0; }
+      .next-col--next .next-link { background-position: left bottom; }
+    }
+
+    /* ===== Quizprojekt: evidence-sheet maroon, cream paper, sage accents ===== */
+    .qp { --qp-ink: #1F2A24; --qp-paper: #FBF6EE; --qp-panel: #F2EADF; --qp-maroon: #7A2E38; --qp-sage: #4F6B4C; --qp-line: rgba(31, 42, 36, 0.14);
+      background: var(--qp-paper); color: var(--qp-ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .qp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .qp-hero { background: var(--qp-maroon); color: #FBF6EE; padding-bottom: 96px; }
+    .qp-hero a { color: inherit; }
+    .qp-hero-inner { padding-top: 48px; }
+    .qp-kicker { margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #F2D9DC; }
+    .qp-hero h1 { margin: 0 0 24px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 104px; line-height: 0.95; }
+    .qp-lead { margin: 0 0 48px; max-width: 640px; font-size: 20px; line-height: 1.6; color: #F7E9EA; }
+    .qp-meta { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-top: 28px; border-top: 1px solid rgba(251, 246, 238, 0.3); }
+    .qp-meta dt { margin-bottom: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #F2D9DC; }
+    .qp-meta dd { margin: 0; font-size: 16px; font-weight: 600; }
+    .qp-section { padding: 96px 0; }
+    .qp-panel { background: var(--qp-panel); }
+    .qp-label { display: block; margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--qp-maroon); line-height: 1.6; }
+    .qp-h2 { margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.05; }
+    .qp-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+    .qp-text { margin: 0 0 24px; max-width: 680px; font-size: 17px; line-height: 1.75; }
+    .qp-question { margin: 32px 0 0; padding: 28px 32px; background: var(--qp-panel); border-left: 4px solid var(--qp-maroon); border-radius: 0 16px 16px 0; }
+    .qp-question p { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1.3; }
+    .qp-stats { list-style: none; margin: 40px 0 48px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .qp-stats li { padding: 24px; background: var(--qp-paper); border: 1px solid var(--qp-line); border-radius: 16px; font-size: 15px; line-height: 1.5; }
+    .qp-num { display: block; margin-bottom: 8px; font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: var(--qp-maroon); }
+    .qp-figure { margin: 48px 0 0; }
+    .qp-figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--qp-line); background: #fff; box-shadow: 0 16px 40px rgba(31, 42, 36, 0.10); }
+    .qp-figure figcaption { margin-top: 12px; font-size: 14px; line-height: 1.6; color: #5B5148; }
+    .qp-tag { margin: 0 0 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--qp-sage); }
+    .qp-segments { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .qp-seg { padding: 32px; border: 1px solid var(--qp-line); border-radius: 20px; background: var(--qp-paper); }
+    .qp-seg--chosen { border: 2px solid var(--qp-sage); background: #EEF3EA; }
+    .qp-seg:not(.qp-seg--chosen) { color: #5B5148; }
+    .qp-seg h3 { margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 34px; color: var(--qp-ink); }
+    .qp-seg > p { margin: 0 0 20px; font-size: 16px; line-height: 1.7; }
+    .qp-seg dl { margin: 0; display: grid; gap: 14px; }
+    .qp-seg dt { font-size: 13px; font-weight: 700; }
+    .qp-seg dd { margin: 2px 0 0; font-size: 15px; line-height: 1.6; }
+    .qp-jobs { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+    .qp-job { padding: 28px; background: var(--qp-paper); border: 1px solid var(--qp-line); border-radius: 20px; display: flex; flex-direction: column; }
+    .qp-job--main { background: var(--qp-maroon); color: #FBF6EE; border-color: var(--qp-maroon); }
+    .qp-job--main .qp-tag, .qp-job--main .qp-ids { color: #F2D9DC; }
+    .qp-job h3 { margin: 0 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 26px; line-height: 1.2; }
+    .qp-pg { margin: 0 0 12px; font-size: 15px; line-height: 1.65; }
+    .qp-pg strong { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .qp-ids { margin: auto 0 0; padding-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--qp-sage); }
+    .qp-hils { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; border: 1px solid var(--qp-line); border-radius: 20px; overflow: hidden; margin-bottom: 24px; }
+    .qp-hils > div { padding: 24px 28px; border-right: 1px solid var(--qp-line); background: var(--qp-paper); }
+    .qp-hils > div:last-child { border-right: 0; }
+    .qp-hils p:not(.qp-tag) { margin: 0; font-size: 17px; line-height: 1.5; font-weight: 600; }
+    .qp-hils p.qp-big { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 500; line-height: 1; color: var(--qp-maroon); }
+    .qp-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+    .qp-two h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700; }
+    .qp-two p { margin: 0; font-size: 16px; line-height: 1.7; }
+    .qp-decision { background: var(--qp-ink); color: #FBF6EE; }
+    .qp-decision .qp-label { color: #D9E6D3; }
+    .qp-pivot { display: block; font-size: clamp(96px, 16vw, 200px); line-height: 0.9; letter-spacing: -0.01em; color: #FBF6EE; }
+    .qp-decision .qp-text { color: #E3E8E1; }
+    .qp-vp { margin: 56px 0 0; padding: 40px; background: rgba(251, 246, 238, 0.06); border: 1px solid rgba(251, 246, 238, 0.2); border-radius: 20px; }
+    .qp-vp .qp-label { color: #D9E6D3; }
+    .qp-vp p { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.9; }
+    .qp-vp mark { position: relative; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 2px 6px; background: rgba(217, 230, 211, 0.16); color: #FFFFFF; border-bottom: 2px solid #D9E6D3; border-radius: 4px; }
+    .qp-mk { position: absolute; left: 6px; top: -1.25em; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; color: #D9E6D3; white-space: nowrap; }
+    .qp-mk::after { content: ":"; position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .qp-dots { list-style: none; margin: 8px 0 32px; padding: 0; display: flex; flex-wrap: wrap; gap: 24px; }
+    .qp-dots li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+    .qp-dots span { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--qp-sage); }
+    .qp-dots .is-yes span { background: var(--qp-sage); }
+    .qp-reflect { background: var(--qp-panel); }
+    .qp-reflect .qp-h2 { max-width: 900px; font-style: italic; }
+    .qp-reflect .qp-label { font-style: normal; }
+    .qp-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 16px; }
+    .qp-cards > div { padding: 28px; background: var(--qp-paper); border: 1px solid var(--qp-line); border-radius: 20px; }
+    .qp-cards h3 { margin: 0 0 10px; font-size: 16px; font-weight: 700; }
+    .qp-cards p { margin: 0; font-size: 15px; line-height: 1.7; }
+    @media (max-width: 768px) {
+      .qp-wrap { padding: 0 20px; }
+      .qp-hero h1 { font-size: 64px; }
+      .qp-lead { font-size: 18px; }
+      .qp-meta, .qp-stats, .qp-segments, .qp-jobs, .qp-two, .qp-cards, .qp-split { grid-template-columns: 1fr; gap: 16px; }
+      .qp-split { gap: 0; }
+      .qp-section { padding: 64px 0; }
+      .qp-h2 { font-size: 38px !important; }
+      .qp-hils { grid-template-columns: 1fr 1fr; }
+      .qp-hils > div:nth-child(2) { border-right: 0; }
+      .qp-hils > div:nth-child(-n+2) { border-bottom: 1px solid var(--qp-line); }
+      .qp-vp { padding: 28px 20px; }
+      .qp-vp p { font-size: 24px; line-height: 2.1; }
+      .qp-question p { font-size: 24px; }
     }
   </style>
   <link rel="stylesheet" href="assets/motion.css">
@@ -1081,18 +1365,18 @@
     </defs>
   </svg>
 
-  <a class="skip-link" href="#main" data-i18n="skip-link">Hoppa till innehållet</a>
+  <a class="skip-link" href="#main">Hoppa till innehållet</a>
 
   <!-- 1. ANNOUNCEMENT BANNER -->
-  <aside class="banner" id="banner" aria-label="Meddelande" data-i18n-attr="aria-label:banner-aria">
+  <aside class="banner" id="banner" aria-label="Meddelande">
     <div class="container banner-inner">
       <p class="banner-status">
         <span class="banner-dot" aria-hidden="true"></span>
-        <span data-i18n="banner-status">Söker praktik · Vinter 2026</span>
+        Söker praktik · Vinter 2026
       </p>
       <div class="banner-actions">
-        <a class="banner-link" href="#kontakt" data-i18n="banner-link">Kontakta mig →</a>
-        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet" data-i18n-attr="aria-label:banner-close-aria">
+        <a class="banner-link" href="index.html#kontakt">Kontakta mig <span aria-hidden="true">→</span></a>
+        <button class="banner-close" type="button" id="banner-close" aria-label="Stäng meddelandet">
           <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
         </button>
       </div>
@@ -1102,33 +1386,33 @@
   <!-- 2. NAVBAR -->
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida" data-i18n-attr="aria-label:logo-aria">
+      <a class="logo" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
         <svg class="logo-svg" viewBox="0 0 570.2805 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo"/></svg>
       </a>
 
-      <nav aria-label="Huvudmeny" data-i18n-attr="aria-label:nav-aria">
+      <nav aria-label="Huvudmeny">
         <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
-          <span class="sr-only" data-i18n="nav-toggle-label">Meny</span>
+          <span class="sr-only">Meny</span>
           <svg class="icon-open" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
           <svg class="icon-close" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
         </button>
         <ul class="nav-links" id="nav-links">
           <li>
-            <a class="nav-link" href="#projekt" data-section="projekt">
+            <a class="nav-link" href="index.html#projekt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-grid"/></svg>
-              <span data-i18n="nav-projekt">Projekt</span>
+              Projekt
             </a>
           </li>
           <li>
             <a class="nav-link" href="om-mig.html">
               <svg aria-hidden="true" focusable="false"><use href="#icon-user"/></svg>
-              <span data-i18n="nav-om-mig">Om mig</span>
+              Om mig
             </a>
           </li>
           <li>
-            <a class="nav-link" href="#kontakt" data-section="kontakt">
+            <a class="nav-link" href="index.html#kontakt">
               <svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
-              <span data-i18n="nav-kontakt">Kontakt</span>
+              Kontakt
             </a>
           </li>
           <li class="lang-item lang-dropdown">
@@ -1168,168 +1452,201 @@
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main id="main" tabindex="-1" class="case-page">
+<div class="qp">
 
-    <!-- 3. HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <svg class="hero-ghost torii-ghost" viewBox="0 0 61 66" aria-hidden="true" focusable="false"><use href="assets/torii.svg#torii-logo"/></svg>
-      <div class="container hero-content">
-        <span class="eyebrow" data-i18n="hero-eyebrow">UX Designer · Stockholm</span>
-        <h1 class="hero-title" id="hero-title">
-          <span class="hero-title-first">MATILDA</span>
-          <span class="hero-title-last">HSIEH</span>
-        </h1>
-        <hr class="accent-line" aria-hidden="true">
-        <p class="hero-text" data-i18n="hero-text">
-          Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur
-          människor tänker, känner och navigerar.
-        </p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="#projekt" data-i18n-html="hero-btn-projekt">Se projekt <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-secondary" href="om-mig.html" data-i18n="hero-btn-om-mig">Om mig</a>
-        </div>
+  <!-- Hero: the evidence sheet's maroon header colour -->
+  <section class="qp-hero">
+    <div class="qp-wrap" style="padding-top: 24px; padding-bottom: 0;">
+      <a href="index.html#projekt" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; text-decoration: none;">← Alla projekt</a>
+    </div>
+    <div class="qp-wrap qp-hero-inner">
+      <p class="qp-kicker">Case study · Användarcentrerad design · Grupprojekt</p>
+      <h1>Quizprojekt</h1>
+      <p class="qp-lead">Finns det behov hos quizvärdar som är tillräckligt starka för att bygga en produkt för? Vi letade svar i 39 evidenspunkter och landade i ett pivot.</p>
+      <dl class="qp-meta">
+        <div><dt>Uppdragsgivare</dt><dd>Flatwave AB</dd></div>
+        <div><dt>Team</dt><dd>Grupprojekt</dd></div>
+        <div><dt>Metod</dt><dd>Netnografi · HILS · Comprehension test</dd></div>
+        <div><dt>Tid</dt><dd>Mars 2026</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 01 Assignment -->
+  <section class="qp-section">
+    <div class="qp-wrap qp-split">
+      <h2 class="qp-h2"><span class="qp-label">01 · Uppdraget</span>Värt att bygga, eller inte?</h2>
+      <div>
+        <p class="qp-text">Flatwave AB är en startup som ser potential för innovation inom quiz. Vårt uppdrag var en strategisk behovsvalidering i ett tidigt discovery-skede: minska osäkerheten och ta reda på om det finns problem som är värda att bygga en produkt för.</p>
+        <blockquote class="qp-question"><p>Finns det tillräckligt starka och återkommande behov, så kallade HILS-behov, hos quiz-skapare eller quiz-värdar för att motivera vidare investering?</p></blockquote>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4. PROJEKT -->
-    <section class="section projects" id="projekt" aria-labelledby="projekt-title">
-      <div class="container">
-        <span class="eyebrow" data-i18n="projekt-eyebrow">Projekt</span>
-        <h2 class="section-title" id="projekt-title" data-i18n="projekt-title">Mina case studies</h2>
+  <!-- 02 Method -->
+  <section class="qp-section qp-panel">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">02 · Metod</span>Vi lyssnade där quizvärdar redan pratar</h2>
+      <p class="qp-text">Med netnografi samlade vi in det quizvärdar själva skriver på Reddit, Trustpilot och i recensioner av quizverktyg. Varje citat fick ett eget ID, en källa, en trådtitel och en länk, så att varje slutsats går att spåra tillbaka till det som faktiskt skrevs.</p>
+      <ul class="qp-stats">
+        <li><span class="qp-num">39</span><span>evidenspunkter om pubquizvärdar</span></li>
+        <li><span class="qp-num">12</span><span>evidenspunkter om Kahoot</span></li>
+        <li><span class="qp-num">3</span><span>comprehension tests med quizvärdar</span></li>
+      </ul>
+      <figure class="qp-figure">
+        <img src="assets/ucd/evidens-sheet.webp" alt="Evidensarket i Google Sheets med kolumnerna Evidens-ID, Källa, Tråd, Känslosignal, Citat, Datum och Länk för evidenspunkterna E01 till E08" width="1800" height="655" loading="lazy">
+        <figcaption>Evidensarket. Varje rad är en evidenspunkt med ID, källa, känslosignal, citat, datum och länk.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-        <div class="project-grid">
-          <!-- Hemly card -->
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <img class="card-icon-3d" src="assets/icons/case-hemly.png" alt="" width="76" height="76">
-            </div>
-            <div class="project-card project-card--plum">
-              <p class="project-meta" data-i18n="hemly-meta">UI-design · Soloprojekt</p>
-              <h3 class="project-title">Hemly</h3>
-              <p class="project-desc" data-i18n="hemly-desc">Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag" data-i18n="hemly-tag-1">UI-design</li>
-                <li class="tag" data-i18n="hemly-tag-2">Designsystem</li>
-                <li class="tag" data-i18n="hemly-tag-3">Mobilapp</li>
-              </ul>
-              <a class="card-link" href="hemly.html"
-                 aria-label="Se projektet Hemly: UI-design av en app för expresshandling"
-                 data-i18n-attr="aria-label:hemly-btn-aria"
-                 data-i18n-html="btn-las-mer">
-                Se projektet <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Vikingjakten card -->
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <img class="card-icon-3d" src="assets/icons/case-vikingaappen.png" alt="" width="76" height="76">
-            </div>
-            <div class="project-card project-card--forest">
-              <p class="project-meta" data-i18n="viking-meta">2026 · Grupprojekt</p>
-              <h3 class="project-title">Vikingjakten</h3>
-              <p class="project-desc" data-i18n="viking-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag">Quiz-app</li>
-                <li class="tag" data-i18n="viking-tag-1">Visuellt koncept</li>
-                <li class="tag" data-i18n="viking-tag-2">Idégenerering</li>
-              </ul>
-              <a class="card-link" href="vikingaappen.html"
-                 aria-label="Se projektet Vikingjakten: quiz-app och ny webbsida för The Viking Museum"
-                 data-i18n-attr="aria-label:viking-btn-aria"
-                 data-i18n-html="btn-las-mer">
-                Se projektet <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Quizprojekt card -->
-          <article class="project-card-wrapper">
-            <div class="card-icon-float" aria-hidden="true">
-              <img class="card-icon-3d" src="assets/icons/case-ucd.png" alt="" width="76" height="76">
-            </div>
-            <div class="project-card project-card--warm">
-              <p class="project-meta" data-i18n="quiz-meta">UX-research · Grupprojekt</p>
-              <h3 class="project-title" data-i18n="quiz-title">Quizprojekt</h3>
-              <p class="project-desc" data-i18n="quiz-desc">Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.</p>
-              <hr class="project-divider">
-              <ul class="tags" aria-label="Taggar">
-                <li class="tag" data-i18n="quiz-tag-1">Netnografi</li>
-                <li class="tag">HILS</li>
-                <li class="tag">Comprehension test</li>
-              </ul>
-              <a class="card-link" href="quizprojekt.html"
-                 aria-label="Se projektet Quizprojekt: behovsvalidering för Flatwave AB"
-                 data-i18n-attr="aria-label:quiz-btn-aria"
-                 data-i18n-html="btn-las-mer">
-                Se projektet <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-        </div>
+  <!-- 03 Segmentation -->
+  <section class="qp-section">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">03 · Segmentering</span>Två segment, ett val</h2>
+      <div class="qp-segments">
+        <article class="qp-seg qp-seg--chosen">
+          <p class="qp-tag">Valt</p>
+          <h3>Pubquizvärdar</h3>
+          <p>Driver quiz som affärsverksamhet eller regelbunden sidosyssla på lokala barer. Ser sig själva som både skapare och underhållare.</p>
+          <dl>
+            <div><dt>Hur ofta</dt><dd>Ofta en gång i veckan. En värd håller fem i veckan.</dd></div>
+            <div><dt>Om quizet misslyckas</dt><dd>Tråkig stämning, deltagare slutar komma och barägaren anlitar någon annan.</dd></div>
+          </dl>
+        </article>
+        <article class="qp-seg">
+          <p class="qp-tag">Bortvalt</p>
+          <h3>Lärare</h3>
+          <p>Använder digitala quiz för att kontrollera kunskap eller repetera inför prov.</p>
+          <dl>
+            <div><dt>Hur ofta</dt><dd>Varje vecka, oftast i slutet av veckan.</dd></div>
+            <div><dt>Om quizet misslyckas</dt><dd>Eleverna lär sig inte materialet och lektionstiden känns bortkastad.</dd></div>
+          </dl>
+        </article>
       </div>
-    </section>
+      <p class="qp-text">För pubquizvärden är quizet en produkt som kräver kreativitet, egen stil och att kunna hantera en vuxen publik. För läraren är quizet ett medel för att nå ett pedagogiskt mål. Vi valde pubquizvärdarna.</p>
+    </div>
+  </section>
 
-    <!-- 5. OM MIG SNIPPET -->
-    <section class="section about on-dark" id="om-mig-snippet" aria-labelledby="om-mig-title">
-      <div class="container about-grid">
-        <div>
-          <span class="eyebrow" data-i18n="about-eyebrow">Om mig</span>
-          <h2 class="section-title" id="om-mig-title" data-i18n="about-title">Två kulturer. En designer.</h2>
-          <p class="about-text" data-i18n="about-text">
-            Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt
-            perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.
-          </p>
-          <a class="btn btn-jade" href="om-mig.html" data-i18n-html="about-btn">Läs mer om mig <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-        <figure class="quote">
-          <blockquote>
-            <p data-i18n="about-quote">
-              ”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer
-              än ett rätt svar, och att det bästa designbeslutet ofta hittas i
-              mellanrummet.”
-            </p>
-          </blockquote>
-          <figcaption>— Matilda Hsieh</figcaption>
-        </figure>
+  <!-- 04 Jobs, pains & gains -->
+  <section class="qp-section qp-panel">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">04 · Jobs, pains &amp; gains</span>Tre jobs, ett i centrum</h2>
+      <div class="qp-jobs">
+        <article class="qp-job qp-job--main">
+          <p class="qp-tag">Job 1 · Mest centralt</p>
+          <h3>Skapa och genomföra ett rättvist, engagerande och roligt quiz</h3>
+          <p class="qp-pg"><strong>Pains</strong> Misstänkt fusk och dominanta lag. Svårt att balansera frågorna så att alla har en chans.</p>
+          <p class="qp-pg"><strong>Gains</strong> Ett roligt och lättsamt quiz, inget fusk och fler lag som har chans att vinna.</p>
+          <p class="qp-ids">E01 · E04 · E17 · E29</p>
+        </article>
+        <article class="qp-job">
+          <p class="qp-tag">Job 2</p>
+          <h3>Skapa quizfrågor snabbare och spara tid</h3>
+          <p class="qp-pg"><strong>Pains</strong> Det tar lång tid att skapa quiz, och andras frågor gör quizet generiskt.</p>
+          <p class="qp-pg"><strong>Gains</strong> Kunna byta frågor med andra quizmasters och få ett effektivare arbetsflöde.</p>
+          <p class="qp-ids">E08 · E21 · E28</p>
+        </article>
+        <article class="qp-job">
+          <p class="qp-tag">Job 3</p>
+          <h3>Kunna kolla fakta snabbt under quizet</h3>
+          <p class="qp-pg"><strong>Pains</strong> Svårt att hitta tillförlitliga svar snabbt.</p>
+          <p class="qp-pg"><strong>Gains</strong> Snabb faktakoll minskar stressen.</p>
+          <p class="qp-ids">E02</p>
+        </article>
       </div>
-    </section>
+      <p class="qp-text">Job 1 kom tillbaka i flest evidenspunkter och kopplade till flest pains, så det blev vårt fokus.</p>
+      <figure class="qp-figure">
+        <img src="assets/ucd/figjam-jobs-pains-gains.webp" alt="FigJam-tavla. Steg 2: jobs hämtade från evidenspunkterna, där de tre mest relevanta prioriteras. Steg 3: pains och gains för E01, E17 och E29." width="1600" height="728" loading="lazy">
+        <figcaption>I FigJam gick vi från evidenspunkter till jobs, och sedan till pains och gains för E01, E17 och E29.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <!-- 6. KONTAKT -->
-    <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
-      <div class="container contact-stage">
-        <div class="contact-intro">
-          <div class="contact-stamp" aria-hidden="true"><svg viewBox="0 0 119 125.6367" focusable="false"><use href="assets/logo.svg#logo" width="570.2805" height="125.6367"/></svg></div>
-          <span class="eyebrow" data-i18n="kontakt-eyebrow">Söker praktik · Vinter 2026</span>
-          <h2 class="section-title" id="kontakt-title" data-i18n="kontakt-title">Låt oss prata design.</h2>
-          <p class="contact-text" data-i18n="kontakt-text">
-            Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så
-            berättar jag mer.
-          </p>
-        </div>
-        <ul class="contact-index">
-          <li class="contact-split"><a class="contact-row" href="mailto:matilda.hsieh@yh.nackademin.se"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="contact-word"><span data-i18n="kontakt-epost">E-post</span></span></a><div class="contact-email-line"><span>matilda.hsieh@yh.nackademin.se</span><a class="contact-copy-btn" href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se" role="button" aria-label="Kopiera e-postadressen matilda.hsieh@yh.nackademin.se" data-i18n-attr="aria-label:kontakt-btn-aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-i18n="kontakt-kopiera">Kopiera</span></a></div></li>
-          <li><a class="contact-row" href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="contact-word">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></span></a></li>
-          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-sv.pdf" download><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></span><span class="contact-word">CV <em data-i18n="kontakt-cv-sv">svenska</em></span></a></li>
-          <li><a class="contact-row" href="cv/Matilda-Hsieh-CV-en.pdf" download lang="en"><span class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></span><span class="contact-word">CV <em>English</em></span></a></li>
+  <!-- 05 HILS -->
+  <section class="qp-section">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">05 · HILS-bedömning</span>Hur bra löser dagens verktyg jobbet?</h2>
+      <div class="qp-hils">
+        <div><p class="qp-tag">Job</p><p>Job 1: ett rättvist, engagerande och roligt quiz</p></div>
+        <div><p class="qp-tag">Lösning</p><p>Kahoot</p></div>
+        <div><p class="qp-tag">Impact</p><p class="qp-big">Hög</p></div>
+        <div><p class="qp-tag">Satisfaction</p><p class="qp-big">Medel</p></div>
+      </div>
+      <div class="qp-two">
+        <div><h3>Fungerar bra</h3><p>Skapar engagemang och är enkelt att komma igång med.</p></div>
+        <div><h3>Fungerar dåligt</h3><p>Otydligt vad som ingår i en betald prenumeration.</p></div>
+      </div>
+      <p class="qp-text">Hög impact och medel satisfaction betyder att behovet inte är fullt tillgodosett. Det gjorde Job 1 till ett HILS.</p>
+    </div>
+  </section>
+
+  <!-- 06 Decision -->
+  <section class="qp-section qp-decision">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">06 · Beslut</span><span class="qp-pivot">Pivot</span></h2>
+      <p class="qp-text">Behovet finns kvar hos pubquizvärdarna, men det finns fler jobs att utforska där behovet kan vara ännu mer prioriterat. Därför ett pivot: inte stopp, och inte full fart framåt.</p>
+      <figure class="qp-vp">
+        <figcaption class="qp-label">Value proposition</figcaption>
+        <p>För <mark><span class="qp-mk">Målgrupp</span>pubquizvärdar som håller i ett quiz på en pub</mark> och har svårt att skapa ett rättvist spel eftersom <mark><span class="qp-mk">Pain</span>några lag blir för dominerande</mark>, hjälper vi dem att <mark><span class="qp-mk">Gain</span>skapa ett mer balanserat och engagerande quiz</mark> så att <mark><span class="qp-mk">Värde</span>fler deltagare håller sig involverade och spelet blir roligare för alla</mark>.</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 07 Comprehension test -->
+  <section class="qp-section">
+    <div class="qp-wrap qp-split">
+      <h2 class="qp-h2"><span class="qp-label">07 · Comprehension test</span>Förstår quizvärdarna vad vi menar?</h2>
+      <div>
+        <p class="qp-text">Vi kontaktade quizvärdar i Stockholm och testade value propositionen på tre personer, två på plats och en via Zoom. Vi läste upp förslaget och bad dem återberätta det med egna ord.</p>
+        <ul class="qp-dots">
+          <li class="is-yes"><span aria-hidden="true"></span>Förstod helt</li>
+          <li><span aria-hidden="true"></span>Osäker</li>
+          <li><span aria-hidden="true"></span>Osäker</li>
         </ul>
+        <p class="qp-text">Bara en av tre förstod budskapet helt. Två av testpersonerna hade mest erfarenhet av att skapa quiz, inte av att hålla i dem. Nästa gång skulle vi ha ett manus och öva på presentationen innan.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- 08 Reflection -->
+  <section class="qp-section qp-reflect">
+    <div class="qp-wrap">
+      <h2 class="qp-h2"><span class="qp-label">08 · Vad jag lärde mig</span>När man arbetar med något nytt under tidspress är det lätt att låsa sig fast vid strukturer och mallar.</h2>
+      <p class="qp-text">Jag snöade in mig på hur en job story skulle formuleras och tappade fokus på vad datan faktiskt sa. Det tar jag med mig framåt.</p>
+      <div class="qp-cards">
+        <div><h3>Mest riskfyllda hypotesen</h3><p>Att det nya jobbet verkligen är viktigt för pubquizvärdarna. Är det fel borde beslutet ha varit att inte fortsätta alls.</p></div>
+        <div><h3>Metodkritik</h3><p>Bara en av tre testpersoner hade hållit i ett pubquiz. Och online är det svårt att veta hur mycket man egentligen vet om kontexten bakom ett inlägg.</p></div>
+        <div><h3>AI</h3><p>Vi använde AI som bollplank för formuleringar och för att förklara begrepp, aldrig som källa. Resultaten dubbelkollade vi alltid själva.</p></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <!-- Previous and next project -->
+  <nav class="next-project" aria-label="Fler projekt">
+    <div class="next-inner">
+      <div class="next-col">
+        <p class="next-label">Föregående projekt</p>
+        <a class="next-link" href="vikingaappen.html"><span aria-hidden="true">←</span> Vikingjakten</a>
+        <p class="next-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
+      </div>
+      <div></div>
+    </div>
+  </nav>
   </main>
 
   <!-- 7. FOOTER -->
   <footer class="site-footer on-dark">
     <div class="container footer-inner">
-      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida" data-i18n-attr="aria-label:logo-aria">
+      <a class="logo logo--small" href="index.html" aria-label="Matilda Hsieh, UX Designer – startsida">
         <svg class="logo-svg" viewBox="0 0 570.2805 125.6367" aria-hidden="true" focusable="false"><use href="assets/logo.svg#logo"/></svg>
       </a>
       <div class="footer-contact">
         <a href="mailto:matilda.hsieh@yh.nackademin.se" data-copy="matilda.hsieh@yh.nackademin.se">matilda.hsieh@yh.nackademin.se</a><br>
-        <a href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only" data-i18n="new-tab"> (öppnas i ny flik)</span></a>
+        <a href="https://www.linkedin.com/in/matildahsieh" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (öppnas i ny flik)</span></a>
         <p class="footer-contact__copy">© MATILDA HSIEH · 2026</p>
       </div>
     </div>
@@ -1429,7 +1746,6 @@
       }
     })();
   </script>
-
   <!-- "Copied" feedback: visible toast + screen-reader announcement -->
   <div id="copy-toast" class="copy-toast" aria-hidden="true">✓ E-postadressen kopierades</div>
   <div id="copy-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -1456,245 +1772,7 @@
       });
     })();
   </script>
-
-  <!-- i18n language switcher -->
-  <script>
-    (function () {
-      'use strict';
-
-      var LANG_KEY = 'mh-lang';
-
-      var translations = {
-        sv: {
-          'meta-description': 'Matilda Hsieh – UX-designstudent vid Nackademin Stockholm med rötter i Sverige och Taiwan. Söker LIA-plats Vinter 2026.',
-          'skip-link': 'Hoppa till innehållet',
-          'logo-aria': 'Matilda Hsieh, UX Designer – startsida',
-          'banner-aria': 'Meddelande',
-          'banner-status': 'Söker praktik · Vinter 2026',
-          'banner-link': 'Kontakta mig →',
-          'banner-close-aria': 'Stäng meddelandet',
-          'nav-aria': 'Huvudmeny',
-          'nav-toggle-label': 'Meny',
-          'nav-projekt': 'Projekt',
-          'nav-om-mig': 'Om mig',
-          'nav-kontakt': 'Kontakt',
-          'hero-eyebrow': 'UX Designer · Stockholm',
-          'hero-text': 'Med rötter i Sverige och Taiwan designar jag med nyfikenhet för hur människor tänker, känner och navigerar.',
-          'hero-btn-projekt': 'Se projekt <span class="arrow" aria-hidden="true">→</span>',
-          'hero-btn-om-mig': 'Om mig',
-          'projekt-eyebrow': 'Projekt',
-          'projekt-title': 'Mina case studies',
-          'hemly-meta': 'UI-design · Soloprojekt',
-          'hemly-desc': 'Skafferiet är tomt och filmen har redan börjat. En app för expresshandling på under tio minuter.',
-          'hemly-tag-1': 'UI-design',
-          'hemly-tag-2': 'Designsystem',
-          'hemly-tag-3': 'Mobilapp',
-          'hemly-btn-aria': 'Se projektet Hemly: UI-design av en app för expresshandling',
-          'btn-las-mer': 'Se projektet <span class="arrow" aria-hidden="true">→</span>',
-          'viking-meta': '2026 · Grupprojekt',
-          'viking-desc': 'Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.',
-          'viking-tag-1': 'Visuellt koncept',
-          'viking-tag-2': 'Idégenerering',
-          'viking-btn-aria': 'Se projektet Vikingjakten: quiz-app och ny webbsida för The Viking Museum',
-          'quiz-meta': 'UX-research · Grupprojekt',
-          'quiz-title': 'Quizprojekt',
-          'quiz-desc': 'Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.',
-          'quiz-tag-1': 'Netnografi',
-          'quiz-btn-aria': 'Se projektet Quizprojekt: behovsvalidering för Flatwave AB',
-          'about-eyebrow': 'Om mig',
-          'about-title': 'Två kulturer. En designer.',
-          'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.',
-          'about-btn': 'Läs mer om mig <span class="arrow" aria-hidden="true">→</span>',
-          'about-quote': '”Att växa upp mellan två kulturer har lärt mig att det alltid finns mer än ett rätt svar, och att det bästa designbeslutet ofta hittas i mellanrummet.”',
-          'kontakt-eyebrow': 'Söker praktik · Vinter 2026',
-          'kontakt-title': 'Låt oss prata design.',
-          'kontakt-text': 'Jag söker LIA-plats inom UX-design för Vinter 2026. Hör av dig så berättar jag mer.',
-          'kontakt-btn-aria': 'Kopiera e-postadressen matilda.hsieh@yh.nackademin.se',
-          'kontakt-epost': 'E-post',
-          'kontakt-kopiera': 'Kopiera',
-          'kontakt-cv-sv': 'svenska',
-          'copy-toast': '✓ E-postadressen kopierades',
-          'copy-announce': 'E-postadressen kopierades',
-          'new-tab': ' (öppnas i ny flik)',
-          'lang-choose': 'Välj språk: '
-        },
-        en: {
-          'meta-description': 'Matilda Hsieh – UX design student at Nackademin Stockholm with roots in Sweden and Taiwan. Seeking internship Winter 2026.',
-          'skip-link': 'Skip to content',
-          'logo-aria': 'Matilda Hsieh, UX Designer – home',
-          'banner-aria': 'Announcement',
-          'banner-status': 'Searching for an internship · Winter 2026',
-          'banner-link': 'Contact me →',
-          'banner-close-aria': 'Close announcement',
-          'nav-aria': 'Main menu',
-          'nav-toggle-label': 'Menu',
-          'nav-projekt': 'Projects',
-          'nav-om-mig': 'About',
-          'nav-kontakt': 'Contact',
-          'hero-eyebrow': 'UX Designer · Stockholm',
-          'hero-text': 'Roots in Sweden and Taiwan. I design with genuine curiosity about how people think, feel, and find their way.',
-          'hero-btn-projekt': 'See projects <span class="arrow" aria-hidden="true">→</span>',
-          'hero-btn-om-mig': 'About me',
-          'projekt-eyebrow': 'Projects',
-          'projekt-title': 'My case studies',
-          'hemly-meta': 'UI design · Solo project',
-          'hemly-desc': 'The pantry is empty and the movie has already started. An app for express grocery shopping in under ten minutes.',
-          'hemly-tag-1': 'UI design',
-          'hemly-tag-2': 'Design system',
-          'hemly-tag-3': 'Mobile app',
-          'hemly-btn-aria': 'View project Hemly: UI design of an express shopping app',
-          'btn-las-mer': 'View project <span class="arrow" aria-hidden="true">→</span>',
-          'viking-meta': '2026 · Group project',
-          'viking-desc': 'How do you make the Viking Age something people actually want to click on? We answered with a quiz app and a new website for The Viking Museum.',
-          'viking-tag-1': 'Visual concept',
-          'viking-tag-2': 'Ideation',
-          'viking-btn-aria': 'View project Vikingjakten: quiz app and new website for The Viking Museum',
-          'quiz-meta': 'UX research · Group project',
-          'quiz-title': 'Quiz project',
-          'quiz-desc': 'Do quiz hosts have needs worth building a product for? 39 evidence points, a comprehension test and a pivot.',
-          'quiz-tag-1': 'Netnography',
-          'quiz-btn-aria': 'View project Quiz project: needs validation for Flatwave AB',
-          'about-eyebrow': 'About me',
-          'about-title': 'Two cultures. One designer.',
-          'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project: the ability to see from multiple angles at once.',
-          'about-btn': 'Read more about me <span class="arrow" aria-hidden="true">→</span>',
-          'about-quote': '"Growing up between two cultures taught me that there is always more than one right answer, and that the best design decision is often found in the space between."',
-          'kontakt-eyebrow': 'Searching for an internship · Winter 2026',
-          'kontakt-title': 'Got a project that needs a curious eye?',
-          'kontakt-text': 'I\'m searching for a UX design internship for Winter 2026. Drop me a line. I\'m happy to chat.',
-          'kontakt-btn-aria': 'Copy the email address matilda.hsieh@yh.nackademin.se',
-          'kontakt-epost': 'Email',
-          'kontakt-kopiera': 'Copy',
-          'kontakt-cv-sv': 'Swedish',
-          'copy-toast': '✓ Email address copied',
-          'copy-announce': 'Email address copied',
-          'new-tab': ' (opens in a new tab)',
-          'lang-choose': 'Choose language: '
-        }
-      };
-
-      var langBtn = document.getElementById('lang-toggle');
-      var langBtnFlag = langBtn.querySelector('.lang-flag use');
-      var langLabel = langBtn.querySelector('.lang-label');
-      var langMenu = document.getElementById('lang-menu');
-      var langOptions = Array.from(langMenu.querySelectorAll('.lang-option'));
-
-      var langMeta = {
-        sv: { flag: '#flag-se', label: 'Svenska' },
-        en: { flag: '#flag-gb', label: 'English' }
-      };
-
-      function applyLang(lang) {
-        var t = translations[lang];
-        if (!t) return;
-
-        // Store current lang globally for copy-toast script
-        window.__mhLang = lang;
-
-        // 1. Update <html lang>
-        document.documentElement.lang = lang;
-
-        // 2. Update textContent for [data-i18n]
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n');
-          if (t[key] !== undefined) el.textContent = t[key];
-        });
-
-        // 3. Update innerHTML for [data-i18n-html]
-        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n-html');
-          if (t[key] !== undefined) el.innerHTML = t[key];
-        });
-
-        // 4. Update attributes for [data-i18n-attr]
-        document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
-          var spec = el.getAttribute('data-i18n-attr');
-          var colonIdx = spec.indexOf(':');
-          if (colonIdx === -1) return;
-          var attrName = spec.slice(0, colonIdx);
-          var key = spec.slice(colonIdx + 1);
-          if (t[key] !== undefined) el.setAttribute(attrName, t[key]);
-        });
-
-        // 5. Update trigger button flag + label
-        var meta = langMeta[lang];
-        if (langBtnFlag) langBtnFlag.setAttribute('href', meta.flag);
-        langLabel.textContent = meta.label;
-
-        // 6. Update active state on dropdown options
-        langOptions.forEach(function (opt) {
-          var on = opt.getAttribute('data-lang') === lang;
-          opt.classList.toggle('is-active', on);
-          if (on) opt.setAttribute('aria-current', 'true'); else opt.removeAttribute('aria-current');
-        });
-
-        // 7. Save to localStorage
-        try { window.localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
-      }
-
-      // Dropdown open / close
-      function openMenu() {
-        langBtn.setAttribute('aria-expanded', 'true');
-        langMenu.classList.add('is-open');
-        // Enable tab access to options and focus first
-        langOptions.forEach(function (o) { o.setAttribute('tabindex', '0'); });
-        langOptions[0].focus();
-      }
-      function closeMenu() {
-        langBtn.setAttribute('aria-expanded', 'false');
-        langMenu.classList.remove('is-open');
-        // Remove options from tab order when closed
-        langOptions.forEach(function (o) { o.setAttribute('tabindex', '-1'); });
-      }
-
-      langBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        langMenu.classList.contains('is-open') ? closeMenu() : openMenu();
-      });
-
-      // Option click: pick language, close menu, return focus
-      langOptions.forEach(function (opt) {
-        opt.addEventListener('click', function () {
-          applyLang(this.getAttribute('data-lang'));
-          closeMenu();
-          langBtn.focus();
-        });
-      });
-
-      // Keyboard navigation inside open menu
-      langMenu.addEventListener('keydown', function (e) {
-        var idx = langOptions.indexOf(document.activeElement);
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          langOptions[(idx + 1) % langOptions.length].focus();
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          langOptions[(idx - 1 + langOptions.length) % langOptions.length].focus();
-        } else if (e.key === 'Tab' && !e.shiftKey) {
-          // Tab out of last option → close and let focus move naturally
-          if (idx === langOptions.length - 1) { closeMenu(); }
-        } else if (e.key === 'Tab' && e.shiftKey) {
-          // Shift+Tab out of first option → close, return to trigger
-          if (idx === 0) { e.preventDefault(); closeMenu(); langBtn.focus(); }
-        }
-      });
-
-      // Close on outside click or Escape
-      document.addEventListener('click', function () { closeMenu(); });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && langMenu.classList.contains('is-open')) {
-          closeMenu();
-          langBtn.focus();
-        }
-      });
-
-      // On page load: read stored preference, default to 'sv'
-      var stored = null;
-      try { stored = window.localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
-      applyLang(stored === 'en' ? 'en' : 'sv');
-
-    })();
-  </script>
+  <script src="assets/i18n.js"></script>
   <script src="assets/motion.js" defer></script>
 </body>
 </html>
