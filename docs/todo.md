@@ -27,7 +27,8 @@ Source: the group report, Matilda's individual reflection and the course syllabu
 - [ ] Segmentation: pub quiz hosts vs. teachers, and why pub quiz hosts
 - [ ] Jobs, pains and gains: three jobs; job 1 "skapa ett rättvist, engagerande och roligt quiz" is the most central
 - [ ] HILS assessment: Kahoot, 12 evidence points, satisfaction "medel"
-- [ ] Decision: PIVOT, and the value proposition
+- [ ] Decision: PIVOT, and the value proposition, confirmed by Matilda, use word for word:
+  > För pubquizvärdar som håller i ett quiz på en pub och har svårt att skapa ett rättvist spel eftersom några lag blir för dominerande, hjälper vi dem att skapa ett mer balanserat och engagerande quiz så att fler deltagare håller sig involverade och spelet blir roligare för alla.
 - [ ] Comprehension test: 3 quiz hosts, one understood the message fully
 - [ ] Reflection: riskiest hypothesis, sampling bias, context gaps in netnography, AI as support not source, the lesson about getting stuck in templates
 - [ ] English translation of all new text
