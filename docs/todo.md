@@ -14,7 +14,7 @@ Source: the group report, Matilda's individual reflection and the course syllabu
   - [ ] The evidence sheet (Google Sheet with E01, E02 …)
   - [ ] The value proposition or the comprehension test material
   - [ ] Anything else from the project
-- [ ] **Card icon** – a 3D icon like the others (mug, rune stone), if you want one.
+- [x] **Card icon** – the cream question-mark card (`assets/icons/case-ucd.png`).
 
 ### Decided
 - [x] The client can be named: Flatwave AB. The contacts' first names stay out.
