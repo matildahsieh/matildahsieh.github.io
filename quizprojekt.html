@@ -1238,8 +1238,8 @@
     .next-col--next .next-link { background-position: right bottom; }
     .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
     .next-soon { margin: 0; padding-bottom: 6px; font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 500; font-style: italic; line-height: 1.05; color: var(--brand-dark); }
-    .soon-dots { display: inline-flex; gap: 0.12em; margin-left: 0.18em; vertical-align: baseline; }
-    .soon-dots span { width: 0.14em; height: 0.14em; border-radius: 50%; background: var(--jade-700); }
+    .soon-dots { white-space: nowrap; }
+    .soon-dots span { display: inline-block; margin-left: 0.12em; width: 0.14em; height: 0.14em; border-radius: 50%; background: var(--jade-700); }
     @media (prefers-reduced-motion: no-preference) {
       .soon-dots span { animation: soon-pulse 1.6s ease-in-out infinite; }
       .soon-dots span:nth-child(2) { animation-delay: 0.2s; }
@@ -1644,8 +1644,8 @@
       </div>
       <div class="next-col next-col--next">
         <p class="next-label">Nästa projekt</p>
-        <p class="next-soon">Fler på gång<span class="soon-dots" aria-hidden="true"><span></span><span></span><span></span></span></p>
-        <p class="next-desc">Nya case dyker upp här snart.</p>
+        <p class="next-soon">Nästa case är hemligt<span class="soon-dots" aria-hidden="true">&#8288;<span></span><span></span><span></span></span></p>
+        <p class="next-desc">Men inte så länge till.</p>
       </div>
     </div>
   </nav>
