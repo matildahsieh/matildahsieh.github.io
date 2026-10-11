@@ -13,6 +13,7 @@
     /* ---------- Shared: banner, navbar, footer, contact ---------- */
     'Hoppa till innehållet': 'Skip to content',
     'Söker praktik · Vinter 2026': 'Searching for an internship · Winter 2026',
+    'Söker praktik · Hösten 2026': 'Searching for an internship · Autumn 2026',
     'Kontakta mig': 'Contact me',
     'Nästa projekt': 'Next project',
     'Föregående projekt': 'Previous project',
