@@ -40,5 +40,5 @@ Source: the group report, Matilda's individual reflection and the course syllabu
 - [x] Add the card to the homepage (three cards again)
 - [x] Previous/next: Hemly → Vikingjakten → Quizprojekt
 - [x] Tested on desktop and mobile, in Swedish and English
-- [ ] Matilda reviews the page and merges the PR
+- [x] Matilda reviews the page and merges the PR
 
