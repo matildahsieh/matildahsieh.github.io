@@ -12,7 +12,7 @@
   var EN = {
     /* ---------- Shared: banner, navbar, footer, contact ---------- */
     'Hoppa till innehållet': 'Skip to content',
-    'Söker praktik · Vinter 2026': 'Searching for an internship · Winter 2026',
+    'Söker praktik · Hösten 2026': 'Searching for an internship · Autumn 2026',
     'Kontakta mig': 'Contact me',
     'Nästa projekt': 'Next project',
     'Föregående projekt': 'Previous project',
@@ -36,13 +36,13 @@
 
     /* ---------- Om mig ---------- */
     'Om mig · Matilda Hsieh': 'About · Matilda Hsieh',
-    'Om Matilda Hsieh, UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats vinter 2026.':
-      'About Matilda Hsieh, UX designer with roots in Sweden and Taiwan, looking for an internship in Winter 2026.',
+    'Om Matilda Hsieh, UX-designer med rötter i Sverige och Taiwan, som söker LIA-plats hösten 2026.':
+      'About Matilda Hsieh, UX designer with roots in Sweden and Taiwan, looking for an internship in Autumn 2026.',
     'Hej, jag är': 'Hi, I’m',
     'Jag är UX-designer med rötter i Sverige och Taiwan, och den blandningen formar hur jag ser på design. Jag tar med mig den svenska traditionen av enkelhet och tillgänglighet, och den taiwanesiska förmågan att lägga märke till detaljer som annars missas.':
       'I’m a UX designer with roots in Sweden and Taiwan, and that mix shapes how I see design. I bring the Swedish tradition of simplicity and accessibility, and the Taiwanese eye for details that otherwise get missed.',
-    'Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till vinter 2026. Jag jobbar bäst i gränslandet mellan research och design. Jag vill förstå varför innan jag ritar hur.':
-      'Right now I’m studying UX design at Nackademin in Stockholm and looking for an internship for Winter 2026. I work best where research meets design. I want to understand why before I sketch how.',
+    'Just nu studerar jag UX-design på Nackademin i Stockholm och söker LIA-plats till hösten 2026. Jag jobbar bäst i gränslandet mellan research och design. Jag vill förstå varför innan jag ritar hur.':
+      'Right now I’m studying UX design at Nackademin in Stockholm and looking for an internship for Autumn 2026. I work best where research meets design. I want to understand why before I sketch how.',
     'Tillgänglighet': 'Accessibility',
     'Bilden är AI-genererad.': 'This picture is AI-generated.',
     'Illustrerat porträtt av Matilda med långt brunt hår, runda glasögon och mörk kavaj':
@@ -97,8 +97,8 @@
     'Kundärenden på ett snabbväxande logistikbolag. Fick inblick i hur dålig UX skapar onödiga supportärenden, och hur rätt information vid rätt tillfälle kan lösa problem innan de uppstår.':
       'Customer cases at a fast-growing logistics company. I saw how poor UX creates unnecessary support tickets, and how the right information at the right moment can solve problems before they happen.',
     'Låter det intressant?': 'Sound interesting?',
-    'Jag söker LIA-plats till vinter 2026 och är nyfiken på att lära mig mer om hur ni arbetar.':
-      'I’m looking for an internship for Winter 2026 and I’m curious to learn more about how you work.',
+    'Jag söker LIA-plats till hösten 2026 och är nyfiken på att lära mig mer om hur ni arbetar.':
+      'I’m looking for an internship for Autumn 2026 and I’m curious to learn more about how you work.',
 
     /* ---------- Hemly ---------- */
     'Hemly · Matilda Hsieh': 'Hemly · Matilda Hsieh',
