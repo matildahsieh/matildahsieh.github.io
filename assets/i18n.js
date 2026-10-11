@@ -270,7 +270,7 @@
     'evidenspunkter om Kahoot': 'evidence points about Kahoot',
     'comprehension tests med quizvärdar': 'comprehension tests with quiz hosts',
     'Evidensarket i Google Sheets med kolumnerna Evidens-ID, Källa, Tråd, Känslosignal, Citat, Datum och Länk för evidenspunkterna E01 till E08': 'The evidence sheet in Google Sheets with the columns Evidence ID, Source, Thread, Emotion signal, Quote, Date and Link for evidence points E01 to E08',
-    'Evidensarket. Varje rad är en evidenspunkt med ID, källa, känslosignal, citat, datum och länk.': 'The evidence sheet. Each row is one evidence point with an ID, source, emotion signal, quote, date and link.',
+    'Evidensarket. Varje rad är en evidenspunkt med ID, källa, känslosignal, citat, datum och länk. De ID som är markerade i cyan är evidensen vi gick vidare med.': 'The evidence sheet. Each row is one evidence point with an ID, source, emotion signal, quote, date and link. The IDs marked in cyan are the evidence we went with.',
     '03 · Segmentering': '03 · Segmentation',
     'Två segment, ett val': 'Two segments, one choice',
     'Valt': 'Chosen',
