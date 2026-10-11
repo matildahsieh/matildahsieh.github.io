@@ -1237,6 +1237,15 @@
       padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat; transition: background-size 0.35s ease; }
     .next-col--next .next-link { background-position: right bottom; }
     .next-link:hover, .next-link:focus-visible { background-size: 100% 2px; }
+    .next-soon { margin: 0; padding-bottom: 6px; font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 500; font-style: italic; line-height: 1.05; color: var(--brand-dark); }
+    .soon-dots { display: inline-flex; gap: 0.12em; margin-left: 0.18em; vertical-align: baseline; }
+    .soon-dots span { width: 0.14em; height: 0.14em; border-radius: 50%; background: var(--jade-700); }
+    @media (prefers-reduced-motion: no-preference) {
+      .soon-dots span { animation: soon-pulse 1.6s ease-in-out infinite; }
+      .soon-dots span:nth-child(2) { animation-delay: 0.2s; }
+      .soon-dots span:nth-child(3) { animation-delay: 0.4s; }
+    }
+    @keyframes soon-pulse { 0%, 60%, 100% { opacity: 0.25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-0.12em); } }
     .next-desc { margin: 16px 0 0; max-width: 440px; font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
     @media (max-width: 768px) {
       .next-inner { grid-template-columns: 1fr; padding: 64px 20px; gap: 40px; }
@@ -1633,7 +1642,11 @@
         <a class="next-link" href="vikingaappen.html"><span aria-hidden="true">←</span> Vikingjakten</a>
         <p class="next-desc">Hur gör man vikingatiden till något folk faktiskt vill klicka på? Vi svarade med en quiz-app och en ny webbsida för The Viking Museum.</p>
       </div>
-      <div></div>
+      <div class="next-col next-col--next">
+        <p class="next-label">Nästa projekt</p>
+        <p class="next-soon">Fler på gång<span class="soon-dots" aria-hidden="true"><span></span><span></span><span></span></span></p>
+        <p class="next-desc">Nya case dyker upp här snart.</p>
+      </div>
     </div>
   </nav>
   </main>

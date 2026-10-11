@@ -249,6 +249,8 @@
 
     /* (Tillgänglighet case removed) */
     /* ---------- Quizprojekt ---------- */
+    'Fler på gång': 'More on the way',
+    'Nya case dyker upp här snart.': 'New cases will show up here soon.',
     'Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.': 'Do quiz hosts have needs worth building a product for? 39 evidence points, a comprehension test and a pivot.',
     'Case study · Användarcentrerad design · Grupprojekt': 'Case study · User-centred design · Group project',
     'Quizprojekt': 'Quiz project',
