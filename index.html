@@ -507,7 +507,8 @@
     }
     .hero-ghost {
       position: absolute;
-      right: -40px;
+      /* Follows the content's right edge on wide screens instead of the window edge */
+      right: max(-40px, calc((100% - var(--container)) / 2));
       bottom: -60px;
       width: min(520px, 60vw);
       height: auto;
