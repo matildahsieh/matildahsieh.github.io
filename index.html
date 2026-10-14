@@ -22,7 +22,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
-  <script defer src="https://portfolio-analytics.traffic-dashboard.workers.dev/t.js"></script>
+  <!-- Visitor tracking. Open any page with ?notrack once to stop counting this browser, ?track to turn it back on. -->
+  <script>
+    (function () {
+      try {
+        var q = location.search;
+        if (/[?&]notrack(=|&|$)/.test(q)) localStorage.setItem('mh-notrack', '1');
+        if (/[?&]track(=|&|$)/.test(q)) localStorage.removeItem('mh-notrack');
+        if (localStorage.getItem('mh-notrack')) return;
+      } catch (e) { /* storage blocked: track as normal */ }
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://portfolio-analytics.traffic-dashboard.workers.dev/t.js';
+      document.head.appendChild(s);
+    })();
+  </script>
   <style>
     /* ==========================================================
        DESIGN TOKENS
