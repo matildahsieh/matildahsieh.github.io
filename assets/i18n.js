@@ -261,7 +261,6 @@
       'What does it take for a streaming service to be truly accessible? We looked at TV4 Play, focusing on people with visual and hearing impairments.',
     'Tjänst': 'Service',
     'Team': 'Team',
-    'Grupprojekt, fyra personer': 'Group project, four people',
     'Enkät · Workshop · Card sorting · Syntes': 'Survey · Workshop · Card sorting · Synthesis',
     'Februari 2026': 'February 2026',
     '01 · Problembild': '01 · Problem',
