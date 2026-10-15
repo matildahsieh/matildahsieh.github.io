@@ -49,11 +49,11 @@ Group project (Grupp 1: Koray, Matilda, Jenny and Erik), course Kvantitativa met
 Source: the group's presentation (16 slides) and the course's exam instructions.
 
 ### Waiting on Matilda
-- [ ] **Name of the case** (page and homepage card)
+- [ ] **Name of the case**: proposed "Hela upplevelsen", with the question "Vad krävs för att en streamingtjänst ska vara tillgänglig på riktigt?" (waiting for a yes)
 - [x] **TV4 Play**: can be named. The group chose it themselves; no connection to TV4.
 - [x] **SRF**: say "a representative from SRF", no name.
 - [x] **The 30 quotes**: a fictional scenario from the teacher, framed as an excerpt from a 2025 study for Mediemyndigheten. The page must say it's practice material. Task: synthesis; (1) the three main barriers, (2) the AI gap, (3) two requirements to suggest to Mediemyndigheten.
-- [ ] **The survey**: was it sent out and did you get answers, or did the group only design it and get feedback?
+- [x] **The survey**: designed and got feedback, not sent out. The data the group sorted (Excel, part 1) was fictional course data too.
 - [x] **"Beslutsmodellen (2021)"**: "Rapport med beslutsmodell för krav på leverantörer av medietjänster att tillgängliggöra sina tv-sändningar och beställ-tv".
 - [x] **Her own part**: group effort; Matilda designed the presentation (layout, made it engaging for the audience).
 - [x] **When**: February 2026
