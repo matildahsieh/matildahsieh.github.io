@@ -52,6 +52,8 @@
     'Ett tecken, mitt namn': 'One character, my name',
     '謝 är mitt efternamn på kinesiska. Så klart fick det bli min logga.':
       '謝 is my last name in Chinese. Of course it had to be my logo.',
+    'Hsieh är ett sätt att skriva 謝 med latinska bokstäver som är vanligt i Taiwan. Det uttalas ungefär som ”tjä”, som början på ”tjej”.':
+      'Hsieh is a way of writing 謝 in Latin letters that’s common in Taiwan. It’s pronounced roughly like “shyeh”.',
     'Kul detalj: 謝 betyder också ”tack”.': 'Fun fact: 謝 also means “thank you”.',
     'Hur jag arbetar': 'How I work',
     'Mitt arbetssätt': 'My way of working',
