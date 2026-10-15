@@ -104,6 +104,23 @@
       'I’m looking for an internship for Autumn 2026 and I’m curious to learn more about how you work.',
 
     /* ---------- Hemly ---------- */
+    'Tone of voice': 'Tone of voice',
+    'Vänlig': 'Friendly',
+    'Direkt': 'Direct',
+    'Snabb': 'Fast',
+    'Pålitlig': 'Reliable',
+    'Skriv såhär': 'Write like this',
+    'Undvik': 'Avoid',
+    '”Din order är på väg!”': '“Your order is on its way!”',
+    '”Perfekt för filmkvällen”': '“Perfect for movie night”',
+    '”Levererat på 10 min”': '“Delivered in 10 min”',
+    '”Lägg till lite mer mys”': '“Add a little more cosiness”',
+    '”Hittade du allt?”': '“Did you find everything?”',
+    '”Din transaktion behandlas”': '“Your transaction is being processed”',
+    '”Produkt tillagd i varukorg”': '“Product added to cart”',
+    '”Beräknad leveranstid: 10 min”': '“Estimated delivery time: 10 min”',
+    '”Komplettera din order”': '“Complete your order”',
+    '”Sökning gav 0 resultat”': '“Search returned 0 results”',
     'Hemly · Matilda Hsieh': 'Hemly · Matilda Hsieh',
     'Case study: Hemly. UI-design av en app för expresshandling, för den spontana myskvällen.':
       'Case study: Hemly. UI design of an express shopping app for the spontaneous movie night.',
