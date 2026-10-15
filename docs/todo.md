@@ -42,3 +42,36 @@ Source: the group report, Matilda's individual reflection and the course syllabu
 - [x] Tested on desktop and mobile, in Swedish and English
 - [x] Matilda reviews the page and merges the PR
 
+
+## New case: Kvantitativa metoder (TV4 Play, accessibility)
+
+Group project (Grupp 1: Koray, Matilda, Jenny and Erik), course Kvantitativa metoder at Nackademin.
+Source: the group's presentation (16 slides) and the course's exam instructions.
+
+### Waiting on Matilda
+- [ ] **Name of the case** (page and homepage card)
+- [ ] **TV4 Play**: can it be named? Was TV4 involved, or did the group choose the service? The case points out gaps in their accessibility (remember Nordic Feel).
+- [ ] **SRF**: OK to say "a representative from SRF"? The person's name stays out either way.
+- [ ] **The 30 quotes** (ID 301–315, 401–414): where do they come from? Real users online, or written/generated as material? The page has to say which.
+- [ ] **The survey**: was it sent out and did you get answers, or did the group only design it and get feedback?
+- [ ] **"Beslutsmodellen (2021)"**: what is it? (The presentation only names it.)
+- [ ] **Her own part**: group effort, or something she led?
+- [ ] **When**: month and year of the course
+- [ ] **Pictures**: which ones may be shown? Candidates from the slides:
+  - [ ] Card sorting on the table (photo; crop out laptops/notebook)
+  - [ ] "Från idé till slutprodukt", the production chain map
+  - [ ] Sorting board: hinder, AI-klyftan, synteser, lösningar
+  - [ ] The Excel sheet (probably too small to read; maybe skip)
+  - Not used: the group picture (names, AI-generated)
+
+### Content available (only from the documents)
+- Problem: a tech gap in live subtitling; demands vs technical capacity
+- Process: 01 Empati, 02 Samla insikter, 03 Strukturera
+- First hypothesis (word for word) and second hypothesis for the AI Red Team task
+- Survey: target group, 10 questions, core questions, feedback (language, wording, insights)
+- Workshop with Cards of Humanity & Funkify: insights
+- Card sorting: visual impairment, "Användaren vill ha en tydlig väg till syntolkat material."
+- Sorting of data, part 1 and 2: 30 quotes → Hinder & AI-klyftan
+- Synthesis (word for word): users get what happens but are excluded from how it feels
+- AI as Red Team: critique, insights, support, feedback
+- Challenges and lessons ("Kill your darlings")
