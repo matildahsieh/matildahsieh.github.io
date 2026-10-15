@@ -103,6 +103,11 @@
     'Jag söker LIA-plats till hösten 2026 och är nyfiken på att lära mig mer om hur ni arbetar.':
       'I’m looking for an internship for Autumn 2026 and I’m curious to learn more about how you work.',
 
+    'Runsten utanför museet med en röd orm och en ockragul runslinga': 'Runestone outside the museum with a red serpent and an ochre band of runes',
+    'Trädörr med snidade, flätade djurmönster runt dörrkarmen': 'Wooden door with carved, interlaced animal patterns around the frame',
+    'Grå runsten med runor och ett kors inristade i rött': 'Grey runestone with runes and a cross carved in red',
+    'Snidad tron i trä med ett fårskinn, en vikingahjälm, älghorn och granris': 'Carved wooden throne with a sheepskin, a Viking helmet, moose antlers and pine branches',
+    'Referenser vi fotade på museet: runstenar, snidat trä och utställningens miljöer. Härifrån hämtade vi färgerna.': 'References we photographed at the museum: runestones, carved wood and the exhibition’s settings. This is where we took the colours from.',
     /* ---------- Hemly ---------- */
     'Tone of voice': 'Tone of voice',
     'Vänlig': 'Friendly',
