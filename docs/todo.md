@@ -50,13 +50,13 @@ Source: the group's presentation (16 slides) and the course's exam instructions.
 
 ### Waiting on Matilda
 - [ ] **Name of the case** (page and homepage card)
-- [ ] **TV4 Play**: can it be named? Was TV4 involved, or did the group choose the service? The case points out gaps in their accessibility (remember Nordic Feel).
-- [ ] **SRF**: OK to say "a representative from SRF"? The person's name stays out either way.
-- [ ] **The 30 quotes** (ID 301–315, 401–414): where do they come from? Real users online, or written/generated as material? The page has to say which.
+- [x] **TV4 Play**: can be named. The group chose it themselves; no connection to TV4.
+- [x] **SRF**: say "a representative from SRF", no name.
+- [x] **The 30 quotes**: a fictional scenario from the teacher, framed as an excerpt from a 2025 study for Mediemyndigheten. The page must say it's practice material. Task: synthesis; (1) the three main barriers, (2) the AI gap, (3) two requirements to suggest to Mediemyndigheten.
 - [ ] **The survey**: was it sent out and did you get answers, or did the group only design it and get feedback?
-- [ ] **"Beslutsmodellen (2021)"**: what is it? (The presentation only names it.)
-- [ ] **Her own part**: group effort, or something she led?
-- [ ] **When**: month and year of the course
+- [x] **"Beslutsmodellen (2021)"**: "Rapport med beslutsmodell för krav på leverantörer av medietjänster att tillgängliggöra sina tv-sändningar och beställ-tv".
+- [x] **Her own part**: group effort; Matilda designed the presentation (layout, made it engaging for the audience).
+- [x] **When**: February 2026
 - [ ] **Pictures**: which ones may be shown? Candidates from the slides:
   - [ ] Card sorting on the table (photo; crop out laptops/notebook)
   - [ ] "Från idé till slutprodukt", the production chain map
