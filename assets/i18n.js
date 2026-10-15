@@ -226,7 +226,7 @@
     'Inga namn, ingen inloggning, frivillig delning.': 'No names, no login, optional sharing.',
     'En kod att visa i Gift Shop som belöning.': 'A code to show in the Gift Shop as a reward.',
     'Sal 2 · Visuellt koncept · mitt ansvar': 'Room 2 · Visual concept · my responsibility',
-    'Färger hämtade ur utställningen': 'Colours taken from the exhibition',
+    'Färger som museet bekräftade': 'Colours the museum confirmed',
     'Appen skulle kännas som en förlängning av museet, inte som ett spel som råkar handla om vikingar. Referenserna: snidade dörrar, runstenar, runalfabetet, torshammare och långskepp.':
       'The app should feel like an extension of the museum, not a game that happens to be about Vikings. The references: carved doors, runestones, the runic alphabet, Thor’s hammers and longships.',
     'Trä': 'Wood',
