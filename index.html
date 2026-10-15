@@ -576,7 +576,7 @@
     }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);   /* four cases: two by two */
       gap: var(--space-6);
     }
 
@@ -758,6 +758,24 @@
       background: rgba(40, 53, 44, 0.1);
       color: var(--jade-dark);
     }
+
+    /* Card 4 — Hela upplevelsen (broadcast red) */
+    .project-card--red {
+      --card-glow: rgba(251, 246, 241, 0.10);
+      background: #9B1C26;
+      color: #FBF6F1;
+    }
+    .project-card--red .project-meta { color: #F6D7DA; }
+    .project-card--red .project-title { color: #FBF6F1; }
+    .project-card--red .project-desc { color: #F7E4E6; }
+    .project-card--red .project-divider { background: rgba(251, 246, 241, 0.22); }
+    .project-card--red .tag {
+      background: rgba(251, 246, 241, 0.12);
+      color: #FBF6F1;
+      border-color: rgba(251, 246, 241, 0.3);
+    }
+    .project-card--red .card-link { color: #FBF6F1; }
+    .project-card--red :focus-visible { outline-color: #FBF6F1; }
 
     /* Card 3 — Vikingjakten (forest green) */
     .project-card--forest {
@@ -1276,17 +1294,40 @@
             </div>
             <div class="project-card project-card--warm">
               <p class="project-meta" data-i18n="quiz-meta">UX-research · Grupprojekt</p>
-              <h3 class="project-title" data-i18n="quiz-title">Quizprojekt</h3>
-              <p class="project-desc" data-i18n="quiz-desc">Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.</p>
+              <h3 class="project-title" data-i18n="quiz-title">Quizmästarens dilemma</h3>
+              <p class="project-desc" data-i18n="quiz-desc">Hur håller man ett quiz roligt när några lag alltid dominerar? Vi läste 39 inlägg och recensioner från quizvärdar och testade idén på riktiga quizvärdar.</p>
               <hr class="project-divider">
               <ul class="tags" aria-label="Taggar">
                 <li class="tag" data-i18n="quiz-tag-1">Netnografi</li>
-                <li class="tag">HILS</li>
-                <li class="tag">Comprehension test</li>
+                <li class="tag" data-i18n="quiz-tag-2">Behovsvalidering</li>
+                <li class="tag" data-i18n="quiz-tag-3">Test med quizvärdar</li>
               </ul>
               <a class="card-link" href="quizprojekt.html"
-                 aria-label="Se projektet Quizprojekt: behovsvalidering för Flatwave AB"
+                 aria-label="Se projektet Quizmästarens dilemma: behovsvalidering för Flatwave AB"
                  data-i18n-attr="aria-label:quiz-btn-aria"
+                 data-i18n-html="btn-las-mer">
+                Se projektet <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- Hela upplevelsen card -->
+          <article class="project-card-wrapper">
+            <div class="card-icon-float" aria-hidden="true">
+              <img class="card-icon-3d" src="assets/icons/case-hela.png" alt="" width="76" height="76">
+            </div>
+            <div class="project-card project-card--red">
+              <p class="project-meta" data-i18n="hela-meta">Tillgänglighet · Grupprojekt</p>
+              <h3 class="project-title" data-i18n="hela-title">Hela upplevelsen</h3>
+              <p class="project-desc" data-i18n="hela-desc">Vad krävs för att en streamingtjänst ska vara tillgänglig på riktigt? Enkät, card sorting och en syntes om TV4 Play.</p>
+              <hr class="project-divider">
+              <ul class="tags" aria-label="Taggar">
+                <li class="tag" data-i18n="hela-tag-1">Enkät</li>
+                <li class="tag">Card sorting</li>
+                <li class="tag" data-i18n="hela-tag-3">Syntes</li>
+              </ul>
+              <a class="card-link" href="hela-upplevelsen.html"
+                 aria-label="Se projektet Hela upplevelsen: tillgänglighet i TV4 Play"
+                 data-i18n-attr="aria-label:hela-btn-aria"
                  data-i18n-html="btn-las-mer">
                 Se projektet <span class="arrow" aria-hidden="true">→</span>
               </a>
@@ -1520,10 +1561,18 @@
           'viking-tag-2': 'Idégenerering',
           'viking-btn-aria': 'Se projektet Vikingjakten: quiz-app och ny webbsida för The Viking Museum',
           'quiz-meta': 'UX-research · Grupprojekt',
-          'quiz-title': 'Quizprojekt',
-          'quiz-desc': 'Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.',
+          'quiz-title': 'Quizmästarens dilemma',
+          'quiz-desc': 'Hur håller man ett quiz roligt när några lag alltid dominerar? Vi läste 39 inlägg och recensioner från quizvärdar och testade idén på riktiga quizvärdar.',
           'quiz-tag-1': 'Netnografi',
-          'quiz-btn-aria': 'Se projektet Quizprojekt: behovsvalidering för Flatwave AB',
+          'quiz-tag-2': 'Behovsvalidering',
+          'quiz-tag-3': 'Test med quizvärdar',
+          'quiz-btn-aria': 'Se projektet Quizmästarens dilemma: behovsvalidering för Flatwave AB',
+          'hela-meta': 'Tillgänglighet · Grupprojekt',
+          'hela-title': 'Hela upplevelsen',
+          'hela-desc': 'Vad krävs för att en streamingtjänst ska vara tillgänglig på riktigt? Enkät, card sorting och en syntes om TV4 Play.',
+          'hela-tag-1': 'Enkät',
+          'hela-tag-3': 'Syntes',
+          'hela-btn-aria': 'Se projektet Hela upplevelsen: tillgänglighet i TV4 Play',
           'about-eyebrow': 'Om mig',
           'about-title': 'Två kulturer. En designer.',
           'about-text': 'Uppvuxen i Sverige med rötter i Taiwan tar jag med mig ett tvåkulturellt perspektiv in i varje projekt: förmågan att se från flera håll samtidigt.',
@@ -1573,10 +1622,18 @@
           'viking-tag-2': 'Ideation',
           'viking-btn-aria': 'View project Vikingjakten: quiz app and new website for The Viking Museum',
           'quiz-meta': 'UX research · Group project',
-          'quiz-title': 'Quiz project',
-          'quiz-desc': 'Do quiz hosts have needs worth building a product for? 39 evidence points, a comprehension test and a pivot.',
+          'quiz-title': 'The quizmaster’s dilemma',
+          'quiz-desc': 'How do you keep a quiz fun when some teams always dominate? We read 39 posts and reviews from quiz hosts and tested the idea on real quiz hosts.',
           'quiz-tag-1': 'Netnography',
-          'quiz-btn-aria': 'View project Quiz project: needs validation for Flatwave AB',
+          'quiz-tag-2': 'Needs validation',
+          'quiz-tag-3': 'Testing with quiz hosts',
+          'quiz-btn-aria': 'View project The quizmaster’s dilemma: needs validation for Flatwave AB',
+          'hela-meta': 'Accessibility · Group project',
+          'hela-title': 'The whole experience',
+          'hela-desc': 'What does it take for a streaming service to be truly accessible? A survey, card sorting and a synthesis about TV4 Play.',
+          'hela-tag-1': 'Survey',
+          'hela-tag-3': 'Synthesis',
+          'hela-btn-aria': 'View project The whole experience: accessibility in TV4 Play',
           'about-eyebrow': 'About me',
           'about-title': 'Two cultures. One designer.',
           'about-text': 'Raised in Sweden with roots in Taiwan, I bring a multicultural perspective to every project: the ability to see from multiple angles at once.',

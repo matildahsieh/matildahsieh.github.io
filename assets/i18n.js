@@ -251,13 +251,143 @@
     'Vikingjaktens logga: en runsten med flätade drakmotiv': 'Vikingjakten logo: a runestone with interlaced dragon motifs',
 
     /* (Tillgänglighet case removed) */
+    /* ---------- Hela upplevelsen ---------- */
+    'Hela upplevelsen · Matilda Hsieh': 'The whole experience · Matilda Hsieh',
+    'Case study: Hela upplevelsen, om vad som krävs för att TV4 Play ska vara tillgängligt på riktigt för personer med syn- och hörselnedsättning. Grupprojekt i kvantitativa metoder.':
+      'Case study: The whole experience, about what it takes for TV4 Play to be truly accessible for people with visual and hearing impairments. Group project in quantitative methods.',
+    'Case study · Kvantitativa metoder · Grupprojekt': 'Case study · Quantitative methods · Group project',
+    'Hela upplevelsen': 'The whole experience',
+    'Vad krävs för att en streamingtjänst ska vara tillgänglig på riktigt? Vi tittade på TV4 Play med fokus på personer med syn- och hörselnedsättning.':
+      'What does it take for a streaming service to be truly accessible? We looked at TV4 Play, focusing on people with visual and hearing impairments.',
+    'Tjänst': 'Service',
+    'Team': 'Team',
+    'Grupprojekt, fyra personer': 'Group project, four people',
+    'Enkät · Workshop · Card sorting · Syntes': 'Survey · Workshop · Card sorting · Synthesis',
+    'Februari 2026': 'February 2026',
+    '01 · Problembild': '01 · Problem',
+    'Krav mot teknisk kapacitet': 'Requirements versus technical capacity',
+    'I kursen Kvantitativa metoder på Nackademin valde vi själva att titta på TV4 Play. För att förstå problemet läste vi rapporten med beslutsmodell för krav på tillgänglighet i tv-sändningar och beställ-tv från 2021, utforskade TV4 Plays tillgänglighet och träffade en representant från SRF.':
+      'In the Quantitative methods course at Nackademin, we chose to look at TV4 Play. To understand the problem, we read the 2021 report with a decision model for accessibility requirements in TV broadcasts and on-demand TV, explored TV4 Play’s accessibility and met a representative from SRF, the Swedish Association of the Visually Impaired.',
+    'Vi kartlade också hela vägen från idé till slutprodukt, för att se var i kedjan tillgängligheten hamnar. Där hittade vi ett teknikgap i direktsänd textning: kraven är högre än vad tekniken klarar idag.':
+      'We also mapped the whole way from idea to finished product, to see where in the chain accessibility ends up. That’s where we found a technology gap in live subtitling: the requirements are higher than what the technology can handle today.',
+    'Tidslinje från idé till slutprodukt: idé, innehållsskapare och investerare, sedan tillgänglighetsskapare, regulatorer och myndigheter och teknikleverantörer, sedan distributörer, tillgängliggör och annonsör, och sist användarna.':
+      'Timeline from idea to finished product: idea, content creators and investors, then accessibility creators, regulators and authorities and technology suppliers, then distributors, accessibility providers and advertisers, and finally the users.',
+    'Från idé till slutprodukt. Vi kartlade alla som är inblandade, från idé och innehållsskapare till myndigheter, distributörer och användare.':
+      'From idea to finished product. We mapped everyone involved, from the idea and content creators to authorities, distributors and users. The board is in Swedish.',
+    '02 · Arbetsprocess': '02 · Process',
+    'Tre steg': 'Three steps',
+    'Empati': 'Empathy',
+    'Analys av beslutsmodellen (2021)': 'Analysis of the decision model (2021)',
+    'Utforskning av TV4 Plays tillgänglighet': 'Exploring TV4 Play’s accessibility',
+    'Samla insikter': 'Gather insights',
+    'Kartläggning av produktionskedjan': 'Mapping the production chain',
+    'Utformning av enkät': 'Designing a survey',
+    'Omvärldsanalys': 'Environmental scan',
+    'Strukturera': 'Structure',
+    'Workshop': 'Workshop',
+    'Card sorting': 'Card sorting',
+    'Sortering av data': 'Sorting the data',
+    'AI som Red team': 'AI as a red team',
+    '03 · Första hypotesen': '03 · First hypothesis',
+    'Ett tekniskt problem?': 'A technical problem?',
+    'Vi gick tillbaka till kartan över alla inblandade och valde med dot voting vilken hypotes vi skulle gå vidare med.':
+      'We went back to the map of everyone involved and used dot voting to choose which hypothesis to take further.',
+    '”Vi tror att bristen på tillgänglighet i direktsändningar beror på en teknisk eftersläpning i produktionskedjan. Om tal-till-text-verktyg blir bättre automatiserade och håller tillräckligt hög kvalitet, så kommer de att möta myndighetens precisionskrav på 60 %, utan dyr mänsklig kontroll.”':
+      '“We believe the lack of accessibility in live broadcasts is caused by a technical lag in the production chain. If speech-to-text tools become better automated and keep a high enough quality, they will meet the authority’s accuracy requirement of 60%, without expensive human checking.”',
+    'Vår valda hypotes': 'Our chosen hypothesis',
+    '04 · Enkät': '04 · Survey',
+    'Tio frågor till de som textar': 'Ten questions for the people who subtitle',
+    'Vi utformade en enkät till personer som jobbar med textning vid direktsändning. Den skickades aldrig ut, men vi fick feedback på den i en gruppövning.':
+      'We designed a survey for people who work with subtitling live broadcasts. It was never sent out, but we got feedback on it in a group exercise.',
+    'enkätfrågor': 'survey questions',
+    'kärnfrågor: hur många som arbetar med textning, när i processen tillgänglighet beaktas och vilket arbetssätt som används':
+      'core questions: how many people work with subtitling, when in the process accessibility is considered and which way of working is used',
+    'målgrupp: de som textar direktsändningar': 'target group: the people who subtitle live broadcasts',
+    'Språk': 'Language',
+    'Felstavningar och en blandning av svenska och engelska.': 'Spelling mistakes and a mix of Swedish and English.',
+    'Formulering': 'Wording',
+    'Ledande frågor och otydliga eller överlappande svarsalternativ. Vissa frågor behövde preciseras, till exempel ”texten inte rätt i sändning”.':
+      'Leading questions and unclear or overlapping answer options. Some questions needed to be more precise, for example “the subtitles are wrong in the broadcast”.',
+    'Insikt': 'Insight',
+    'Tydliga och neutrala frågor är det som ger tillförlitliga svar.': 'Clear and neutral questions are what give reliable answers.',
+    '05 · Workshop': '05 · Workshop',
+    'TV4 Play genom någon annans ögon': 'TV4 Play through someone else’s eyes',
+    'Med Cards of Humanity och Funkify kombinerade vi en funktionsnedsättning med ett karaktärsdrag och testade TV4 Plays tillgänglighet utifrån den personen.':
+      'With Cards of Humanity and Funkify, we combined a disability with a character trait and tested TV4 Play’s accessibility from that person’s point of view.',
+    'Ibland blev kombinationerna orealistiska, som en 25-årig kvinna med demens, och personorna var inte alltid rättvist framställda, som ”Hyperactive Henny”.':
+      'Sometimes the combinations were unrealistic, like a 25-year-old woman with dementia, and the personas weren’t always fairly portrayed, like “Hyperactive Henny”.',
+    'Tillgänglighet är inte bara teknik.': 'Accessibility isn’t just technology.',
+    'Det är viktigt med ett verkligt användarperspektiv.': 'A real user perspective matters.',
+    '06 · Open card sorting': '06 · Open card sorting',
+    'Innehållet finns, men går inte att hitta': 'The content is there, but you can’t find it',
+    'Scenariot kom från läraren: syntolkat och teckentolkat material finns, men strukturen gör det svårt att hitta. Problemet handlar alltså om struktur, inte om produktion.':
+      'The scenario came from our teacher: audio-described and sign-language content exists, but the structure makes it hard to find. So the problem is about structure, not production.',
+    'Med fokus på synnedsättning plockade vi isär TV4 Play: kategorier, etiketter, menyer, innehållstyper och sökord blev egna kort. Tomma kort gav plats för användarens egna ord, så att vi kunde se användarens mentala modell i stället för systemets logik.':
+      'Focusing on visual impairment, we took TV4 Play apart: categories, labels, menus, content types and search words each became their own card. Blank cards left room for the user’s own words, so we could see the user’s mental model instead of the system’s logic.',
+    '”Användaren vill ha en tydlig väg till syntolkat material.”': '“The user wants a clear path to audio-described content.”',
+    'Handskrivna kort på ett bord: Sök, Support, Kanaler, Våra paket, Kategorier och Sport, med whiteboardpennor bredvid.':
+      'Handwritten cards on a table, in Swedish: Search, Support, Channels, Our packages, Categories and Sport, with whiteboard pens next to them.',
+    'Korten vi gjorde av TV4 Plays nuvarande struktur.': 'The cards we made from TV4 Play’s current structure.',
+    '07 · Sortering av data': '07 · Sorting the data',
+    'Från 30 citat till mönster': 'From 30 quotes to patterns',
+    'Datan var övningsmaterial: ett fiktivt utdrag ur en undersökning om hur personer med syn- och hörselnedsättning upplever streamingtjänster, som läraren tagit fram. Det var alltså inte riktiga användare.':
+      'The data was practice material: a fictional excerpt from a study on how people with visual and hearing impairments experience streaming services, written by our teacher. So these weren’t real users.',
+    'Först städade, sorterade och filtrerade vi datan i Excel, till exempel funktionsnedsättning kopplat till tjänst. Sedan tog vi 30 citat och sorterade och kategoriserade dem för att hitta de största hindren och klyftan mellan vad AI kan och hur användarna upplever det.':
+      'First we cleaned, sorted and filtered the data in Excel, for example disability linked to service. Then we took 30 quotes and sorted and categorised them to find the biggest barriers and the gap between what AI can do and how users experience it.',
+    '”Dålig beskrivning av till exempel miljö och tider i bilden.”': '“Poor description of, for example, settings and times in the picture.”',
+    '”AI saknar eller missar kontext, ironi och känsla.”': '“AI lacks or misses context, irony and feeling.”',
+    'De tre största hindren': 'The three biggest barriers',
+    'Inställningar och gränssnitt': 'Settings and interface',
+    'Brist på innehåll': 'Lack of content',
+    'Kvalitet': 'Quality',
+    'FigJam-tavla med citaten från grupp 1, synnedsättning och blindhet, och grupp 2, hörselnedsättning och dövhet, och fyra ytor med lappar: hinder, AI-klyftan, synteser och lösningar.':
+      'FigJam board with the quotes from group 1, visual impairment and blindness, and group 2, hearing impairment and deafness, and four areas of sticky notes: barriers, the AI gap, syntheses and solutions.',
+    'Citaten sorterade i FigJam: hinder, AI-klyftan, synteser och lösningar.': 'The quotes sorted in FigJam: barriers, the AI gap, syntheses and solutions. The board is in Swedish.',
+    '08 · Syntes': '08 · Synthesis',
+    'Användare får tillgång till': 'Users get access to',
+    'vad som händer': 'what happens',
+    ', men exkluderas från': ', but are excluded from',
+    'hur det känns': 'how it feels',
+    'Det finns en ojämlikhet i den konstnärliga upplevelsen. Om en seende eller hörande person får uppleva spänning genom musik och blickar, får en person med funktionsnedsättning bara uppleva fakta.':
+      'There’s an inequality in the artistic experience. While a sighted or hearing person gets to feel suspense through music and glances, a person with a disability only gets the facts.',
+    'Får inte hela upplevelsen': 'Doesn’t get the whole experience',
+    'leder till': 'leads to',
+    'Känsla av exkludering': 'Feeling excluded',
+    '09 · Andra hypotesen': '09 · Second hypothesis',
+    'Med syntesen i bagaget formulerade vi en ny hypotes, som vi sedan lät AI granska som ett Red team.':
+      'With the synthesis in hand, we wrote a new hypothesis, which we then had AI review as a red team.',
+    '”Om vi ökar träffsäkerheten med AI-drivna tillgänglighetsfunktioner med 50 %, så kommer nöjdheten hos användare med syn- eller hörselnedsättningar öka med minst 10 %.”':
+      '“If we increase the accuracy of AI-driven accessibility features by 50%, satisfaction among users with visual or hearing impairments will increase by at least 10%.”',
+    'Andra hypotesen': 'Second hypothesis',
+    'AI som Red team i fyra steg': 'AI as a red team in four steps',
+    '1. Kritik': '1. Critique',
+    '2. Insikter': '2. Insights',
+    '3. Stöd': '3. Support',
+    '4. Feedback': '4. Feedback',
+    '10 · Vad vi lärde oss': '10 · What we learned',
+    'Kill your darlings.': 'Kill your darlings.',
+    'En bred uppgift gav oss frihet att hitta en egen metod och att testa oss fram.': 'A broad assignment gave us the freedom to find our own method and to try things out.',
+    'Utmaningar': 'Challenges',
+    'En bred uppgift': 'A broad assignment',
+    'Ett annat perspektiv': 'A different perspective',
+    'Ingen erfarenhet av medieproduktion': 'No experience of media production',
+    'Svårt att veta syftet och ställa rätt frågor': 'Hard to know the purpose and ask the right questions',
+    'Lärdomar': 'Lessons',
+    'Bred uppgift, egen metod': 'Broad assignment, our own method',
+    'Frihet att testa': 'Freedom to try things',
+    'Kill your darlings': 'Kill your darlings',
+    'Min del': 'My part',
+    'Alla i gruppen skrev sina delar. Jag formgav presentationen så att den blev tydlig och intressant att lyssna på.':
+      'Everyone in the group wrote their own parts. I designed the presentation so it was clear and interesting to listen to.',
+    'Vad krävs för att en streamingtjänst ska vara tillgänglig på riktigt? Vi tittade på TV4 Play med fokus på syn- och hörselnedsättning.':
+      'What does it take for a streaming service to be truly accessible? We looked at TV4 Play, focusing on visual and hearing impairments.',
+
     /* ---------- Quizprojekt ---------- */
     'Nästa case är hemligt': 'The next case is a secret',
     'Men inte så länge till.': 'But not for much longer.',
-    'Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.': 'Do quiz hosts have needs worth building a product for? 39 evidence points, a comprehension test and a pivot.',
+    'Hur håller man ett quiz roligt när några lag alltid dominerar? Vi läste 39 inlägg och recensioner från quizvärdar och testade idén på riktiga quizvärdar.': 'How do you keep a quiz fun when some teams always dominate? We read 39 posts and reviews from quiz hosts and tested the idea on real quiz hosts.',
     'Case study · Användarcentrerad design · Grupprojekt': 'Case study · User-centred design · Group project',
-    'Quizprojekt': 'Quiz project',
-    'Finns det behov hos quizvärdar som är tillräckligt starka för att bygga en produkt för? Vi letade svar i 39 evidenspunkter och landade i ett pivot.': 'Do quiz hosts have needs strong enough to build a product for? We looked for answers in 39 evidence points and landed on a pivot.',
+    'Quizmästarens dilemma': 'The quizmaster’s dilemma',
     'Uppdragsgivare': 'Client',
     'Metod': 'Method',
     'Netnografi · HILS · Comprehension test': 'Netnography · HILS · Comprehension test',
@@ -340,8 +470,8 @@
     'Metodkritik': 'Method critique',
     'Bara en av tre testpersoner hade hållit i ett pubquiz. Och online är det svårt att veta hur mycket man egentligen vet om kontexten bakom ett inlägg.': 'Only one of three participants had run a pub quiz. And online, it’s hard to know how much you really know about the context behind a post.',
     'Vi använde AI som bollplank för formuleringar och för att förklara begrepp, aldrig som källa. Resultaten dubbelkollade vi alltid själva.': 'We used AI as a sounding board for wording and to explain concepts, never as a source. We always double-checked the results ourselves.',
-    'Case study: Quizprojekt, en behovsvalidering med netnografi, HILS och comprehension test för Flatwave AB. Grupprojekt i användarcentrerad design.': 'Case study: Quiz project, a needs validation using netnography, HILS and comprehension tests for Flatwave AB. Group project in user-centred design.',
-    'Quizprojekt · Matilda Hsieh': 'Quiz project · Matilda Hsieh',
+    'Case study: Quizmästarens dilemma, en behovsvalidering med netnografi, HILS och comprehension test för Flatwave AB. Grupprojekt i användarcentrerad design.': 'Case study: The quizmaster’s dilemma, a needs validation using netnography, HILS and comprehension tests for Flatwave AB. Group project in user-centred design.',
+    'Quizmästarens dilemma · Matilda Hsieh': 'The quizmaster’s dilemma · Matilda Hsieh',
     'Startsidan': 'Home page',
     'Produktsida': 'Product page',
     'Alla': 'Everyone'
