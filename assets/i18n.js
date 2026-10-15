@@ -385,10 +385,9 @@
     /* ---------- Quizprojekt ---------- */
     'Nästa case är hemligt': 'The next case is a secret',
     'Men inte så länge till.': 'But not for much longer.',
-    'Finns det behov hos quizvärdar som är värda att bygga en produkt för? 39 evidenspunkter, ett comprehension test och ett pivot.': 'Do quiz hosts have needs worth building a product for? 39 evidence points, a comprehension test and a pivot.',
+    'Hur håller man ett quiz roligt när några lag alltid dominerar? Vi läste 39 inlägg och recensioner från quizvärdar och testade idén på riktiga quizvärdar.': 'How do you keep a quiz fun when some teams always dominate? We read 39 posts and reviews from quiz hosts and tested the idea on real quiz hosts.',
     'Case study · Användarcentrerad design · Grupprojekt': 'Case study · User-centred design · Group project',
     'Quizmästarens dilemma': 'The quizmaster’s dilemma',
-    'Finns det behov hos quizvärdar som är tillräckligt starka för att bygga en produkt för? Vi letade svar i 39 evidenspunkter och landade i ett pivot.': 'Do quiz hosts have needs strong enough to build a product for? We looked for answers in 39 evidence points and landed on a pivot.',
     'Uppdragsgivare': 'Client',
     'Metod': 'Method',
     'Netnografi · HILS · Comprehension test': 'Netnography · HILS · Comprehension test',
