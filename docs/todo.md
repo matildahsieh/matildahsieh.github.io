@@ -81,5 +81,5 @@ Source: the group's presentation (16 slides) and the course's exam instructions.
 - [x] Card on the homepage (grid is now two by two)
 - [x] Previous/next: Quizprojekt → Hela upplevelsen → "Nästa case är hemligt…"
 - [x] Tested on desktop and mobile, in Swedish and English
-- [ ] Card icon: a 3D icon like the other cards (a simple subtitles icon is a placeholder for now)
+- [x] Card icon: the cream TV with a heart and subtitle lines (`assets/icons/case-hela.png`)
 - [ ] Matilda reviews the page and merges the PR
