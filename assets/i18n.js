@@ -113,6 +113,14 @@
     'Efter besöket': 'After the visit',
     'Kul detalj: de sex första färgerna valde vi innan vi besökte museet, och besöket bekräftade dem. Runröd syns både på runstenarna och på museets skyltar. Efter besöket lade vi till ockra och fjord, inspirerade av guidens kläder.':
       'Fun fact: we chose the first six colours before we visited the museum, and the visit confirmed them. Rune red shows up both on the runestones and on the museum’s signs. After the visit we added ochre and fjord, inspired by our guide’s clothes.',
+    'Sal 6 · Min egen version': 'Room 6 · My own version',
+    'Språkval med bildstöd': 'Choosing a language with picture support',
+    'Jag gjorde också en egen version av appens första skärm. Målgrupperna var barnfamiljer och turister, så jag ville att språkvalet skulle fungera även för den som inte läser svenska: flaggor som bildstöd, och varje språk skrivet på sitt eget språk.':
+      'I also made my own version of the app’s first screen. The target groups were families with children and tourists, so I wanted choosing a language to work even for people who don’t read Swedish: flags as picture support, and each language written in its own language.',
+    'Byggd i Figma Make. Bakgrundsbilden är genererad med ChatGPT.': 'Built in Figma Make. The background image is generated with ChatGPT.',
+    'Startsidan The Viking Journey: ett vikingaskepp i solnedgång, flaggor för svenska, engelska och spanska där engelska är vald, och knappen Continue':
+      'The Viking Journey start screen: a Viking ship at sunset, flags for Swedish, English and Spanish with English selected, and a Continue button',
+    'Startsidan i min version: välj språk med flaggorna och fortsätt.': 'The start screen in my version: choose a language with the flags and continue.',
     /* ---------- Hemly ---------- */
     'Tone of voice': 'Tone of voice',
     'Vänlig': 'Friendly',
