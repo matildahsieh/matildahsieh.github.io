@@ -107,7 +107,11 @@
     'Trädörr med snidade, flätade djurmönster runt dörrkarmen': 'Wooden door with carved, interlaced animal patterns around the frame',
     'Grå runsten med runor och ett kors inristade i rött': 'Grey runestone with runes and a cross carved in red',
     'Snidad tron i trä med ett fårskinn, en vikingahjälm, älghorn och granris': 'Carved wooden throne with a sheepskin, a Viking helmet, moose antlers and pine branches',
-    'Referenser vi fotade på museet: runstenar, snidat trä och utställningens miljöer. Härifrån hämtade vi färgerna.': 'References we photographed at the museum: runestones, carved wood and the exhibition’s settings. This is where we took the colours from.',
+    'Referenser vi fotade på museet: runstenar, snidat trä och utställningens miljöer.': 'References we photographed at the museum: runestones, carved wood and the exhibition’s settings.',
+    'Före besöket': 'Before the visit',
+    'Efter besöket': 'After the visit',
+    'Kul detalj: de sex första färgerna valde vi innan vi besökte museet, och besöket bekräftade dem. Runröd syns både på runstenarna och på museets skyltar. Efter besöket lade vi till ockra och fjord, inspirerade av guidens kläder.':
+      'Fun fact: we chose the first six colours before we visited the museum, and the visit confirmed them. Rune red shows up both on the runestones and on the museum’s signs. After the visit we added ochre and fjord, inspired by our guide’s clothes.',
     /* ---------- Hemly ---------- */
     'Tone of voice': 'Tone of voice',
     'Vänlig': 'Friendly',
