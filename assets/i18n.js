@@ -121,6 +121,7 @@
     'Startsidan The Viking Journey: ett vikingaskepp i solnedgång, flaggor för svenska, engelska och spanska där engelska är vald, och knappen Continue':
       'The Viking Journey start screen: a Viking ship at sunset, flags for Swedish, English and Spanish with English selected, and a Continue button',
     'Startsidan i min version: välj språk med flaggorna och fortsätt.': 'The start screen in my version: choose a language with the flags and continue.',
+    'Porträtt av Matilda Hsieh som ler, med runda glasögon och mörk kavaj': 'Portrait of Matilda Hsieh smiling, with round glasses and a dark blazer',
     /* ---------- Hemly ---------- */
     'Tone of voice': 'Tone of voice',
     'Vänlig': 'Friendly',
