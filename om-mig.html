@@ -1253,9 +1253,8 @@
     .about-bio { max-width: 460px; font-size: 16px; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-4); }
     .about-tags { justify-content: flex-start; margin-top: var(--space-5); }
     .about-hero .tag, .about-section .tag { background: var(--bg-jade-light); color: var(--jade-dark); border-color: var(--jade-border); }
-    .about-photo { margin: 0; }
-    .about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-md); background: var(--bg-secondary); }
-    .about-photo figcaption { margin-top: var(--space-2); font-size: 13px; color: var(--text-muted-aa); text-align: center; }
+    .about-photo { aspect-ratio: 3 / 4; border-radius: var(--radius-md); overflow: hidden; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .about-h2 { font-size: 40px; margin-bottom: var(--space-7); }
     .about-h2 em { color: var(--jade-500); }
     .about-section { background: var(--bg-primary); }
@@ -1446,10 +1445,9 @@
             <li class="tag">Storytelling</li>
           </ul>
         </div>
-        <figure class="about-photo">
-          <img src="assets/om-mig/matilda.webp" alt="Illustrerat porträtt av Matilda med långt brunt hår, runda glasögon och mörk kavaj" width="900" height="1204">
-          <figcaption>Bilden är AI-genererad.</figcaption>
-        </figure>
+        <div class="about-photo">
+          <img src="assets/images/matilda-hsieh.jpg" alt="Matilda Hsieh, UX/UI designer">
+        </div>
       </div>
     </section>
 
